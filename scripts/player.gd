@@ -8,9 +8,11 @@ extends CharacterBody3D
 @export_range(0.0001, 0.01, 0.0001) var mouse_sensitivity: float = 0.002
 
 @onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera3D
 
 var _spawn_transform: Transform3D
 var _gravity: float = float(ProjectSettings.get_setting("physics/3d/default_gravity", 9.8))
+var _recoil_pitch: float = 0.0
 
 
 func _ready() -> void:
@@ -20,16 +22,28 @@ func _ready() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		get_viewport().set_input_as_handled()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		head.rotation.x = clampf(head.rotation.x - event.relative.y * mouse_sensitivity, deg_to_rad(-85.0), deg_to_rad(85.0))
-	if event.is_action_pressed("reset_player"):
-		respawn()
+
+
+func _process(delta: float) -> void:
+	_recoil_pitch = lerpf(_recoil_pitch, 0.0, 1.0 - exp(-12.0 * delta))
+	camera.rotation.x = _recoil_pitch
+
+
+func add_recoil(amount: float) -> void:
+	_recoil_pitch = minf(_recoil_pitch + amount, deg_to_rad(5.0))
 
 
 func _physics_process(delta: float) -> void:
@@ -54,3 +68,5 @@ func respawn() -> void:
 	global_transform = _spawn_transform
 	velocity = Vector3.ZERO
 	head.rotation = Vector3.ZERO
+	_recoil_pitch = 0.0
+	camera.rotation = Vector3.ZERO

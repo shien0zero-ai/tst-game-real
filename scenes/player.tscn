@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="2_weapon"]
+[ext_resource type="PackedScene" path="res://scenes/m1911_visual.tscn" id="3_visual"]
+[ext_resource type="AudioStream" path="res://assets/audio/pistol_shot.wav" id="4_shot"]
+[ext_resource type="AudioStream" path="res://assets/audio/reload.wav" id="5_reload"]
+[ext_resource type="AudioStream" path="res://assets/audio/empty.wav" id="6_empty"]
 
 [sub_resource type="CapsuleShape3D" id="Capsule_player"]
 radius = 0.3
@@ -24,3 +29,32 @@ current = true
 fov = 75.0
 near = 0.05
 far = 200.0
+
+[node name="WeaponRig" type="Node3D" parent="Head/Camera3D"]
+position = Vector3(0.2, -0.12, -0.34)
+script = ExtResource("2_weapon")
+aim_position = Vector3(0, -0.044, -0.25)
+
+[node name="M1911Visual" parent="Head/Camera3D/WeaponRig" instance=ExtResource("3_visual")]
+scale = Vector3(1.35, 1.35, 1.35)
+
+[node name="ViewmodelFill" type="OmniLight3D" parent="Head/Camera3D/WeaponRig"]
+position = Vector3(-0.16, 0.23, 0.12)
+light_color = Color(1, 0.95, 0.9, 1)
+light_energy = 1.4
+light_cull_mask = 2
+omni_range = 1.5
+omni_attenuation = 0.8
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="Head/Camera3D/WeaponRig"]
+stream = ExtResource("4_shot")
+volume_db = -10.0
+max_polyphony = 4
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Head/Camera3D/WeaponRig"]
+stream = ExtResource("5_reload")
+volume_db = -12.0
+
+[node name="EmptySound" type="AudioStreamPlayer" parent="Head/Camera3D/WeaponRig"]
+stream = ExtResource("6_empty")
+volume_db = -14.0

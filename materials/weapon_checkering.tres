@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Walnut checkering"
+albedo_color = Color(0.105, 0.043, 0.019, 1)
+metallic = 0.0
+roughness = 0.82

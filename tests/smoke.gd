@@ -19,7 +19,7 @@ func _run() -> void:
 	current_scene = main
 	var player: CharacterBody3D = main.get_node("Player") as CharacterBody3D
 	await _frames(90)
-	_expect(player.is_on_floor(), "Player lands on the courtyard floor.")
+	_expect(player.is_on_floor(), "Player lands on the floor.")
 	_expect(absf(player.position.y) < 0.1, "Player stands at floor height.")
 
 	var start: Vector3 = player.position
@@ -56,14 +56,14 @@ func _run() -> void:
 	await _frames(240)
 	Input.action_release("move_backward")
 	Input.action_release("sprint")
-	_expect(player.position.z > 12.0 and player.position.z < 14.0, "The courtyard wall blocks movement.")
+	_expect(player.position.z > 12.0 and player.position.z < 14.0, "The range wall blocks movement.")
 
 	player.position = Vector3(2.0, -20.0, 1.0)
 	await _frames(2)
 	_expect(player.position.distance_to(Vector3(0.0, 0.1, 8.0)) < 0.2, "Falling out of the world returns to spawn.")
 	player.position = Vector3(5.0, 2.0, 5.0)
 	var reset_event := InputEventAction.new()
-	reset_event.action = "reset_player"
+	reset_event.action = "reset_range"
 	reset_event.pressed = true
 	Input.parse_input_event(reset_event)
 	await _frames(2)
@@ -71,7 +71,7 @@ func _run() -> void:
 	reset_event.pressed = false
 	Input.parse_input_event(reset_event)
 
-	for action: String in ["move_forward", "move_backward", "move_left", "move_right", "jump", "sprint", "reset_player"]:
+	for action: String in ["move_forward", "move_backward", "move_left", "move_right", "jump", "sprint", "reset_range"]:
 		_expect(not InputMap.action_get_events(action).is_empty(), "Input binding exists: " + action)
 	if _failures.is_empty():
 		print("PASS: scene loading, floor and wall collisions, walk, sprint, jump, fall recovery, reset, and input bindings.")

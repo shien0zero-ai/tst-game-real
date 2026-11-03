@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Recesses and sight black"
+albedo_color = Color(0.014, 0.017, 0.019, 1)
+metallic = 0.25
+roughness = 0.64

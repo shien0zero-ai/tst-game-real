@@ -34,3 +34,4 @@ run_check() {
 
 run_check import --headless --path "$project_dir" --editor --quit
 run_check smoke --headless --path "$project_dir" --fixed-fps 60 --script res://tests/smoke.gd
+run_check shooting --headless --path "$project_dir" --fixed-fps 60 --script res://tests/shooting.gd
