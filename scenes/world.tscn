@@ -1,0 +1,274 @@
+[gd_scene load_steps=31 format=3]
+
+[ext_resource type="Material" path="res://materials/concrete.tres" id="1_concrete"]
+[ext_resource type="Material" path="res://materials/stone.tres" id="2_stone"]
+[ext_resource type="Material" path="res://materials/metal.tres" id="3_metal"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_day"]
+sky_top_color = Color(0.18, 0.35, 0.57, 1)
+sky_horizon_color = Color(0.72, 0.78, 0.83, 1)
+ground_bottom_color = Color(0.19, 0.21, 0.23, 1)
+ground_horizon_color = Color(0.65, 0.69, 0.72, 1)
+sun_angle_max = 5.0
+
+[sub_resource type="Sky" id="Sky_day"]
+sky_material = SubResource("ProceduralSkyMaterial_day")
+
+[sub_resource type="Environment" id="Environment_day"]
+background_mode = 2
+sky = SubResource("Sky_day")
+ambient_light_source = 3
+ambient_light_energy = 0.6
+tonemap_mode = 3
+ssao_enabled = true
+ssao_radius = 0.8
+ssao_intensity = 1.2
+ssao_power = 1.2
+fog_enabled = true
+fog_light_color = Color(0.7, 0.76, 0.82, 1)
+fog_density = 0.003
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = ExtResource("1_concrete")
+size = Vector3(28, 0.4, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(28, 0.4, 28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall"]
+material = ExtResource("1_concrete")
+size = Vector3(28.4, 2.4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(28.4, 2.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_step1"]
+material = ExtResource("2_stone")
+size = Vector3(3, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_step1"]
+size = Vector3(3, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_step2"]
+material = ExtResource("2_stone")
+size = Vector3(3, 0.4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_step2"]
+size = Vector3(3, 0.4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_step3"]
+material = ExtResource("2_stone")
+size = Vector3(3, 0.6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_step3"]
+size = Vector3(3, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_step4"]
+material = ExtResource("2_stone")
+size = Vector3(3, 0.8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_step4"]
+size = Vector3(3, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_step5"]
+material = ExtResource("2_stone")
+size = Vector3(3, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_step5"]
+size = Vector3(3, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bench"]
+material = ExtResource("2_stone")
+size = Vector3(4, 0.7, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bench"]
+size = Vector3(4, 0.7, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_panel"]
+material = ExtResource("1_concrete")
+size = Vector3(0.5, 3.2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_panel"]
+size = Vector3(0.5, 3.2, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_concrete_sample"]
+material = ExtResource("1_concrete")
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_concrete_sample"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_stone_sample"]
+material = ExtResource("2_stone")
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stone_sample"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_metal_sample"]
+material = ExtResource("3_metal")
+radius = 0.75
+height = 1.5
+radial_segments = 48
+rings = 24
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_metal_sample"]
+radius = 0.75
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_day")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.9075712, -0.4886922, 0)
+light_color = Color(1, 0.95, 0.87, 1)
+light_energy = 1.7
+shadow_enabled = true
+directional_shadow_mode = 2
+directional_shadow_max_distance = 55.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.2, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Boundary" type="Node3D" parent="."]
+
+[node name="NorthWall" type="StaticBody3D" parent="Boundary"]
+position = Vector3(0, 1.2, -14)
+
+[node name="Mesh" type="MeshInstance3D" parent="Boundary/NorthWall"]
+mesh = SubResource("BoxMesh_wall")
+
+[node name="Collision" type="CollisionShape3D" parent="Boundary/NorthWall"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="SouthWall" type="StaticBody3D" parent="Boundary"]
+position = Vector3(0, 1.2, 14)
+
+[node name="Mesh" type="MeshInstance3D" parent="Boundary/SouthWall"]
+mesh = SubResource("BoxMesh_wall")
+
+[node name="Collision" type="CollisionShape3D" parent="Boundary/SouthWall"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="EastWall" type="StaticBody3D" parent="Boundary"]
+position = Vector3(14, 1.2, 0)
+rotation = Vector3(0, 1.5707963, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Boundary/EastWall"]
+mesh = SubResource("BoxMesh_wall")
+
+[node name="Collision" type="CollisionShape3D" parent="Boundary/EastWall"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="WestWall" type="StaticBody3D" parent="Boundary"]
+position = Vector3(-14, 1.2, 0)
+rotation = Vector3(0, 1.5707963, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Boundary/WestWall"]
+mesh = SubResource("BoxMesh_wall")
+
+[node name="Collision" type="CollisionShape3D" parent="Boundary/WestWall"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="Stairs" type="Node3D" parent="."]
+
+[node name="Step1" type="StaticBody3D" parent="Stairs"]
+position = Vector3(-7, 0.1, 2)
+
+[node name="Mesh" type="MeshInstance3D" parent="Stairs/Step1"]
+mesh = SubResource("BoxMesh_step1")
+
+[node name="Collision" type="CollisionShape3D" parent="Stairs/Step1"]
+shape = SubResource("BoxShape3D_step1")
+
+[node name="Step2" type="StaticBody3D" parent="Stairs"]
+position = Vector3(-7, 0.2, 1)
+
+[node name="Mesh" type="MeshInstance3D" parent="Stairs/Step2"]
+mesh = SubResource("BoxMesh_step2")
+
+[node name="Collision" type="CollisionShape3D" parent="Stairs/Step2"]
+shape = SubResource("BoxShape3D_step2")
+
+[node name="Step3" type="StaticBody3D" parent="Stairs"]
+position = Vector3(-7, 0.3, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Stairs/Step3"]
+mesh = SubResource("BoxMesh_step3")
+
+[node name="Collision" type="CollisionShape3D" parent="Stairs/Step3"]
+shape = SubResource("BoxShape3D_step3")
+
+[node name="Step4" type="StaticBody3D" parent="Stairs"]
+position = Vector3(-7, 0.4, -1)
+
+[node name="Mesh" type="MeshInstance3D" parent="Stairs/Step4"]
+mesh = SubResource("BoxMesh_step4")
+
+[node name="Collision" type="CollisionShape3D" parent="Stairs/Step4"]
+shape = SubResource("BoxShape3D_step4")
+
+[node name="Step5" type="StaticBody3D" parent="Stairs"]
+position = Vector3(-7, 0.5, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="Stairs/Step5"]
+mesh = SubResource("BoxMesh_step5")
+
+[node name="Collision" type="CollisionShape3D" parent="Stairs/Step5"]
+shape = SubResource("BoxShape3D_step5")
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="Bench" type="StaticBody3D" parent="Obstacles"]
+position = Vector3(7, 0.35, 2)
+
+[node name="Mesh" type="MeshInstance3D" parent="Obstacles/Bench"]
+mesh = SubResource("BoxMesh_bench")
+
+[node name="Collision" type="CollisionShape3D" parent="Obstacles/Bench"]
+shape = SubResource("BoxShape3D_bench")
+
+[node name="ShadowPanel" type="StaticBody3D" parent="Obstacles"]
+position = Vector3(8, 1.6, -3)
+
+[node name="Mesh" type="MeshInstance3D" parent="Obstacles/ShadowPanel"]
+mesh = SubResource("BoxMesh_panel")
+
+[node name="Collision" type="CollisionShape3D" parent="Obstacles/ShadowPanel"]
+shape = SubResource("BoxShape3D_panel")
+
+[node name="MaterialSamples" type="Node3D" parent="."]
+
+[node name="ConcreteCube" type="StaticBody3D" parent="MaterialSamples"]
+position = Vector3(-4, 0.75, -7)
+
+[node name="Mesh" type="MeshInstance3D" parent="MaterialSamples/ConcreteCube"]
+mesh = SubResource("BoxMesh_concrete_sample")
+
+[node name="Collision" type="CollisionShape3D" parent="MaterialSamples/ConcreteCube"]
+shape = SubResource("BoxShape3D_concrete_sample")
+
+[node name="StoneCube" type="StaticBody3D" parent="MaterialSamples"]
+position = Vector3(0, 0.75, -7)
+
+[node name="Mesh" type="MeshInstance3D" parent="MaterialSamples/StoneCube"]
+mesh = SubResource("BoxMesh_stone_sample")
+
+[node name="Collision" type="CollisionShape3D" parent="MaterialSamples/StoneCube"]
+shape = SubResource("BoxShape3D_stone_sample")
+
+[node name="MetalSphere" type="StaticBody3D" parent="MaterialSamples"]
+position = Vector3(4, 0.75, -7)
+
+[node name="Mesh" type="MeshInstance3D" parent="MaterialSamples/MetalSphere"]
+mesh = SubResource("SphereMesh_metal_sample")
+
+[node name="Collision" type="CollisionShape3D" parent="MaterialSamples/MetalSphere"]
+shape = SubResource("SphereShape3D_metal_sample")

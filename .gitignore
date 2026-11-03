@@ -1,0 +1,13 @@
+.godot/
+work/
+build/
+dist/
+*.log
+*.tmp
+*.blend1
+*.blend2
+.DS_Store
+Thumbs.db
+
+# Export credentials belong to each developer's local Godot cache.
+.godot/export_credentials.cfg
