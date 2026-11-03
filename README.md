@@ -1,8 +1,20 @@
 # M1911 試射プロトタイプ
 
-Godot 4.6.3 の **Forward+** を使う、デスクトップ向けの一人称射撃場です。
 M1911をモチーフに、オリジナルの外観モデルと簡略化した操作感を組み合わせたゲーム用プロトタイプです。
 構えて狙い、3枚の紙的へ試射できます。リアル寄りの3Dゲームを育てていくための最初のプレイ可能な土台です。
+
+## Windowsですぐ遊ぶ
+
+**[Windows版をダウンロード（ZIP）](https://github.com/shien0zero-ai/tst-game-real/raw/refs/heads/main/downloads/M1911-FiringRange-Windows-x86_64.zip)**
+
+Windows 10 / 11 の64bit版向けです。プレイにはGodotの導入、インストール作業、アカウント登録は不要です。
+
+1. 上のリンクから `M1911-FiringRange-Windows-x86_64.zip` をダウンロードします。
+2. ZIPを右クリックし、**「すべて展開」**を選びます。
+3. 展開したフォルダー内の **`M1911-FiringRange.exe`** をダブルクリックします。
+
+左クリックで射撃、右クリックを押して照準、`R`でリロードします。`Esc`でマウスを解放できます。
+配布版は幅広いPCで起動しやすいCompatibility設定です。Windows実機での起動はまだ未確認のため、起動できない場合は表示されたエラーの文面を知らせてください。
 
 ![M1911試射プロトタイプの画面](docs/m1911-preview.png)
 
@@ -24,14 +36,15 @@ GitHub: https://github.com/shien0zero-ai/tst-game-real
 今後の制作物と変更履歴は、このリポジトリの `main` ブランチにコミット・プッシュして保存します。
 プロジェクトの作業方針は `AGENTS.md` にも記録しています。
 
-## 開発環境
+## 開発者向け：開発環境
 
+- ソースプロジェクトは Godot 4.6.3 の **Forward+** を使います。上のWindows配布版を遊ぶだけなら、以下の開発環境は不要です。
 - このクラウド作業環境には **Godot 4.6.3** と **Blender 4.3.2** が導入済みです。
 - コードは GDScript。Node.js、npm、.NET は不要です。
 - プロジェクトの場所：`/workspace/tst-game-real`
 - ローカルPCで編集・プレイする場合は Godot 4.6.3 以降と、Forward+ に対応した Vulkan / Metal / Direct3D 12 のグラフィック環境が必要です。
 
-## 開く・実行する
+## 開発者向け：Godotで開く・実行する
 
 Godot のプロジェクトマネージャーで `project.godot` をインポートし、**F5** でメインシーンを実行します。
 M1911を装備した状態で、射撃場のスタート位置に出現します。
@@ -140,4 +153,17 @@ godot --path . --rendering-method gl_compatibility
 ```
 
 CompatibilityではSSAOなど一部の画面効果が使えなくなり、見た目が変わります。
-配布用の実行ファイルを作る場合は、Godotの「エディター → エクスポートテンプレートの管理」で4.6.3対応のテンプレートを導入し、「プロジェクト → エクスポート」から対象OSを追加してください。
+
+## 開発者向け：Windows配布ZIPを作る
+
+Linux環境で、Godot 4.6.3と同じバージョンのWindowsエクスポートテンプレートを用意し、プロジェクトのディレクトリで実行します。
+
+```sh
+python3 tools/build_windows.py
+```
+
+テンプレートを別フォルダーに展開した場合は `--templates-dir /path/to/templates` を指定できます。
+WindowsやmacOSのGodotエディターからは「プロジェクト → エクスポート」の `Windows Desktop` プリセットを使ってください。
+
+`Windows Desktop` プリセットから64bitの実行ファイルを作り、操作説明とともに `downloads/M1911-FiringRange-Windows-x86_64.zip` にまとめます。
+配布版はCompatibilityを使い、開発用プロジェクトのForward+設定は維持します。
