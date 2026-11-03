@@ -11,7 +11,6 @@ var _weapon: Node
 var _ammo: Label
 var _status: Label
 var _stats: Label
-var _hint: PanelContainer
 var _reticle: Control
 var _points: Label
 var _point_time: float = 0.0
@@ -48,7 +47,7 @@ func _build_interface() -> void:
 	control_box.add_theme_constant_override("separation", 6)
 	controls.add_child(control_box)
 	_label(control_box, "LMB  FIRE       RMB  AIM       R  RELOAD       T  RESET", 14, TEXT)
-	_label(control_box, "WASD  MOVE     SHIFT  SPRINT     SPACE  JUMP     ESC  CURSOR", 11, MUTED)
+	_label(control_box, "WASD  MOVE     SHIFT  SPRINT     SPACE  JUMP     ESC  SETTINGS", 11, MUTED)
 	var ammunition: PanelContainer = _panel(root, Vector2(-268, -141), Vector2(244, 117), Control.PRESET_BOTTOM_RIGHT)
 	var ammo_box := VBoxContainer.new()
 	ammunition.add_child(ammo_box)
@@ -68,15 +67,6 @@ func _build_interface() -> void:
 	_points.add_theme_font_size_override("font_size", 18)
 	_points.add_theme_color_override("font_color", AMBER)
 	root.add_child(_points)
-	_hint = _panel(root, Vector2(-200, -56), Vector2(400, 112), Control.PRESET_CENTER)
-	var resume_box := VBoxContainer.new()
-	resume_box.alignment = BoxContainer.ALIGNMENT_CENTER
-	resume_box.add_theme_constant_override("separation", 12)
-	_hint.add_child(resume_box)
-	var pause_label: Label = _label(resume_box, "CURSOR RELEASED", 13, AMBER)
-	pause_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var resume_label: Label = _label(resume_box, "Click to resume", 24, TEXT)
-	resume_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
 
 func _panel(parent: Control, offset: Vector2, dimensions: Vector2, preset: int = Control.PRESET_TOP_LEFT) -> PanelContainer:
@@ -112,7 +102,6 @@ func _process(delta: float) -> void:
 	if not is_instance_valid(_weapon):
 		return
 	var captured: bool = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless"
-	_hint.visible = not captured
 	_reticle.visible = captured
 	_reticle.set("aiming", bool(_weapon.get("is_aiming")))
 	_reticle.set("spread", 6.0 + float(_weapon.get("recoil_amount")) * 12.0)

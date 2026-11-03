@@ -13,6 +13,8 @@ signal target_hit(points: int)
 @onready var camera: Camera3D = get_parent() as Camera3D
 @onready var player: CharacterBody3D = get_node("../../..") as CharacterBody3D
 @onready var visual: Node3D = $M1911Visual
+@onready var hands: Node3D = $Hands
+@onready var support_hand: Node3D = $Hands/LeftHand
 @onready var slide: Node3D = $M1911Visual/Slide
 @onready var magazine: Node3D = $M1911Visual/Magazine
 @onready var muzzle: Marker3D = $M1911Visual/Muzzle
@@ -32,6 +34,11 @@ var _flash_remaining: float = 0.0
 var _flash: MeshInstance3D
 var _flash_light: OmniLight3D
 var _magazine_rest: Vector3
+var _support_hand_rest: Transform3D
+var _sway := Vector2.ZERO
+var _sway_target := Vector2.ZERO
+var _motion_phase: float = 0.0
+var _breath_phase: float = 0.0
 var _wall_marks: Array[Node3D] = []
 
 
@@ -39,15 +46,20 @@ func _ready() -> void:
 	ammo = capacity
 	position = hip_position
 	_magazine_rest = magazine.position
+	_support_hand_rest = support_hand.transform
 	# Keep the viewmodel readable under the shelter without lighting the world.
-	for mesh: Node in visual.find_children("*", "MeshInstance3D", true, false):
-		(mesh as MeshInstance3D).layers = 2
+	for model: Node3D in [visual, hands]:
+		for mesh: Node in model.find_children("*", "MeshInstance3D", true, false):
+			(mesh as MeshInstance3D).layers = 2 if model == visual else 4
+			(mesh as MeshInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_create_muzzle_flash()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not _has_control():
 		return
+	if event is InputEventMouseMotion:
+		_sway_target = Vector2(clampf(event.relative.x * 0.00012, -0.012, 0.012), clampf(event.relative.y * 0.00012, -0.012, 0.012))
 	if event.is_action_pressed("shoot") and not event.is_echo():
 		_fire_requested = true
 		get_viewport().set_input_as_handled()
@@ -75,23 +87,40 @@ func _process(delta: float) -> void:
 	var desired: Vector3 = aim_position if is_aiming else hip_position
 	var reload_progress: float = 1.0 - _reload_remaining / reload_duration if reloading else 0.0
 	var dip: float = sin(reload_progress * PI) if reloading else 0.0
+	_breath_phase += delta * 1.4
+	var moving_speed: float = Vector2(player.velocity.x, player.velocity.z).length()
+	_motion_phase += delta * moving_speed * 1.8
+	_sway = _sway.lerp(_sway_target, blend)
+	_sway_target = _sway_target.lerp(Vector2.ZERO, blend)
+	var sway_scale: float = 0.12 if is_aiming else 1.0
+	desired.x += (-_sway.x + sin(_motion_phase) * minf(moving_speed, 1.0) * 0.002) * sway_scale
+	desired.y += (_sway.y + cos(_motion_phase * 2.0) * minf(moving_speed, 1.0) * 0.002 + sin(_breath_phase) * 0.0006) * sway_scale
 	desired.y -= dip * 0.12
 	desired.z += recoil_amount * 0.028
 	position = position.lerp(desired, blend)
 	rotation.x = (0.031 if is_aiming else 0.0) + recoil_amount * 0.11 - dip * 0.55
 	rotation.z = -dip * 0.24
-	recoil_amount = move_toward(recoil_amount, 0.0, delta * 7.0)
+	recoil_amount = lerpf(recoil_amount, 0.0, 1.0 - exp(-18.0 * delta))
 	_slide_amount = move_toward(_slide_amount, 0.0, delta * 15.0)
 	# The slide stays back when the magazine is empty.
 	slide.position.z = 0.028 * maxf(_slide_amount, 1.0 if ammo == 0 else 0.0)
 	magazine.position = _magazine_rest + Vector3(0.0, -dip * 0.08, 0.0)
+	support_hand.transform = _support_hand_rest
+	support_hand.position += Vector3(-dip * 0.025, -dip * 0.10, dip * 0.04)
+	support_hand.rotation.z += dip * 0.25
 	camera.fov = lerpf(camera.fov, 57.0 if is_aiming else 75.0, blend)
 	_flash.visible = _flash_remaining > 0.0
 	_flash_light.visible = _flash.visible
 
 
 func _has_control() -> bool:
-	return Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless"
+	return not get_tree().paused and (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless")
+
+
+func cancel_pending_input() -> void:
+	_fire_requested = false
+	is_aiming = false
+	_sway_target = Vector2.ZERO
 
 
 func _fire() -> void:
@@ -152,6 +181,9 @@ func reset_weapon() -> void:
 	_flash_remaining = 0.0
 	slide.position.z = 0.0
 	magazine.position = _magazine_rest
+	support_hand.transform = _support_hand_rest
+	_sway = Vector2.ZERO
+	_sway_target = Vector2.ZERO
 	position = hip_position
 	rotation = Vector3.ZERO
 	camera.fov = 75.0

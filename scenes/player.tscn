@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_player"]
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="2_weapon"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" path="res://assets/audio/pistol_shot.wav" id="4_shot"]
 [ext_resource type="AudioStream" path="res://assets/audio/reload.wav" id="5_reload"]
 [ext_resource type="AudioStream" path="res://assets/audio/empty.wav" id="6_empty"]
+[ext_resource type="PackedScene" path="res://scenes/fps_hands.tscn" id="7_hands"]
 
 [sub_resource type="CapsuleShape3D" id="Capsule_player"]
 radius = 0.3
@@ -38,11 +39,22 @@ aim_position = Vector3(0, -0.044, -0.25)
 [node name="M1911Visual" parent="Head/Camera3D/WeaponRig" instance=ExtResource("3_visual")]
 scale = Vector3(1.35, 1.35, 1.35)
 
+[node name="Hands" parent="Head/Camera3D/WeaponRig" instance=ExtResource("7_hands")]
+scale = Vector3(1.35, 1.35, 1.35)
+
 [node name="ViewmodelFill" type="OmniLight3D" parent="Head/Camera3D/WeaponRig"]
 position = Vector3(-0.16, 0.23, 0.12)
 light_color = Color(1, 0.95, 0.9, 1)
 light_energy = 1.4
 light_cull_mask = 2
+omni_range = 1.5
+omni_attenuation = 0.8
+
+[node name="HandsFill" type="OmniLight3D" parent="Head/Camera3D/WeaponRig"]
+position = Vector3(-0.16, 0.23, 0.12)
+light_color = Color(1, 0.95, 0.9, 1)
+light_energy = 0.22
+light_cull_mask = 4
 omni_range = 1.5
 omni_attenuation = 0.8
 

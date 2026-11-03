@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/firing_range.tscn" id="1_world"]
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="3_hud"]
 [ext_resource type="Script" path="res://scripts/range_session.gd" id="4_session"]
 [ext_resource type="PackedScene" path="res://scenes/target.tscn" id="5_target"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="6_menu"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("4_session")
@@ -30,3 +31,5 @@ position = Vector3(0, 0.1, 8)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_hud")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_menu")]

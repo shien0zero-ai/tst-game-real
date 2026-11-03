@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/fps_hands_right.glb" id="1_right"]
+[ext_resource type="PackedScene" path="res://assets/models/fps_hands_left.glb" id="2_left"]
+
+[node name="Hands" type="Node3D"]
+
+[node name="RightHand" parent="." instance=ExtResource("1_right")]
+
+[node name="LeftHand" parent="." instance=ExtResource("2_left")]

@@ -105,8 +105,9 @@ def main() -> None:
         with zipfile.ZipFile(temporary, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as output:
             output.write(executable, executable.name)
             output.write(ROOT / "docs" / "PLAY-WINDOWS.txt", "PLAY-WINDOWS.txt")
-            for license_path in sorted((ROOT / "licenses" / "godot").glob("*.txt")):
-                output.write(license_path, f"licenses/{license_path.name}")
+            for license_path in sorted((ROOT / "licenses").rglob("*.txt")):
+                relative_license = license_path.relative_to(ROOT / "licenses").as_posix()
+                output.write(license_path, f"licenses/{relative_license}")
             output.writestr("build-info.json", json.dumps(info, ensure_ascii=False, indent=2) + "\n")
         with zipfile.ZipFile(temporary) as package:
             bad = package.testzip()
