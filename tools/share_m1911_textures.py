@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Externalize identical Blender GLB images without recompressing their pixels.
 
-Run after the Blender export and before Godot imports the four model components.
+Run after the Blender export and before Godot imports the model components.
 Only the Python standard library is required. Existing external images are checked
 but their GLBs are left byte-for-byte unchanged on subsequent runs.
 """
@@ -22,7 +22,7 @@ from urllib.parse import quote, unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-COMPONENTS = ("slide", "frame", "grip", "magazine")
+COMPONENTS = ("slide", "frame", "magazine")
 JSON_CHUNK = 0x4E4F534A
 BIN_CHUNK = 0x004E4942
 UNSUPPORTED_EXTENSIONS = {"KHR_draco_mesh_compression", "EXT_meshopt_compression"}
@@ -328,7 +328,7 @@ def externalize_models(model_paths: Iterable[Path], output_dir: Path) -> list[Pl
 
 
 def share_textures(models_dir: Path | None = None, output_dir: Path | None = None) -> list[Plan]:
-    """Externalize the standard four M1911 component GLBs."""
+    """Externalize three M1911 component GLBs; the grip is part of the frame."""
     models = Path(models_dir) if models_dir is not None else ROOT / "assets" / "models"
     output = Path(output_dir) if output_dir is not None else ROOT / "assets" / "textures" / "m1911_runtime"
     return externalize_models((models / f"m1911_{name}.glb" for name in COMPONENTS), output)

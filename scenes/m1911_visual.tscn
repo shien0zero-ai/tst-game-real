@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/models/m1911_slide.glb" id="1_slide"]
 [ext_resource type="PackedScene" path="res://assets/models/m1911_frame.glb" id="2_frame"]
-[ext_resource type="PackedScene" path="res://assets/models/m1911_grip.glb" id="3_grip"]
-[ext_resource type="PackedScene" path="res://assets/models/m1911_magazine.glb" id="4_magazine"]
+[ext_resource type="PackedScene" path="res://assets/models/m1911_magazine.glb" id="3_magazine"]
 
 [node name="M1911Visual" type="Node3D"]
 
@@ -11,13 +10,9 @@
 
 [node name="Frame" parent="." instance=ExtResource("2_frame")]
 
-[node name="Grip" parent="." instance=ExtResource("3_grip")]
-position = Vector3(0, -0.029, -0.009)
-rotation = Vector3(-0.296706, 0, 0)
+[node name="Grip" type="Node3D" parent="."]
 
-[node name="Magazine" parent="." instance=ExtResource("4_magazine")]
-position = Vector3(0, -0.123, 0.019)
-rotation = Vector3(-0.296706, 0, 0)
+[node name="Magazine" parent="." instance=ExtResource("3_magazine")]
 
 [node name="Muzzle" type="Marker3D" parent="."]
 position = Vector3(0, 0.004, -0.196)

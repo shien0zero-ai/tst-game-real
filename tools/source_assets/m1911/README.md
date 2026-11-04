@@ -1,0 +1,28 @@
+# M1911の同梱元モデル
+
+`m1911.glb` は、egorbelous（e.belous）制作の「M1911 pistol」をゲーム用に再出力するための、銃のみを残した元データです。原作者の形状・UV・法線・PBR素材を含みます。ライセンスは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。作者・出典・変更内容は[配布用クレジット](../../../licenses/models/M1911.txt)にも記載しています。
+
+## 出典
+
+- [原作者の作品ページ](https://sketchfab.com/3d-models/m1911-pistol-80a0b8a6c4314da4a7b3a7cfe6cec1d4)
+- [取得した公開GLB](https://raw.githubusercontent.com/cktang88/3d-fps/964c79785962160412b9280b1b41b988a122145f/public/assets/models/fp/m1911.glb)
+- [ライセンス・作者表記を確認したcktang88/3d-fpsの個別素材クレジット](https://github.com/cktang88/3d-fps/blob/130ac2a5c856401ec36e7d35afcfefe40c5801f4/README.md#credits--licences)
+
+取得したGLBはコミット `964c79785962160412b9280b1b41b988a122145f` の履歴版で、元のメーカー表記とPBR素材を含みます。ライセンス・作者表記は、その後のコミット `130ac2a5c856401ec36e7d35afcfefe40c5801f4` のREADMEで確認しています。再配布元は原作者・作品ページを挙げ、このM1911を含む一人称武器素材をCC BY 4.0と明記しています。調査時は原作者の作品ページにアクセスできず、そこでのライセンス再確認は行えていません。再配布元では一人称用のリグ・スケール・画像形式などが変更されています。
+
+## この元データを用意する際の変換
+
+- 公開リポジトリのGLBから腕・腕用素材・リグ・スキン・アニメーションを除去。
+- glTF-Transformで量子化された頂点情報を展開。
+- 銃の3メッシュと配置用ノード、元のUV・法線・PBR設定を保持。
+- 銃の6枚の1024×1024 WebPを、画素を変えずPNGへ変換。元の刻印と表面情報を保持。画像の拡大・摩耗の追加は未実施。
+- WebP・量子化の拡張を取り除いた、標準のGLBとして保存。
+
+この同梱ファイルはまだ元データの2倍スケールです。`python3 tools/build_m1911.py` がBlenderで読み込み、0.5倍と位置調整を適用してフレーム・スライド・マガジンの3GLBへ書き出します。通常の再出力にはBlenderとPython 3のみが必要で、npmツールや元サイトへのアクセスは不要です。`tools/source_assets/.gdignore` により、この制作元データはGodotで直接インポートされません。
+
+## 記録したSHA-256
+
+| データ | サイズ | SHA-256 |
+| --- | ---: | --- |
+| 取得した公開GLB（履歴版） | 2,468,596 bytes | `3d4e37983be4fdd62084488a74d53c453a6d5223c8dd9550558b2cb0a8d4be6f` |
+| 同梱する銃のみのGLB | 7,148,844 bytes | `b64649a160d6b851294d4b55401e15740ebe44f813788312b357c3756e6c1474` |

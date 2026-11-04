@@ -1,0 +1,39 @@
+M1911 pistol — model and textures
+
+Original author: egorbelous (e.belous)
+Original title: M1911 pistol
+Original source:
+https://sketchfab.com/3d-models/m1911-pistol-80a0b8a6c4314da4a7b3a7cfe6cec1d4
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Obtained from the public redistribution by cktang88/3d-fps:
+https://github.com/cktang88/3d-fps/blob/130ac2a5c856401ec36e7d35afcfefe40c5801f4/README.md#credits--licences
+Asset:
+https://raw.githubusercontent.com/cktang88/3d-fps/964c79785962160412b9280b1b41b988a122145f/public/assets/models/fp/m1911.glb
+
+The redistribution's individual first-person weapon credits identify this model,
+its original author and source, and state CC BY 4.0 unless separately noted.
+No separate exception is listed for M1911. The original Sketchfab page was not
+accessible during our research; its license was not independently re-read there.
+
+The source asset was obtained from historical revision
+964c79785962160412b9280b1b41b988a122145f, retaining its maker markings and PBR
+texture fields. The later README linked above supplies the individual asset
+credits and license statement. The intermediate project adapted the gun for an
+FPS rig, rescaled it and encoded textures as WebP.
+
+Changes for this project:
+- Removed the arms, arm materials, rig, skins and animations; retained only the gun.
+- Expanded quantized mesh data into standard glTF data.
+- Converted the six embedded gun textures from WebP to PNG without resampling
+  or artistic pixel changes.
+- Preserved the gun's UVs, normals, texture content and PBR material properties.
+- Scaled the 2x source by 0.5 and repositioned it for the Godot viewmodel.
+- Exported separate frame (including grip), slide and magazine GLBs and shared
+  identical texture files between them.
+
+The model and textures are third-party artwork, not original project-authored
+assets. This credit notice applies to the included gun source and its adapted
+runtime models and textures. No endorsement by the original author is implied.

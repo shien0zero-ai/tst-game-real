@@ -34,10 +34,10 @@ far = 200.0
 [node name="WeaponRig" type="Node3D" parent="Head/Camera3D"]
 position = Vector3(0.2, -0.12, -0.34)
 script = ExtResource("2_weapon")
-aim_position = Vector3(0, -0.024590, -0.25)
+aim_position = Vector3(0, -0.035361, -0.25)
 
 [node name="M1911Visual" parent="Head/Camera3D/WeaponRig" instance=ExtResource("3_visual")]
-rotation = Vector3(-0.024950, 0, 0)
+rotation = Vector3(-0.015735, 0, 0)
 scale = Vector3(1.35, 1.35, 1.35)
 
 [node name="Hands" parent="Head/Camera3D/WeaponRig" instance=ExtResource("7_hands")]
