@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpeoynu0ryy5d"
-path="res://.godot/imported/m1911_grip_weapon_walnut_normal.png-29fffcb4191ac95a2ddf217204e7d8c3.ctex"
+uid="uid://dp5lan6h700d6"
+path="res://.godot/imported/weapon_steel_roughness-881485663c51576d75cd.png-f89ea08214ea215b0eec73d0c68494d5.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "2d003842b610043f4f57d80a0cb3b64a"
 }
 
 [deps]
 
-source_file="res://assets/models/m1911_grip_weapon_walnut_normal.png"
-dest_files=["res://.godot/imported/m1911_grip_weapon_walnut_normal.png-29fffcb4191ac95a2ddf217204e7d8c3.ctex"]
+source_file="res://assets/textures/m1911_runtime/weapon_steel_roughness-881485663c51576d75cd.png"
+dest_files=["res://.godot/imported/weapon_steel_roughness-881485663c51576d75cd.png-f89ea08214ea215b0eec73d0c68494d5.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

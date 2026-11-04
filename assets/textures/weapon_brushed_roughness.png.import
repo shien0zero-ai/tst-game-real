@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cddm24ryikyjq"
-path="res://.godot/imported/m1911_slide_weapon_steel_normal.png-5df6ce9634b674ee49f86524652b36e3.ctex"
+uid="uid://n5a1aed8oelf"
+path="res://.godot/imported/weapon_brushed_roughness.png-d74cdd3035b196e7ced8e83212b3ed7d.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "a6c391d6c744ecca0f3319599f97bc83"
 }
 
 [deps]
 
-source_file="res://assets/models/m1911_slide_weapon_steel_normal.png"
-dest_files=["res://.godot/imported/m1911_slide_weapon_steel_normal.png-5df6ce9634b674ee49f86524652b36e3.ctex"]
+source_file="res://assets/textures/weapon_brushed_roughness.png"
+dest_files=["res://.godot/imported/weapon_brushed_roughness.png-d74cdd3035b196e7ced8e83212b3ed7d.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

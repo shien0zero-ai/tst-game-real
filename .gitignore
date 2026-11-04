@@ -8,6 +8,8 @@ dist/
 *.blend2
 .DS_Store
 Thumbs.db
+__pycache__/
+*.py[cod]
 
 # Export credentials belong to each developer's local Godot cache.
 .godot/export_credentials.cfg

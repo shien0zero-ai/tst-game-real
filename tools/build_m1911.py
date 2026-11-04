@@ -19,6 +19,8 @@ def main():
     subprocess.run([sys.executable, str(ROOT / "tools" / "build_weapon_textures.py")], check=True)
     subprocess.run([blender, "--background", "--factory-startup", "--python",
                     str(ROOT / "tools" / "build_m1911_blender.py")], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, str(ROOT / "tools" / "share_m1911_textures.py")],
+                   check=True, cwd=ROOT)
     scene = '''[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/models/m1911_slide.glb" id="1_slide"]

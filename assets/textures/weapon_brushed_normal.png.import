@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1yl1df7gbww5"
-path="res://.godot/imported/m1911_grip_weapon_steel_normal.png-f7e6b0e1923ae9e6baa69d888b1973e9.ctex"
+uid="uid://vgl5pav2fooq"
+path="res://.godot/imported/weapon_brushed_normal.png-a8638ba28a0e7b2f79d20cb00c4c64b4.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "a6c391d6c744ecca0f3319599f97bc83"
 }
 
 [deps]
 
-source_file="res://assets/models/m1911_grip_weapon_steel_normal.png"
-dest_files=["res://.godot/imported/m1911_grip_weapon_steel_normal.png-f7e6b0e1923ae9e6baa69d888b1973e9.ctex"]
+source_file="res://assets/textures/weapon_brushed_normal.png"
+dest_files=["res://.godot/imported/weapon_brushed_normal.png-a8638ba28a0e7b2f79d20cb00c4c64b4.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

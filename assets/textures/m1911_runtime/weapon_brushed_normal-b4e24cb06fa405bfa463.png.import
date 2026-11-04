@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnboqfql58hf7"
-path="res://.godot/imported/m1911_grip_weapon_steel_albedo.png-ae306d41cde297d2e66ac9364f23ba5f.ctex"
+uid="uid://jp4j13s0jp7i"
+path="res://.godot/imported/weapon_brushed_normal-b4e24cb06fa405bfa463.png-38a4b3d7ae02dbdb610dcc7111ab9ae0.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "6ecf32c574a325f240c5cd8e44e597cf"
 }
 
 [deps]
 
-source_file="res://assets/models/m1911_grip_weapon_steel_albedo.png"
-dest_files=["res://.godot/imported/m1911_grip_weapon_steel_albedo.png-ae306d41cde297d2e66ac9364f23ba5f.ctex"]
+source_file="res://assets/textures/m1911_runtime/weapon_brushed_normal-b4e24cb06fa405bfa463.png"
+dest_files=["res://.godot/imported/weapon_brushed_normal-b4e24cb06fa405bfa463.png-38a4b3d7ae02dbdb610dcc7111ab9ae0.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

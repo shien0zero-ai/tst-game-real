@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cix5567qeis88"
-path="res://.godot/imported/m1911_frame_weapon_steel_normal.png-7f2fa24d5f39dafc91f60a9829175922.ctex"
+uid="uid://bnx06rwnxslb5"
+path="res://.godot/imported/weapon_walnut_albedo-2d8a4becf93cc946743f.png-bb5dd467c961301ca5ec5295597d3138.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "a6c391d6c744ecca0f3319599f97bc83"
 }
 
 [deps]
 
-source_file="res://assets/models/m1911_frame_weapon_steel_normal.png"
-dest_files=["res://.godot/imported/m1911_frame_weapon_steel_normal.png-7f2fa24d5f39dafc91f60a9829175922.ctex"]
+source_file="res://assets/textures/m1911_runtime/weapon_walnut_albedo-2d8a4becf93cc946743f.png"
+dest_files=["res://.godot/imported/weapon_walnut_albedo-2d8a4becf93cc946743f.png-bb5dd467c961301ca5ec5295597d3138.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

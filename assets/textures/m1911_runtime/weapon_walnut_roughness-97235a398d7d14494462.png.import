@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c10tj5n110htl"
-path="res://.godot/imported/m1911_magazine_weapon_steel_roughness.png-14fe5bffc77fe75363a2309d47f5e13c.ctex"
+uid="uid://du1imdnixy0di"
+path="res://.godot/imported/weapon_walnut_roughness-97235a398d7d14494462.png-6d0fb8039cd0e38ebfcb8fb4c1041b4d.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "79e303f3df1bc306a299f7ade0b3f732"
 }
 
 [deps]
 
-source_file="res://assets/models/m1911_magazine_weapon_steel_roughness.png"
-dest_files=["res://.godot/imported/m1911_magazine_weapon_steel_roughness.png-14fe5bffc77fe75363a2309d47f5e13c.ctex"]
+source_file="res://assets/textures/m1911_runtime/weapon_walnut_roughness-97235a398d7d14494462.png"
+dest_files=["res://.godot/imported/weapon_walnut_roughness-97235a398d7d14494462.png-6d0fb8039cd0e38ebfcb8fb4c1041b4d.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
