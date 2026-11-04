@@ -28,8 +28,13 @@ Changes for this project:
 - Removed the arms, arm materials, rig, skins and animations; retained only the gun.
 - Expanded quantized mesh data into standard glTF data.
 - Converted the six embedded gun textures from WebP to PNG without resampling
-  or artistic pixel changes.
-- Preserved the gun's UVs, normals, texture content and PBR material properties.
+  or artistic pixel changes when preparing the contained source asset.
+- Preserved the mesh shape, UVs, authored normals, base color, ambient occlusion
+  and metallic data.
+- Remapped only linear roughness (ORM G) in runtime exports for a worn satin
+  finish: metal=max(0.34,sqrt(G)), dielectric=0.08+0.92*G, blended using
+  smoothstep(0.25,0.85,B). ORM R/B/alpha and albedo/normal images are unchanged.
+  The contained source GLB remains unchanged.
 - Scaled the 2x source by 0.5 and repositioned it for the Godot viewmodel.
 - Exported separate frame (including grip), slide and magazine GLBs and shared
   identical texture files between them.

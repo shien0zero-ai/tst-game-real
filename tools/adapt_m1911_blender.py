@@ -3,11 +3,13 @@
 Run with Blender 4.3 or later:
     blender --background --factory-startup --python tools/adapt_m1911_blender.py
 
-The source GLB contains the pistol only. This adapter preserves its materials,
-UVs and authored normals, bakes its existing node transforms, and exports the
-three separately animated exterior parts. It does not generate wear, add
-bevels, import arms, or change the mesh shape. Attribution and source license
-are recorded alongside the source asset and in the project's license files.
+The source GLB contains the pistol only. This adapter preserves its UVs,
+authored normals, base colors, occlusion and metalness, bakes its existing node
+transforms, and exports the three separately animated exterior parts. It remaps
+only the linear roughness channel for a worn satin finish, retaining the
+artist's local surface variation. It does not generate wear, add bevels, import
+arms, or change the mesh shape. Attribution and source license are recorded
+alongside the source asset and in the project's license files.
 """
 
 import argparse
@@ -15,6 +17,7 @@ from pathlib import Path
 import sys
 
 import bpy
+import numpy as np
 from mathutils import Matrix, Vector
 
 
@@ -45,6 +48,75 @@ def select_only(obj):
     bpy.context.view_layer.objects.active = obj
 
 
+def upstream_images(socket, visited=None):
+    """Find the imported packed ORM image feeding a roughness socket."""
+    visited = set() if visited is None else visited
+    images = {}
+    for link in socket.links:
+        node = link.from_node
+        identity = node.as_pointer()
+        if identity in visited:
+            continue
+        visited.add(identity)
+        if node.type == "TEX_IMAGE" and node.image is not None:
+            images[node.image.as_pointer()] = node.image
+        else:
+            for input_socket in node.inputs:
+                images.update(upstream_images(input_socket, visited))
+    return images
+
+
+def apply_satin_roughness(materials):
+    """Clone ORM maps and change G only; retain R/AO, B/metal and alpha."""
+    original_images = {}
+    for material in materials:
+        for node in material.node_tree.nodes:
+            if node.type == "BSDF_PRINCIPLED":
+                original_images.update(upstream_images(node.inputs["Roughness"]))
+    if len(original_images) != 2:
+        raise SystemExit(f"Expected two authored ORM maps, got {len(original_images)}")
+
+    replacements = {}
+    for identity, source in original_images.items():
+        if source.colorspace_settings.name != "Non-Color":
+            raise SystemExit(f"ORM must be linear data: {source.name}")
+        pixels = np.empty(len(source.pixels), dtype=np.float32)
+        source.pixels.foreach_get(pixels)
+        if pixels.size != source.size[0] * source.size[1] * 4:
+            raise SystemExit(f"Expected RGBA pixel buffer for {source.name}")
+        pixels = pixels.reshape(-1, 4)
+        before = pixels.copy()
+        roughness = np.clip(before[:, 1], 0.0, 1.0)
+        metalness = np.clip(before[:, 2], 0.0, 1.0)
+        metal_weight = np.clip((metalness - .25) / (.85 - .25), 0.0, 1.0)
+        metal_weight = metal_weight * metal_weight * (3.0 - 2.0 * metal_weight)
+        satin_metal = np.maximum(.34, np.sqrt(roughness))
+        oiled_wood = .08 + .92 * roughness
+        adjusted = oiled_wood + (satin_metal - oiled_wood) * metal_weight
+        # Quantize once to the same eight-bit data precision as the source.
+        pixels[:, 1] = np.floor(np.clip(adjusted, 0.0, 1.0) * 255.0 + .5) / 255.0
+        if not np.array_equal(pixels[:, (0, 2, 3)], before[:, (0, 2, 3)]):
+            raise SystemExit(f"Satin finish altered non-roughness channels: {source.name}")
+        image = bpy.data.images.new(source.name + "_satin_roughness",
+                                   width=source.size[0], height=source.size[1],
+                                   alpha=False, float_buffer=False, is_data=True)
+        image.colorspace_settings.name = "Non-Color"
+        image.file_format = "PNG"
+        image.pixels.foreach_set(pixels.ravel())
+        image.update()
+        image.pack()
+        replacements[identity] = image
+        print(f"SATIN {source.name}: linear G remapped; R/B/A retained")
+
+    # The imported AO and metallic/roughness nodes must share the same new map.
+    for material in materials:
+        for node in material.node_tree.nodes:
+            if node.type == "TEX_IMAGE" and node.image is not None:
+                replacement = replacements.get(node.image.as_pointer())
+                if replacement is not None:
+                    node.image = replacement
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=SOURCE)
@@ -66,6 +138,8 @@ def main():
         raise SystemExit(f"Expected only the three pistol exterior meshes; got {sorted(meshes)}")
     if any(obj.type == "ARMATURE" for obj in bpy.context.scene.objects):
         raise SystemExit("Gun-only source must not contain an armature")
+    materials = {material for obj in meshes.values() for material in obj.data.materials}
+    apply_satin_roughness(materials)
 
     # Capture the complete author hierarchy before detaching each mesh. The
     # native prop is twice game scale; the fixed offset puts its muzzle socket
@@ -110,7 +184,7 @@ def main():
         print(f"EXPORTED {path.name}: {len(obj.data.polygons)} triangles; "
               f"Godot bounds {minimum} .. {maximum}")
     print(f"Fitted source muzzle: {tuple(muzzle_godot)}")
-    print("Authored M1911 exterior adaptation complete; materials and topology retained.")
+    print("M1911 satin adaptation complete; only ORM roughness G changed, topology retained.")
 
 
 if __name__ == "__main__":
