@@ -47,7 +47,7 @@ func _build_interface() -> void:
 	control_box.add_theme_constant_override("separation", 6)
 	controls.add_child(control_box)
 	_label(control_box, "LMB  FIRE       RMB  AIM       R  RELOAD       T  RESET", 14, TEXT)
-	_label(control_box, "WASD  MOVE     SHIFT  SPRINT     SPACE  JUMP     ESC  SETTINGS", 11, MUTED)
+	_label(control_box, "WASD MOVE   SHIFT SPRINT   SPACE JUMP   N INSPECT   ESC SETTINGS", 11, MUTED)
 	var ammunition: PanelContainer = _panel(root, Vector2(-268, -141), Vector2(244, 117), Control.PRESET_BOTTOM_RIGHT)
 	var ammo_box := VBoxContainer.new()
 	ammunition.add_child(ammo_box)
@@ -102,11 +102,18 @@ func _process(delta: float) -> void:
 	if not is_instance_valid(_weapon):
 		return
 	var captured: bool = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless"
-	_reticle.visible = captured
+	_reticle.visible = captured and not bool(_weapon.get("is_inspecting"))
 	_reticle.set("aiming", bool(_weapon.get("is_aiming")))
 	_reticle.set("spread", 6.0 + float(_weapon.get("recoil_amount")) * 12.0)
 	_ammo.text = "%02d / %02d" % [int(_weapon.get("ammo")), int(_weapon.get("capacity"))]
-	_status.text = "RELOADING..." if bool(_weapon.get("reloading")) else ("EMPTY  /  PRESS R" if int(_weapon.get("ammo")) == 0 else "READY")
+	if bool(_weapon.get("is_inspecting")):
+		_status.text = "INSPECTING"
+	elif bool(_weapon.get("reloading")):
+		_status.text = "RELOADING..."
+	elif int(_weapon.get("ammo")) == 0:
+		_status.text = "EMPTY  /  PRESS R"
+	else:
+		_status.text = "READY"
 	_point_time = maxf(0.0, _point_time - delta)
 	_points.modulate.a = minf(_point_time * 4.0, 1.0)
 

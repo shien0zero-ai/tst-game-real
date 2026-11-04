@@ -36,11 +36,13 @@ position = Vector3(0.2, -0.12, -0.34)
 script = ExtResource("2_weapon")
 aim_position = Vector3(0, -0.035361, -0.25)
 
-[node name="M1911Visual" parent="Head/Camera3D/WeaponRig" instance=ExtResource("3_visual")]
+[node name="InspectPivot" type="Node3D" parent="Head/Camera3D/WeaponRig"]
+
+[node name="M1911Visual" parent="Head/Camera3D/WeaponRig/InspectPivot" instance=ExtResource("3_visual")]
 rotation = Vector3(-0.015735, 0, 0)
 scale = Vector3(1.35, 1.35, 1.35)
 
-[node name="Hands" parent="Head/Camera3D/WeaponRig" instance=ExtResource("7_hands")]
+[node name="Hands" parent="Head/Camera3D/WeaponRig/InspectPivot" instance=ExtResource("7_hands")]
 scale = Vector3(1.35, 1.35, 1.35)
 
 [node name="ViewmodelFill" type="OmniLight3D" parent="Head/Camera3D/WeaponRig"]

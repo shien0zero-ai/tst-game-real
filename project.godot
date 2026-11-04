@@ -54,6 +54,10 @@ reload={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"physical_keycode":82)]
 }
+inspect_weapon={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":78)]
+}
 reset_range={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"physical_keycode":84)]

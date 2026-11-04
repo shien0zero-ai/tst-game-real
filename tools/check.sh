@@ -36,3 +36,4 @@ run_check import --headless --path "$project_dir" --editor --quit
 run_check smoke --headless --path "$project_dir" --fixed-fps 60 --script res://tests/smoke.gd
 run_check shooting --headless --path "$project_dir" --fixed-fps 60 --script res://tests/shooting.gd
 run_check settings --headless --path "$project_dir" --fixed-fps 60 --script res://tests/settings.gd
+run_check inspection --headless --path "$project_dir" --fixed-fps 60 --script res://tests/inspection.gd
