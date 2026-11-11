@@ -37,3 +37,5 @@ run_check smoke --headless --path "$project_dir" --fixed-fps 60 --script res://t
 run_check shooting --headless --path "$project_dir" --fixed-fps 60 --script res://tests/shooting.gd
 run_check settings --headless --path "$project_dir" --fixed-fps 60 --script res://tests/settings.gd
 run_check inspection --headless --path "$project_dir" --fixed-fps 60 --script res://tests/inspection.gd
+run_check raid_inventory --headless --path "$project_dir" --fixed-fps 60 --script res://tests/raid_inventory.gd
+run_check raid --headless --path "$project_dir" --fixed-fps 60 --script res://tests/raid.gd

@@ -34,6 +34,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		if not is_open and get_parent().has_method("can_pause") and not get_parent().can_pause():
+			return
 		toggle_menu()
 		get_viewport().set_input_as_handled()
 
@@ -188,7 +190,14 @@ func _build_interface() -> void:
 	var resume: Button = _button(content, "ゲームに戻る", true)
 	resume.name = "ResumeButton"
 	resume.pressed.connect(_on_resume_pressed)
-	var quit_button: Button = _button(content, "ゲームを終了", false)
+	if not get_parent().has_method("can_pause"):
+		var home := _button(content, "試射を終えて拠点へ戻る", false)
+		home.pressed.connect(func():
+			close_menu()
+			get_tree().change_scene_to_file("res://scenes/raid_main.tscn")
+		)
+	var quit_text: String = "ゲームを終了（出撃中の携行品は失います）" if get_parent().has_method("can_pause") else "ゲームを終了"
+	var quit_button: Button = _button(content, quit_text, false)
 	quit_button.name = "QuitButton"
 	quit_button.pressed.connect(_on_quit_pressed)
 	var hint: Label = _label(content, "Esc キーでもゲームに戻れます", 12, MUTED)

@@ -15,7 +15,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = "4.6.3"
 TEMPLATE_VERSION = VERSION + ".stable"
-NAME = "M1911-FiringRange-Windows-x86_64"
+NAME = "Ashgate-Depot04-Windows-x86_64"
 
 
 def run_engine(engine: str, arguments: list[str], env: dict[str, str], log: Path) -> None:
@@ -82,7 +82,7 @@ def main() -> None:
             shutil.copy2(original, target)
     (destination / "version.txt").write_text(TEMPLATE_VERSION + "\n", encoding="utf-8")
 
-    executable = ROOT / "build" / "windows" / "M1911-FiringRange.exe"
+    executable = ROOT / "build" / "windows" / "Ashgate-Depot04.exe"
     executable.parent.mkdir(parents=True, exist_ok=True)
     run_engine(args.godot, ["--headless", "--path", str(ROOT), "--editor", "--quit"],
                env, runtime / "windows-import.log")
@@ -93,7 +93,7 @@ def main() -> None:
     source_status = subprocess.check_output(
         ["git", "status", "--porcelain", "--untracked-files=all", "--", ".", ":(exclude)downloads/"],
         cwd=ROOT, text=True)
-    info = {"game": "M1911 Firing Range", "platform": "Windows x86_64", "renderer": "Compatibility",
+    info = {"game": "ASHGATE / DEPOT 04", "platform": "Windows x86_64", "renderer": "Compatibility",
             "engine": engine_version, "source_commit": source_commit,
             "source_dirty": bool(source_status.strip()),
             "exe_sha256": hashlib.sha256(executable.read_bytes()).hexdigest()}

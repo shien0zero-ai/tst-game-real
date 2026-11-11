@@ -1,5 +1,5 @@
 extends Node3D
-## Game-only hitscan pistol. One press fires one shot; magazines are unlimited.
+## Game-only hitscan pistol. Practice has unlimited supplies; raids use carried rounds.
 
 signal shot_fired
 signal target_hit(points: int)
@@ -17,6 +17,9 @@ const INSPECT_ROTATION_DEGREES := [Vector3.ZERO, Vector3(-12, 72, -20),
 @export var capacity: int = 7
 @export var shot_interval: float = 0.18
 @export var reload_duration: float = 1.35
+@export var unlimited_ammo: bool = true
+var reserve_ammo: int = 28
+var controls_enabled: bool = true
 @export_range(1.0, 10.0, 0.1) var inspect_duration: float = 4.2
 @export var hip_position := Vector3(0.20, -0.12, -0.34)
 @export var aim_position := Vector3(0.0, -0.029, -0.25)
@@ -93,7 +96,10 @@ func _physics_process(delta: float) -> void:
 	if reloading:
 		_reload_remaining -= delta
 		if _reload_remaining <= 0.0:
-			ammo = capacity
+			var rounds: int = capacity - ammo if unlimited_ammo else mini(capacity - ammo, reserve_ammo)
+			ammo += rounds
+			if not unlimited_ammo:
+				reserve_ammo -= rounds
 			reloading = false
 	if _fire_requested:
 		_fire_requested = false
@@ -143,7 +149,7 @@ func _process(delta: float) -> void:
 
 
 func _has_control() -> bool:
-	return not get_tree().paused and (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless")
+	return controls_enabled and not get_tree().paused and (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless")
 
 
 func cancel_pending_input() -> void:
@@ -215,12 +221,21 @@ func _fire() -> void:
 
 func begin_reload() -> void:
 	cancel_inspection()
-	if reloading or ammo >= capacity:
+	if reloading or ammo >= capacity or not _has_control() or (not unlimited_ammo and reserve_ammo <= 0):
 		return
 	reloading = true
 	_reload_remaining = reload_duration
 	_fire_requested = false
 	_play_sound(reload_sound)
+
+
+func cancel_reload() -> void:
+	reloading = false
+	_reload_remaining = 0.0
+	_fire_requested = false
+	magazine.position = _magazine_rest
+	support_hand.transform = _support_hand_rest
+	reload_sound.stop()
 
 
 func _play_sound(sound: AudioStreamPlayer) -> void:

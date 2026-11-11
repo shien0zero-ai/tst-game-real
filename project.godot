@@ -4,7 +4,7 @@ config_version=5
 [application]
 
 config/name="M1911 Firing Range"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/raid_main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -61,6 +61,18 @@ inspect_weapon={
 reset_range={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"physical_keycode":84)]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":69)]
+}
+inventory={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":4194306)]
+}
+heal={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":52)]
 }
 
 [physics]

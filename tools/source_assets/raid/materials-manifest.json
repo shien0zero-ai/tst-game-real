@@ -1,0 +1,380 @@
+[
+  {
+    "file": "assets/raid/textures/asphalt_color.webp",
+    "source": "Asphalt031",
+    "channel": "Color",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      2048,
+      2048
+    ],
+    "sha256": "66647bc6da996b302b57e7c3efa48555e6f6663bf06f236026fa726b550d3a48",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Asphalt031",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Asphalt031/Color.webp",
+    "source_sha256": "e453d290634f80505e3eb4f81ad5d16bea39fe0c780dda229a70444dd3e4a0bc",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/asphalt_normalgl.webp",
+    "source": "Asphalt031",
+    "channel": "NormalGL",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      2048,
+      2048
+    ],
+    "sha256": "3a19e44c13eca2f1a981afb0e1bbf481d06dbe8c81c83e09a1fa57e9a166d705",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Asphalt031",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Asphalt031/NormalGL.webp",
+    "source_sha256": "34850c41d5bb10cb78117d18f04bf44d6b49620f6290c22e7951483e95338ddc",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/asphalt_roughness.webp",
+    "source": "Asphalt031",
+    "channel": "Roughness",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "c4efa457fab4c7d2c3a4f3289a0e4e61ca57caf58566dc0fc6096a4d6afc7c5f",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Asphalt031",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Asphalt031/Roughness.webp",
+    "source_sha256": "bde4d81c6d0b777f1fc4791edead3b61670b2168f0408e3ef9adc5fedaff243f",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/concrete_color.webp",
+    "source": "Concrete047A",
+    "channel": "Color",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "6659bfc7237a9e32c3236b69ed1a6acf110f8f55847e295462a1e2a928f48db7",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Concrete047A",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Concrete047A/Color.webp",
+    "source_sha256": "548cc90469c0e55f44157e79e182641711f1b6e6126ac56ea1d818891d24ea4f",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/concrete_normalgl.webp",
+    "source": "Concrete047A",
+    "channel": "NormalGL",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "12abba6d1d1b0ee431b17c5a58c4b30095a0d767c2bdfaba2d6697c758d82c48",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Concrete047A",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Concrete047A/NormalGL.webp",
+    "source_sha256": "b34e4aa1170699abbdea542d1878379590369cbac22231c76b96d530f199f413",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/concrete_roughness.webp",
+    "source": "Concrete047A",
+    "channel": "Roughness",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "b5ee90cc6df3518ddd1299588cc26d5f77512a9fe6e9abada8f10aaeb08a0b97",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Concrete047A",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Concrete047A/Roughness.webp",
+    "source_sha256": "9030eddba3a35457e0d0efc6166e119b81636ff7e324c710fe35c8f379e74b5b",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/brick_color.webp",
+    "source": "Bricks097",
+    "channel": "Color",
+    "size": [
+      1024,
+      512
+    ],
+    "original_size": [
+      2048,
+      1024
+    ],
+    "sha256": "ffbe4dc121f9f56fbf0a437fcf848aeac9c66e1f42ef148cdecfd07b161d3232",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Bricks097",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Bricks097/Color.webp",
+    "source_sha256": "23904ccd8c96a9296c6c5f64e68bd1b1a11c3516c3e68b1fc2ec9fcc77268f09",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/brick_normalgl.webp",
+    "source": "Bricks097",
+    "channel": "NormalGL",
+    "size": [
+      1024,
+      512
+    ],
+    "original_size": [
+      2048,
+      1024
+    ],
+    "sha256": "280fd1b14e99f352624acf2f8246381e83fb9023f67e6182a024242e98c04f93",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Bricks097",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Bricks097/NormalGL.webp",
+    "source_sha256": "e7751cd0890c092fb4737df5568436ed3e49ab773d0fcae319031c28e062d495",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/brick_roughness.webp",
+    "source": "Bricks097",
+    "channel": "Roughness",
+    "size": [
+      1024,
+      512
+    ],
+    "original_size": [
+      1024,
+      512
+    ],
+    "sha256": "16bf54aee33ff55d80b4fd295cf1044ff8644d0e38e88ce145d5ac390663256a",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Bricks097",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Bricks097/Roughness.webp",
+    "source_sha256": "ee792e1912951529d06f36c61e5c61af186eb480a0111f302bb3a1289b27b61b",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/steel_color.webp",
+    "source": "Metal046B",
+    "channel": "Color",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "2d981ac7e525895a0d5cecb6dfc6bc2fb74d8f833ab37c79526da52030c3c514",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Metal046B",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Metal046B/Color.webp",
+    "source_sha256": "b9ad28c578382e4e2a0c3a11c0b33b078507976bb7285bb32f21dd456e3be1e5",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/steel_normalgl.webp",
+    "source": "Metal046B",
+    "channel": "NormalGL",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "479776269513cdd7de5c26249110ea6c998ba3d831026478091776d28da51168",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Metal046B",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Metal046B/NormalGL.webp",
+    "source_sha256": "319ea7fd8be666655ec9a574af24524ce99ac536438800470ef92d427428f8ad",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/steel_roughness.webp",
+    "source": "Metal046B",
+    "channel": "Roughness",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "90748bfb7df2a630567c42338edea9ed34b66b81a8507c6ce8415b3c8afc97fc",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Metal046B",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Metal046B/Roughness.webp",
+    "source_sha256": "a8dacd34e0549fc013054d657d62041c7149cc899b2411e92ec87e5b091d11e1",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/wood_color.webp",
+    "source": "Wood051",
+    "channel": "Color",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "aaffba17159dde5064d1b0f9be64a442eb7460c104d151f20c08e6ec39a019f3",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Wood051",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Wood051/Color.webp",
+    "source_sha256": "fc03282ce38e8c85a4a2478f494e86e672deecef5d2ded64cdeab7b84e52c98c",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/wood_normalgl.webp",
+    "source": "Wood051",
+    "channel": "NormalGL",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "80921d7be0aadcec0b5b26c2ccdb1e63aab0e156913a7c22c3ca5b9e784345af",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Wood051",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Wood051/NormalGL.webp",
+    "source_sha256": "dbe19b496d89a46c8d15e9892d3389033b89bb35cb8382ebfc1fe9ef2a4e97a4",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/wood_roughness.webp",
+    "source": "Wood051",
+    "channel": "Roughness",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "80940290441b5644d6b85119f903ba988aa292181e23c5772fb86e995a0594de",
+    "author": "ambientCG (Lennart Demes)",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://ambientcg.com/view?id=Wood051",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/Wood051/Roughness.webp",
+    "source_sha256": "108e56510b3face7ec8ef43c9c6399addfadd5cabf12b0f2c90afcdf8d0761f0",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/corrugated_color.webp",
+    "source": "RustyCorrugated",
+    "channel": "Color",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "eaffbd02b5621bbab7f2ba22f4d7bfb4cc4c303490eb227e42358ee584604d28",
+    "author": "Poly Haven contributors",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://polyhaven.com/a/rusty_corrugated_iron",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/RustyCorrugated/Color.webp",
+    "source_sha256": "958e16e6c808e83a03918945e9725ef82cf10562b0713eb085055a0aff5653a3",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/corrugated_normalgl.webp",
+    "source": "RustyCorrugated",
+    "channel": "NormalGL",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "e248e31fbb8b43c6f20faa3cdce29075602471b672a3def7a4f4c8ff6f24f51b",
+    "author": "Poly Haven contributors",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://polyhaven.com/a/rusty_corrugated_iron",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/RustyCorrugated/NormalGL.webp",
+    "source_sha256": "da4188632928e71f03b1b93ebeeeaf8b184abcb1a73c06928f79037f532684bf",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  },
+  {
+    "file": "assets/raid/textures/corrugated_roughness.webp",
+    "source": "RustyCorrugated",
+    "channel": "Roughness",
+    "size": [
+      1024,
+      1024
+    ],
+    "original_size": [
+      1024,
+      1024
+    ],
+    "sha256": "371ae42f615e8e23e65d50fbfd7e23510ae2710cf7456de80ff9bc2484bfe8d4",
+    "author": "Poly Haven contributors",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "primary_url": "https://polyhaven.com/a/rusty_corrugated_iron",
+    "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/textures/RustyCorrugated/Roughness.webp",
+    "source_sha256": "ef0ff1eb0034a810ac715f544061ea10a3ee7d3b5e35b7832f7049cc3c736cd1",
+    "changes": "Re-encoded as lossless WebP, maximum 1024px; resized normals renormalized; roughness floored to .58 (nonmetal) or .64 (metal) to reduce unrealistic gloss. Source redistribution includes AO in albedo where present."
+  }
+]

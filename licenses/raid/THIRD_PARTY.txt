@@ -1,0 +1,74 @@
+ASHGATE / DEPOT 04 — raid environment and character assets
+
+Detailed guard body, assets/raid/enemy.glb
+"Military tactical suit (LowPolyGameReady)" by DanlyVostok (1799danly).
+https://sketchfab.com/3d-models/military-tactical-suit-lowpolygameready-ef698ce36b1545a78ce592dd3db4c7ed
+Creative Commons Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Animation rig and intermediate clip source:
+"FREE [Military Soldier] RIGGED" by BAMEN, CC BY 4.0.
+https://sketchfab.com/3d-models/free-military-soldier-rigged-e9c56308a67d4a3db62e914fafa4d198
+Universal Animation Library 1 and 2 (Standard) by Quaternius, CC0.
+https://quaternius.com
+https://creativecommons.org/publicdomain/zero/1.0/
+The included clips are aim_idle, aim_walk, aim_run, idle, walk, run, death,
+hit and reload. None of the intermediate source's 100STYLE / mocap_* clips,
+Fab FPS template clips, or fallback BAMEN body mesh are included.
+
+Changes for this project: normalized metre-based bind skeleton and mesh scale;
+corrected pouch helper scales; standardized bone names; removed a floating
+headset; bound eyes to the head; retargeted the listed Mixamo-convention clips;
+added a baked two-bone support-arm solve to the three aim clips for a pistol grip;
+resized albedo maps to 512px and normal/packed maps to 256px; renormalized
+normal vectors; embedded PNG PBR textures. Body bind height is 1.72 metres.
+The original asset creators do not endorse this project.
+
+World props, assets/raid/models/*.glb — Poly Haven contributors, CC0.
+barrel.glb: Barrel_02 by Jorge Camacho
+https://polyhaven.com/a/Barrel_02
+barrier.glb: concrete_road_barrier_02 by Amal Kumar
+https://polyhaven.com/a/concrete_road_barrier_02
+crate.glb: wooden_crate_02
+https://polyhaven.com/a/wooden_crate_02
+generator.glb: portable_generator
+https://polyhaven.com/a/portable_generator
+lamp.glb: hanging_industrial_lamp
+https://polyhaven.com/a/hanging_industrial_lamp
+pipes.glb: modular_industrial_pipes_01
+https://polyhaven.com/a/modular_industrial_pipes_01
+The intermediate redistribution simplified these props. This project converted
+embedded WebP textures to PNG and retained their geometry, UVs and PBR maps;
+the complete wooden crate has maps resized to 512px. Its body replaces an
+unused detached military crate lid. Props have no external image dependencies.
+
+World PBR surfaces, assets/raid/textures/* and assets/raid/materials/*:
+ambientCG / Lennart Demes, CC0:
+Asphalt031 — https://ambientcg.com/view?id=Asphalt031
+Concrete047A — https://ambientcg.com/view?id=Concrete047A
+Bricks097 — https://ambientcg.com/view?id=Bricks097
+Metal046B — https://ambientcg.com/view?id=Metal046B
+Wood051 — https://ambientcg.com/view?id=Wood051
+Poly Haven contributors, CC0:
+RustyCorrugated (rusty_corrugated_iron)
+https://polyhaven.com/a/rusty_corrugated_iron
+License for all these surfaces:
+https://creativecommons.org/publicdomain/zero/1.0/
+Changes: the intermediate source encoded WebP and baked ambient occlusion into
+albedo where present. This project resized maps to at most 1024px, renormalized
+resized normals, raised minimum roughness to reduce gloss, re-encoded lossless
+WebP, and created Godot triplanar PBR materials.
+
+Public redistribution and per-asset licence evidence for all the above:
+https://github.com/cktang88/3d-fps/tree/130ac2a5c856401ec36e7d35afcfefe40c5801f4
+https://github.com/cktang88/3d-fps/blob/130ac2a5c856401ec36e7d35afcfefe40c5801f4/README.md#credits--licences
+Original third-party licence/credit declarations were read in that pinned
+repository's README and its prop SOURCE.md files. Character primary listing
+URLs are provided above; no gated model viewer stream was extracted.
+
+Exact public download URLs, original and adapted SHA256 hashes, and per-file
+transformations are recorded in tools/source_assets/raid/models-manifest.json
+and tools/source_assets/raid/materials-manifest.json in the source repository.
+The asset adapter is tools/adapt_raid_assets.py. No third-party game source
+code was adopted for the character retargeting or game implementation.

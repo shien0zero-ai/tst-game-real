@@ -1,0 +1,5 @@
+Per-asset attribution excerpt from public redistribution
+https://github.com/cktang88/3d-fps/blob/130ac2a5c856401ec36e7d35afcfefe40c5801f4/README.md#credits--licences
+
+
+The adopted subset is specified in models-manifest.json and materials-manifest.json. Other assets listed in this upstream excerpt are not adopted.
