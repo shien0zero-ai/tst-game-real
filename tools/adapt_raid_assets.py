@@ -164,7 +164,8 @@ def pistol_support_hand(writer, named):
                 local = matrix(nodes[index])
                 return world(parents[index]) @ local if index in parents else local
             shoulder, elbow, wrist = (world(i)[:3, 3] for i in (arm, fore, hand))
-            wrist_rotation = world(hand)[:3, :3]
+            # Match the firing-hand finger direction while opposing the palms.
+            wrist_rotation = world(right)[:3, :3] @ np.diag([-1., 1., -1.])
             target = world(right)[:3, 3] + np.array([.018, -.030, .018])
             upper_length, lower_length = np.linalg.norm(elbow-shoulder), np.linalg.norm(wrist-elbow)
             ray = target-shoulder; distance = np.clip(np.linalg.norm(ray), abs(upper_length-lower_length)+.001, upper_length+lower_length-.001)

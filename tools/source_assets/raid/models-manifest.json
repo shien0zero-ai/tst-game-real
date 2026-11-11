@@ -86,9 +86,9 @@
     "primary_url": "https://sketchfab.com/3d-models/military-tactical-suit-lowpolygameready-ef698ce36b1545a78ce592dd3db4c7ed",
     "download_url": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/models/characters/soldier_tac.glb",
     "source_sha256": "fe02bc307077d7a5a74069d085893988d93751495871c84082256e60bf9bfc9e",
-    "sha256": "d2694c00926f2bd2d2a07ac75459fb3424721b3e3456f27deaac395b65e6ef93",
+    "sha256": "c218f7dde4caf414d62b9b5635183da37d39e7d2304eeee44a3bd3e889c9312a",
     "bytes": 3563468,
-    "changes": "Rebuilt conventional metre-based bind skeleton and fixed pouch helper scales; baked million-unit geometry scale; rig bone names standardized; floating headset removed; eye mesh skinned to head. PBR albedo resized to 512px, normal/packed maps to 256px, normal vectors renormalized; PNG embedded. Character faces -Z, bind height 1.72m. Nine clips retargeted from BAMEN soldier source using Mixamo semantic bone mapping; no source code copied. Baked two-bone left-arm IK into aim_idle/aim_walk/aim_run, keeping support palm about 3.34cm from firing palm.",
+    "changes": "Rebuilt conventional metre-based bind skeleton and fixed pouch helper scales; baked million-unit geometry scale; rig bone names standardized; floating headset removed; eye mesh skinned to head. PBR albedo resized to 512px, normal/packed maps to 256px, normal vectors renormalized; PNG embedded. Character faces -Z, bind height 1.72m. Nine clips retargeted from BAMEN soldier source using Mixamo semantic bone mapping; no source code copied. Baked two-bone left-arm IK into aim_idle/aim_walk/aim_run, keeping support palm about 3.34cm from firing palm. Support palm world orientation matches firing palm with a local Y-axis 180-degree turn; fingers point together around the pistol grip.",
     "animation_source": {
       "author": "BAMEN (rig) and Quaternius (Universal Animation Library 1/2 clips)",
       "rig_license": "CC-BY-4.0",

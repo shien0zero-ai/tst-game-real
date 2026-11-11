@@ -1,7 +1,7 @@
 {
   "assets/raid/enemy.glb": {
     "bytes": 3563468,
-    "sha256": "d2694c00926f2bd2d2a07ac75459fb3424721b3e3456f27deaac395b65e6ef93",
+    "sha256": "c218f7dde4caf414d62b9b5635183da37d39e7d2304eeee44a3bd3e889c9312a",
     "external_references": 0,
     "meshopt": false,
     "animations": [
@@ -871,5 +871,10 @@
       ]
     }
   },
-  "runtime_bytes": 24715818
+  "runtime_bytes": 24715818,
+  "pistol_palm_validation": {
+    "aim_idle_time": 0.21,
+    "both_middle_finger_roots_below_wrist": true,
+    "left_hand_world_rotation": "RightHand world rotation times local Y180"
+  }
 }
