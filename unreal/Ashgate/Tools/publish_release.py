@@ -18,7 +18,7 @@ def digest(path):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--publish",action="store_true",help="Create a GitHub Release and upload the ZIP and SHA256")
-    p.add_argument("--tag",default="ue5-prototype-2026-11-12-r1")
+    p.add_argument("--tag",default="ue5-prototype-2026-11-12-r2")
     args=p.parse_args()
     commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
     status=subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True)
@@ -85,10 +85,10 @@ def main():
         if response.status!=201: raise RuntimeError("Asset upload HTTP "+str(response.status))
         print("Uploaded",json.loads(body)["browser_download_url"])
     print("Release:",release["html_url"])
-    if args.tag=="ue5-prototype-2026-11-12-r1":
-        old=api("GET","/releases/tags/ue5-prototype-2026-11-12")
-        notice="Superseded by "+release["html_url"]+" . The revision corrects the bundled runtime installer name to Engine/Extras/Redist/en-us/vc_redist.x64.exe; gameplay binaries are unchanged.\n\n"
-        if not old.get("body","").startswith("Superseded by "):
+    if args.tag=="ue5-prototype-2026-11-12-r2":
+        for tag in ("ue5-prototype-2026-11-12","ue5-prototype-2026-11-12-r1"):
+            old=api("GET","/releases/tags/"+tag)
+            notice="Superseded by "+release["html_url"]+" . r2 uses rendered HUD hitboxes, validates press/release on the same button, requires quit confirmation, and was tested after extracting the ZIP with the production save path and default fullscreen settings.\n\n"
             api("PATCH","/releases/"+str(old["id"]),{"body":notice+old.get("body","")})
 
 if __name__=="__main__": main()

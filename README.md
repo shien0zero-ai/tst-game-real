@@ -4,7 +4,7 @@
 
 UE5 5.8.4 / C++版を [unreal/Ashgate](unreal/Ashgate/README.md) に追加しました。Godot版とは別に開発・配布・保存します。
 
-**[UE5 Windows版（GitHub Releases）](https://github.com/shien0zero-ai/tst-game-real/releases/tag/ue5-prototype-2026-11-12-r1)** — ZIPを全展開し、Ashgate.exeを起動します。Editorは不要です。
+**[UE5 Windows版（GitHub Releases）](https://github.com/shien0zero-ai/tst-game-real/releases/tag/ue5-prototype-2026-11-12-r2)** — ZIPを全展開し、Ashgate.exeを起動します。Editorは不要です。
 
 [実画面・検証結果・残作業](unreal/Ashgate/VALIDATION.md)を参照してください。まだ初期段階で、Bodycam相当の画質は未達です。以下は維持している既存Godot版の説明です。
 

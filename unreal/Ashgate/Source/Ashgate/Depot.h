@@ -82,7 +82,7 @@ public:
     TArray<FString> BagItems;
     TArray<bool> Searched;
     FString Phase = TEXT("base"), Message, Focus, Slot;
-    bool BagOpen = false, Paused = false, Practice = false, SaveHealthy = true, QA = false;
+    bool BagOpen = false, Paused = false, Practice = false, SaveHealthy = true, QA = false, QuitConfirmation = false;
     float RaidTime = 600, ExtractTime = 0, MessageTime = 0;
     FVector Extraction = FVector(4050,3550,0);
     void BuildDepot(); void StartRaid(bool IsPractice=false); void FinishRaid(bool Success, const FString& Reason);
@@ -102,7 +102,11 @@ class ADepotHUD : public AHUD {
     GENERATED_BODY()
 public:
     virtual void DrawHUD() override;
-    void Click(float X, float Y);
+    virtual void NotifyHitBoxClick(FName BoxName) override;
+    virtual void NotifyHitBoxRelease(FName BoxName) override;
+    virtual void NotifyHitBoxBeginCursorOver(FName BoxName) override;
+    virtual void NotifyHitBoxEndCursorOver(FName BoxName) override;
+    FName PressedButton, HoveredButton;
     float Scale = 1;
     void Text(const FString& Value, float X, float Y, float Size=1, FLinearColor Color=FLinearColor::White);
     void Panel(float X, float Y, float W, float H, FLinearColor Color);

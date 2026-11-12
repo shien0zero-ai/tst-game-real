@@ -86,7 +86,7 @@ void ADepotPlayer::SetupPlayerInputComponent(UInputComponent* I) {
     I->BindKey(EKeys::Four,IE_Pressed,this,&ADepotPlayer::Heal);
     I->BindKey(EKeys::Escape,IE_Pressed,this,&ADepotPlayer::Escape).bExecuteWhenPaused=true;
     I->BindKey(EKeys::T,IE_Pressed,this,&ADepotPlayer::PracticeReset);
-    if(FParse::Param(FCommandLine::Get(),TEXT("AshgateInputProbe"))) I->BindKey(EKeys::F9,IE_Pressed,this,&ADepotPlayer::CaptureProbe).bExecuteWhenPaused=true;
+    if(FParse::Param(FCommandLine::Get(),TEXT("AshgateInputProbe"))||FParse::Param(FCommandLine::Get(),TEXT("AshgateInputCapture"))) I->BindKey(EKeys::F9,IE_Pressed,this,&ADepotPlayer::CaptureProbe).bExecuteWhenPaused=true;
 }
 void ADepotPlayer::CaptureProbe() {
     auto* M=Mode(this); if(!M) return;
@@ -109,11 +109,10 @@ void ADepotPlayer::Reload() {
     Aiming=false; HealTime=0; ReloadTime=1.35f; UGameplayStatics::PlaySound2D(this,ReloadSound);
 }
 void ADepotPlayer::Fire() {
-    auto* M=Mode(this); auto* PC=Cast<APlayerController>(Controller);
+    auto* M=Mode(this);
     if(!M) return;
-    if(M->Phase!=TEXT("raid") || M->Paused) {
-        float X=0,Y=0; if(PC && PC->GetMousePosition(X,Y)) if(auto* H=Cast<ADepotHUD>(PC->GetHUD())) H->Click(X,Y); return;
-    }
+    // Menu clicks are dispatched by AHUD's rendered hit boxes, not weapon input.
+    if(M->Phase!=TEXT("raid") || M->Paused) return;
     if(!CanAct()) return;
     InspectTime=0;
     if(Cooldown>0 || ReloadTime>0 || HealTime>0) return;
@@ -142,6 +141,7 @@ void ADepotPlayer::Interact() { if(CanAct()) Mode(this)->Use(); }
 void ADepotPlayer::Bag() { auto* M=Mode(this); if(M&&M->Phase==TEXT("raid")&&!M->Paused) { M->BagOpen=!M->BagOpen; Aiming=false; InspectTime=0; } }
 void ADepotPlayer::Escape() {
     auto* M=Mode(this); if(!M) return;
+    if(M->QuitConfirmation) { M->QuitConfirmation=false; return; }
     if(M->BagOpen) { M->BagOpen=false; return; }
     if(M->Phase==TEXT("raid")) M->Pause(!M->Paused);
 }
@@ -265,6 +265,8 @@ void ADepotGameMode::Pause(bool V) {
     Paused=V; UGameplayStatics::SetGamePaused(this,V);
     if(auto* PC=UGameplayStatics::GetPlayerController(this,0)) {
         bool Menu=V||Phase!=TEXT("raid"); PC->bShowMouseCursor=Menu;
+        PC->bEnableClickEvents=Menu; PC->bEnableMouseOverEvents=Menu;
+        PC->ClickEventKeys.AddUnique(EKeys::LeftMouseButton);
         if(Menu) { FInputModeGameAndUI Input; Input.SetHideCursorDuringCapture(false); PC->SetInputMode(Input); }
         else { PC->SetInputMode(FInputModeGameOnly()); }
     }
@@ -318,11 +320,12 @@ void ADepotGameMode::Use() {
     Notice(TEXT("Recovered ")+Item);
 }
 void ADepotGameMode::MenuAction(int32 Row) {
+    UE_LOG(LogAshgate,Display,TEXT("MENU action row=%d phase=%s paused=%d"),Row,*Phase,Paused);
     if(Phase==TEXT("base")) {
         if(Row==0) StartRaid(); else if(Row==1) StartRaid(true);
         else if(Row>=2&&Row<=4) { int32 Cost=Row==2?350:Row==3?70:90; if(Profile->Credits<Cost) Notice(TEXT("Insufficient credits")); else { Profile->Credits-=Cost; if(Row==2) ++Profile->Guns; if(Row==3) Profile->Rounds+=35; if(Row==4) ++Profile->Kits; Save(); } }
         else if(Row==5) { int32 Earned=0; for(auto& P:Profile->Goods) Earned+=ValueOf(P.Key)*P.Value; Profile->Goods.Empty(); Profile->Credits+=Earned; Save(); Notice(FString::Printf(TEXT("Sold recovered goods: +%d CR"),Earned)); }
-        else if(Row==6) UGameplayStatics::GetPlayerController(this,0)->ConsoleCommand(TEXT("quit"));
+        else if(Row==6) QuitConfirmation=true;
     } else if(Paused) {
         if(Row==0) Pause(false);
         if(Row==1||Row==2) { Profile->Sensitivity=FMath::Clamp(Profile->Sensitivity+(Row==1?-.1f:.1f),.1f,3.f); Save(); }
@@ -415,7 +418,14 @@ void ADepotHUD::DrawHUD() {
         Text(M->Paused?TEXT("PAUSED / FIELD SETTINGS"):TEXT("OPERATIONS / SECURE STASH"),95,195,1.1f);
         TArray<FString> Rows=M->Paused?TArray<FString>{TEXT("RESUME"),TEXT("SENSITIVITY  -"),TEXT("SENSITIVITY  +"),TEXT("GRAPHICS QUALITY  / CYCLE"),M->Practice?TEXT("RETURN TO BASE"):TEXT("ABANDON RAID / LOSE CARRIED ITEMS")}:
             TArray<FString>{TEXT("DEPLOY TO DEPOT 04"),TEXT("FIRING RANGE"),TEXT("BUY M1911                         350 CR"),TEXT("BUY 35 ROUNDS                      70 CR"),TEXT("BUY MEDICAL KIT                    90 CR"),TEXT("SELL RECOVERED GOODS"),TEXT("QUIT TO DESKTOP")};
-        for(int32 I=0;I<Rows.Num();++I) { Panel(95,250+I*57,490,46,FLinearColor(.07f,.09f,.09f,.95f)); Text(Rows[I],112,260+I*57,.9f); }
+        if(M->QuitConfirmation) { Rows={TEXT("CONFIRM QUIT TO DESKTOP"),TEXT("CANCEL / RETURN TO MENU")}; Text(TEXT("QUIT GAME? Select CANCEL to keep playing."),650,420,1.1f,Accent); }
+        for(int32 I=0;I<Rows.Num();++I) {
+            const FName Button(*FString::Printf(TEXT("%s%d"),M->QuitConfirmation?TEXT("Quit"):M->Paused?TEXT("Pause"):TEXT("Base"),I));
+            const FVector2D Position(95*Scale,(250+I*57)*Scale), Size(490*Scale,46*Scale);
+            AddHitBox(Position,Size,Button,true);
+            Panel(95,250+I*57,490,46,HoveredButton==Button?FLinearColor(.15f,.23f,.18f,.98f):FLinearColor(.07f,.09f,.09f,.95f));
+            Text(Rows[I],112,260+I*57,.9f);
+        }
         if(M->Paused) { Text(FString::Printf(TEXT("Mouse sensitivity: %.0f%% / quality: %d"),M->Profile->Sensitivity*100,M->Profile->Quality),650,260,1,Accent); Text(TEXT("Settings save automatically. Esc resumes."),650,310,.85f); }
         else {
             Text(FString::Printf(TEXT("%d CR"),M->Profile->Credits),650,250,2,Accent);
@@ -442,7 +452,30 @@ void ADepotHUD::DrawHUD() {
     }
     if(M->MessageTime>0) { Panel(75,720,W-150,45,FLinearColor(.02f,.04f,.035f,.9f)); Text(M->Message,95,732,.85f,Accent); }
 }
-void ADepotHUD::Click(float X,float Y) { auto* M=Mode(this); if(!M||Scale<=0) return; X/=Scale; Y/=Scale; if(X>=95&&X<=585&&Y>=250) { int32 Row=int32((Y-250)/57); if(FMath::Fmod(Y-250,57)<46) M->MenuAction(Row); } }
+void ADepotHUD::NotifyHitBoxBeginCursorOver(FName Name) { Super::NotifyHitBoxBeginCursorOver(Name); HoveredButton=Name; }
+void ADepotHUD::NotifyHitBoxEndCursorOver(FName Name) { Super::NotifyHitBoxEndCursorOver(Name); if(HoveredButton==Name) HoveredButton=NAME_None; }
+void ADepotHUD::NotifyHitBoxClick(FName Name) {
+    Super::NotifyHitBoxClick(Name); PressedButton=Name;
+    UE_LOG(LogAshgate,Display,TEXT("MENU press button=%s"),*Name.ToString());
+}
+void ADepotHUD::NotifyHitBoxRelease(FName Name) {
+    Super::NotifyHitBoxRelease(Name);
+    if(PressedButton!=Name) { PressedButton=NAME_None; return; }
+    PressedButton=NAME_None;
+    auto* M=Mode(this); if(!M) return;
+    const FString Button=Name.ToString();
+    UE_LOG(LogAshgate,Display,TEXT("MENU release button=%s phase=%s paused=%d"),*Button,*M->Phase,M->Paused);
+    if(M->QuitConfirmation) {
+        if(Button==TEXT("Quit1")) M->QuitConfirmation=false;
+        else if(Button==TEXT("Quit0")) { UE_LOG(LogAshgate,Display,TEXT("MENU confirmed quit by user")); GetOwningPlayerController()->ConsoleCommand(TEXT("quit")); }
+        return;
+    }
+    const FString Prefix=M->Phase==TEXT("base")?TEXT("Base"):M->Paused?TEXT("Pause"):TEXT("");
+    if(!Prefix.IsEmpty()&&Button.StartsWith(Prefix)) {
+        int32 Row=FCString::Atoi(*Button.Mid(Prefix.Len()));
+        if(Row>=0&&Row<(M->Phase==TEXT("base")?7:5)) M->MenuAction(Row);
+    }
+}
 
 void ADepotGameMode::Check(bool C,const TCHAR* N) { UE_LOG(LogAshgate,Display,TEXT("QA %s: %s"),C?TEXT("PASS"):TEXT("FAIL"),N); if(!C) ++QAFailures; }
 void ADepotGameMode::QATestField() {
