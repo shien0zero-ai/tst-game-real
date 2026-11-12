@@ -1,0 +1,85 @@
+UE5 r2 extracted ZIP / production profile / menu regression
+
+=== Extracted-r2-default-20261112_202218.log ===
+[2026.11.12-11.22.25:988][  0]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_Profile_v1; world type 1
+[2026.11.12-11.22.28:529][  3]LogAshgate: Display: INPUT PROBE phase=base position=X=-3900.000 Y=-3300.000 Z=97.089 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.29:473][ 87]LogAshgate: Display: MENU press button=Base0
+[2026.11.12-11.22.29:828][141]LogAshgate: Display: MENU release button=Base0 phase=base paused=0
+[2026.11.12-11.22.29:828][141]LogAshgate: Display: MENU action row=0 phase=base paused=0
+[2026.11.12-11.22.29:829][141]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.12-11.22.31:333][337]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3900.000 Y=-3300.000 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.33:098][548]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.33:955][630]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=3.95 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.34:817][721]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=28 aiming=1 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.35:517][780]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=6 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.36:378][869]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=6 reserve=28 aiming=0 inspect=0.00 reload=1.10 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.38:985][197]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.39:845][283]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=1 paused=0 sensitivity=1.00
+[2026.11.12-11.22.40:713][376]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-11.22.41:566][477]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=1 sensitivity=1.00
+[2026.11.12-11.22.42:544][619]LogAshgate: Display: MENU press button=Pause2
+[2026.11.12-11.22.42:895][681]LogAshgate: Display: MENU release button=Pause2 phase=raid paused=1
+[2026.11.12-11.22.42:895][681]LogAshgate: Display: MENU action row=2 phase=raid paused=1
+[2026.11.12-11.22.43:403][774]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=1 sensitivity=1.10
+[2026.11.12-11.22.44:251][903]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.22.45:478][144]LogAshgate: Display: MENU press button=Pause4
+[2026.11.12-11.22.45:829][237]LogAshgate: Display: MENU release button=Pause4 phase=raid paused=1
+[2026.11.12-11.22.45:829][237]LogAshgate: Display: MENU action row=4 phase=raid paused=1
+[2026.11.12-11.22.45:829][237]LogAshgate: Display: RETURN success=0 practice=0 reason=Raid abandoned - carried equipment lost
+[2026.11.12-11.22.46:329][363]LogAshgate: Display: INPUT PROBE phase=base position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.22.47:305][584]LogAshgate: Display: MENU press button=Base6
+[2026.11.12-11.22.47:657][674]LogAshgate: Display: MENU release button=Base6 phase=base paused=0
+[2026.11.12-11.22.47:657][674]LogAshgate: Display: MENU action row=6 phase=base paused=0
+[2026.11.12-11.22.48:157][799]LogAshgate: Display: INPUT PROBE phase=base position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.22.49:129][ 16]LogAshgate: Display: MENU press button=Quit1
+[2026.11.12-11.22.49:481][107]LogAshgate: Display: MENU release button=Quit1 phase=base paused=0
+[2026.11.12-11.22.49:986][234]LogAshgate: Display: INPUT PROBE phase=base position=X=-3639.050 Y=-3110.409 Z=90.150 ammo=7 reserve=27 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.22.50:956][452]LogAshgate: Display: MENU press button=Base6
+[2026.11.12-11.22.51:312][543]LogAshgate: Display: MENU release button=Base6 phase=base paused=0
+[2026.11.12-11.22.51:312][543]LogAshgate: Display: MENU action row=6 phase=base paused=0
+[2026.11.12-11.22.52:178][764]LogAshgate: Display: MENU press button=Quit0
+[2026.11.12-11.22.52:531][855]LogAshgate: Display: MENU release button=Quit0 phase=base paused=0
+[2026.11.12-11.22.52:531][855]LogAshgate: Display: MENU confirmed quit by user
+[2026.11.12-11.22.53:069][856]LogExit: Exiting.
+
+=== Extracted-r2-windowed-20261112_202218.log ===
+[2026.11.12-11.22.55:989][  0]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_Profile_v1; world type 1
+[2026.11.12-11.22.58:535][484]LogAshgate: Display: INPUT PROBE phase=base position=X=-3900.000 Y=-3300.000 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.22.59:540][711]LogAshgate: Display: MENU press button=Base1
+[2026.11.12-11.22.59:893][798]LogAshgate: Display: MENU release button=Base1 phase=base paused=0
+[2026.11.12-11.22.59:893][798]LogAshgate: Display: MENU action row=1 phase=base paused=0
+[2026.11.12-11.22.59:893][798]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=1/49/3 active=0
+[2026.11.12-11.23.01:396][155]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3900.000 Y=-3300.000 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.03:163][526]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=6 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.04:018][696]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=6 reserve=28 aiming=0 inspect=3.95 reload=0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.04:880][860]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=6 reserve=28 aiming=1 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.05:578][993]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=5 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.06:440][170]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=5 reserve=28 aiming=0 inspect=0.00 reload=1.10 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.09:050][774]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.09:910][953]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=1 paused=0 sensitivity=1.10
+[2026.11.12-11.23.10:771][136]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-11.23.11:627][320]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=1 sensitivity=1.10
+[2026.11.12-11.23.12:595][554]LogAshgate: Display: MENU press button=Pause2
+[2026.11.12-11.23.12:951][650]LogAshgate: Display: MENU release button=Pause2 phase=raid paused=1
+[2026.11.12-11.23.12:951][650]LogAshgate: Display: MENU action row=2 phase=raid paused=1
+[2026.11.12-11.23.13:455][787]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=1 sensitivity=1.20
+[2026.11.12-11.23.14:317][991]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.20
+[2026.11.12-11.23.15:541][271]LogAshgate: Display: MENU press button=Pause4
+[2026.11.12-11.23.15:891][363]LogAshgate: Display: MENU release button=Pause4 phase=raid paused=1
+[2026.11.12-11.23.15:891][363]LogAshgate: Display: MENU action row=4 phase=raid paused=1
+[2026.11.12-11.23.15:891][363]LogAshgate: Display: RETURN success=0 practice=1 reason=Practice complete
+[2026.11.12-11.23.16:394][497]LogAshgate: Display: INPUT PROBE phase=base position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.20
+[2026.11.12-11.23.17:360][737]LogAshgate: Display: MENU press button=Base6
+[2026.11.12-11.23.17:716][833]LogAshgate: Display: MENU release button=Base6 phase=base paused=0
+[2026.11.12-11.23.17:716][833]LogAshgate: Display: MENU action row=6 phase=base paused=0
+[2026.11.12-11.23.18:220][967]LogAshgate: Display: INPUT PROBE phase=base position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.20
+[2026.11.12-11.23.19:192][207]LogAshgate: Display: MENU press button=Quit1
+[2026.11.12-11.23.19:549][303]LogAshgate: Display: MENU release button=Quit1 phase=base paused=0
+[2026.11.12-11.23.20:051][436]LogAshgate: Display: INPUT PROBE phase=base position=X=-3640.357 Y=-3111.358 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.20
+[2026.11.12-11.23.21:020][678]LogAshgate: Display: MENU press button=Base6
+[2026.11.12-11.23.21:375][773]LogAshgate: Display: MENU release button=Base6 phase=base paused=0
+[2026.11.12-11.23.21:375][773]LogAshgate: Display: MENU action row=6 phase=base paused=0
+[2026.11.12-11.23.22:247][  7]LogAshgate: Display: MENU press button=Quit0
+[2026.11.12-11.23.22:595][ 99]LogAshgate: Display: MENU release button=Quit0 phase=base paused=0
+[2026.11.12-11.23.22:595][ 99]LogAshgate: Display: MENU confirmed quit by user
+[2026.11.12-11.23.23:306][100]LogExit: Exiting.
