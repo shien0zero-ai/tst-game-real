@@ -61,3 +61,5 @@ PIE起動時には既知の `Condition failed` 19行が残っています。最�
 ローカルの詳細ログは `unreal/Ashgate/Saved/` のEditorBuild.log、ArtImport.log、PackageBuild-console.txt、PIE-QA.log、PackagedQA.log、PackagedInput.logです。生ログ・QAセーブ・中間生成物はGitや配布ZIPには含めず、検証抜粋と選んだ実画面だけをソース管理します。
 
 配布フォルダー直下のAshgate.exe（起動口）からの子ゲーム起動も別途確認し、READY、RTX 5080選択、quitによる終了ログを確認しました。
+
+配布ZIP内のVC++ランタイムは Engine/Extras/Redist/en-us/vc_redist.x64.exe です。改訂版r1はこの案内を訂正した文書更新で、検証済みゲームバイナリは同一です。

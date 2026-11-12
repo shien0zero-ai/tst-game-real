@@ -6,7 +6,7 @@ UE5 5.8.4 / C++で制作した、Windows向け一人称・ソロPvE脱出ゲー�
 
 GitHub Releasesの **Ashgate-UE5-Prototype-Windows-x64.zip** を全展開し、`Ashgate.exe`を起動してください。GodotやUnreal Editorのインストールは不要です。ZIP内のファイルをばらばらに移動しないでください。
 
-Windows 10/11 x64、DirectX 12対応GPU、Microsoft Visual C++ランタイムが必要です。ランタイム不足を表示されたPCでは、同梱の `Engine/Extras/Redist/en-us/UEPrereqSetup_x64.exe` を実行してください。本制作で追加インストールは行っていません。別PCでの互換性は未検証です。
+Windows 10/11 x64、DirectX 12対応GPU、Microsoft Visual C++ランタイムが必要です。ランタイム不足を表示されたPCでは、同梱の `Engine/Extras/Redist/en-us/vc_redist.x64.exe` を実行してください。本制作で追加インストールは行っていません。別PCでの互換性は未検証です。
 
 拠点の **DEPLOY TO DEPOT 04** で出撃、**FIRING RANGE** で予備弾無制限の練習です。南西から入り、ケースや敵の物資を回収し、北東の緑の門で6秒待機して脱出します。倉庫・売買は拠点のボタンで操作します。初期版の画面表示は英語です。
 
