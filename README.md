@@ -1,5 +1,13 @@
 # ASHGATE / DEPOT 04
 
+## UE5版（新規の初期プロトタイプ）
+
+UE5 5.8.4 / C++版を [unreal/Ashgate](unreal/Ashgate/README.md) に追加しました。Godot版とは別に開発・配布・保存します。
+
+**[UE5 Windows版（GitHub Releases）](https://github.com/shien0zero-ai/tst-game-real/releases/tag/ue5-prototype-2026-11-12)** — ZIPを全展開し、Ashgate.exeを起動します。Editorは不要です。
+
+[実画面・検証結果・残作業](unreal/Ashgate/VALIDATION.md)を参照してください。まだ初期段階で、Bodycam相当の画質は未達です。以下は維持している既存Godot版の説明です。
+
 M1911を携えて工業地帯を探索し、物資を回収して脱出する、1マップのソロPvEプロトタイプです。警備員との戦闘、有限の弾薬、治療、バッグの容量、脱出後の倉庫管理まで遊べます。既存のM1911モデルと武器確認モーションを引き継いでいます。
 
 ![ゲーム画面（Compatibility描画）](docs/screenshots/raid-gameplay.png)

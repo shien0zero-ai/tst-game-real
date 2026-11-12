@@ -42,3 +42,11 @@ Changes for this project:
 The model and textures are third-party artwork, not original project-authored
 assets. This credit notice applies to the included gun source and its adapted
 runtime models and textures. No endorsement by the original author is implied.
+
+UE5 adaptation (2026-11-12):
+- Imported the existing adapted frame, slide and magazine through UE5.8 Interchange.
+- Converted glTF metres/axes to UE centimetres/axes; retained the 21.6 cm length,
+  geometry, UVs, PBR maps and existing satin roughness remapping without applying
+  that remapping a second time. Animated the separate parts procedurally.
+- Original author, source, licence evidence and original-page verification limits
+  above remain unchanged. See unreal/Ashgate/ART-NOTES.md for UE-specific details.

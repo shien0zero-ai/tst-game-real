@@ -1,0 +1,124 @@
+ASHGATE UE5 validation excerpts - 2026-11-12 (local Windows / RTX 5080)
+
+=== PIE-QA ===
+[2026.11.12-04.56.02:692][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.12-04.56.02:763][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.12-04.56.09:835][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2026.11.12-04.56.11:477][  1]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_QA; world type 3
+[2026.11.12-04.56.13:005][114]LogAshgate: Display: QA PASS: world population
+[2026.11.12-04.56.13:006][114]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=2/84/4 active=0
+[2026.11.12-04.56.16:028][472]LogAshgate: Display: QA PASS: character movement with world collision
+[2026.11.12-04.56.16:028][472]LogAshgate: Display: QA PASS: inspect starts
+[2026.11.12-04.56.16:028][472]LogAshgate: Display: QA PASS: ADS cancels inspect
+[2026.11.12-04.56.16:028][472]LogAshgate: Display: QA PASS: single shot consumes one round
+[2026.11.12-04.56.16:028][472]LogAshgate: Display: QA PASS: reload cancels inspect
+[2026.11.12-04.56.18:028][712]LogAshgate: Display: QA PASS: reload completes
+[2026.11.12-04.56.18:029][712]LogAshgate: Display: QA PASS: damage cancels heal without consuming kit
+[2026.11.12-04.56.21:029][ 72]LogAshgate: Display: QA PASS: heal completes and consumes kit
+[2026.11.12-04.56.21:029][ 72]LogAshgate: Display: QA PASS: Esc closes bag without pausing
+[2026.11.12-04.56.21:029][ 72]LogAshgate: Display: RETURN success=0 practice=1 reason=QA practice complete
+[2026.11.12-04.56.21:029][ 72]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.12-04.56.21:029][ 72]LogAshgate: Display: QA PASS: deploy debits stash before gameplay
+[2026.11.12-04.56.21:034][ 72]LogAshgate: Display: QA PASS: active raid debit persisted / no restart duplication
+[2026.11.12-04.56.21:035][ 72]LogAshgate: Display: QA PASS: loot targeting uses a visibility ray
+[2026.11.12-04.56.21:035][ 72]LogAshgate: Display: QA PASS: E interaction recovers a case once
+[2026.11.12-04.56.21:035][ 72]LogAshgate: Display: QA PASS: searched case cannot duplicate items
+[2026.11.12-04.56.21:035][ 72]LogAshgate: Display: QA PASS: full bag leaves case unconsumed
+[2026.11.12-04.56.21:036][ 72]LogAshgate: Display: QA PASS: wall blocks hitscan damage
+[2026.11.12-04.56.21:036][ 72]LogAshgate: Display: QA PASS: gunshot alerts nearby guard through cover
+[2026.11.12-04.56.21:036][ 72]LogAshgate: Display: QA PASS: wall blocks guard firing line of sight
+[2026.11.12-04.56.21:036][ 72]LogAshgate: Display: QA PASS: unobstructed hitscan damages guard
+[2026.11.12-04.56.21:036][ 72]LogAshgate: Display: QA PASS: guard fires when player is visible
+[2026.11.12-04.56.21:039][ 72]LogAshgate: Display: QA PASS: guard dies after lethal hits
+[2026.11.12-04.56.21:039][ 72]LogAshgate: Display: QA PASS: dead guard loot recoverable
+[2026.11.12-04.56.24:030][431]LogAshgate: Display: QA PASS: extraction progresses inside zone
+[2026.11.12-04.56.26:031][671]LogAshgate: Display: QA PASS: leaving zone resets countdown
+[2026.11.12-04.56.32:023][390]LogAshgate: Display: RETURN success=1 practice=0 reason=EXTRACTED / +300 CR / equipment secured
+[2026.11.12-04.56.33:031][511]LogAshgate: Display: QA PASS: extraction returns equipment and loot / reward once
+[2026.11.12-04.56.33:031][511]LogAshgate: Display: QA PASS: stash sale
+[2026.11.12-04.56.33:032][511]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.12-04.56.33:032][511]LogAshgate: Display: RETURN success=0 practice=0 reason=QA death
+[2026.11.12-04.56.33:032][511]LogAshgate: Display: QA PASS: failed raid loses only carried equipment
+[2026.11.12-04.56.33:046][511]LogAshgate: Display: QA PASS: sensitivity persists
+[2026.11.12-04.56.33:046][511]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=1/49/3 active=0
+[2026.11.12-04.56.50:043][503]LogAshgate: Display: QA PERFORMANCE samples=1201 mean=8.33ms fps=120.0 worst=8.94ms / viewport-dependent, warm-up excluded
+[2026.11.12-04.56.55:850][189]LogAshgate: Display: QA COMPLETE failures=0 worldtype=3
+[2026.11.12-04.57.00:658][537]LogExit: Editor shut down
+[2026.11.12-04.57.01:819][537]LogExit: Exiting.
+Process exit code: 0
+
+=== PackagedQA ===
+[2026.11.12-05.09.07:193][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.12-05.09.07:379][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.12-05.09.08:510][  0]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_QA; world type 1
+[2026.11.12-05.09.08:720][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2026.11.12-05.09.10:721][428]LogAshgate: Display: QA PASS: world population
+[2026.11.12-05.09.10:722][428]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=2/84/4 active=0
+[2026.11.12-05.09.13:723][149]LogAshgate: Display: QA PASS: character movement with world collision
+[2026.11.12-05.09.13:723][149]LogAshgate: Display: QA PASS: inspect starts
+[2026.11.12-05.09.13:723][149]LogAshgate: Display: QA PASS: ADS cancels inspect
+[2026.11.12-05.09.13:724][149]LogAshgate: Display: QA PASS: single shot consumes one round
+[2026.11.12-05.09.13:724][149]LogAshgate: Display: QA PASS: reload cancels inspect
+[2026.11.12-05.09.15:728][618]LogAshgate: Display: QA PASS: reload completes
+[2026.11.12-05.09.15:728][618]LogAshgate: Display: QA PASS: damage cancels heal without consuming kit
+[2026.11.12-05.09.18:729][355]LogAshgate: Display: QA PASS: heal completes and consumes kit
+[2026.11.12-05.09.18:729][355]LogAshgate: Display: QA PASS: Esc closes bag without pausing
+[2026.11.12-05.09.18:729][355]LogAshgate: Display: RETURN success=0 practice=1 reason=QA practice complete
+[2026.11.12-05.09.18:729][355]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.12-05.09.18:729][355]LogAshgate: Display: QA PASS: deploy debits stash before gameplay
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: active raid debit persisted / no restart duplication
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: loot targeting uses a visibility ray
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: E interaction recovers a case once
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: searched case cannot duplicate items
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: full bag leaves case unconsumed
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: wall blocks hitscan damage
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: gunshot alerts nearby guard through cover
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: wall blocks guard firing line of sight
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: unobstructed hitscan damages guard
+[2026.11.12-05.09.18:730][355]LogAshgate: Display: QA PASS: guard fires when player is visible
+[2026.11.12-05.09.18:731][355]LogAshgate: Display: QA PASS: guard dies after lethal hits
+[2026.11.12-05.09.18:731][355]LogAshgate: Display: QA PASS: dead guard loot recoverable
+[2026.11.12-05.09.21:729][136]LogAshgate: Display: QA PASS: extraction progresses inside zone
+[2026.11.12-05.09.23:729][655]LogAshgate: Display: QA PASS: leaving zone resets countdown
+[2026.11.12-05.09.29:727][205]LogAshgate: Display: RETURN success=1 practice=0 reason=EXTRACTED / +300 CR / equipment secured
+[2026.11.12-05.09.30:729][494]LogAshgate: Display: QA PASS: extraction returns equipment and loot / reward once
+[2026.11.12-05.09.30:729][494]LogAshgate: Display: QA PASS: stash sale
+[2026.11.12-05.09.30:730][494]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.12-05.09.30:730][494]LogAshgate: Display: RETURN success=0 practice=0 reason=QA death
+[2026.11.12-05.09.30:730][494]LogAshgate: Display: QA PASS: failed raid loses only carried equipment
+[2026.11.12-05.09.30:736][494]LogAshgate: Display: QA PASS: sensitivity persists
+[2026.11.12-05.09.30:736][494]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=1/49/3 active=0
+[2026.11.12-05.09.47:732][580]LogAshgate: Display: QA PERFORMANCE samples=2389 mean=4.19ms fps=238.8 worst=6.19ms / viewport-dependent, warm-up excluded
+[2026.11.12-05.09.53:534][912]LogAshgate: Display: QA COMPLETE failures=0 worldtype=1
+[2026.11.12-05.09.54:731][913]LogExit: Exiting.
+Process exit code: 0
+
+=== PackagedInput ===
+[2026.11.12-04.57.57:611][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.12-04.57.57:789][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.12-04.57.58:644][  0]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_QA; world type 1
+[2026.11.12-04.57.58:851][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2026.11.12-04.58.01:232][545]LogAshgate: Display: INPUT PROBE phase=base position=X=-3900.000 Y=-3300.000 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.02:013][727]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=2/84/4 active=0
+[2026.11.12-04.58.03:503][ 83]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3900.000 Y=-3300.000 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.05:270][468]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.06:130][645]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=3.94 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.06:987][817]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=1 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.07:688][952]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=6 reserve=28 aiming=0 inspect=0.00 reload=0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.08:548][126]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=6 reserve=28 aiming=0 inspect=0.00 reload=1.10 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.11:158][697]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.12:018][873]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=1 paused=0 sensitivity=1.00
+[2026.11.12-04.58.12:879][ 53]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.00
+[2026.11.12-04.58.13:741][237]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=1 sensitivity=1.00
+[2026.11.12-04.58.15:001][558]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=1 sensitivity=1.10
+[2026.11.12-04.58.15:865][763]LogAshgate: Display: INPUT PROBE phase=raid position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-04.58.16:879][989]LogAshgate: Display: RETURN success=0 practice=1 reason=Practice complete
+[2026.11.12-04.58.17:379][122]LogAshgate: Display: INPUT PROBE phase=base position=X=-3638.261 Y=-3109.835 Z=90.150 ammo=7 reserve=28 aiming=0 inspect=0.00 reload=-0.00 bag=0 paused=0 sensitivity=1.10
+[2026.11.12-04.58.18:865][266]LogExit: Exiting.
+
+=== Bootstrap ===
+[2026.11.12-05.06.58:254][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.12-05.06.58:478][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.12-05.06.59:332][  0]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_QA; world type 1
+[2026.11.12-05.06.59:551][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2026.11.12-05.07.00:541][  1]LogExit: Exiting.

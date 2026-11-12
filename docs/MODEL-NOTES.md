@@ -51,3 +51,7 @@ Nキーの確認モーションで、光沢を抑えた質感を確認できま�
 リポジトリ直下で `python3 tools/build_m1911.py` を実行します。同梱した `tools/source_assets/m1911/m1911.glb` をBlenderで読み込み、ゲーム用のGLBとGodot用シーンを書き出します。素材の追加ダウンロードは不要です。
 
 粗さの調整は `tools/adapt_m1911_blender.py` が再出力時に適用します。書き出し後、`tools/share_m1911_textures.py` がそのGLB内の画像を変更せず抽出し、同一画像を共有ファイルにまとめます。元モデルの出典・変換履歴・ハッシュは[同梱元データの説明](../tools/source_assets/m1911/README.md)、制作環境は[READMEの再生成手順](../README.md#モデル素材を再生成する)を参照してください。
+
+## UE5版への引き継ぎ（2026-11-12）
+
+原本とGodot版は維持し、unreal/Ashgate/Content にUE用アセットを追加しました。実寸・軸・PBRの変換記録は [UE5素材ノート](../unreal/Ashgate/ART-NOTES.md)、実画面と検証範囲は [UE5検証結果](../unreal/Ashgate/VALIDATION.md) にあります。銃の既存サテン粗さ変換は再適用せず、作者表記と原典ライセンスの未確認事項を引き継ぎます。

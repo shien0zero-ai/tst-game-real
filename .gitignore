@@ -13,3 +13,15 @@ __pycache__/
 
 # Export credentials belong to each developer's local Godot cache.
 .godot/export_credentials.cfg
+
+# Unreal Engine generated data and IDE files
+unreal/**/Binaries/
+unreal/**/Intermediate/
+unreal/**/Saved/
+unreal/**/DerivedDataCache/
+unreal/**/.vs/
+unreal/**/*.sln
+unreal/**/*.slnx
+unreal/**/*.VC.db
+unreal/**/Build/
+unreal/**/Packaged/

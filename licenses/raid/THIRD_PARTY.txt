@@ -72,3 +72,10 @@ transformations are recorded in tools/source_assets/raid/models-manifest.json
 and tools/source_assets/raid/materials-manifest.json in the source repository.
 The asset adapter is tools/adapt_raid_assets.py. No third-party game source
 code was adopted for the character retargeting or game implementation.
+
+UE5 adaptation (2026-11-12): existing GLBs imported with UE5.8 Interchange;
+existing surface WebP decoded offline to same-resolution PNG, world base-colour
+projection and explicit linear roughness / DirectX normal-map settings added.
+Existing guard skin and clips imported; prototype character scale and attachment
+adjustments made in UE. Original assets and Godot adaptation remain intact.
+Additional conversion details: unreal/Ashgate/ART-NOTES.md.
