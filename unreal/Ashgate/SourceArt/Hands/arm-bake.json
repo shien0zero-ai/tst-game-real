@@ -1,0 +1,69 @@
+{
+  "pose": "aim_idle at 0 seconds",
+  "source_wrist": [
+    0.18491343916905562,
+    1.2277333948174498,
+    -0.16084852986721299
+  ],
+  "source_elbow": [
+    0.36218708448151904,
+    1.1726136127384057,
+    -0.08800729643600255
+  ],
+  "flip_yaw_180": false,
+  "target_wrist_m": [
+    0.025,
+    -0.115,
+    -0.03
+  ],
+  "parts": {
+    "right": {
+      "triangles": 3018,
+      "bounds_m": [
+        [
+          -0.032731117641070534,
+          0.20001681037876787
+        ],
+        [
+          -0.44589589915818584,
+          -0.01772472018496414
+        ],
+        [
+          -0.06911959733468886,
+          0.20052370529351857
+        ]
+      ]
+    },
+    "left": {
+      "triangles": 3076,
+      "bounds_m": [
+        [
+          -0.19233260450887235,
+          0.023808398684236523
+        ],
+        [
+          -0.44161936314404665,
+          -0.03656010372158518
+        ],
+        [
+          -0.057825170530364026,
+          0.23127195964289657
+        ]
+      ]
+    }
+  },
+  "original_texture_source": "https://raw.githubusercontent.com/cktang88/3d-fps/130ac2a5c856401ec36e7d35afcfefe40c5801f4/public/assets/models/characters/soldier_tac.glb",
+  "original_texture_sha256": "fe02bc307077d7a5a74069d085893988d93751495871c84082256e60bf9bfc9e",
+  "materials": [
+    "Ashgate_Glove",
+    "Mil_Suit_Pads__R5",
+    "Mil_Suit_R5"
+  ],
+  "texture_sha256": {
+    "3": "fa8b766c023b9ba9bf45c9e0994c0a07c5f8ac839cf4412df18e6ab1043c369b",
+    "4": "95620d4571f43cf70a0111d7883680446a47b950e72f74f0b7cd561d14493d62",
+    "11": "2002e1b21f59b3b61c0bdb2d7df64eebaaf50d21035c2a4e731912222c91f5c0",
+    "12": "a650c24e34a2cf479707831bf9a34cc858dbabfd4354c18508f3931320e7cbfc",
+    "13": "0c4666de1ffe1b7a8172701ea0af4e02182b53e6104f52326fd11ac709b29ff4"
+  }
+}

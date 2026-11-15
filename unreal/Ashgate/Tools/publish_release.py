@@ -3,7 +3,7 @@
 Uses the existing Git credential helper in memory; never prints credentials.
 Does not install software or alter Git/Windows authentication settings.
 """
-import argparse, hashlib, http.client, json, pathlib, subprocess, urllib.error, urllib.parse, urllib.request, zipfile
+import argparse, hashlib, http.client, json, pathlib, subprocess, urllib.error, urllib.parse, urllib.request, zipfile, tempfile
 
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 PROJECT=ROOT/"unreal/Ashgate"
@@ -18,7 +18,7 @@ def digest(path):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--publish",action="store_true",help="Create a GitHub Release and upload the ZIP and SHA256")
-    p.add_argument("--tag",default="ue5-prototype-2026-11-12-r2")
+    p.add_argument("--tag",default="ue5-visual-2026-11-16")
     args=p.parse_args()
     commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
     status=subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True)
@@ -53,6 +53,18 @@ def main():
     checksum.write_text(digest(archive)+"  "+archive.name+"\n",encoding="ascii")
     print("Validated ZIP:",archive,"bytes:",archive.stat().st_size)
     if not args.publish: return
+    # Gate publication on the exact generated ZIP, extracted into its own fresh folder.
+    extracted=pathlib.Path(tempfile.mkdtemp(prefix="AshgateVisualZIP_"))
+    with zipfile.ZipFile(archive) as z: z.extractall(extracted)
+    entry=extracted/"Ashgate-UE5-Prototype/Ashgate.exe"
+    game=extracted/"Ashgate-UE5-Prototype/Ashgate/Binaries/Win64/Ashgate.exe"
+    if digest(game)!=info["binary_sha256"]: raise RuntimeError("Extracted executable differs from validated package")
+    command=["powershell","-NoProfile","-ExecutionPolicy","Bypass","-File",str(PROJECT/"Tools/input_probe.ps1"),"-Executable",str(entry),"-LogPath",str(PROJECT/"Saved/ZIPInput.log"),"-ProductionProfile","-DefaultResolution","-DeployRaid"]
+    probe=subprocess.run(command,capture_output=True,text=True,errors="replace",timeout=240)
+    (PROJECT/"Saved/ZIPInput-console.txt").write_text(probe.stdout+probe.stderr,encoding="utf-8")
+    if probe.returncode or "INPUT VALIDATION PASS" not in probe.stdout: raise RuntimeError("Final ZIP input verification failed; see Saved/ZIPInput-console.txt and ZIPInput.log")
+    print("Final ZIP input verification PASS: deployment, 16 snapshots, production save, default display, exit confirmation.")
+    print("Verified extracted game:",entry)
     creds=subprocess.run(["git","-c","credential.interactive=never","credential","fill"],cwd=ROOT,input="protocol=https\nhost=github.com\n\n",text=True,capture_output=True,check=True)
     fields=dict(line.split("=",1) for line in creds.stdout.splitlines() if "=" in line)
     token=fields.get("password")
@@ -65,7 +77,7 @@ def main():
     try: release=api("GET","/releases/tags/"+args.tag)
     except urllib.error.HTTPError as e:
         if e.code!=404: raise RuntimeError("Release lookup HTTP "+str(e.code)) from None
-        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / DEPOT 04 - UE5 playable prototype","body":"UE5 5.8.4 / Windows x64 Development prototype. Extract the ZIP and run Ashgate.exe. Separate from the existing Godot edition. Includes M1911 attribution and third-party credits.\n\nValidated on the local RTX 5080 PC: Editor build, real PIE, packaged game checks, screenshots and input probe. See unreal/Ashgate/VALIDATION.md at commit "+commit+" for measured results and remaining limitations. Graphics and AI are an early prototype; Bodycam-level visuals are not yet achieved.","prerelease":True,"draft":False})
+        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / DEPOT 04 - UE5 visual update 2026-11-16","body":"UE5 5.8.4 / Windows x64 Development prototype. Extract the ZIP and run Ashgate.exe. Separate from the existing Godot edition. Includes M1911 attribution and third-party credits.\n\nValidated on the local RTX 5080 PC: Editor build, real PIE, packaged game checks, screenshots and input probe. The exact release ZIP was extracted and passed deployment plus 16 input snapshots with the production save path and default display settings before publication. See unreal/Ashgate/VALIDATION.md at commit "+commit+" for measured results and remaining limitations. Visual update: conventional FPS camera, modeled gloved hands/forearms, 2K CC0 workshop props, detailed structural trims and local lights. Bodycam is no longer the visual direction. Buildings and hand animation remain prototype work.","prerelease":True,"draft":False})
     if release.get("target_commitish") not in (commit,"main"):
         raise RuntimeError("Existing release points to another source; choose a new tag")
     existing={a["name"] for a in release.get("assets",[])}

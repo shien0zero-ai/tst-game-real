@@ -1,2 +1,5 @@
 unreal/**/*.uasset binary
 unreal/**/*.umap binary
+unreal/Ashgate/SourceArt/**/*.gltf -text
+unreal/Ashgate/SourceArt/**/*.bin binary
+unreal/Ashgate/SourceArt/**/*.glb binary

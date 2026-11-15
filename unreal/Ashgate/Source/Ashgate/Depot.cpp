@@ -16,6 +16,8 @@
 #include "Components/PostProcessComponent.h"
 #include "Engine/Canvas.h"
 #include "Engine/DirectionalLight.h"
+#include "Engine/PointLight.h"
+#include "Components/PointLightComponent.h"
 #include "Engine/SkyLight.h"
 #include "Engine/ExponentialHeightFog.h"
 #include "Engine/StaticMeshActor.h"
@@ -55,15 +57,15 @@ ADepotPlayer::ADepotPlayer() {
     bUseControllerRotationYaw=true;
     GetCharacterMovement()->MaxWalkSpeed=340; GetCharacterMovement()->JumpZVelocity=440;
     Camera=CreateDefaultSubobject<UCameraComponent>(TEXT("Eyes")); Camera->SetupAttachment(GetCapsuleComponent());
-    Camera->SetRelativeLocation(FVector(0,0,72)); Camera->bUsePawnControlRotation=true; Camera->FieldOfView=94;
+    Camera->SetRelativeLocation(FVector(0,0,72)); Camera->bUsePawnControlRotation=true; Camera->FieldOfView=82;
     Weapon=CreateDefaultSubobject<USceneComponent>(TEXT("Viewmodel")); Weapon->SetupAttachment(Camera);
     // Imported glTF has -Y forward after Y/Z conversion. Rotate +90 degrees to UE +X.
-    Weapon->SetRelativeLocation(FVector(34,15,-12)); Weapon->SetRelativeRotation(FRotator(0,90,0));
-    for (const TCHAR* Part : {TEXT("m1911_frame"),TEXT("m1911_slide"),TEXT("m1911_magazine"),TEXT("fps_hands_right"),TEXT("fps_hands_left")}) {
+    Weapon->SetRelativeLocation(FVector(38,13,-8)); Weapon->SetRelativeRotation(FRotator(0,90,0));
+    for (const TCHAR* Part : {TEXT("m1911_frame"),TEXT("m1911_slide"),TEXT("m1911_magazine"),TEXT("view_right"),TEXT("view_left")}) {
         auto* C=CreateDefaultSubobject<UStaticMeshComponent>(Part); C->SetupAttachment(Weapon); C->SetCollisionEnabled(ECollisionEnabled::NoCollision); C->CastShadow=false;
         if (FString(Part)==TEXT("m1911_slide")) Slide=C;
         if (FString(Part)==TEXT("m1911_magazine")) Magazine=C;
-        if (FString(Part)==TEXT("fps_hands_left")) LeftHand=C;
+        if (FString(Part)==TEXT("view_left")) LeftHand=C;
     }
 }
 void ADepotPlayer::BeginPlay() {
@@ -165,18 +167,18 @@ void ADepotPlayer::Tick(float D) {
     if(HealTime>0) { HealTime-=D; if(HealTime<=0) { Health=FMath::Min(100.f,Health+45); Bleeding=false; --Kits; M->Notice(TEXT("Treated +45 HP / bleeding stopped")); } }
     if(Bleeding&&M->Phase==TEXT("raid")) { Health=FMath::Max(0.f,Health-D*.6f); if(Health<=0) M->FinishRaid(false,TEXT("Bled out - carried equipment lost")); }
     InspectTime=FMath::Max(0.f,InspectTime-D);
-    FVector P=Aiming?FVector(25,0,-2.9f):FVector(34,15,-12);
+    FVector P=Aiming?FVector(28,0,-2.9f):FVector(38,13,-8);
     FRotator R(0,90,0);
-    if(InspectTime>0) { float T=(4.2f-InspectTime)/4.2f; float Envelope=FMath::Sin(PI*T); P+=FVector(-8,-11,10)*Envelope; R+=FRotator(-12*Envelope,75*FMath::Sin(2*PI*T),-20*Envelope); }
-    if(ReloadTime>0) { float T=(1.35f-ReloadTime)/1.35f; R.Roll-=30*FMath::Sin(PI*T); P.Z-=5*FMath::Sin(PI*T); }
+    if(InspectTime>0) { float T=(4.2f-InspectTime)/4.2f; float Envelope=FMath::Sin(PI*T); P+=FVector(-5,-8,7)*Envelope; R+=FRotator(-8*Envelope,50*FMath::Sin(2*PI*T),-12*Envelope); }
+    if(ReloadTime>0) { float T=(1.35f-ReloadTime)/1.35f; R.Roll-=18*FMath::Sin(PI*T); P.Z-=5*FMath::Sin(PI*T); }
     if(HealTime>0) P.Z-=22;
     const float Speed=GetVelocity().Size2D(); float Bob=FMath::Sin(GetWorld()->GetTimeSeconds()*(Sprinting?13:8))*FMath::Min(1.f,Speed/340);
-    P.Z+=Bob*(Aiming?.1f:.35f); P.X-=Kick*1.5f;
+    P.Z+=Bob*(Aiming?.04f:.15f); P.X-=Kick*1.5f;
     Weapon->SetRelativeLocation(FMath::VInterpTo(Weapon->GetRelativeLocation(),P,D,12)); Weapon->SetRelativeRotation(FMath::RInterpTo(Weapon->GetRelativeRotation(),R,D,13));
     Slide->SetRelativeLocation(FVector(0,2.8f*(Ammo==0?1:Kick),0));
     Magazine->SetRelativeLocation(FVector(0,0,ReloadTime>0?-12*FMath::Sin(PI*(1.35f-ReloadTime)/1.35f):0));
     if(LeftHand) LeftHand->SetRelativeLocation(FVector(0,0,ReloadTime>0?-7*FMath::Sin(PI*(1.35f-ReloadTime)/1.35f):0));
-    Camera->SetFieldOfView(FMath::FInterpTo(Camera->FieldOfView,Aiming?72.f:94.f,D,12));
+    Camera->SetFieldOfView(FMath::FInterpTo(Camera->FieldOfView,Aiming?64.f:82.f,D,12));
     Weapon->SetVisibility(M->Phase==TEXT("raid"),true);
 }
 
@@ -244,7 +246,7 @@ void ADepotGuard::Tick(float D) {
 ADepotGameMode::ADepotGameMode() { DefaultPawnClass=ADepotPlayer::StaticClass(); HUDClass=ADepotHUD::StaticClass(); PrimaryActorTick.bCanEverTick=true; }
 ADepotPlayer* ADepotGameMode::Player() const { return Cast<ADepotPlayer>(UGameplayStatics::GetPlayerPawn(this,0)); }
 void ADepotGameMode::BeginPlay() {
-    Super::BeginPlay(); QA=FParse::Param(FCommandLine::Get(),TEXT("AshgateSmoke"));
+    Super::BeginPlay(); QA=FParse::Param(FCommandLine::Get(),TEXT("AshgateSmoke"))||FParse::Param(FCommandLine::Get(),TEXT("AshgateArtPreview"));
     const bool TestProfile=QA||FParse::Param(FCommandLine::Get(),TEXT("AshgateInputProbe"));
     Slot=TestProfile?TEXT("AshgateUE5_QA"):TEXT("AshgateUE5_Profile_v1");
     Profile=Cast<UDepotProfile>(UGameplayStatics::LoadGameFromSlot(Slot,0));
@@ -349,7 +351,9 @@ void ADepotGameMode::BuildDepot() {
     auto Box=[&](FString Name,FVector Pos,FVector Size,const TCHAR* Material,FLinearColor Tint=FLinearColor::White) {
         auto* A=GetWorld()->SpawnActor<AStaticMeshActor>(Pos,FRotator::ZeroRotator);
         auto* C=A->GetStaticMeshComponent(); C->SetMobility(EComponentMobility::Movable); C->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube"))); C->SetWorldScale3D(Size/100); C->SetCollisionProfileName(TEXT("BlockAll"));
-        if(auto* M=Mat(Material)) C->SetMaterial(0,M);
+        if(auto* M=Mat(Material)) {
+            auto* D=UMaterialInstanceDynamic::Create(M,A); D->SetVectorParameterValue(TEXT("Tint"),Tint); C->SetMaterial(0,D);
+        }
         return A;
     };
     auto Prop=[&](const TCHAR* Name,FVector Pos,float Yaw=0.f,float Scale=1.f) {
@@ -384,6 +388,64 @@ void ADepotGameMode::BuildDepot() {
     for(int32 I=0;I<10;++I) { FVector P(-2600+(I%5)*1050,-1900+(I/5)*4200,0); Prop(TEXT("barrier"),P,90); Prop(TEXT("barrel"),P+FVector(160,100,0)); }
     Prop(TEXT("generator"),FVector(-1800,-900,0),30); Prop(TEXT("pipes"),FVector(200,1150,50),90);
     for(int32 I=0;I<14;++I) { FVector P(-1000+(I%4)*620,-650+(I/4)*430,0); if(I%3!=1) Prop(TEXT("crate"),P,I*31); }
+    // Workshop details at human scale: real meshes, dimensional steelwork and service fittings.
+    auto Lamp=[&](FVector Pos,float Lumens) {
+        auto* L=GetWorld()->SpawnActor<APointLight>(Pos,FRotator::ZeroRotator);
+        auto* C=Cast<UPointLightComponent>(L->GetLightComponent()); C->SetMobility(EComponentMobility::Movable);
+        C->SetIntensityUnits(ELightUnits::Lumens); C->SetIntensity(Lumens); C->SetAttenuationRadius(700);
+        C->SetLightColor(FLinearColor(1,.91f,.76f)); C->SetSourceRadius(14);
+    };
+    for(int32 Side:{-1,1}) {
+        Box(TEXT("Concrete foundation"),FVector(0,Side*1320,32),FVector(3120,45,64),TEXT("concrete"));
+        Box(TEXT("Steel eave"),FVector(0,Side*1330,554),FVector(3240,22,24),TEXT("steel"));
+        for(int32 X=-1400;X<=1400;X+=350) {
+            Box(TEXT("Wall stiffener"),FVector(X,Side*1320,300),FVector(12,10,500),TEXT("steel"));
+        }
+        for(int32 End:{-1,1}) {
+            const FVector Gate(Side*1570,End*550,215);
+            Box(TEXT("Gate track"),Gate,FVector(20,18,430),TEXT("steel"));
+            Box(TEXT("Gate footplate"),Gate+FVector(0,0,-206),FVector(60,62,18),TEXT("steel"));
+        }
+        Box(TEXT("Door overhead track"),FVector(Side*1570,0,433),FVector(24,1150,20),TEXT("steel"));
+    }
+    for(int32 X:{-1000,0,1000}) {
+        Box(TEXT("Roof truss tie"),FVector(X,0,520),FVector(14,2500,20),TEXT("steel"));
+        for(int32 Y:{-650,650}) Lamp(FVector(X,Y,490),2500);
+    }
+    // Loading bay beside the warehouse; keep the road and loot approaches open.
+    Box(TEXT("Loading bay concrete"),FVector(-2600,-1420,12),FVector(1200,410,24),TEXT("concrete"));
+    Box(TEXT("Loading canopy"),FVector(-2600,-1330,345),FVector(1300,620,18),TEXT("corrugated"));
+    for(int32 X:{-3150,-2050}) {
+        Box(TEXT("Canopy upright"),FVector(X,-1110,170),FVector(14,14,340),TEXT("steel"));
+        Box(TEXT("Upright baseplate"),FVector(X,-1110,15),FVector(40,40,6),TEXT("steel"));
+    }
+    Prop(TEXT("industrial_storage_cart"),FVector(-2710,-1390,24),-65);
+    Prop(TEXT("steel_frame_shelves_02"),FVector(-2180,-1450,24),90);
+    Prop(TEXT("crate"),FVector(-2320,-1390,24),12,.65f);
+    Prop(TEXT("industrial_storage_cart"),FVector(1000,800,10),25);
+    Prop(TEXT("steel_frame_shelves_02"),FVector(0,1100,10),0);
+    Prop(TEXT("steel_frame_shelves_02"),FVector(800,1100,10),0);
+    Prop(TEXT("industrial_caged_sconce"),FVector(-1568,-800,280),-90);
+    Lamp(FVector(-1740,-800,270),1200);
+    for(FVector Center:{FVector(800,-2850,0),FVector(-2950,1800,0)}) {
+        Box(TEXT("Annex foundation"),Center+FVector(0,0,8),FVector(1720,1320,16),TEXT("concrete"));
+        for(int32 Side:{-1,1}) {
+            Box(TEXT("Door jamb"),Center+FVector(Side*260,-670,125),FVector(14,16,250),TEXT("steel"));
+            Box(TEXT("Wall coping"),Center+FVector(Side*860,0,353),FVector(24,1340,18),TEXT("concrete"));
+        }
+        Box(TEXT("Door header"),Center+FVector(0,-670,255),FVector(540,16,20),TEXT("steel"));
+        Prop(TEXT("steel_frame_shelves_02"),Center+FVector(0,510,16),0);
+        Prop(TEXT("industrial_storage_cart"),Center+FVector(560,140,16),15);
+        Lamp(Center+FVector(0,0,310),2200);
+    }
+    // Low service rail, pipe supports and concrete seams give surfaces actual depth.
+    for(int32 I=0;I<10;++I) {
+        Box(TEXT("Warehouse floor joint"),FVector(-1400+I*300,0,10.2f),FVector(1.5f,2550,.4f),TEXT("steel"));
+    }
+    for(int32 I=0;I<7;++I) {
+        const float X=-1000+I*330;
+        Box(TEXT("Pipe stand"),FVector(X,1160,90),FVector(8,40,160),TEXT("steel"));
+    }
     const TArray<FVector> Locations={FVector(-3550,-2800,0),FVector(-2400,-1000,0),FVector(-900,-800,0),FVector(700,-750,0),FVector(1100,750,0),FVector(-1100,850,0),FVector(200,-3100,0),FVector(1200,-2800,0),FVector(-3200,1700,0),FVector(-2700,2000,0),FVector(2850,-600,0),FVector(3500,2000,0),FVector(1900,3300,0)};
     for(auto P:Locations) { auto* A=Prop(TEXT("crate"),P); A->Tags.Add(TEXT("LootCase")); Cases.Add(A); Searched.Add(false); }
     for(int32 I=0;I<8;++I) { FVector P(-1800+(I%4)*1300,400+(I/4)*2300,100); auto* G=GetWorld()->SpawnActor<ADepotGuard>(P,FRotator::ZeroRotator); Guards.Add(G); }
@@ -395,16 +457,16 @@ void ADepotGameMode::BuildDepot() {
     Sign(TEXT("RESTRICTED INDUSTRIAL AREA"),FVector(-4200,-3000,200),0,28,FColor(230,190,100));
     auto* Sun=GetWorld()->SpawnActor<ADirectionalLight>(FVector(0,0,1000),FRotator(-32,-28,0));
     Cast<UDirectionalLightComponent>(Sun->GetLightComponent())->bAtmosphereSunLight=true;
-    Sun->GetLightComponent()->SetMobility(EComponentMobility::Movable); Sun->GetLightComponent()->SetIntensity(3.5f); Sun->GetLightComponent()->SetLightColor(FLinearColor(1,.88f,.72f));
+    Sun->GetLightComponent()->SetMobility(EComponentMobility::Movable); Sun->GetLightComponent()->SetIntensity(3.5f); Sun->GetLightComponent()->SetLightColor(FLinearColor(1,.96f,.89f));
     auto* Sky=GetWorld()->SpawnActor<ASkyLight>(); Sky->GetLightComponent()->SetMobility(EComponentMobility::Movable); Sky->GetLightComponent()->SetIntensity(1.2f);
     Sky->GetLightComponent()->SourceType=SLS_SpecifiedCubemap; Sky->GetLightComponent()->SetCubemap(LoadObject<UTextureCube>(nullptr,TEXT("/Engine/MapTemplates/Sky/DaylightAmbientCubemap.DaylightAmbientCubemap"))); Sky->GetLightComponent()->SetRealTimeCaptureEnabled(false);
     AActor* Atmos=GetWorld()->SpawnActor<AActor>(); auto* Atmosphere=NewObject<USceneComponent>(Atmos); Atmos->SetRootComponent(Atmosphere); Atmosphere->RegisterComponent();
     // Engine's sky atmosphere actor is spawned by the authored map; fog and exposure are local to this world.
-    auto* Fog=GetWorld()->SpawnActor<AExponentialHeightFog>(); Fog->GetComponent()->SetFogDensity(.012f); Fog->GetComponent()->SetFogHeightFalloff(.25f);
+    auto* Fog=GetWorld()->SpawnActor<AExponentialHeightFog>(); Fog->GetComponent()->SetFogDensity(.003f); Fog->GetComponent()->SetFogHeightFalloff(.25f);
     auto* Post=NewObject<UPostProcessComponent>(Atmos); Post->RegisterComponent(); Post->bUnbound=true;
     auto& S=Post->Settings; S.bOverride_AutoExposureMinBrightness=true; S.bOverride_AutoExposureMaxBrightness=true; S.AutoExposureMinBrightness=0; S.AutoExposureMaxBrightness=2;
-    S.bOverride_BloomIntensity=true; S.BloomIntensity=.12f; S.bOverride_MotionBlurAmount=true; S.MotionBlurAmount=.12f;
-    S.bOverride_VignetteIntensity=true; S.VignetteIntensity=.2f;
+    S.bOverride_BloomIntensity=true; S.BloomIntensity=.08f; S.bOverride_MotionBlurAmount=true; S.MotionBlurAmount=0;
+    S.bOverride_VignetteIntensity=true; S.VignetteIntensity=0;
 }
 
 void ADepotHUD::Panel(float X,float Y,float W,float H,FLinearColor Color) { DrawRect(Color,X*Scale,Y*Scale,W*Scale,H*Scale); }
@@ -503,6 +565,9 @@ void ADepotGameMode::QATestField() {
 }
 void ADepotGameMode::QATick(float D) {
     QAElapsed+=D; auto* P=Player(); if(!P||QAElapsed<2) return;
+    if(QAStep==0&&FParse::Param(FCommandLine::Get(),TEXT("AshgateArtPreview"))) {
+        StartRaid(true); P->SetActorLocation(FVector(-3100,-1800,100)); P->Controller->SetControlRotation(FRotator(-2,26,0)); QAStep=7; QAElapsed=0; return;
+    }
     // Exercises actual ticking world and transaction boundaries using an isolated save slot.
     switch(QAStep) {
     case 0: Check(Cases.Num()==13&&Guards.Num()==8,TEXT("world population")); StartRaid(true); QAPosition=P->GetActorLocation(); ++QAStep; QAElapsed=0; break;
@@ -512,10 +577,14 @@ void ADepotGameMode::QATick(float D) {
     case 4: if(QAElapsed<3) break; Check(ExtractTime>2&&ExtractTime<6,TEXT("extraction progresses inside zone")); P->SetActorLocation(Extraction+FVector(-600,0,100)); ++QAStep; QAElapsed=0; break;
     case 5: Check(ExtractTime==0,TEXT("leaving zone resets countdown")); BagItems.Add(TEXT("Electronics")); P->SetActorLocation(Extraction+FVector(0,0,100)); ++QAStep; QAElapsed=0; break;
     case 6: if(QAElapsed<7) break; Check(Phase==TEXT("base")&&Profile->Credits==2100&&Profile->Guns==2&&Profile->Rounds==84&&Profile->Goods.FindRef(TEXT("Electronics"))==1&&!Profile->ActiveRaid,TEXT("extraction returns equipment and loot / reward once")); MenuAction(5); Check(Profile->Credits==2280&&Profile->Goods.Num()==0,TEXT("stash sale")); StartRaid(false); FinishRaid(false,TEXT("QA death")); Check(Profile->Guns==1&&Profile->Rounds==49&&Profile->Kits==3&&!Profile->ActiveRaid,TEXT("failed raid loses only carried equipment")); Profile->Sensitivity=1.3f; Save(); { auto* Disk=Cast<UDepotProfile>(UGameplayStatics::LoadGameFromSlot(Slot,0)); Check(Disk&&FMath::IsNearlyEqual(Disk->Sensitivity,1.3f),TEXT("sensitivity persists")); } StartRaid(true); P->SetActorLocation(FVector(-3100,-1800,100)); P->Controller->SetControlRotation(FRotator(-2,26,0)); ++QAStep; QAElapsed=0; break;
-    case 7: if(QAElapsed<5) break; { FString File=FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("Screenshots/QA-gameplay.png")); FScreenshotRequest::RequestScreenshot(File,false,false); } ++QAStep; QAElapsed=0; break;
+    case 7: if(QAElapsed<5) break; MessageTime=0; { FString File=FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("Screenshots/QA-gameplay.png")); FScreenshotRequest::RequestScreenshot(File,false,false); } ++QAStep; QAElapsed=0; break;
     case 8: QASum+=D; QAMax=FMath::Max(QAMax,double(D)); ++QASamples; if(QAElapsed>12) { UE_LOG(LogAshgate,Display,TEXT("QA PERFORMANCE samples=%d mean=%.2fms fps=%.1f worst=%.2fms / viewport-dependent, warm-up excluded"),QASamples,QASum*1000/QASamples,QASamples/QASum,QAMax*1000); P->Inspect(); ++QAStep; QAElapsed=0; } break;
     case 9: if(QAElapsed<2.8) break; FScreenshotRequest::RequestScreenshot(FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("Screenshots/QA-inspect.png")),false,false); ++QAStep; QAElapsed=0; break;
-    case 10: if(QAElapsed<3) break; UE_LOG(LogAshgate,Display,TEXT("QA COMPLETE failures=%d worldtype=%d"),QAFailures,int32(GetWorld()->WorldType)); ++QAStep;
+    case 10: if(QAElapsed<3) break; P->Aim(); ++QAStep; QAElapsed=0; break;
+    case 11: if(QAElapsed<3) break; FScreenshotRequest::RequestScreenshot(FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("Screenshots/QA-ADS.png")),false,false); ++QAStep; QAElapsed=0; break;
+    case 12: if(QAElapsed<3) break; P->UnAim(); P->SetActorLocation(FVector(-1100,0,100)); P->Controller->SetControlRotation(FRotator(0,20,0)); ++QAStep; QAElapsed=0; break;
+    case 13: if(QAElapsed<5) break; FScreenshotRequest::RequestScreenshot(FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("Screenshots/QA-interior.png")),false,false); ++QAStep; QAElapsed=0; break;
+    case 14: if(QAElapsed<3) break; if(FParse::Param(FCommandLine::Get(),TEXT("AshgateArtPreview"))) { UE_LOG(LogAshgate,Display,TEXT("ART PREVIEW COMPLETE / no gameplay assertions")); } else { UE_LOG(LogAshgate,Display,TEXT("QA COMPLETE failures=%d worldtype=%d"),QAFailures,int32(GetWorld()->WorldType)); } ++QAStep;
 #if WITH_EDITOR
         if(GetWorld()->WorldType==EWorldType::PIE) { GEditor->RequestEndPlayMap(); FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float) { GEditor->Exec(GEditor->GetEditorWorldContext().World(),TEXT("QUIT_EDITOR")); return false; }),3.f); break; }
 #endif

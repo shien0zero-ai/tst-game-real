@@ -1,0 +1,122 @@
+[
+  {
+    "id": "industrial_storage_cart",
+    "name": "Industrial Storage Cart",
+    "authors": {
+      "Jule Bielitz": "All"
+    },
+    "license": "CC0-1.0",
+    "license_url": "https://polyhaven.com/license",
+    "source": "https://polyhaven.com/a/industrial_storage_cart",
+    "resolution": "2k",
+    "gltf_sha256": "9c00d2b50fa901d99c36b00045d276324a9a0fdd1adb495bccee324338e4e0d2",
+    "files": [
+      {
+        "file": "textures/industrial_storage_cart_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_storage_cart/industrial_storage_cart_nor_gl_2k.jpg",
+        "sha256": "2fd85dc7a89719368e69b259a365b6c2814a9034f28bae0e8f066186fe02b0ad",
+        "bytes": 2344898
+      },
+      {
+        "file": "textures/industrial_storage_cart_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_storage_cart/industrial_storage_cart_diff_2k.jpg",
+        "sha256": "5fe0db42ab40f00825451ec5462ac1e15640126f7d7d8abfb57fa840770d9f92",
+        "bytes": 2116931
+      },
+      {
+        "file": "textures/industrial_storage_cart_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_storage_cart/industrial_storage_cart_arm_2k.jpg",
+        "sha256": "a0d8a23a499314d3e5227620a3f6df45eaff4fb29b71908abea1beb260d741c2",
+        "bytes": 3001625
+      },
+      {
+        "file": "industrial_storage_cart.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/industrial_storage_cart/industrial_storage_cart.bin",
+        "sha256": "ae46bc3aceda8234515054b3b4595db14e7eb72148100b5c2cafe1de7393410c",
+        "bytes": 664580
+      }
+    ]
+  },
+  {
+    "id": "steel_frame_shelves_02",
+    "name": "Steel Frame Shelves 02",
+    "authors": {
+      "James Ray Cock": "All"
+    },
+    "license": "CC0-1.0",
+    "license_url": "https://polyhaven.com/license",
+    "source": "https://polyhaven.com/a/steel_frame_shelves_02",
+    "resolution": "2k",
+    "gltf_sha256": "ab61a90fbfe2d813467ae3353f653d2197bd2b752cf4dda73941ff6bff472d62",
+    "files": [
+      {
+        "file": "steel_frame_shelves_02.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/steel_frame_shelves_02/steel_frame_shelves_02.bin",
+        "sha256": "bcfe8e37632961b13f7ac845f7f2505181c394e7bd356c123a0ef7706aabd70d",
+        "bytes": 142344
+      },
+      {
+        "file": "textures/steel_frame_shelves_02_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/steel_frame_shelves_02/steel_frame_shelves_02_nor_gl_2k.jpg",
+        "sha256": "316326876b1265a470301699d6729b4118c844c91a8c52e527e44138930e7fce",
+        "bytes": 245087
+      },
+      {
+        "file": "textures/steel_frame_shelves_02_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/steel_frame_shelves_02/steel_frame_shelves_02_arm_2k.jpg",
+        "sha256": "3481eb9f8839fabaabec0a7a83b05684940475d2f09f00b7901137e5a5687ac9",
+        "bytes": 665413
+      },
+      {
+        "file": "textures/steel_frame_shelves_02_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/steel_frame_shelves_02/steel_frame_shelves_02_diff_2k.jpg",
+        "sha256": "e953ee6efb0d858502aa5dbb50b7fed91d1df49873b20958fe0ceb818c1da3eb",
+        "bytes": 466475
+      }
+    ]
+  },
+  {
+    "id": "industrial_caged_sconce",
+    "name": "Industrial Caged Sconce",
+    "authors": {
+      "Ulan Cabanilla": "All"
+    },
+    "license": "CC0-1.0",
+    "license_url": "https://polyhaven.com/license",
+    "source": "https://polyhaven.com/a/industrial_caged_sconce",
+    "resolution": "2k",
+    "gltf_sha256": "9b9c5354b38b9d6158ed1da1fe5735a9a85fbf8c802947a617f49989c3403e3b",
+    "files": [
+      {
+        "file": "textures/industrial_caged_sconce_emissive_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_caged_sconce/industrial_caged_sconce_emissive_2k.jpg",
+        "sha256": "f7e5d88c32d09dadf18ea5f48f4ca74020349eeba08702565596a5ad219f458b",
+        "bytes": 153520
+      },
+      {
+        "file": "textures/industrial_caged_sconce_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_caged_sconce/industrial_caged_sconce_nor_gl_2k.jpg",
+        "sha256": "42fd31dca0a8e61ae2b746d1abeffd849a8a4263fc5b5003844d91dc0b9c01d4",
+        "bytes": 2506015
+      },
+      {
+        "file": "textures/industrial_caged_sconce_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_caged_sconce/industrial_caged_sconce_diff_2k.jpg",
+        "sha256": "503f8637f45ebd4edb332b6fe70599fbc5d8eaadf1497d572ff79aa35d842506",
+        "bytes": 2158194
+      },
+      {
+        "file": "textures/industrial_caged_sconce_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/industrial_caged_sconce/industrial_caged_sconce_arm_2k.jpg",
+        "sha256": "3c525ea3c3ad9ec2bcdc59b267837f580cd1825da99734e922a1bde2ad1c5d27",
+        "bytes": 2657051
+      },
+      {
+        "file": "industrial_caged_sconce.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/industrial_caged_sconce/industrial_caged_sconce.bin",
+        "sha256": "fc14f0b5210c1de70ac25e535b676fb1e74e0c10c1901f09992b038f2139ab2a",
+        "bytes": 949472
+      }
+    ]
+  }
+]

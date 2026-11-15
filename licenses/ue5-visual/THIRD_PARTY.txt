@@ -1,0 +1,21 @@
+ASHGATE UE5 visual update - third-party asset credits
+
+Powered by Poly Haven. Assets licensed CC0-1.0: https://polyhaven.com/license
+
+Industrial Storage Cart / Jule Bielitz
+https://polyhaven.com/a/industrial_storage_cart
+2k glTF, converted to Unreal static mesh; original PBR maps retained.
+
+Steel Frame Shelves 02 / James Ray Cock
+https://polyhaven.com/a/steel_frame_shelves_02
+2k glTF, converted to Unreal static mesh; original PBR maps retained.
+
+Industrial Caged Sconce / Ulan Cabanilla
+https://polyhaven.com/a/industrial_caged_sconce
+2k glTF, converted to Unreal static mesh; original PBR maps retained.
+
+First-person arms: derived from existing Military tactical suit (LowPolyGameReady) by DanlyVostok1799danly, CC BY 4.0.
+Existing credits and source references: licenses/raid/THIRD_PARTY.txt.
+Modifications: bake attributed aim_idle pose from existing combined rig; isolate left/right forearm and hand triangles, preserve authored UV/normals, restore source-resolution maps from the verified original GLB, place relative to M1911.
+Aim animation attribution and rig credits are retained in licenses/raid/THIRD_PARTY.txt. No new full-body mesh license is claimed.
+M1911 credits: licenses/models/M1911.txt.

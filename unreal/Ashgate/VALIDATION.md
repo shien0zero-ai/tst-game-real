@@ -1,4 +1,33 @@
-# ローカル検証結果 — 2026-11-12
+# ローカル検証結果 — 2026-11-16 見た目更新
+
+Bodycamの方針を取り下げ、通常のリアル寄りFPSへ変更。両手・前腕のモデル、元解像度の材質、2Kの棚・台車・照明、建物の扉枠・基礎・鉄骨・局所照明と三軸PBR投影を追加しました。
+
+| 最終成果物 | 結果 |
+|---|---|
+| Win64 Development Editor | ビルド成功 |
+| Win64 Development Build/Cook/Stage/Archive | UAT終了コード0 |
+| 実PIE (worldtype=3) | 29 PASS / 0 FAIL、終了コード0 |
+| Windows配布版 (worldtype=1) | 29 PASS / 0 FAIL、終了コード0 |
+| GPU | D3D12 RTX 5080 |
+| 材質コンパイル失敗 / invalid ShaderMap / Fatal error | 最終PIE・配布版とも0 |
+
+MSVC 14.52.37029（格納フォルダー14.52.37025）、Windows SDK 10.0.26100.0。推奨より新しいMSVCの警告は残ります。既知のエンジンC4864、起動時スモークテストを抑制したりエンジンを改造したりしていません。最終PIEのCondition failedは19行、配布版は0行です。起動時の条件失敗が解明されたという意味ではありません。
+
+29項目は移動・射撃・ADS・リロード・治療・バッグ・回収・射線遮蔽・敵・出撃時の保存・脱出・売却・装備喪失・感度保存を検証します。今回の最終PIEと配布版QAは、通常操作との干渉を避けるためRenderOffscreenを使用し、D3D12描画とスクリーンショットを維持しました。
+
+公開ツールは最終ZIPの整合性を確認し、新しい一時フォルダーに展開したルートのAshgate.exeを起動してから公開します。本番セーブ名・既定解像度・出撃ボタンを含む16入力時点と終了確認を検証し、不合格なら公開しません。この確認結果はRelease説明とローカルSaved/ZIPInput.log、ZIPInput-console.txtに残ります。既存の配布フォルダーやユーザーのセーブを検証には使いません。
+
+[通常表示](../../docs/screenshots/ue5-visual-gameplay.png) / [武器確認と両手](../../docs/screenshots/ue5-visual-inspect.png) / [ADS](../../docs/screenshots/ue5-visual-ads.png) / [倉庫内部](../../docs/screenshots/ue5-visual-interior.png) / [検証抜粋](../../docs/ue5-visual-validation.txt)
+
+配布版の撮影サイズは1600×900。固定視点・ウォームアップ後12秒のTick間隔は QA PERFORMANCE samples=2091 mean=4.79ms fps=208.9 worst=6.58ms / viewport-dependent, warm-up excluded。オフスクリーンの短時間計測で、表示同期・入力遅延・戦闘時の全マップ性能を表すものではありません。内部アップスケール解像度は別途計測していません。
+
+画面で手袋・銃・追加小物・屋内照明の表示を確認しました。手指の専用リロードアニメーション・IK、支持手の細かな密着、建物全体の専用モデル化、配置と汚れの密度、警備員の握りとNavMeshは改善項目です。すべての物体が銃と同じ精密さへ到達したという意味ではなく、方向を変えた最初の試作です。追加インストール・Godot版や既存セーブ・エンジン設定の変更はありません。
+
+以下は旧版の履歴で、旧版の性能値・見た目評価は今回の版の結果ではありません。
+
+---
+
+## 過去の検証記録 — 2026-11-12
 
 Windows本体、UE5 5.8.4、Ryzen 9 9950X3D、RTX 5080、約32GB RAM。エンジン・Godot版・素材原本の改造、追加インストール、既知の警告・テストの抑制は行っていません。
 

@@ -1,0 +1,99 @@
+
+=== VisualBuild ===
+Using Visual Studio 14.52.37029 toolchain (C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.52.37025) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Result: Succeeded
+
+=== PIE-QA ===
+[2026.11.15-15.35.33:537][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.15-15.35.33:538][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.15-15.35.33:572][  0]LogRHI: RHI Adapter Info:
+[2026.11.15-15.35.41:642][  1]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_QA; world type 3
+[2026.11.15-15.35.42:937][116]LogAshgate: Display: QA PASS: world population
+[2026.11.15-15.35.42:938][116]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=2/84/4 active=0
+[2026.11.15-15.35.45:972][478]LogAshgate: Display: QA PASS: character movement with world collision
+[2026.11.15-15.35.45:972][478]LogAshgate: Display: QA PASS: inspect starts
+[2026.11.15-15.35.45:972][478]LogAshgate: Display: QA PASS: ADS cancels inspect
+[2026.11.15-15.35.45:972][478]LogAshgate: Display: QA PASS: single shot consumes one round
+[2026.11.15-15.35.45:972][478]LogAshgate: Display: QA PASS: reload cancels inspect
+[2026.11.15-15.35.47:972][718]LogAshgate: Display: QA PASS: reload completes
+[2026.11.15-15.35.47:972][718]LogAshgate: Display: QA PASS: damage cancels heal without consuming kit
+[2026.11.15-15.35.50:973][ 67]LogAshgate: Display: QA PASS: heal completes and consumes kit
+[2026.11.15-15.35.50:974][ 67]LogAshgate: Display: QA PASS: Esc closes bag without pausing
+[2026.11.15-15.35.50:974][ 67]LogAshgate: Display: RETURN success=0 practice=1 reason=QA practice complete
+[2026.11.15-15.35.50:975][ 67]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.15-15.35.50:975][ 67]LogAshgate: Display: QA PASS: deploy debits stash before gameplay
+[2026.11.15-15.35.50:979][ 67]LogAshgate: Display: QA PASS: active raid debit persisted / no restart duplication
+[2026.11.15-15.35.50:979][ 67]LogAshgate: Display: QA PASS: loot targeting uses a visibility ray
+[2026.11.15-15.35.50:979][ 67]LogAshgate: Display: QA PASS: E interaction recovers a case once
+[2026.11.15-15.35.50:979][ 67]LogAshgate: Display: QA PASS: searched case cannot duplicate items
+[2026.11.15-15.35.50:979][ 67]LogAshgate: Display: QA PASS: full bag leaves case unconsumed
+[2026.11.15-15.35.50:980][ 67]LogAshgate: Display: QA PASS: wall blocks hitscan damage
+[2026.11.15-15.35.50:980][ 67]LogAshgate: Display: QA PASS: gunshot alerts nearby guard through cover
+[2026.11.15-15.35.50:980][ 67]LogAshgate: Display: QA PASS: wall blocks guard firing line of sight
+[2026.11.15-15.35.50:980][ 67]LogAshgate: Display: QA PASS: unobstructed hitscan damages guard
+[2026.11.15-15.35.50:980][ 67]LogAshgate: Display: QA PASS: guard fires when player is visible
+[2026.11.15-15.35.50:983][ 67]LogAshgate: Display: QA PASS: guard dies after lethal hits
+[2026.11.15-15.35.50:983][ 67]LogAshgate: Display: QA PASS: dead guard loot recoverable
+[2026.11.15-15.35.53:976][419]LogAshgate: Display: QA PASS: extraction progresses inside zone
+[2026.11.15-15.35.55:998][643]LogAshgate: Display: QA PASS: leaving zone resets countdown
+[2026.11.15-15.36.01:945][340]LogAshgate: Display: RETURN success=1 practice=0 reason=EXTRACTED / +300 CR / equipment secured
+[2026.11.15-15.36.02:993][465]LogAshgate: Display: QA PASS: extraction returns equipment and loot / reward once
+[2026.11.15-15.36.02:993][465]LogAshgate: Display: MENU action row=5 phase=base paused=0
+[2026.11.15-15.36.02:993][465]LogAshgate: Display: QA PASS: stash sale
+[2026.11.15-15.36.02:993][465]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.15-15.36.02:997][465]LogAshgate: Display: RETURN success=0 practice=0 reason=QA death
+[2026.11.15-15.36.02:997][465]LogAshgate: Display: QA PASS: failed raid loses only carried equipment
+[2026.11.15-15.36.03:005][465]LogAshgate: Display: QA PASS: sensitivity persists
+[2026.11.15-15.36.03:005][465]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=1/49/3 active=0
+[2026.11.15-15.36.19:999][433]LogAshgate: Display: QA PERFORMANCE samples=1201 mean=8.33ms fps=120.0 worst=8.48ms / viewport-dependent, warm-up excluded
+[2026.11.15-15.36.39:816][782]LogAshgate: Display: QA COMPLETE failures=0 worldtype=3
+
+=== PackagedQA ===
+[2026.11.15-15.37.26:442][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.15-15.37.26:442][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.15-15.37.26:573][  0]LogRHI: RHI Adapter Info:
+[2026.11.15-15.37.27:588][  0]LogAshgate: Display: READY: 96x88m depot, 13 cases, 8 guards; save slot AshgateUE5_QA; world type 1
+[2026.11.15-15.37.29:613][334]LogAshgate: Display: QA PASS: world population
+[2026.11.15-15.37.29:614][334]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=2/84/4 active=0
+[2026.11.15-15.37.32:619][940]LogAshgate: Display: QA PASS: character movement with world collision
+[2026.11.15-15.37.32:619][940]LogAshgate: Display: QA PASS: inspect starts
+[2026.11.15-15.37.32:619][940]LogAshgate: Display: QA PASS: ADS cancels inspect
+[2026.11.15-15.37.32:619][940]LogAshgate: Display: QA PASS: single shot consumes one round
+[2026.11.15-15.37.32:619][940]LogAshgate: Display: QA PASS: reload cancels inspect
+[2026.11.15-15.37.34:620][347]LogAshgate: Display: QA PASS: reload completes
+[2026.11.15-15.37.34:620][347]LogAshgate: Display: QA PASS: damage cancels heal without consuming kit
+[2026.11.15-15.37.37:621][977]LogAshgate: Display: QA PASS: heal completes and consumes kit
+[2026.11.15-15.37.37:621][977]LogAshgate: Display: QA PASS: Esc closes bag without pausing
+[2026.11.15-15.37.37:621][977]LogAshgate: Display: RETURN success=0 practice=1 reason=QA practice complete
+[2026.11.15-15.37.37:623][977]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.15-15.37.37:623][977]LogAshgate: Display: QA PASS: deploy debits stash before gameplay
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: active raid debit persisted / no restart duplication
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: loot targeting uses a visibility ray
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: E interaction recovers a case once
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: searched case cannot duplicate items
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: full bag leaves case unconsumed
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: wall blocks hitscan damage
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: gunshot alerts nearby guard through cover
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: wall blocks guard firing line of sight
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: unobstructed hitscan damages guard
+[2026.11.15-15.37.37:630][977]LogAshgate: Display: QA PASS: guard fires when player is visible
+[2026.11.15-15.37.37:631][977]LogAshgate: Display: QA PASS: guard dies after lethal hits
+[2026.11.15-15.37.37:631][977]LogAshgate: Display: QA PASS: dead guard loot recoverable
+[2026.11.15-15.37.40:624][677]LogAshgate: Display: QA PASS: extraction progresses inside zone
+[2026.11.15-15.37.42:626][140]LogAshgate: Display: QA PASS: leaving zone resets countdown
+[2026.11.15-15.37.48:625][540]LogAshgate: Display: RETURN success=1 practice=0 reason=EXTRACTED / +300 CR / equipment secured
+[2026.11.15-15.37.49:627][798]LogAshgate: Display: QA PASS: extraction returns equipment and loot / reward once
+[2026.11.15-15.37.49:627][798]LogAshgate: Display: MENU action row=5 phase=base paused=0
+[2026.11.15-15.37.49:627][798]LogAshgate: Display: QA PASS: stash sale
+[2026.11.15-15.37.49:629][798]LogAshgate: Display: DEPLOY practice=0 rounds=35 kits=1 stash=1/49/3 active=1
+[2026.11.15-15.37.49:629][798]LogAshgate: Display: RETURN success=0 practice=0 reason=QA death
+[2026.11.15-15.37.49:629][798]LogAshgate: Display: QA PASS: failed raid loses only carried equipment
+[2026.11.15-15.37.49:630][798]LogAshgate: Display: QA PASS: sensitivity persists
+[2026.11.15-15.37.49:630][798]LogAshgate: Display: DEPLOY practice=1 rounds=35 kits=1 stash=1/49/3 active=0
+[2026.11.15-15.38.06:632][291]LogAshgate: Display: QA PERFORMANCE samples=2091 mean=4.79ms fps=208.9 worst=6.58ms / viewport-dependent, warm-up excluded
+[2026.11.15-15.38.26:444][309]LogAshgate: Display: QA COMPLETE failures=0 worldtype=1
+
+=== Windows packaging ===
+Using Visual Studio 14.52.37029 toolchain (C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.52.37025) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+BUILD SUCCESSFUL
+AutomationTool exiting with ExitCode=0 (Success)

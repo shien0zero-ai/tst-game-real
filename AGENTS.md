@@ -12,3 +12,8 @@
 - UEの生成物・ログはGitに含めない。原作者のクレジットと素材変換の記録を保つ。
 - UE5版はEditorビルド、実際のPIE、Windowsパッケージで確認する。既知のMSVC警告や起動スモークテストを抑制したりエンジンを直接変更しない。
 - まとまった検証済み成果は同じリポジトリのmainへコミット・pushする。
+
+## Visual direction (2026-11-15 user request)
+- Stop the Bodycam direction. Use a conventional, readable FPS camera and realistic objects consistent with the existing M1911.
+- Add modeled first-person hands/forearms, retain asset attribution, and verify the grip in actual gameplay screenshots.
+- This supersedes the earlier Bodycam visual goal, while the extraction gameplay and UE5/Godot project separation remain.
