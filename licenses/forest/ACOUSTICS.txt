@@ -1,0 +1,21 @@
+FOREST ACOUSTICS REVISION
+
+The Free Firearm Sound Library, CC0-1.0.
+Creators: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney.
+Public mirror: https://github.com/buddingmonkey/FreeFirearmsSFXLibrary
+Pinned revision: beb2f4041f3d6740fa0aeaf0e71159bd65a78c1b
+Sources: Master Tracks/Walther PPQ/X_39.wav (near), X_31.wav (mid).
+Metadata: Prepared Master Sheet.csv, X_39P.wav / X_31P.wav rows.
+Source license: https://github.com/buddingmonkey/FreeFirearmsSFXLibrary/blob/beb2f4041f3d6740fa0aeaf0e71159bd65a78c1b/LICENSE
+Derived: woods_close_0/1/2, woods_far_0/1, woods_tail_0/1.
+Edits: excerpts, 192k->48k windowed-sinc anti-alias resampling, 25Hz high-pass,
+restrained gain/envelopes. No oscillator, saturation, pitch shift or synthetic reverb.
+Hashes and source limits: SourceArt/Acoustics/manifest.json.
+
+woods_action: quiet excerpt of existing slide_release.wav, originally
+gunreload1.wav by SpringySpringo, CC0; see AUDIO.txt. Airsoft proxy, not a
+P38-specific action recording. Synthetic case_soft is no longer triggered.
+
+Hand-fit geometry derives from the existing CC0 anatomical arms and keeps
+the existing leather/fabric materials: see VIEWMODEL.txt and FIELD-FINISH.txt.
+Original meshes, audio, source textures and prior releases remain intact.

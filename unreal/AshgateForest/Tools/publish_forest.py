@@ -18,7 +18,7 @@ def digest(path):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--publish",action="store_true",help="Create a GitHub Release and upload the ZIP and SHA256")
-    p.add_argument("--tag",default="forest-fieldfinish-2026-11-16")
+    p.add_argument("--tag",default="forest-acoustics-2026-11-17")
     args=p.parse_args()
     commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
     status=subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True)
@@ -43,7 +43,7 @@ def main():
             z.write(file,prefix+rel.as_posix())
         for file in sorted((ROOT/"licenses").rglob("*.txt")):
             z.write(file,prefix+"licenses/"+file.relative_to(ROOT/"licenses").as_posix())
-        for name in ("README.md","ART-NOTES.md","VALIDATION.md"):
+        for name in ("README.md","ART-NOTES.md","VALIDATION.md","RELEASE-NOTES.md"):
             if (PROJECT/name).is_file(): z.write(PROJECT/name,prefix+name)
         z.writestr(prefix+"build-info.json",json.dumps(info,ensure_ascii=False,indent=2)+"\n")
     with zipfile.ZipFile(archive) as z:
@@ -77,7 +77,7 @@ def main():
     try: release=api("GET","/releases/tags/"+args.tag)
     except urllib.error.HTTPError as e:
         if e.code!=404: raise RuntimeError("Release lookup HTTP "+str(e.code)) from None
-        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / FOREST STUDY - Field-finish pistol realism","body":"UE5 5.8.4 Windows x64 forest demo - field-finish service pistol. Separate satin/blued steel, polymer grip, rubber wrap and mechanical controls; 4K PBR with fine roughness/normal detail, sparse scuffs, restrained edge wear and cavity dirt. Rounded barrel, muzzle crown/bore depth, finer glove finish, close-range shadow flags and more natural hip/ADS framing. Daylight and shaded views validated.\n\nForest lighting, terrain, vegetation, ambience, footsteps and gunfire are unchanged. F3 preserves the original M1911 alongside the default SERVICE pistol. Previous games, models, releases and saves remain intact.\n\nExtract the entire ZIP and run AshgateForest.exe. WASD move, Shift run, C crouch, Space jump, LMB fire, RMB aim, R reload, N inspect, F1 help, F2 scenery, F3 switch pistol, Esc pause/quit. Editor, real PIE and packaged Windows checks validated, including cooked material sections and wear UVs. The exact ZIP is extracted and passes native input verification before upload. Credits and validation limits are included; reload remains procedural."+" Source commit: "+commit,"prerelease":True,"draft":False})
+        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / FOREST STUDY - Forest acoustics and grip","body":(PROJECT/"RELEASE-NOTES.md").read_text(encoding="utf-8")+"\nSource commit: "+commit,"prerelease":True,"draft":False})
     if release.get("target_commitish") not in (commit,"main"):
         raise RuntimeError("Existing release points to another source; choose a new tag")
     existing={a["name"] for a in release.get("assets",[])}

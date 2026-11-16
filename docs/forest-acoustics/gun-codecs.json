@@ -1,0 +1,42 @@
+{
+  "woods_action": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 0.11999999731779099
+  },
+  "woods_close_0": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 1.600000023841858
+  },
+  "woods_close_1": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 1.600000023841858
+  },
+  "woods_close_2": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 1.600000023841858
+  },
+  "woods_far_0": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 2.799999952316284
+  },
+  "woods_far_1": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 2.799999952316284
+  },
+  "woods_tail_0": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 2.6500000953674316
+  },
+  "woods_tail_1": {
+    "before": "<SoundAssetCompressionType.BINK_AUDIO: 0>",
+    "after": "<SoundAssetCompressionType.PCM: 2>",
+    "seconds": 2.6500000953674316
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "rate": 48000,
+  "channels": 8,
+  "seconds": 25.984,
+  "clipped_samples": 0,
+  "events": [
+    {
+      "event": 0,
+      "distance_m": 0.0,
+      "blocked": false,
+      "rms_dbfs": -51.209340322926266,
+      "peak_dbfs": -12.947871462733527
+    },
+    {
+      "event": 1,
+      "distance_m": 10.0,
+      "blocked": false,
+      "rms_dbfs": -52.09164681018859,
+      "peak_dbfs": -11.354444159928045
+    },
+    {
+      "event": 2,
+      "distance_m": 50.0,
+      "blocked": false,
+      "rms_dbfs": -57.47547585046961,
+      "peak_dbfs": -20.974611265562384
+    },
+    {
+      "event": 3,
+      "distance_m": 100.0,
+      "blocked": false,
+      "rms_dbfs": -65.1556398419207,
+      "peak_dbfs": -26.83362223646136
+    },
+    {
+      "event": 4,
+      "distance_m": 50.0,
+      "blocked": true,
+      "rms_dbfs": -68.89010129443275,
+      "peak_dbfs": -32.57918419574472
+    }
+  ],
+  "checks": {
+    "nonzero_audio": true,
+    "no_mix_clipping": true,
+    "10m_louder_than_50m": true,
+    "50m_louder_than_100m": true,
+    "wall_reduces_50m_level": true
+  },
+  "note": "RMS across all rendered channels, first 650ms. Includes near/far asset blend; not an isolated filter frequency-response test. The original recording can contain full-scale samples even when rendered mix is unclipped."
+}

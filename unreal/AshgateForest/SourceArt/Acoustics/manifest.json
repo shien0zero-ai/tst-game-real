@@ -1,0 +1,87 @@
+{
+  "library": "The Free Firearm Sound Library",
+  "license": "CC0-1.0",
+  "commit": "beb2f4041f3d6740fa0aeaf0e71159bd65a78c1b",
+  "sources": {
+    "X_39.wav": {
+      "sha256": "5d13e71a119f9836d3f2492d36653eb3b555130c239f65a5e25acb911b0e0c0b",
+      "url": "https://raw.githubusercontent.com/buddingmonkey/FreeFirearmsSFXLibrary/beb2f4041f3d6740fa0aeaf0e71159bd65a78c1b/Master%20Tracks/Walther%20PPQ/X_39.wav",
+      "rate": 192000,
+      "clip_samples": 18,
+      "starts": [
+        1.402,
+        6.44,
+        10.656
+      ]
+    },
+    "X_31.wav": {
+      "sha256": "125f40a55eb4c16fc133c12370415c7901ca10cf69e3d8103415463c21743a41",
+      "url": "https://raw.githubusercontent.com/buddingmonkey/FreeFirearmsSFXLibrary/beb2f4041f3d6740fa0aeaf0e71159bd65a78c1b/Master%20Tracks/Walther%20PPQ/X_31.wav",
+      "rate": 192000,
+      "clip_samples": 15,
+      "starts": [
+        1.08,
+        5.238
+      ]
+    }
+  },
+  "outputs": {
+    "woods_close_0": {
+      "duration": 1.6,
+      "channels": 1,
+      "peak": 0.82,
+      "clip_samples": 0,
+      "sha256": "604dca107b2f69a22ee9129548832d64c989f2559ad2d443383a40e8c9a76988"
+    },
+    "woods_close_1": {
+      "duration": 1.6,
+      "channels": 1,
+      "peak": 0.82,
+      "clip_samples": 0,
+      "sha256": "836987e32daa95f9d8a6a29dca565c8ab1ed70bf8b616af9895c2a1063374789"
+    },
+    "woods_close_2": {
+      "duration": 1.6,
+      "channels": 1,
+      "peak": 0.82,
+      "clip_samples": 0,
+      "sha256": "86b771403a26a567beb7a936c25996f2ddf790d96aef82f449038d544203e4a2"
+    },
+    "woods_far_0": {
+      "duration": 2.8,
+      "channels": 1,
+      "peak": 0.82,
+      "clip_samples": 0,
+      "sha256": "410dc1f8c307d753e21e9a64f9018fad6cca207b2a721677623cc8edf0b5d42a"
+    },
+    "woods_tail_0": {
+      "duration": 2.65,
+      "channels": 2,
+      "peak": 0.18569137156009674,
+      "clip_samples": 0,
+      "sha256": "2d7abbef12614e5fbf5b64bc1d48205f81c6ed6b86237192fd2f5b2ea7968900"
+    },
+    "woods_far_1": {
+      "duration": 2.8,
+      "channels": 1,
+      "peak": 0.82,
+      "clip_samples": 0,
+      "sha256": "3d9c948999a7c1704c74bfbd033f325f5eb50b48e6b9ccc78c5a73b62dc9a711"
+    },
+    "woods_tail_1": {
+      "duration": 2.65,
+      "channels": 2,
+      "peak": 0.16519898176193237,
+      "clip_samples": 0,
+      "sha256": "8e41b01e42153004f50ec8faa9dcbced8a30278bfd653a34ab88ccfe8b85e69b"
+    },
+    "woods_action": {
+      "duration": 0.12,
+      "channels": 1,
+      "peak": 0.08857046067714691,
+      "clip_samples": 0,
+      "sha256": "f4b768654aeaa1e02d585e0a940aa60c9860edc72bd3ba98119399f8614e128b"
+    }
+  },
+  "limits": "PPQ 9mm is a recording proxy for the service pistol, not a P38-specific recording. Raw near source has 18 clipped sample values across both channels; selected takes have 0, 3, and 1. Previous 1911 near source has 444 at 96kHz; its original assets remain for the M1911. Professional dry shooter-perspective, distant, action and ground-specific casing recordings remain needed for final production."
+}

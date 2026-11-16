@@ -22,6 +22,10 @@ public:
  UPROPERTY() TObjectPtr<UAudioComponent> WindAudio;
  UPROPERTY() TObjectPtr<UAudioComponent> BirdsAudio;
  UPROPERTY() TObjectPtr<USoundAttenuation> GroundAttenuation;
+ UPROPERTY() TObjectPtr<USoundAttenuation> GunAttenuation;
+ UPROPERTY() TObjectPtr<USoundAttenuation> ReflectionAttenuation;
+ struct FEcho{FName Name;FVector Position;float Delay,Volume;bool Spatial;};TArray<FEcho> Echoes;
+ bool ForestAcousticProbe=false;void ConfigureGunAcoustics();void EmitGunshot(const FVector& At,bool Local,int32 Take);void UpdateGunAcoustics(float D);
  TMap<FName,int32> SoundEvents;TArray<float> CaseDelays;
  FVector LastFootPosition;float FootDistance=0,ActionSoundCooldown=0;int32 LastShot=-1,FootIndex=0;bool ReloadWasEmpty=false;
  void StartForestAudio();void Sound(const FName Name,float Volume=1.f,float Pitch=1.f);void Footstep(bool Landing=false);void UpdateFootsteps(float D);void SetAudioPaused(bool Value);
@@ -35,6 +39,8 @@ class AForestMode:public AGameModeBase {
 public:
  AForestMode();void BeginPlay() override;void Tick(float D) override;
  bool Paused=false,QuitConfirmation=false,QA=false,Preview=false;int32 Trees=0,Plants=0,Step=0,Failures=0,Frames=0;double Elapsed=0,Sum=0,Worst=0;FVector Previous;
+ double BenchmarkStart=0,BenchmarkLast=0;int32 BenchmarkSegment=-1;FString BenchmarkSamples;void BenchmarkTick();
+ double AcousticStart=0,AcousticRecordStart=0;int32 AcousticStage=0;void AcousticQATick();
  static float TrailY(float X);static float Height(float X,float Y);
  AForestPlayer* Player() const;void BuildForest();void PauseForest(bool Value);void ResetTrail();void Action(int32 Row);void Check(bool C,const TCHAR* N);void QATick(float D);void Shot(const TCHAR* Name);
 };

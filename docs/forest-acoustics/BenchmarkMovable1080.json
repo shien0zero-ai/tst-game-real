@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 1301,
+      "duration_s": 24.987616500999984,
+      "mean_fps": 52.06579026646796,
+      "mean_ms": 19.206469255188317,
+      "p95_ms": 21.776997,
+      "p99_ms": 22.931401,
+      "one_percent_low_fps": 43.007124722385285,
+      "mean_gpu_ms": 18.82642392159877,
+      "mean_game_ms": 1.2219118370484243,
+      "mean_render_ms": 19.205752757109916
+    },
+    "1": {
+      "frames": 1351,
+      "duration_s": 25.00432620300001,
+      "mean_fps": 54.03065009757824,
+      "mean_ms": 18.508013473723167,
+      "p95_ms": 19.9164,
+      "p99_ms": 21.706901,
+      "one_percent_low_fps": 44.78184649214995,
+      "mean_gpu_ms": 18.14779653145818,
+      "mean_game_ms": 1.1544547742413027,
+      "mean_render_ms": 18.507338397483345
+    },
+    "2": {
+      "frames": 1362,
+      "duration_s": 25.001876705999987,
+      "mean_fps": 54.47591058926966,
+      "mean_ms": 18.356737669603525,
+      "p95_ms": 21.230601,
+      "p99_ms": 21.993,
+      "one_percent_low_fps": 44.85256475487255,
+      "mean_gpu_ms": 17.967876198237885,
+      "mean_game_ms": 1.226661967694567,
+      "mean_render_ms": 18.355864815712188
+    }
+  },
+  "overall": {
+    "frames": 4014,
+    "duration_s": 74.99381940999982,
+    "mean_fps": 53.5244108325113,
+    "mean_ms": 18.683064128051818,
+    "p95_ms": 21.1966,
+    "p99_ms": 22.421602,
+    "one_percent_low_fps": 43.66387548217185,
+    "mean_gpu_ms": 18.306701050822124,
+    "mean_game_ms": 1.200819456900847,
+    "mean_render_ms": 18.68230851793722
+  },
+  "targets": {
+    "100": false,
+    "80": false,
+    "60": false
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

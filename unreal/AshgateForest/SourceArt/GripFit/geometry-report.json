@@ -1,0 +1,26 @@
+{
+  "right": {
+    "source": "SourceArt/Viewmodel/anatomical_right.glb",
+    "triangles": 3636,
+    "minimum_jacobian": 1.0,
+    "grip_rotation_degrees": -19.0,
+    "translation_cm": [
+      0,
+      0,
+      0
+    ],
+    "note": "Hand/finger shape is rigid; sleeves blend continuously. Static finger-pose and mesh-detail limits remain."
+  },
+  "left": {
+    "source": "SourceArt/Viewmodel/anatomical_left.glb",
+    "triangles": 3636,
+    "minimum_jacobian": 1.0,
+    "grip_rotation_degrees": -14.999999999999998,
+    "translation_cm": [
+      0,
+      0.6,
+      1.7999999999999998
+    ],
+    "note": "Hand/finger shape is rigid; sleeves blend continuously. Static finger-pose and mesh-detail limits remain."
+  }
+}
