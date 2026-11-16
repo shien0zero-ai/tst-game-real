@@ -1,10 +1,12 @@
-param([Parameter(Mandatory=$true)][string]$Executable,[Parameter(Mandatory=$true)][string]$LogPath)
+﻿param([Parameter(Mandatory=$true)][string]$Executable,[Parameter(Mandatory=$true)][string]$LogPath)
 $ErrorActionPreference='Stop'
 Add-Type @'
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
 public static class AshgateInput {
+ [DllImport("user32.dll")] public static extern IntPtr SetThreadDpiAwarenessContext(IntPtr context);
+ [DllImport("user32.dll")] public static extern uint GetDpiForWindow(IntPtr h);
  public delegate bool Callback(IntPtr h,IntPtr l);
  [StructLayout(LayoutKind.Sequential)] public struct Rect {public int Left,Top,Right,Bottom;}
  [StructLayout(LayoutKind.Sequential)] public struct Point {public int X,Y;}
@@ -32,6 +34,7 @@ public static class AshgateInput {
  }
 }
 '@
+[AshgateInput]::SetThreadDpiAwarenessContext([IntPtr](-4)) | Out-Null
 $oldHandle=[AshgateInput]::GetForegroundWindow()
 $oldPoint=New-Object AshgateInput+Point
 [AshgateInput]::GetCursorPos([ref]$oldPoint) | Out-Null
@@ -66,33 +69,35 @@ $nativeHandle=$p.Handle
 Start-Sleep -Seconds 8
 function Key([int]$Code,[int]$Hold=80) { [AshgateInput]::Key($handle,$Code,$true); Start-Sleep -Milliseconds $Hold; [AshgateInput]::Key($handle,$Code,$false); Start-Sleep -Milliseconds 150 }
 function Capture([string]$Name) { Write-Output ('INPUT STEP '+$Name); Key 0x78; Start-Sleep -Milliseconds 350 }
+function FocusGame {
+ if([AshgateInput]::GetForegroundWindow() -ne $handle){[AshgateInput]::ShowWindow($handle,9)|Out-Null;[AshgateInput]::SetForegroundWindow($handle)|Out-Null;Start-Sleep -Milliseconds 200}
+}
+function MouseDown {
+ FocusGame
+ $rect=New-Object AshgateInput+Rect;[AshgateInput]::GetClientRect($handle,[ref]$rect)|Out-Null
+ $point=New-Object AshgateInput+Point;$point.X=[int]($rect.Right/2);$point.Y=[int]($rect.Bottom/2);[AshgateInput]::ClientToScreen($handle,[ref]$point)|Out-Null
+ [AshgateInput]::SetCursorPos($point.X,$point.Y)|Out-Null;Start-Sleep -Milliseconds 50
+ [AshgateInput]::mouse_event(2,0,0,0,[UIntPtr]::Zero)
+}
+function MouseUp { [AshgateInput]::mouse_event(4,0,0,0,[UIntPtr]::Zero) }
 function Click([int]$Row) {
  $releaseBefore=@(Select-String -LiteralPath $LogPath -Pattern 'LogForest: Display: MENU row=').Count
- $rect=New-Object AshgateInput+Rect
- [AshgateInput]::GetClientRect($handle,[ref]$rect) | Out-Null
- $scale=($rect.Bottom-$rect.Top)/900.0
- $point=New-Object AshgateInput+Point
- $point.X=[int](300*$scale); $point.Y=[int]((273+$Row*60)*$scale)
- $clientX=$point.X; $clientY=$point.Y
- [AshgateInput]::ClientToScreen($handle,[ref]$point) | Out-Null
- [AshgateInput]::SetCursorPos($point.X,$point.Y) | Out-Null
- Start-Sleep -Milliseconds 150
- $packed=[IntPtr](($clientY -shl 16) -bor ($clientX -band 65535))
- for($attempt=0;$attempt -lt 3;$attempt++) {
-  [AshgateInput]::PostMessage($handle,0x200,[IntPtr]::Zero,$packed)|Out-Null
-  Start-Sleep -Milliseconds 200
-  [AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,$packed)|Out-Null; Start-Sleep -Milliseconds 250
-  [AshgateInput]::SetCursorPos($point.X,$point.Y)|Out-Null
-  [AshgateInput]::PostMessage($handle,0x200,[IntPtr]1,$packed)|Out-Null
-  Start-Sleep -Milliseconds 100
-  [AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,$packed)|Out-Null
-  Start-Sleep -Milliseconds 500
+ FocusGame
+ $rect=New-Object AshgateInput+Rect;[AshgateInput]::GetClientRect($handle,[ref]$rect)|Out-Null
+ $scale=($rect.Bottom-$rect.Top)/900.0;$point=New-Object AshgateInput+Point
+ $point.X=[int](300*$scale);$point.Y=[int]((273+$Row*60)*$scale)
+ [AshgateInput]::ClientToScreen($handle,[ref]$point)|Out-Null
+ Write-Output ('MENU INPUT row='+$Row+' client='+$rect.Right+'x'+$rect.Bottom+' dpi='+[AshgateInput]::GetDpiForWindow($handle))
+ for($attempt=0;$attempt -lt 3;$attempt++){
+  FocusGame;[AshgateInput]::SetCursorPos($point.X,$point.Y)|Out-Null;Start-Sleep -Milliseconds 200
+  [AshgateInput]::mouse_event(2,0,0,0,[UIntPtr]::Zero);Start-Sleep -Milliseconds 100
+  [AshgateInput]::mouse_event(4,0,0,0,[UIntPtr]::Zero);Start-Sleep -Milliseconds 500
   if(@(Select-String -LiteralPath $LogPath -Pattern 'LogForest: Display: MENU row=').Count -gt $releaseBefore){return}
  }
  throw ('Menu click was not acknowledged for row '+$Row)
 }
 # Focus transfer may deliver a real activation click; establish state via public UI.
-[AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+MouseUp
 [AshgateInput]::PostMessage($handle,0x205,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
 Key 0x1B
 Click 1
@@ -115,9 +120,9 @@ Capture 'inspect'
 [AshgateInput]::PostMessage($handle,0x204,[IntPtr]2,[IntPtr]::Zero)|Out-Null
 Start-Sleep -Milliseconds 250
 Capture 'ADS'
-[AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,[IntPtr]::Zero)|Out-Null
+MouseDown
 Start-Sleep -Milliseconds 100
-[AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+MouseUp
 Capture 'fire'
 [AshgateInput]::PostMessage($handle,0x205,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
 Key 0x52
@@ -126,9 +131,9 @@ Start-Sleep -Seconds 2
 Capture 'reload complete'
 # Empty the pistol at normal input cadence, click once empty, then reload.
 for($shotIndex=0;$shotIndex -lt ($capacity+1);$shotIndex++){
- [AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,[IntPtr]::Zero)|Out-Null
+ MouseDown
  Start-Sleep -Milliseconds 90
- [AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+ MouseUp
  Start-Sleep -Milliseconds 220
 }
 Key 0x52
@@ -138,9 +143,9 @@ Capture 'scenery view'
 Key 0x71
 Capture 'pistol equipped'
 Key 0x72
-[AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,[IntPtr]::Zero)|Out-Null
+MouseDown
 Start-Sleep -Milliseconds 100
-[AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+MouseUp
 Key 0x52
 Start-Sleep -Seconds 2
 Key 0x72
