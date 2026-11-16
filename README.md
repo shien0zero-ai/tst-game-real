@@ -140,3 +140,8 @@ python3 tools/build_windows.py --templates-dir /path/to/templates
 ```
 
 Windows用ビルドは64bit EXEにゲームデータを内蔵し、操作説明・ライセンスとともに `downloads/Ashgate-Depot04-Windows-x86_64.zip` にまとめます。開発用のForward+設定を保ち、配布版にはCompatibilityを指定します。
+
+
+## 独立したUE5森林探索デモ（2026-11-16）
+
+旧Godot版・DEPOT 04・既存配布物・セーブを保持したまま、[森林探索デモ](unreal/AshgateForest/README.md)を別プロジェクトとして追加。地形・植生・光と影・空気感を優先し、既存M1911を使用できます。[森林版の配布](https://github.com/shien0zero-ai/tst-game-real/releases/tag/forest-demo-2026-11-16)のAshgate-Forest-Windows-x64.zipを全展開し、AshgateForest.exeを起動してください。

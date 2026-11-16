@@ -1,0 +1,23 @@
+{
+  "destination": "Content/Forest/Meshes/pine_canopy.uasset",
+  "compression": "gzip",
+  "bytes": 125209342,
+  "sha256": "6ee0106c3d731ce6f1bb9348e9697e6a53420fdb287a16488e4fa29b903ebed7",
+  "parts": [
+    {
+      "file": "pine-6ee0106c3d73.part00",
+      "bytes": 47185920,
+      "sha256": "e5651c3bbb62a95fb9617586401e92d8c9ae7499641840240b7069ee1f170a98"
+    },
+    {
+      "file": "pine-6ee0106c3d73.part01",
+      "bytes": 47185920,
+      "sha256": "2dd4631d082d4d95b04762f510eff6d9e1709eb17ab0a0d6f102b0da632168d9"
+    },
+    {
+      "file": "pine-6ee0106c3d73.part02",
+      "bytes": 18880043,
+      "sha256": "52021b470608a21b38aadf98f40821cf2812cb59b15d17db4db42d04c10dfab5"
+    }
+  ]
+}

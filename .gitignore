@@ -25,3 +25,6 @@ unreal/**/*.slnx
 unreal/**/*.VC.db
 unreal/**/Build/
 unreal/**/Packaged/
+
+# Losslessly preserved in AshgateForest/SourceArt/Packed, restored by Tools/restore_assets.py
+unreal/AshgateForest/Content/Forest/Meshes/pine_canopy.uasset

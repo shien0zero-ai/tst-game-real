@@ -3,3 +3,7 @@ unreal/**/*.umap binary
 unreal/Ashgate/SourceArt/**/*.gltf -text
 unreal/Ashgate/SourceArt/**/*.bin binary
 unreal/Ashgate/SourceArt/**/*.glb binary
+unreal/AshgateForest/SourceArt/**/*.gltf -text
+unreal/AshgateForest/SourceArt/**/*.bin binary
+unreal/AshgateForest/SourceArt/**/*.glb binary
+unreal/AshgateForest/SourceArt/Packed/*.part binary

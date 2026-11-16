@@ -1,0 +1,53 @@
+
+=== PIE-QA ===
+[2026.11.16-05.25.58:595][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.16-05.25.58:596][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.16-05.25.58:649][  0]LogRHI: RHI Adapter Info:
+[2026.11.16-05.26.07:166][  1]LogForest: Display: READY trees=1178 plants=25605 terrain=256m worldtype=3 / prior games and saves untouched
+[2026.11.16-05.26.09:838][185]LogForest: Display: QA PASS: forest population
+[2026.11.16-05.26.09:838][185]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.16-05.26.09:838][185]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.16-05.26.09:838][185]LogForest: Display: QA PASS: M1911 and both arms loaded
+[2026.11.16-05.26.14:841][629]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.16-05.26.14:841][629]LogForest: Display: QA PASS: inspect starts
+[2026.11.16-05.26.14:841][629]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.16-05.26.14:841][629]LogForest: Display: SHOT ammo=6 impact=X=-5024.252 Y=-322.624 Z=345.778
+[2026.11.16-05.26.14:841][629]LogForest: Display: QA PASS: M1911 fire consumes one round
+[2026.11.16-05.26.14:841][629]LogForest: Display: QA PASS: reload starts
+[2026.11.16-05.26.17:849][883]LogForest: Display: QA PASS: reload completes
+[2026.11.16-05.26.20:950][153]LogForest: Display: QA PASS: ADS camera
+[2026.11.16-05.26.20:950][153]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.16-05.26.20:950][153]LogForest: Display: QA PASS: M1911 available again
+[2026.11.16-05.26.38:950][708]LogForest: Display: PERFORMANCE samples=783 mean=11.50ms fps=87.0 worst=124.94ms / fixed view, warm-up excluded
+[2026.11.16-05.26.55:980][255]LogForest: Display: QA COMPLETE failures=0 worldtype=3
+
+=== PackagedQA ===
+[2026.11.16-05.30.45:878][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.16-05.30.45:880][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.16-05.30.46:014][  0]LogRHI: RHI Adapter Info:
+[2026.11.16-05.30.47:299][  0]LogForest: Display: READY trees=1178 plants=25605 terrain=256m worldtype=1 / prior games and saves untouched
+[2026.11.16-05.30.52:028][120]LogForest: Display: QA PASS: forest population
+[2026.11.16-05.30.52:028][120]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.16-05.30.52:028][120]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.16-05.30.52:028][120]LogForest: Display: QA PASS: M1911 and both arms loaded
+[2026.11.16-05.30.57:085][435]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.16-05.30.57:085][435]LogForest: Display: QA PASS: inspect starts
+[2026.11.16-05.30.57:085][435]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.16-05.30.57:085][435]LogForest: Display: SHOT ammo=6 impact=X=-5019.833 Y=-321.685 Z=346.396
+[2026.11.16-05.30.57:085][435]LogForest: Display: QA PASS: M1911 fire consumes one round
+[2026.11.16-05.30.57:085][435]LogForest: Display: QA PASS: reload starts
+[2026.11.16-05.31.00:088][602]LogForest: Display: QA PASS: reload completes
+[2026.11.16-05.31.03:221][793]LogForest: Display: QA PASS: ADS camera
+[2026.11.16-05.31.03:221][793]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.16-05.31.03:221][793]LogForest: Display: QA PASS: M1911 available again
+[2026.11.16-05.31.22:463][979]LogForest: Display: PERFORMANCE samples=603 mean=15.12ms fps=66.1 worst=400.00ms / fixed view, warm-up excluded
+[2026.11.16-05.31.40:993][135]LogForest: Display: QA COMPLETE failures=0 worldtype=1
+
+=== Packaging ===
+Using Visual Studio 14.52.37029 toolchain (C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.52.37025) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+BUILD SUCCESSFUL
+AutomationTool exiting with ExitCode=0 (Success)
+
+=== Preservation / source integrity ===
+Prior Ashgate, Godot assets, scenes and export settings: git diff against 1198c3d is empty.
+Packed pine native asset: missing-file restoration tested in a fresh temporary folder; SHA256 identical to original.

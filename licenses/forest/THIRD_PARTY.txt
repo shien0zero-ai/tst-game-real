@@ -1,0 +1,47 @@
+ASHGATE FOREST - additional asset credits
+
+Powered by Poly Haven. Additional forest models and ground textures: CC0-1.0.
+License: https://polyhaven.com/license
+
+pine_tree_01 / Rob Tuytel, Rico Cilliers
+https://polyhaven.com/a/pine_tree_01
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+fir_tree_01 / Rob Tuytel, Rico Cilliers
+https://polyhaven.com/a/fir_tree_01
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+fir_sapling / Rob Tuytel, Rico Cilliers
+https://polyhaven.com/a/fir_sapling
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+fern_02 / Rob Tuytel, Rico Cilliers
+https://polyhaven.com/a/fern_02
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+grass_medium_01 / Rob Tuytel, Rico Cilliers
+https://polyhaven.com/a/grass_medium_01
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+rock_moss_set_01 / Kless Gyzen
+https://polyhaven.com/a/rock_moss_set_01
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+tree_stump_01 / Rob Tuytel
+https://polyhaven.com/a/tree_stump_01
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+dead_tree_trunk / Rob Tuytel
+https://polyhaven.com/a/dead_tree_trunk
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+forest_ground_04 / Rob Tuytel, Rico Cilliers
+https://polyhaven.com/a/forest_ground_04
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+rocky_trail / Amal Kumar
+https://polyhaven.com/a/rocky_trail
+Modifications: select individual mesh variants; remove display translations; retain UV/normals; convert to Unreal static meshes and PBR materials; instance and light in an authored procedural terrain.
+
+M1911: egorbelous / CC BY 4.0; see licenses/models/M1911.txt.
+First-person arms: existing tactical suit model, rig and pose credits retained in licenses/raid/THIRD_PARTY.txt and licenses/ue5-visual/THIRD_PARTY.txt.

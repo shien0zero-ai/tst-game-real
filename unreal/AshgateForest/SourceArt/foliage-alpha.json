@@ -1,0 +1,22 @@
+{
+  "pine_tree_01": {
+    "uri": "textures/pine_tree_01_twig_alpha.png",
+    "key": "twig_alpha"
+  },
+  "fir_tree_01": {
+    "uri": "textures/fir_tree_01_twig_alpha.png",
+    "key": "twig_alpha"
+  },
+  "fir_sapling": {
+    "uri": "textures/fir_sapling_twigs_alpha.png",
+    "key": "twigs_alpha"
+  },
+  "fern_02": {
+    "uri": "textures/fern_02_Alpha.png",
+    "key": "Alpha"
+  },
+  "grass_medium_01": {
+    "uri": "textures/grass_medium_01_Alpha.png",
+    "key": "Alpha"
+  }
+}

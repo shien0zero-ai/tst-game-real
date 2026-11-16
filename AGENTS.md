@@ -17,3 +17,9 @@
 - Stop the Bodycam direction. Use a conventional, readable FPS camera and realistic objects consistent with the existing M1911.
 - Add modeled first-person hands/forearms, retain asset attribution, and verify the grip in actual gameplay screenshots.
 - This supersedes the earlier Bodycam visual goal, while the extraction gameplay and UE5/Godot project separation remain.
+
+## Forest exploration demo (2026-11-16 user request)
+- Preserve the existing Godot game, Depot 04, all prior releases and saves.
+- New forest work belongs to independent unreal/AshgateForest. Prioritize realistic terrain, foliage, lighting, shadows and atmosphere over game systems; retain playable M1911.
+- Large native pine asset is preserved losslessly under SourceArt/Packed and restored with SHA256 checks by Tools/restore_assets.py. Do not overwrite an edited native asset.
+- Keep Windows forest artifacts in work/forest-package and publish separate Ashgate-Forest downloads; never replace the existing Depot release assets.
