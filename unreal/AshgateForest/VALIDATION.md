@@ -1,3 +1,13 @@
+## 2026-11-16 — フィールド装備の材質・表面・形状・視点調整
+
+金属・樹脂・ゴム・操作部・銃口を別材質にし、4K PBRと微細な凹凸・粗さ、小傷、控えめな角の擦れ、隙間の汚れを追加。銃身の丸み、銃口の縁と奥行き、薄いグリップラバーを立体形状として調整しました。手袋の粗い凹凸を細かく弱め、構え・照準の距離と自己／接触シャドウ設定も見直しています。
+
+Editorビルド成功、Windows UAT終了0、実PIE・配布版とも24 PASS / 0 FAIL。最終7材質のコンパイルエラー0。配布データでも6材質・4UVの保持を確認。日なたと木陰の実画面を確認しました。[検証記録](../../docs/forest-fieldfinish-validation.txt)。
+
+[変更前](../../docs/screenshots/forest-fieldfinish-before.png) / [日なた・側面](../../docs/screenshots/forest-fieldfinish-inspect.png) / [照準](../../docs/screenshots/forest-fieldfinish-ads.png) / [木陰・側面](../../docs/screenshots/forest-fieldfinish-shadeinspect.png) / [木陰・照準](../../docs/screenshots/forest-fieldfinish-shadeads.png)
+
+森の生成・照明コードと既存音源は前版から変更なし。M1911切替、以前のモデル・手・配布版・セーブは保持しています。元の木製仕様に対する架空のフィールド装備仕様です。制作物の出典と加工記録は `licenses/forest/FIELD-FINISH.txt`。以下は前版までの記録です。
+
 ## 2026-11-16 — 銃・両手モデルの一新と銃声の入替
 
 別モデルのService Pistolを標準にし、4Kの金属・木製グリップを使用。両手も別の解剖学的モデルへ置換し、2Kの革・布素材で表現。F3で以前のM1911に切替可能です。森林の生成・照明コードと既存15音源のSHA256は前版と一致しています。

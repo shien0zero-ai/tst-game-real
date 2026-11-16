@@ -1,0 +1,43 @@
+{
+  "units": "metres",
+  "materials": [
+    "FieldSteel",
+    "FieldPolymer",
+    "FieldRubber",
+    "FieldBore",
+    "FieldControls",
+    "FieldCrown"
+  ],
+  "wear_band_metres": [
+    0.00012,
+    0.00045
+  ],
+  "meshes": {
+    "field_frame": {
+      "triangles": 6646,
+      "material_triangles": {
+        "FieldSteel": 4264,
+        "FieldPolymer": 682,
+        "FieldRubber": 534,
+        "FieldBore": 192,
+        "FieldControls": 398,
+        "FieldCrown": 576
+      },
+      "uv_channels": 4
+    },
+    "field_slide": {
+      "triangles": 2212,
+      "material_triangles": {
+        "FieldSteel": 2212
+      },
+      "uv_channels": 4
+    },
+    "field_magazine": {
+      "triangles": 9094,
+      "material_triangles": {
+        "FieldSteel": 9094
+      },
+      "uv_channels": 4
+    }
+  }
+}

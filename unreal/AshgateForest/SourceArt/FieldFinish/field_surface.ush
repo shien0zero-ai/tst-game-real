@@ -1,0 +1,54 @@
+// Analytic, footprint-filtered detail; original 4K maps remain untouched.
+struct FieldNoise {
+ float hash(float2 p) { return frac(sin(dot(p,float2(127.1,311.7)))*43758.5453); }
+ float3 dnoise(float2 p) {
+  float2 i=floor(p),f=frac(p),u=f*f*(3-2*f),du=6*f*(1-f);
+  float a=hash(i),b=hash(i+float2(1,0)),c=hash(i+float2(0,1)),d=hash(i+1);
+  return float3(lerp(lerp(a,b,u.x),lerp(c,d,u.x),u.y),du.x*lerp(b-a,d-c,u.y),du.y*lerp(c-a,d-b,u.x));
+ }
+ float noise(float2 p) {
+  float2 i=floor(p),f=frac(p);f=f*f*(3-2*f);
+  return lerp(lerp(hash(i),hash(i+float2(1,0)),f.x),lerp(hash(i+float2(0,1)),hash(i+1),f.x),f.y);
+ }
+};
+FieldNoise fn;
+float3 grain=fn.dnoise(UV*460);
+float coarse=fn.noise(UV*18),fine=grain.x;
+float footprint=max(length(ddx(UV*460)),length(ddy(UV*460)));
+float resolved=1-smoothstep(.35,1.2,footprint);
+fine=lerp(.5,fine,resolved);
+float3 b=float3(Bary,1-Bary.x-Bary.y);
+float3 distanceToEdge=b*float3(Altitudes,ThirdAltitude.x)+(1-Edges.rgb)*1000;
+float edgeDistance=min(distanceToEdge.x,min(distanceToEdge.y,distanceToEdge.z));
+float wear=(1-smoothstep(.00012,.00045,edgeDistance))*smoothstep(.14,.78,fn.noise(UV*115));
+float2 cell=UV*38,id=floor(cell),q=frac(cell)-.5;
+float lineDistance=abs(q.y+.18*q.x),lineWidth=max(.005,fwidth(lineDistance)*1.5);
+float scratch=(1-smoothstep(.005,.005+lineWidth,lineDistance))*(1-smoothstep(.18,.40,abs(q.x)))*step(.925,fn.hash(id));
+float dirt=saturate((1-Maps.r)*1.7+smoothstep(.78,.96,coarse)*.13)*(.45+.55*coarse);
+float rough=clamp(Maps.g*.55+.33+(fine-.5)*.10-wear*.13-scratch*.035+dirt*.18,.28,.82);
+float damp=smoothstep(.68,.90,fn.noise(UV*8+float2(3,5)))*(1-dirt)*.30;
+rough-=damp*.10;
+float metal=.93;
+Color=lerp(BaseColor,dot(BaseColor,float3(.2126,.7152,.0722)).xxx,.55)*float3(.55,.60,.65);
+Color=lerp(Color,float3(.23,.25,.27),saturate(wear*.48+scratch*.075));
+float2 grainGradient=grain.yz*.6*resolved;
+Normal=normalize(float3(BaseNormal.xy+grainGradient*.018,BaseNormal.z));
+if(Kind>.5 && Kind<1.5) {
+ metal=0;rough=clamp(.72+(fine-.5)*.15+dirt*.12-scratch*.025,.61,.91);
+ Color=float3(.025,.032,.022)*(.92+.16*coarse+.08*fine);
+ Color=lerp(Color,float3(.080,.085,.067),wear*.28+scratch*.05);
+ Normal=normalize(float3(BaseNormal.xy*.35+grainGradient*.10,1));
+}
+if(Kind>1.5 && Kind<2.5) {
+ wear=0;scratch=0;dirt=coarse*.07;metal=0;rough=.87+fine*.07;
+ Color=float3(.012,.014,.011)*(.9+.2*coarse);
+ float rib=cos(UV.x*628.3)*.08*(1-smoothstep(.3,1.2,fwidth(UV.x*100)));
+ Normal=normalize(float3(grainGradient*.045+float2(rib,0),1));
+}
+if(Kind>2.5 && Kind<3.5) { dirt=0;metal=.35;rough=.74;Color=float3(.006,.007,.008);Normal=float3(0,0,1); }
+if(Kind>3.5 && Kind<4.5) { rough=clamp(rough-.06,.30,.74);Color*=.78; }
+if(Kind>4.5) { dirt=coarse*.035;metal=1;rough=.40+fine*.08;Color=float3(.075,.083,.090);Normal=normalize(float3(grainGradient*.02,1)); }
+Color=lerp(Color,float3(.032,.025,.015),dirt*.65);
+rough=lerp(rough,.86,dirt);metal*=1-dirt;
+float ao=Kind>2.5&&Kind<3.5?.18:(Kind>1.5?1:Maps.r);
+return float3(rough,metal,ao);

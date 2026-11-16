@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "service_frame.glb": "58070c0ee99db6403b4b32e86e576cc674b13bb1b14af8e23d72ac531c88dfb7",
+    "service_slide.glb": "55fc2658de21081f0915f94eb85897510a4e97db63d517da87b866d5bf311193",
+    "service_magazine.glb": "2b76c90c125a39198f86bbb51a0f630584a4aa1152ff62fa270d47feb8c9f97b",
+    "Service/textures/service_pistol_arm_4k.jpg": "84a308510f1ba10098b73e4d0098dfdbf8a5f1e6d3ffe4e97533e82590522676"
+  },
+  "outputs": {
+    "arm-samples.bin": "31db5b50b5619d1b5db1d2e060d2f5e08a1f6d294fbd8c11385f7c69f5c4ae12",
+    "field_frame.glb": "8321693dd4a30e4c6d2586553973dc55f2621259af1bf0b95f1e6093da91f541",
+    "field_magazine.glb": "fd08ef975721aebcb11b311e6517615acddf943ce3d2248c41a559e85808e40e",
+    "field_slide.glb": "4ccb206c71e9a1cc86b10761918caaf684bd2e29d70dd8b1f467b0e7d6bf9fb8",
+    "field_surface.ush": "8de7c853b8166dc2e4d383b427251b4cc0aca2181f5c8455a67d55af02b14d3c",
+    "geometry-report.json": "6036c6a09a15fb75aa24159f21dc61a149635f12b2f2ee2471cf5e55ce6e287e"
+  },
+  "source_credits": "licenses/forest/FIELD-FINISH.txt"
+}

@@ -1,0 +1,21 @@
+Field-finish realism validation - 2026-11-16
+UE5 5.8.4 / RTX 5080 / MSVC 14.52.37029 / Windows SDK 10.0.26100.0
+Editor build: success. Windows Build/Cook/Stage/Archive: UAT ExitCode=0.
+Actual PIE worldtype=3: 24 PASS / 0 FAIL. Windows worldtype=1: 24 PASS / 0 FAIL.
+Final compile checks: FieldSteel, FieldPolymer, FieldRubber, FieldBore, FieldControls, FieldCrown, FieldGlove: 7 PASS, 0 compiler errors.
+Cooked mesh check: 6 frame material sections and at least 4 UV channels loaded in both editor and executable. Import verifies vertex colors and UVs on all three new gun meshes.
+
+Material treatment: distinct steel/polymer/rubber/controls, original 4K normal/roughness maps plus analytic microdetail, sparse scuffs, 0.12-0.45mm convex-edge wear and AO-directed cavity dirt. No blanket scratched texture overlay.
+Shape: frame 6646 triangles (previous 5344), including 48-sided exposed barrel/crown, bore depth and bevelled grip wrap. Slide 2212; magazine 9094.
+Framing: service hip (42,11,-9)cm, ADS (31,0,-1.8)cm. Existing FOV and hand joint targets retained; finer/weaker leather normal and self/contact shadow flags enabled.
+Sunlight and shaded inspection/ADS captures: packaged Windows 1600x900, cinematic, screen percentage 100%.
+Forest BuildForest method matches previous source exactly after newline normalization. Existing audio source WAVs and audio system code match. Original service/wood, hands, M1911 and previous release assets are retained.
+
+PIE actual master audio: 67.63s, peak -11.24dBFS, clipped samples 0 (audio is unchanged; this is a regression check).
+Windows actual master audio: 68.78s, peak -11.56dBFS, clipped samples 0 (audio is unchanged; this is a regression check).
+
+The UV integration check uses runtime render-buffer metadata. An earlier editor-only UV API caused a packaging link error; it was replaced with the runtime API, and both targets were rebuilt successfully.
+Known editor smoke-test Condition failed messages and MSVC preference warning remain unsuppressed. No engine files, global exposure, environment materials, or extra weapon-only lights are modified.
+The surface/geometry changes are a fictional field variant, not a factory specification. Reload remains procedural; this revision is not a new skeletal animation set.
+PIE and packaging ran concurrently for part of validation; FPS captures are not a performance benchmark.
+The exact release ZIP must pass the existing native input gate, including both pistols and quit confirmation, before upload.

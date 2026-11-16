@@ -1,0 +1,35 @@
+ASHGATE / FOREST STUDY - field-finish variant
+
+Underlying Service Pistol model and 4K maps: Mateusz Sadek / Poly Haven, CC0 1.0.
+https://polyhaven.com/a/service_pistol
+https://polyhaven.com/license
+Underlying anatomical arms: para / MakeHuman, CC0 1.0.
+Underlying 2K leather/fabric scans: Rob Tuytel / Poly Haven, CC0 1.0.
+See the adjacent VIEWMODEL.txt for original sources, pinned conversion source,
+licence details and the unchanged field-recorded handgun sounds.
+
+Further project-authored changes:
+- The default service pistol is a fictional field-finish adaptation of the
+  retained original model, rather than a claim to reproduce a factory variant.
+- Separate blued/satin steel, polymer grip, rubber wrap, controls, crown and
+  recessed bore material sections. The original wood variant remains retained.
+- Fine roughness/normal grain, sparse hairline scuffs, convex-edge abrasion,
+  cavity dirt and subtle patch variation through an original analytic shader.
+  Original 4K diffuse/normal/ARM pixels are unchanged; numerical samples from ARM
+  classify the grip geometry. Procedural detail is footprint-filtered.
+- Four UV sets and vertex flags encode barycentrics, physical triangle altitudes
+  and convex-edge eligibility. Wear is restricted to a 0.12-0.45mm band rather
+  than drawn along every mesh triangle edge.
+- Bevelled 0.85mm rubber grip wrap, 48-sided exposed barrel profile, chamfered
+  crown and recessed bore geometry. These are visual game meshes only.
+- Finer, weaker leather normal detail and adjusted glove reflectance; existing
+  hand anatomy, grip pose and woven sleeves are retained.
+- Slightly farther hip/ADS framing and first-person self/contact shadow flags.
+  Forest lighting, terrain, foliage and all sound sources remain unchanged.
+
+Preparation: Tools/sample_field_masks.ps1, then Tools/prepare_fieldfinish.py.
+Import: full UE Editor -ExecutePythonScript=Tools/fieldfinish_entry.py.
+Editable shader: SourceArt/FieldFinish/field_surface.ush (embedded into materials
+at import; no engine shader or rendering configuration files are modified).
+Source/output hashes and geometry counts: SourceArt/FieldFinish/manifest.json
+and geometry-report.json. All prior source and native assets are retained.
