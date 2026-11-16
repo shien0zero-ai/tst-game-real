@@ -1,0 +1,14 @@
+Forest audio validation - 2026-11-16
+UE5 5.8.4; RTX 5080; MSVC 14.52.37029; SDK 10.0.26100.0
+Editor build succeeded. Windows UAT ExitCode=0.
+PIE 19 PASS / 0 FAIL; packaged Windows 19 PASS / 0 FAIL.
+Actual native input: 13 snapshots passed, plus trail/leaves footsteps, run/crouch, dry fire, and empty reload.
+
+PIE master render: 63.98s, 48000Hz, 8 channels, peak -11.08 dBFS, RMS -44.46 dBFS, clipped samples 0.
+Windows master render: 97.66s, 48000Hz, 8 channels, peak -11.77 dBFS, RMS -44.77 dBFS, clipped samples 0.
+
+Capture uses process-only -ini launch overrides for unfocused volume and editor background audio. No engine/config files are edited.
+The mixer capture verifies actual rendered signal and no numerical clipping during that test, not subjective listening quality or all playback hardware.
+PIE and Windows ran concurrently for part of this test; do not treat FPS samples as an audio performance benchmark.
+Known editor smoke-test Condition failed messages and compiler-version warning remain unsuppressed.
+Source recording attribution and limitations: licenses/forest/AUDIO.txt.

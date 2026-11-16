@@ -21,3 +21,9 @@ Powered by Poly Haven. 追加した森林モデル・地表画像はPoly Haven�
 ## Grip revision r2
 
 Existing attributed glove topology and UVs were retargeted per finger joint to a two-handed M1911 grip, then Loop-subdivided once with UV seams preserved. Original view_left/view_right and all source assets are retained. Reproduction: Tools/fit_grip.py then full-editor Tools/grip_entry.py. No new external assets.
+
+## Forest audio, 2026-11-16
+
+15 new PCM sources under SourceArt/Audio are imported to /Game/Forest/Audio, with no edits to the original game's sounds. Stereo wind and bird loops use field recordings, rumble filters and two-second wrap crossfades. Four floor sounds come from TinyWorlds; magazine/slide/click transients use SpringySpringo's airsoft pistol. Three CZ-52 takes by Vincent Sevedge / Tabasco stand in for the M1911; archive CC BY 3.0 credits are retained despite the listing's CC0 label. Cloth and soft casing accents are original synthesis. See licenses/forest/AUDIO.txt for full source URLs, attribution and changes.
+
+Rebuild WAVs with Tools/prepare_audio.py --cache <original downloads directory>, using installed UE libsndfile; import via full Editor -ExecutePythonScript=Tools/audio_entry.py. Sources and outputs have SHA256 records. No extra software is needed for the packaged game. Effects use gameplay audio rather than UI audio; loops pause/resume and are destroyed with the player. Footsteps follow actual grounded distance, not held keys. Magazine audio is synchronized with the revised extraction/insertion timings; slide release is exclusive to empty reloads. This is sound design, not a physical acoustic simulation or authentic M1911 recording.

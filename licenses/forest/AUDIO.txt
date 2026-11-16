@@ -1,0 +1,50 @@
+ASHGATE / FOREST STUDY - audio additions, 2026-11-16
+
+Forest field recordings:
+"Park ambiences" by Thimras, CC0 1.0.
+https://opengameart.org/content/park-ambiences
+https://creativecommons.org/publicdomain/zero/1.0/
+park_ambience_birds.wav, park_ambience_wind.wav (Adelaide public park).
+Changes: stereo excerpts, rumble/harshness filtering, level adjustment,
+2-second wrap crossfades. These are not recordings of this particular forest.
+
+Footsteps:
+"Different steps on wood, stone, leaves, gravel and mud" by TinyWorlds, CC0.
+https://opengameart.org/content/different-steps-on-wood-stone-leaves-gravel-and-mud
+https://creativecommons.org/publicdomain/zero/1.0/
+gravel.ogg, mud02.ogg, leaves01.ogg, leaves02.ogg from [kdd]DifferentSteps.zip.
+The author's page describes edited public-domain pdsounds.org recordings.
+Changes: decoded mono 48kHz PCM, filters, fades and level adjustment.
+
+Weapon handling:
+"Gun reload sounds" by SpringySpringo, CC0 1.0.
+https://opengameart.org/content/gun-reload-sounds
+https://creativecommons.org/publicdomain/zero/1.0/
+gunreload1.wav: airsoft pistol recording, not an original M1911 recording.
+Changes: separated magazine-out, magazine-in, slide-release and dry-click
+transients; mono conversion, filtering, fades and level adjustment.
+
+Gunfire:
+"Gunshot Sounds", OpenGameArt listing by Tabasco.
+https://opengameart.org/content/gunshot-sounds
+The listing says CC0, but the actual downloaded sounds.zip includes:
+Copyright (c) 2009 Vincent Sevedge
+Audio and Visual content is covered under the Creative Commons Attribution
+3.0 Unported License: https://creativecommons.org/licenses/by/3.0/
+To retain the archive's attribution requirements, this project treats cz.wav
+and its adapted pistol_fire_0/1/2.wav as CC BY 3.0, credits Vincent Sevedge /
+Tabasco, and preserves the original copyright notice in this directory.
+Changes: three CZ-52 shot transients isolated, converted to mono 48kHz PCM,
+filtered, gated tails, normalized. These are stand-in handgun recordings,
+not recordings of an M1911 or ballistically authentic .45 ACP reports.
+The creators do not endorse this project.
+
+Original project sounds:
+gear_rustle.wav is synthesized filtered noise, and case_soft.wav is a short
+synthesized metallic tick with decay. They are not field recordings.
+
+Exact download URLs, original SHA256 checksums, processing details and output
+hashes are recorded in unreal/AshgateForest/SourceArt/Audio/manifest.json.
+Reproduction: Tools/prepare_audio.py --cache <download/extract directory>.
+Decoding uses the installed Unreal Engine libsndfile DLL. No third-party
+game audio was extracted, and no additional software was installed.

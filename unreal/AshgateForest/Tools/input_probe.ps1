@@ -94,6 +94,14 @@ function Click([int]$Row) {
 Capture 'trail start'
 Key 0x57 1000
 Capture 'walking'
+# Exercise both forest-floor surfaces and movement loudness without extra snapshots.
+Key 0x44 1800
+[AshgateInput]::Key($handle,0xA0,$true)
+Key 0x57 1100
+[AshgateInput]::Key($handle,0xA0,$false)
+Key 0x43
+Key 0x57 1200
+Key 0x43
 Key 0x4E
 Capture 'inspect'
 [AshgateInput]::PostMessage($handle,0x204,[IntPtr]2,[IntPtr]::Zero)|Out-Null
@@ -108,6 +116,15 @@ Key 0x52
 Capture 'reload starts'
 Start-Sleep -Seconds 2
 Capture 'reload complete'
+# Empty the pistol at normal input cadence, click once empty, then reload.
+for($shotIndex=0;$shotIndex -lt 8;$shotIndex++){
+ [AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,[IntPtr]::Zero)|Out-Null
+ Start-Sleep -Milliseconds 90
+ [AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+ Start-Sleep -Milliseconds 220
+}
+Key 0x52
+Start-Sleep -Seconds 2
 Key 0x71
 Capture 'scenery view'
 Key 0x71
@@ -137,4 +154,6 @@ if($after -ne $before-1){throw 'Shot ammo mismatch'}
 if(([regex]::Match($lines[0],'position=(.*?) ammo').Groups[1].Value) -eq ([regex]::Match($lines[1],'position=(.*?) ammo').Groups[1].Value)){throw 'Walking did not move player'}
 $log=Get-Content -LiteralPath $LogPath -Raw
 if(-not $log.Contains('CONFIRMED USER QUIT') -or -not $log.Contains('LogExit: Exiting.') -or $log -match 'Fatal error|Unhandled Exception'){throw 'Game exit verification failed'}
+foreach($pattern in @('AUDIO footstep surface=trail','AUDIO footstep surface=leaves','AUDIO footstep .*crouch=1','AUDIO footstep .*run=1','AUDIO event=dry_fire','AUDIO event=mag_out','AUDIO event=mag_in','AUDIO event=slide_release','AUDIO event=gear_rustle')){if($log -notmatch $pattern){throw ('Audio event not verified: '+$pattern)}}
+Write-Output 'FOREST AUDIO INPUT PASS: trail/leaves, running/crouching, empty click, empty reload and weapon handling'
 Write-Output 'FOREST INPUT VALIDATION PASS: 13 snapshots, walking, M1911, ADS, reload, holster, pause, sensitivity button, resume and quit cancellation/confirmation'

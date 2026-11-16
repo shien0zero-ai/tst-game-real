@@ -20,6 +20,9 @@
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
+#include "Sound/SoundAttenuation.h"
+#include "Components/AudioComponent.h"
+#include "AudioMixerBlueprintLibrary.h"
 #include "Materials/MaterialInterface.h"
 #include "HighResScreenshot.h"
 #include "Misc/CommandLine.h"
@@ -47,7 +50,37 @@ AForestPlayer::AForestPlayer(){
  }
 }
 void AForestPlayer::BeginPlay(){Super::BeginPlay();TArray<UStaticMeshComponent*> Parts;GetComponents(Parts);for(auto* C:Parts){if(C->GetAttachParent()!=Weapon.Get())continue;const FString N=C->GetName();C->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,*(TEXT("/Game/Art/Meshes/")+N+TEXT(".")+N)));}
- ShotSound=LoadObject<USoundBase>(nullptr,TEXT("/Game/Art/Audio/pistol_shot.pistol_shot"));ReloadSound=LoadObject<USoundBase>(nullptr,TEXT("/Game/Art/Audio/reload.reload"));}
+ StartForestAudio();}
+// New sounds live in the forest project; original Art/Audio assets stay intact.
+void AForestPlayer::StartForestAudio(){
+ for(const TCHAR* N:{TEXT("forest_wind"),TEXT("forest_birds"),TEXT("step_trail_0"),TEXT("step_trail_1"),TEXT("step_leaves_0"),TEXT("step_leaves_1"),TEXT("pistol_fire_0"),TEXT("pistol_fire_1"),TEXT("pistol_fire_2"),TEXT("mag_out"),TEXT("mag_in"),TEXT("slide_release"),TEXT("dry_fire"),TEXT("gear_rustle"),TEXT("case_soft")}){
+  USoundBase* S=LoadObject<USoundBase>(nullptr,*(FString(TEXT("/Game/Forest/Audio/"))+N+TEXT(".")+N));if(S)Sounds.Add(FName(N),S);else UE_LOG(LogForest,Error,TEXT("Missing forest sound %s"),N);
+ }
+ GroundAttenuation=NewObject<USoundAttenuation>(this);auto& A=GroundAttenuation->Attenuation;A.bSpatialize=true;A.AttenuationShape=EAttenuationShape::Sphere;A.AttenuationShapeExtents=FVector(60);A.FalloffDistance=1400;A.DistanceAlgorithm=EAttenuationDistanceModel::Linear;
+ auto Loop=[&](const TCHAR* N,float Gain){auto S=Sounds.Find(FName(N));UAudioComponent* C=S?UGameplayStatics::CreateSound2D(this,S->Get(),1.f,1,0,nullptr,false,false):nullptr;if(C){C->bIsUISound=false;C->FadeIn(2.f,Gain);}return C;};
+ WindAudio=Loop(TEXT("forest_wind"),.27f);BirdsAudio=Loop(TEXT("forest_birds"),.24f);LastFootPosition=GetActorLocation();
+ UE_LOG(LogForest,Display,TEXT("FOREST AUDIO READY assets=%d wind=%d birds=%d"),Sounds.Num(),WindAudio!=nullptr,BirdsAudio!=nullptr);
+}
+void AForestPlayer::EndPlay(const EEndPlayReason::Type Reason){for(auto* C:{WindAudio.Get(),BirdsAudio.Get()})if(C){C->Stop();C->DestroyComponent();}Super::EndPlay(Reason);}
+void AForestPlayer::SetAudioPaused(bool Value){for(auto* C:{WindAudio.Get(),BirdsAudio.Get()})if(C)C->SetPaused(Value);}
+void AForestPlayer::Sound(const FName Name,float Volume,float Pitch){
+ if(Forest(this)&&Forest(this)->Paused)return;auto S=Sounds.Find(Name);if(!S)return;
+ UGameplayStatics::PlaySound2D(this,S->Get(),Volume,Pitch,0,nullptr,this,false);++SoundEvents.FindOrAdd(Name);
+ if(Forest(this)->QA||FParse::Param(FCommandLine::Get(),TEXT("ForestInput")))UE_LOG(LogForest,Display,TEXT("AUDIO event=%s volume=%.2f"),*Name.ToString(),Volume);
+}
+void AForestPlayer::Footstep(bool Landing){
+ const FVector P=GetActorLocation();const bool Trail=FMath::Abs(P.Y/100-AForestMode::TrailY(P.X/100))<1.65f;const FString N=FString(Trail?TEXT("step_trail_"):TEXT("step_leaves_"))+FString::FromInt(FootIndex++%2);auto S=Sounds.Find(FName(*N));if(!S)return;
+ const float Gain=Landing?.58f:(bIsCrouched?.17f:(Running?.53f:.37f));const FVector At=P-FVector(0,0,GetCapsuleComponent()->GetScaledCapsuleHalfHeight()-5)+GetActorRightVector()*((FootIndex%2)?12.f:-12.f);
+ UGameplayStatics::SpawnSoundAtLocation(this,S->Get(),At,FRotator::ZeroRotator,Gain,FMath::FRandRange(.94f,1.06f),0,GroundAttenuation);++SoundEvents.FindOrAdd(TEXT("footstep"));
+ if(Forest(this)->QA||FParse::Param(FCommandLine::Get(),TEXT("ForestInput")))UE_LOG(LogForest,Display,TEXT("AUDIO footstep surface=%s landing=%d crouch=%d run=%d"),Trail?TEXT("trail"):TEXT("leaves"),Landing,bIsCrouched,Running);
+ if(Landing||FootIndex%3==0)Sound(TEXT("gear_rustle"),Landing?.26f:(Running?.19f:.10f),FMath::FRandRange(.92f,1.08f));
+}
+void AForestPlayer::Landed(const FHitResult& Hit){Super::Landed(Hit);if(GetWorld()->GetTimeSeconds()>2&&!Forest(this)->Paused)Footstep(true);FootDistance=0;LastFootPosition=GetActorLocation();}
+void AForestPlayer::UpdateFootsteps(float D){
+ const FVector P=GetActorLocation();float Distance=FVector::Dist2D(P,LastFootPosition);LastFootPosition=P;
+ if(!GetCharacterMovement()->IsMovingOnGround()||Distance>250||GetVelocity().Size2D()<12){FootDistance=0;return;}
+ FootDistance+=Distance;const float Stride=bIsCrouched?100.f:(Running?165.f:130.f);if(FootDistance>=Stride){FootDistance=FMath::Fmod(FootDistance,Stride);Footstep();}
+}
 void AForestPlayer::SetupPlayerInputComponent(UInputComponent* I){Super::SetupPlayerInputComponent(I);
  I->BindAxisKey(EKeys::MouseX,this,&AForestPlayer::Yaw);I->BindAxisKey(EKeys::MouseY,this,&AForestPlayer::Pitch);
  I->BindKey(EKeys::LeftMouseButton,IE_Pressed,this,&AForestPlayer::Fire);I->BindKey(EKeys::RightMouseButton,IE_Pressed,this,&AForestPlayer::Aim);I->BindKey(EKeys::RightMouseButton,IE_Released,this,&AForestPlayer::UnAim);
@@ -60,14 +93,14 @@ void AForestPlayer::Forward(float V){if(!Forest(this)->Paused)AddMovementInput(F
 void AForestPlayer::Right(float V){if(!Forest(this)->Paused)AddMovementInput(FRotationMatrix(FRotator(0,GetControlRotation().Yaw,0)).GetUnitAxis(EAxis::Y),V);}
 void AForestPlayer::Yaw(float V){if(!Forest(this)->Paused)AddControllerYawInput(V*Sensitivity);}
 void AForestPlayer::Pitch(float V){if(!Forest(this)->Paused)AddControllerPitchInput(-V*Sensitivity);}
-void AForestPlayer::Aim(){if(!Forest(this)->Paused&&WeaponShown){Aiming=true;InspectTime=0;}}
-void AForestPlayer::UnAim(){Aiming=false;}
-void AForestPlayer::Reload(){if(!Forest(this)->Paused&&WeaponShown&&Ammo<7&&ReloadTime<=0){ReloadTime=1.35f;InspectTime=0;Aiming=false;UGameplayStatics::PlaySound2D(this,ReloadSound,.6f);}}
-void AForestPlayer::Inspect(){if(!Forest(this)->Paused&&WeaponShown&&ReloadTime<=0){InspectTime=4.2f;Aiming=false;}}
-void AForestPlayer::Fire(){if(Forest(this)->Paused||!WeaponShown)return;InspectTime=0;if(Ammo<=0||Cooldown>0||ReloadTime>0)return;--Ammo;Cooldown=.18f;Kick=1;AddControllerPitchInput(-.5f);UGameplayStatics::PlaySound2D(this,ShotSound,.65f);
+void AForestPlayer::Aim(){if(!Forest(this)->Paused&&WeaponShown){if(!Aiming&&ActionSoundCooldown<=0){Sound(TEXT("gear_rustle"),.12f,1.12f);ActionSoundCooldown=.15f;}Aiming=true;InspectTime=0;}}
+void AForestPlayer::UnAim(){if(Aiming&&ActionSoundCooldown<=0){Sound(TEXT("gear_rustle"),.10f,.96f);ActionSoundCooldown=.15f;}Aiming=false;}
+void AForestPlayer::Reload(){if(!Forest(this)->Paused&&WeaponShown&&Ammo<7&&ReloadTime<=0){ReloadWasEmpty=Ammo==0;ReloadTime=1.35f;InspectTime=0;Aiming=false;Sound(TEXT("mag_out"),.48f);Sound(TEXT("gear_rustle"),.20f);}}
+void AForestPlayer::Inspect(){if(!Forest(this)->Paused&&WeaponShown&&ReloadTime<=0){InspectTime=4.2f;Aiming=false;Sound(TEXT("gear_rustle"),.24f,.94f);}}
+void AForestPlayer::Fire(){if(Forest(this)->Paused||!WeaponShown)return;InspectTime=0;if(Cooldown>0||ReloadTime>0)return;if(Ammo<=0){Sound(TEXT("dry_fire"),.42f);Cooldown=.22f;return;}--Ammo;Cooldown=.18f;Kick=1;AddControllerPitchInput(-.5f);int32 Take=(LastShot+FMath::RandRange(1,2))%3;LastShot=Take;Sound(FName(*(TEXT("pistol_fire_")+FString::FromInt(Take))),.87f,FMath::FRandRange(.985f,1.015f));CaseDelays.Add(.38f);
  FHitResult Hit;FCollisionQueryParams Q;Q.AddIgnoredActor(this);GetWorld()->LineTraceSingleByChannel(Hit,Camera->GetComponentLocation(),Camera->GetComponentLocation()+Camera->GetForwardVector()*15000,ECC_Visibility,Q);
  UE_LOG(LogForest,Display,TEXT("SHOT ammo=%d impact=%s"),Ammo,Hit.bBlockingHit?*Hit.ImpactPoint.ToString():TEXT("sky"));}
-void AForestPlayer::ToggleWeapon(){WeaponShown=!WeaponShown;Aiming=false;InspectTime=0;}
+void AForestPlayer::ToggleWeapon(){if(Forest(this)->Paused)return;Sound(TEXT("gear_rustle"),.30f,WeaponShown?.90f:1.05f);WeaponShown=!WeaponShown;Aiming=false;InspectTime=0;}
 void AForestPlayer::ToggleHelp(){Help=!Help;}
 void AForestPlayer::Sprint(){Running=true;}void AForestPlayer::StopSprint(){Running=false;}
 void AForestPlayer::CrouchToggle(){if(bIsCrouched)UnCrouch();else Crouch();}
@@ -76,13 +109,16 @@ void AForestPlayer::Capture(){UE_LOG(LogForest,Display,TEXT("INPUT position=%s a
 void AForestPlayer::Tick(float D){Super::Tick(D);auto* M=Forest(this);auto* PC=Cast<APlayerController>(Controller);if(!M||!PC||M->Paused)return;
  Forward((PC->IsInputKeyDown(EKeys::W)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::S)?1.f:0.f));Right((PC->IsInputKeyDown(EKeys::D)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::A)?1.f:0.f));
  GetCharacterMovement()->MaxWalkSpeed=Aiming?160:Running?450:230;Cooldown=FMath::Max(0.f,Cooldown-D);Kick=FMath::FInterpTo(Kick,0.f,D,15);
- if(ReloadTime>0){ReloadTime-=D;if(ReloadTime<=0)Ammo=7;}InspectTime=FMath::Max(0.f,InspectTime-D);
+ ActionSoundCooldown=FMath::Max(0.f,ActionSoundCooldown-D);UpdateFootsteps(D);
+ for(int32 I=CaseDelays.Num()-1;I>=0;--I){CaseDelays[I]-=D;if(CaseDelays[I]<=0){CaseDelays.RemoveAtSwap(I);auto S=Sounds.Find(TEXT("case_soft"));if(S){UGameplayStatics::SpawnSoundAtLocation(this,S->Get(),GetActorLocation()+GetActorRightVector()*70-FVector(0,0,75),FRotator::ZeroRotator,.12f,FMath::FRandRange(.91f,1.09f),0,GroundAttenuation);++SoundEvents.FindOrAdd(TEXT("case_soft"));}}}
+ if(ReloadTime>0){float Before=ReloadTime;ReloadTime=FMath::Max(0.f,ReloadTime-D);if(Before>.47f&&ReloadTime<=.47f)Sound(TEXT("mag_in"),.62f);if(Before>.22f&&ReloadTime<=.22f&&ReloadWasEmpty)Sound(TEXT("slide_release"),.66f);if(ReloadTime<=0)Ammo=7;}InspectTime=FMath::Max(0.f,InspectTime-D);
  FVector P=Aiming?FVector(28,0,-2.9f):FVector(38,13,-8);FRotator R(0,90,0);
  if(InspectTime>0){float T=(4.2f-InspectTime)/4.2f,E=FMath::Sin(PI*T);P+=FVector(-5,-8,7)*E;R+=FRotator(-8*E,50*FMath::Sin(2*PI*T),-12*E);}
  if(ReloadTime>0){float E=FMath::Sin(PI*(1.35f-ReloadTime)/1.35f);R.Roll-=18*E;P.Z-=5*E;}
  P.Z+=FMath::Sin(GetWorld()->GetTimeSeconds()*8)*FMath::Min(1.f,GetVelocity().Size2D()/230)*(Aiming?.03f:.10f);P.X-=Kick*1.5f;
  Weapon->SetRelativeLocation(FMath::VInterpTo(Weapon->GetRelativeLocation(),P,D,12));Weapon->SetRelativeRotation(FMath::RInterpTo(Weapon->GetRelativeRotation(),R,D,13));Weapon->SetVisibility(WeaponShown,true);
- Slide->SetRelativeLocation(FVector(0,2.8f*(Ammo==0?1:Kick),0));Magazine->SetRelativeLocation(FVector(0,0,ReloadTime>0?-12*FMath::Sin(PI*(1.35f-ReloadTime)/1.35f):0));LeftHand->SetRelativeLocation(FVector(0,0,ReloadTime>0?-7*FMath::Sin(PI*(1.35f-ReloadTime)/1.35f):0));Camera->SetFieldOfView(FMath::FInterpTo(Camera->FieldOfView,Aiming?64.f:82.f,D,12));
+ const float ReloadElapsed=1.35f-ReloadTime;const float MagDrop=ReloadTime>0?(ReloadElapsed<.22f?ReloadElapsed/.22f:(ReloadElapsed<.55f?1.f:FMath::Clamp((.88f-ReloadElapsed)/.33f,0.f,1.f))):0.f;
+ Slide->SetRelativeLocation(FVector(0,2.8f*((Ammo==0&&(ReloadTime<=0||ReloadTime>.22f))?1:Kick),0));Magazine->SetRelativeLocation(FVector(0,0,-12*MagDrop));LeftHand->SetRelativeLocation(FVector(0,0,-7*MagDrop));Camera->SetFieldOfView(FMath::FInterpTo(Camera->FieldOfView,Aiming?64.f:82.f,D,12));
 }
 float AForestMode::TrailY(float X){return FMath::Sin(X*.025f)*12+FMath::Sin(X*.065f)*3;}
 static float TerrainSample(float X,float Y){float D=Y-AForestMode::TrailY(X);return 5+3*FMath::Sin(X*.018f)+2*FMath::Cos(Y*.027f)+1.2f*FMath::Sin((X+Y)*.035f)-.8f*FMath::Exp(-D*D/12)+.10f*FMath::Sin(X*1.2f)*FMath::Sin(Y*.8f)+.035f*FMath::Sin(X*3+Y*2);}
@@ -96,7 +132,7 @@ AForestMode::AForestMode(){DefaultPawnClass=AForestPlayer::StaticClass();HUDClas
 AForestPlayer* AForestMode::Player()const{return Cast<AForestPlayer>(UGameplayStatics::GetPlayerPawn(this,0));}
 void AForestMode::BeginPlay(){Super::BeginPlay();QA=FParse::Param(FCommandLine::Get(),TEXT("ForestQA"));Preview=FParse::Param(FCommandLine::Get(),TEXT("ForestPreview"))||FParse::Param(FCommandLine::Get(),TEXT("GripPreview"));BuildForest();PauseForest(false);ResetTrail();if(auto* PC=UGameplayStatics::GetPlayerController(this,0)){PC->ConsoleCommand(TEXT("scalability 4"));PC->ConsoleCommand(TEXT("r.ScreenPercentage 100"));}UE_LOG(LogForest,Display,TEXT("READY trees=%d plants=%d terrain=256m worldtype=%d / prior games and saves untouched"),Trees,Plants,int32(GetWorld()->WorldType));}
 void AForestMode::ResetTrail(){if(auto* P=Player()){float X=-75,Y=TrailY(X);P->SetActorLocation(FVector(X*100,Y*100,Height(X,Y)*100+200));if(P->Controller)P->Controller->SetControlRotation(FRotator(-3,12,0));P->Ammo=7;P->Aiming=false;P->ReloadTime=0;}}
-void AForestMode::PauseForest(bool V){Paused=V;auto* PC=UGameplayStatics::GetPlayerController(this,0);PC->bShowMouseCursor=V;PC->bEnableClickEvents=V;PC->bEnableMouseOverEvents=V;if(V){FInputModeGameAndUI I;I.SetHideCursorDuringCapture(false);PC->SetInputMode(I);}else{PC->SetInputMode(FInputModeGameOnly());}UGameplayStatics::SetGamePaused(this,V);}
+void AForestMode::PauseForest(bool V){Paused=V;if(auto* P=Player())P->SetAudioPaused(V);auto* PC=UGameplayStatics::GetPlayerController(this,0);PC->bShowMouseCursor=V;PC->bEnableClickEvents=V;PC->bEnableMouseOverEvents=V;if(V){FInputModeGameAndUI I;I.SetHideCursorDuringCapture(false);PC->SetInputMode(I);}else{PC->SetInputMode(FInputModeGameOnly());}UGameplayStatics::SetGamePaused(this,V);}
 void AForestMode::Action(int32 Row){UE_LOG(LogForest,Display,TEXT("MENU row=%d confirmation=%d"),Row,QuitConfirmation);if(QuitConfirmation){if(Row==1)QuitConfirmation=false;else if(Row==0){UE_LOG(LogForest,Display,TEXT("CONFIRMED USER QUIT"));UGameplayStatics::GetPlayerController(this,0)->ConsoleCommand(TEXT("quit"));}return;}if(Row==0)PauseForest(false);if(Row==1){ResetTrail();PauseForest(false);}if(Row==2)Player()->Sensitivity=FMath::Max(.2f,Player()->Sensitivity-.1f);if(Row==3)Player()->Sensitivity=FMath::Min(3.f,Player()->Sensitivity+.1f);if(Row==4)QuitConfirmation=true;}
 void AForestMode::BuildForest(){
  auto* Terrain=GetWorld()->SpawnActor<AStaticMeshActor>();auto* TC=Terrain->GetStaticMeshComponent();TC->SetMobility(EComponentMobility::Movable);TC->SetStaticMesh(Mesh(TEXT("forest_terrain")));TC->SetCollisionProfileName(TEXT("BlockAll"));
@@ -126,9 +162,9 @@ void AForestMode::Tick(float D){Super::Tick(D);if(QA||Preview)QATick(D);if(auto*
 void AForestMode::Check(bool C,const TCHAR* N){UE_LOG(LogForest,Display,TEXT("QA %s: %s"),C?TEXT("PASS"):TEXT("FAIL"),N);if(!C)++Failures;}
 void AForestMode::Shot(const TCHAR* Name){FScreenshotRequest::RequestScreenshot(FPaths::Combine(FPaths::ProjectSavedDir(),FString(TEXT("Screenshots/"))+Name+TEXT(".png")),false,false);}
 void AForestMode::QATick(float D){Elapsed+=D;auto* P=Player();if(!P||Elapsed<3)return;if(Step==0&&FParse::Param(FCommandLine::Get(),TEXT("GripPreview"))){ResetTrail();Step=4;Elapsed=0;return;}switch(Step){
- case 0:if(!Preview){auto* FPSHUD=Cast<AForestHUD>(UGameplayStatics::GetPlayerController(this,0)->GetHUD());Check(FPSHUD&&FMath::IsFinite(FPSHUD->CurrentFPS)&&FPSHUD->CurrentFPS>0,TEXT("real-time viewport FPS counter"));Check(Trees>650&&Plants>5000,TEXT("forest population"));Check(P->GetCharacterMovement()->IsMovingOnGround(),TEXT("terrain collision / grounded character"));Check(FMath::Abs((P->GetActorLocation().Z-88)-Height(P->GetActorLocation().X/100,P->GetActorLocation().Y/100)*100)<40,TEXT("terrain elevation matches world"));TArray<UStaticMeshComponent*> Parts;P->GetComponents(Parts);bool Valid=true;int32 WeaponParts=0;for(auto* C:Parts)if(C->GetAttachParent()==P->Weapon.Get()){++WeaponParts;Valid&=C->GetStaticMesh()!=nullptr;}Check(Valid&&WeaponParts==5,TEXT("M1911 and both arms loaded"));Previous=P->GetActorLocation();}++Step;Elapsed=0;break;
- case 1:if(!Preview){P->Forward(1);if(Elapsed<5)break;Check(FVector::Dist(P->GetActorLocation(),Previous)>180,TEXT("walking with terrain collision"));P->Inspect();Check(P->InspectTime>0,TEXT("inspect starts"));P->Aim();Check(P->Aiming&&P->InspectTime==0,TEXT("ADS cancels inspect"));P->UnAim();P->Fire();Check(P->Ammo==6,TEXT("M1911 fire consumes one round"));P->Reload();Check(P->ReloadTime>0,TEXT("reload starts"));}++Step;Elapsed=0;break;
- case 2:if(!Preview){Check(P->Ammo==7&&P->ReloadTime<=0,TEXT("reload completes"));P->Aim();}++Step;Elapsed=0;break;
+ case 0:if(!Preview){if(FParse::Param(FCommandLine::Get(),TEXT("ForestAudioCapture")))UAudioMixerBlueprintLibrary::StartRecordingOutput(this,80);Check(P->Sounds.Num()==15,TEXT("all forest sound assets loaded"));Check(P->WindAudio&&P->BirdsAudio&&P->WindAudio->IsPlaying()&&P->BirdsAudio->IsPlaying(),TEXT("wind and bird loops playing"));auto* FPSHUD=Cast<AForestHUD>(UGameplayStatics::GetPlayerController(this,0)->GetHUD());Check(FPSHUD&&FMath::IsFinite(FPSHUD->CurrentFPS)&&FPSHUD->CurrentFPS>0,TEXT("real-time viewport FPS counter"));Check(Trees>650&&Plants>5000,TEXT("forest population"));Check(P->GetCharacterMovement()->IsMovingOnGround(),TEXT("terrain collision / grounded character"));Check(FMath::Abs((P->GetActorLocation().Z-88)-Height(P->GetActorLocation().X/100,P->GetActorLocation().Y/100)*100)<40,TEXT("terrain elevation matches world"));TArray<UStaticMeshComponent*> Parts;P->GetComponents(Parts);bool Valid=true;int32 WeaponParts=0;for(auto* C:Parts)if(C->GetAttachParent()==P->Weapon.Get()){++WeaponParts;Valid&=C->GetStaticMesh()!=nullptr;}Check(Valid&&WeaponParts==5,TEXT("M1911 and both arms loaded"));Previous=P->GetActorLocation();}++Step;Elapsed=0;break;
+ case 1:if(!Preview){P->Forward(1);if(Elapsed<5)break;Check(FVector::Dist(P->GetActorLocation(),Previous)>180,TEXT("walking with terrain collision"));Check(P->SoundEvents.FindRef(TEXT("footstep"))>0,TEXT("grounded movement produces footsteps"));P->Inspect();Check(P->InspectTime>0,TEXT("inspect starts"));P->Aim();Check(P->Aiming&&P->InspectTime==0,TEXT("ADS cancels inspect"));P->UnAim();P->Fire();Check(P->Ammo==6,TEXT("M1911 fire consumes one round"));P->Reload();Check(P->ReloadTime>0,TEXT("reload starts"));}++Step;Elapsed=0;break;
+ case 2:if(!Preview){Check(P->Ammo==7&&P->ReloadTime<=0,TEXT("reload completes"));Check(P->SoundEvents.FindRef(TEXT("mag_out"))>0&&P->SoundEvents.FindRef(TEXT("mag_in"))>0,TEXT("reload audio follows magazine timing"));Check(P->SoundEvents.FindRef(TEXT("case_soft"))>0,TEXT("shot casing accent played"));P->Aim();}++Step;Elapsed=0;break;
  case 3:if(!Preview){Check(P->Camera->FieldOfView<70,TEXT("ADS camera"));P->UnAim();P->ToggleWeapon();Check(!P->WeaponShown,TEXT("scenery view / holster"));P->ToggleWeapon();Check(P->WeaponShown,TEXT("M1911 available again"));}ResetTrail();++Step;Elapsed=0;break;
  case 4:if(Elapsed<6)break;Shot(TEXT("Forest-Trail"));++Step;Elapsed=0;break;
  case 5:Sum+=D;Worst=FMath::Max(Worst,double(D));++Frames;if(Elapsed<(FParse::Param(FCommandLine::Get(),TEXT("GripPreview"))?3:12))break;UE_LOG(LogForest,Display,TEXT("PERFORMANCE samples=%d mean=%.2fms fps=%.1f worst=%.2fms / fixed view, warm-up excluded"),Frames,Sum*1000/Frames,Frames/Sum,Worst*1000);P->Inspect();++Step;Elapsed=0;break;
@@ -139,7 +175,8 @@ void AForestMode::QATick(float D){Elapsed+=D;auto* P=Player();if(!P||Elapsed<3)r
  case 10:Shot(TEXT("Forest-Scenery"));++Step;Elapsed=0;break;
  case 11:{float X=-40,Y=TrailY(X)+3;P->SetActorLocation(FVector(X*100,Y*100,Height(X,Y)*100+180));P->Controller->SetControlRotation(FRotator(-5,25,0));}++Step;Elapsed=0;break;
  case 12:if(Elapsed<5)break;Shot(TEXT("Forest-Grove"));++Step;Elapsed=0;break;
- case 13:UE_LOG(LogForest,Display,TEXT("%s COMPLETE failures=%d worldtype=%d"),Preview?TEXT("PREVIEW"):TEXT("QA"),Failures,int32(GetWorld()->WorldType));++Step;
+ case 13:if(FParse::Param(FCommandLine::Get(),TEXT("ForestAudioCapture"))){UAudioMixerBlueprintLibrary::StopRecordingOutput(this,EAudioRecordingExportType::WavFile,TEXT("ForestMix"),FPaths::ConvertRelativePathToFull(FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("AudioQA"))));UE_LOG(LogForest,Display,TEXT("AUDIO master submix export requested to Saved/AudioQA/ForestMix.wav"));}++Step;Elapsed=0;break;
+ case 14:UE_LOG(LogForest,Display,TEXT("%s COMPLETE failures=%d worldtype=%d"),Preview?TEXT("PREVIEW"):TEXT("QA"),Failures,int32(GetWorld()->WorldType));++Step;
 #if WITH_EDITOR
  if(GetWorld()->WorldType==EWorldType::PIE){GEditor->RequestEndPlayMap();FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){GEditor->Exec(GEditor->GetEditorWorldContext().World(),TEXT("QUIT_EDITOR"));return false;}),2.f);break;}
 #endif

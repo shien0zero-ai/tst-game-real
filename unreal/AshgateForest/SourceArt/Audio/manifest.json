@@ -1,0 +1,132 @@
+{
+  "rate": 48000,
+  "sources": {
+    "park_ambience_birds.wav": {
+      "url": "https://opengameart.org/sites/default/files/park_ambience_birds.wav",
+      "sha256": "dc1a5ac34b89cab7f8f261b53a23da7c1c5e3cc895aae4cb6fb4a1a04001b2af"
+    },
+    "park_ambience_wind.wav": {
+      "url": "https://opengameart.org/sites/default/files/park_ambience_wind.wav",
+      "sha256": "5c381856745b4706e7eba55eb9271a61a530e90c05df8126adb2db89ecfa6c5a"
+    },
+    "steps.zip": {
+      "url": "https://opengameart.org/sites/default/files/%5Bkdd%5DDifferentSteps_0.zip",
+      "sha256": "987d072b7deaa65177e005ddd8185f2351be7c9a76cd7575dea560549c39b33b"
+    },
+    "gunreload1.wav": {
+      "url": "https://opengameart.org/sites/default/files/gunreload1.wav",
+      "sha256": "685cac6a184e3cc3ec09a25b6ddb1d6feffd86d469778f339aa423d384035c50"
+    },
+    "sounds.zip": {
+      "url": "https://opengameart.org/sites/default/files/sounds.zip",
+      "sha256": "5b3960083a94e18ee47bc84376615a476debc884b18f25b93ea4b6ab3f278e4f"
+    }
+  },
+  "outputs": {
+    "forest_birds": {
+      "seconds": 52.0,
+      "channels": 2,
+      "peak": 0.48,
+      "note": "Thimras; 35s excerpt, filtered, 2s wrap crossfade",
+      "sha256": "ce1e41864eed8b3d27e5aa1f93038713bf5db85b7b10d4776d1b5fc8ef82f786"
+    },
+    "forest_wind": {
+      "seconds": 42.0,
+      "channels": 2,
+      "peak": 0.42,
+      "note": "Thimras; 20s excerpt, filtered, 2s wrap crossfade",
+      "sha256": "b6e402a9c8efb348340501f2a9ed153a1aea2c0d1473763a0755d9cdb43ded56"
+    },
+    "step_trail_0": {
+      "seconds": 0.7038958333333334,
+      "channels": 1,
+      "peak": 0.5,
+      "note": "TinyWorlds; mono, DC/rumble removal, peak normalization",
+      "sha256": "19dfd11c445f81f1c0d4920381f8134a26635c255d616cfa6c5f576cf95aa657"
+    },
+    "step_trail_1": {
+      "seconds": 0.2599166666666667,
+      "channels": 1,
+      "peak": 0.5,
+      "note": "TinyWorlds; mono, DC/rumble removal, peak normalization",
+      "sha256": "061aa8920090d4dbe3d7c07d382c322b5532874be2ec57d3f4e48c6239305645"
+    },
+    "step_leaves_0": {
+      "seconds": 0.39125,
+      "channels": 1,
+      "peak": 0.5,
+      "note": "TinyWorlds; mono, DC/rumble removal, peak normalization",
+      "sha256": "1df7f0bec364fac4e2e4d54faef8f3a91e41518152bf2d64eac9a5b32969757a"
+    },
+    "step_leaves_1": {
+      "seconds": 0.4742708333333333,
+      "channels": 1,
+      "peak": 0.5,
+      "note": "TinyWorlds; mono, DC/rumble removal, peak normalization",
+      "sha256": "9caa030e5c61f01d7051ea12a1336da65991b7c92a540667c9edca0fcfe2e5d2"
+    },
+    "pistol_fire_0": {
+      "seconds": 1.1,
+      "channels": 1,
+      "peak": 0.8,
+      "note": "Tabasco/Vincent Sevedge CZ-52 take; handgun stand-in, not a literal M1911 recording; filtered and tail-gated",
+      "sha256": "d88044653fe8a0af453069f936f7b7f0ccd8059b4e4fe915189745786e9c9686"
+    },
+    "pistol_fire_1": {
+      "seconds": 1.1,
+      "channels": 1,
+      "peak": 0.8,
+      "note": "Tabasco/Vincent Sevedge CZ-52 take; handgun stand-in, not a literal M1911 recording; filtered and tail-gated",
+      "sha256": "7460fc020e5ad6de0b178080433ee65b4462524cc1b9f1f03aa0dda160a42b1b"
+    },
+    "pistol_fire_2": {
+      "seconds": 1.1,
+      "channels": 1,
+      "peak": 0.8,
+      "note": "Tabasco/Vincent Sevedge CZ-52 take; handgun stand-in, not a literal M1911 recording; filtered and tail-gated",
+      "sha256": "dc2188e01654d4c95cc4b2da182b7443e6cb55f03148f35a86e8c91ec40a2f06"
+    },
+    "mag_out": {
+      "seconds": 0.25,
+      "channels": 1,
+      "peak": 0.55,
+      "note": "SpringySpringo airsoft pistol; isolated mechanical transient",
+      "sha256": "78576853450c2f55e4b9ba0a13256caceca009f4dfbc97942738b8ad3d16335a"
+    },
+    "mag_in": {
+      "seconds": 0.45,
+      "channels": 1,
+      "peak": 0.55,
+      "note": "SpringySpringo airsoft pistol; isolated mechanical transient",
+      "sha256": "5ded41db916cecb48cde7ee44bf7ffc56c3cfd314eec4deefd5cc3d1393cc0bb"
+    },
+    "slide_release": {
+      "seconds": 0.27,
+      "channels": 1,
+      "peak": 0.55,
+      "note": "SpringySpringo airsoft pistol; isolated mechanical transient",
+      "sha256": "b944cfaea7a2d863dc705dbcb40ebf49e818bd5da0d67b77dc05ff3ee958b9f4"
+    },
+    "dry_fire": {
+      "seconds": 0.05,
+      "channels": 1,
+      "peak": 0.55,
+      "note": "SpringySpringo airsoft pistol; isolated mechanical transient",
+      "sha256": "7faa4a72963f307e2ec0de530845ceecb83891f440101876cc9564bb6711dbd9"
+    },
+    "gear_rustle": {
+      "seconds": 0.24,
+      "channels": 1,
+      "peak": 0.18,
+      "note": "Original filtered-noise cloth layer; synthesized, not a field recording",
+      "sha256": "8ef3b7862c605d59424f93921f7bf889d71a40c1cfa58c88c0f99305d8fd47b7"
+    },
+    "case_soft": {
+      "seconds": 0.17,
+      "channels": 1,
+      "peak": 0.18,
+      "note": "Original synthesized quiet metallic casing accent; not a recorded casing",
+      "sha256": "3acd7f1ac33b1da9d7a739ae0f359d534e5df95febbed7f20c81c36d35111d84"
+    }
+  }
+}
