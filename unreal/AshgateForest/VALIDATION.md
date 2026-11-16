@@ -1,3 +1,13 @@
+## 2026-11-16 r2 — 握りとFPS表示の修正
+
+両手の掌・指の関節・手首をM1911に合わせ直し、手袋の曲面を平滑化。元の手の資産を保持した別メッシュを使用。通常・武器確認・ADSの実画面を確認しました。右上のFPSは実時間の描画回数を0.25秒ごとに集計し、ポーズ中・武器非表示でも表示します。
+
+Editorビルド成功、Windows Build/Cook/Stage/Archive終了コード0。実PIE / 配布版はいずれも14 PASS・0 FAIL（FPSカウンターの正数・有限値の確認を追加）。D3D12 RTX 5080。MSVC 14.52.37029 / SDK 10.0.26100.0。エンジン設定・既知警告の抑制なし。
+
+[通常とFPS](../../docs/screenshots/forest-r2-trail.png) / [握りの側面](../../docs/screenshots/forest-r2-inspect.png) / [ADS](../../docs/screenshots/forest-r2-ads.png)
+
+既存のGodot・Depot 04・森林初版・セーブは保持。リロードは従来の手続き型動作で、専用の指アニメーションは未制作です。以下は森林初版の検証記録です。
+
 # 森林デモの検証 — 2026-11-16
 
 旧ゲームを保持した独立プロジェクト `unreal/AshgateForest`。Windows本体 / UE5 5.8.4 / RTX 5080 / Ryzen 9 9950X3D / 約32GB RAM。

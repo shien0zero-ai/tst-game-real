@@ -34,5 +34,6 @@ UCLASS()
 class AForestHUD:public AHUD {
  GENERATED_BODY()
 public:
+ double FPSStart=0;int32 FPSFrames=0;float CurrentFPS=0;
  FName Pressed;void DrawHUD() override;void NotifyHitBoxClick(FName Name) override;void NotifyHitBoxRelease(FName Name) override;
 };

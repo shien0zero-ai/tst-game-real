@@ -18,7 +18,7 @@ def digest(path):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--publish",action="store_true",help="Create a GitHub Release and upload the ZIP and SHA256")
-    p.add_argument("--tag",default="forest-demo-2026-11-16")
+    p.add_argument("--tag",default="forest-demo-2026-11-16-r2")
     args=p.parse_args()
     commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
     status=subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True)
@@ -77,7 +77,7 @@ def main():
     try: release=api("GET","/releases/tags/"+args.tag)
     except urllib.error.HTTPError as e:
         if e.code!=404: raise RuntimeError("Release lookup HTTP "+str(e.code)) from None
-        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / FOREST STUDY - 2026-11-16","body":"Independent UE5 5.8.4 / Windows x64 forest exploration demo. Prior Depot 04, Godot edition, releases and saves are preserved. Extract the entire ZIP and run AshgateForest.exe.\n\n256m rolling forest terrain, 4K blended forest ground/trail, CC0 conifers, ferns, undergrowth, moss rocks, fallen logs, Lumen lighting and volumetric atmosphere. M1911: LMB fire, RMB ADS, R reload, N inspect. WASD move, Shift run, C crouch, Space jump, F1 controls, F2 holster for scenery, Esc pause.\n\nEditor build, real PIE and Windows package validated on RTX 5080. This exact release ZIP was extracted and passed 13 input checkpoints, including M1911 controls and quit confirmation, before upload. See unreal/AshgateForest/VALIDATION.md at source commit "+commit+". This is a visual exploration study; no extraction/combat progression. Includes asset credits and known limitations.","prerelease":True,"draft":False})
+        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / FOREST STUDY - Grip and FPS update","body":"Updated two-hand M1911 grip with articulated fingers and smoothed glove geometry. Live FPS counter in the upper right, refreshed every 0.25 seconds and visible while paused or holstered. Independent UE5 5.8.4 / Windows x64 forest exploration demo. Prior Depot 04, Godot edition, releases and saves are preserved. Extract the entire ZIP and run AshgateForest.exe.\n\n256m rolling forest terrain, 4K blended forest ground/trail, CC0 conifers, ferns, undergrowth, moss rocks, fallen logs, Lumen lighting and volumetric atmosphere. M1911: LMB fire, RMB ADS, R reload, N inspect. WASD move, Shift run, C crouch, Space jump, F1 controls, F2 holster for scenery, Esc pause.\n\nEditor build, real PIE and Windows package validated on RTX 5080. This exact release ZIP was extracted and passed 13 input checkpoints, including M1911 controls and quit confirmation, before upload. See unreal/AshgateForest/VALIDATION.md at source commit "+commit+". This is a visual exploration study; no extraction/combat progression. Includes asset credits and known limitations.","prerelease":True,"draft":False})
     if release.get("target_commitish") not in (commit,"main"):
         raise RuntimeError("Existing release points to another source; choose a new tag")
     existing={a["name"] for a in release.get("assets",[])}

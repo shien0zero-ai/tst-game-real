@@ -27,6 +27,7 @@
 #include "Misc/Paths.h"
 #include "Containers/Ticker.h"
 #include "HAL/IConsoleManager.h"
+#include "HAL/PlatformTime.h"
 #include "Modules/ModuleManager.h"
 #if WITH_EDITOR
 #include "Editor.h"
@@ -40,9 +41,9 @@ AForestPlayer::AForestPlayer(){
  GetCharacterMovement()->MaxWalkSpeed=230;GetCharacterMovement()->MaxWalkSpeedCrouched=120;GetCharacterMovement()->JumpZVelocity=330;GetCharacterMovement()->GetNavAgentPropertiesRef().bCanCrouch=true;
  Camera=CreateDefaultSubobject<UCameraComponent>(TEXT("Eyes"));Camera->SetupAttachment(GetCapsuleComponent());Camera->SetRelativeLocation(FVector(0,0,72));Camera->bUsePawnControlRotation=true;Camera->FieldOfView=82;
  Weapon=CreateDefaultSubobject<USceneComponent>(TEXT("Viewmodel"));Weapon->SetupAttachment(Camera);Weapon->SetRelativeLocation(FVector(38,13,-8));Weapon->SetRelativeRotation(FRotator(0,90,0));
- for(const TCHAR* Part:{TEXT("m1911_frame"),TEXT("m1911_slide"),TEXT("m1911_magazine"),TEXT("view_right"),TEXT("view_left")}){
+ for(const TCHAR* Part:{TEXT("m1911_frame"),TEXT("m1911_slide"),TEXT("m1911_magazine"),TEXT("grip_right"),TEXT("grip_left")}){
   auto* C=CreateDefaultSubobject<UStaticMeshComponent>(Part);C->SetupAttachment(Weapon);C->SetCollisionEnabled(ECollisionEnabled::NoCollision);C->CastShadow=false;
-  if(FString(Part)==TEXT("m1911_slide"))Slide=C;if(FString(Part)==TEXT("m1911_magazine"))Magazine=C;if(FString(Part)==TEXT("view_left"))LeftHand=C;
+  if(FString(Part)==TEXT("m1911_slide"))Slide=C;if(FString(Part)==TEXT("m1911_magazine"))Magazine=C;if(FString(Part)==TEXT("grip_left"))LeftHand=C;
  }
 }
 void AForestPlayer::BeginPlay(){Super::BeginPlay();TArray<UStaticMeshComponent*> Parts;GetComponents(Parts);for(auto* C:Parts){if(C->GetAttachParent()!=Weapon.Get())continue;const FString N=C->GetName();C->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,*(TEXT("/Game/Art/Meshes/")+N+TEXT(".")+N)));}
@@ -93,7 +94,7 @@ float AForestMode::Height(float X,float Y){
 }
 AForestMode::AForestMode(){DefaultPawnClass=AForestPlayer::StaticClass();HUDClass=AForestHUD::StaticClass();PrimaryActorTick.bCanEverTick=true;}
 AForestPlayer* AForestMode::Player()const{return Cast<AForestPlayer>(UGameplayStatics::GetPlayerPawn(this,0));}
-void AForestMode::BeginPlay(){Super::BeginPlay();QA=FParse::Param(FCommandLine::Get(),TEXT("ForestQA"));Preview=FParse::Param(FCommandLine::Get(),TEXT("ForestPreview"));BuildForest();PauseForest(false);ResetTrail();if(auto* PC=UGameplayStatics::GetPlayerController(this,0)){PC->ConsoleCommand(TEXT("scalability 4"));PC->ConsoleCommand(TEXT("r.ScreenPercentage 100"));}UE_LOG(LogForest,Display,TEXT("READY trees=%d plants=%d terrain=256m worldtype=%d / prior games and saves untouched"),Trees,Plants,int32(GetWorld()->WorldType));}
+void AForestMode::BeginPlay(){Super::BeginPlay();QA=FParse::Param(FCommandLine::Get(),TEXT("ForestQA"));Preview=FParse::Param(FCommandLine::Get(),TEXT("ForestPreview"))||FParse::Param(FCommandLine::Get(),TEXT("GripPreview"));BuildForest();PauseForest(false);ResetTrail();if(auto* PC=UGameplayStatics::GetPlayerController(this,0)){PC->ConsoleCommand(TEXT("scalability 4"));PC->ConsoleCommand(TEXT("r.ScreenPercentage 100"));}UE_LOG(LogForest,Display,TEXT("READY trees=%d plants=%d terrain=256m worldtype=%d / prior games and saves untouched"),Trees,Plants,int32(GetWorld()->WorldType));}
 void AForestMode::ResetTrail(){if(auto* P=Player()){float X=-75,Y=TrailY(X);P->SetActorLocation(FVector(X*100,Y*100,Height(X,Y)*100+200));if(P->Controller)P->Controller->SetControlRotation(FRotator(-3,12,0));P->Ammo=7;P->Aiming=false;P->ReloadTime=0;}}
 void AForestMode::PauseForest(bool V){Paused=V;auto* PC=UGameplayStatics::GetPlayerController(this,0);PC->bShowMouseCursor=V;PC->bEnableClickEvents=V;PC->bEnableMouseOverEvents=V;if(V){FInputModeGameAndUI I;I.SetHideCursorDuringCapture(false);PC->SetInputMode(I);}else{PC->SetInputMode(FInputModeGameOnly());}UGameplayStatics::SetGamePaused(this,V);}
 void AForestMode::Action(int32 Row){UE_LOG(LogForest,Display,TEXT("MENU row=%d confirmation=%d"),Row,QuitConfirmation);if(QuitConfirmation){if(Row==1)QuitConfirmation=false;else if(Row==0){UE_LOG(LogForest,Display,TEXT("CONFIRMED USER QUIT"));UGameplayStatics::GetPlayerController(this,0)->ConsoleCommand(TEXT("quit"));}return;}if(Row==0)PauseForest(false);if(Row==1){ResetTrail();PauseForest(false);}if(Row==2)Player()->Sensitivity=FMath::Max(.2f,Player()->Sensitivity-.1f);if(Row==3)Player()->Sensitivity=FMath::Min(3.f,Player()->Sensitivity+.1f);if(Row==4)QuitConfirmation=true;}
@@ -124,24 +125,32 @@ void AForestMode::BuildForest(){
 void AForestMode::Tick(float D){Super::Tick(D);if(QA||Preview)QATick(D);if(auto* P=Player())if(FMath::Abs(P->GetActorLocation().X)>12100||FMath::Abs(P->GetActorLocation().Y)>12100||P->GetActorLocation().Z<-3000)ResetTrail();}
 void AForestMode::Check(bool C,const TCHAR* N){UE_LOG(LogForest,Display,TEXT("QA %s: %s"),C?TEXT("PASS"):TEXT("FAIL"),N);if(!C)++Failures;}
 void AForestMode::Shot(const TCHAR* Name){FScreenshotRequest::RequestScreenshot(FPaths::Combine(FPaths::ProjectSavedDir(),FString(TEXT("Screenshots/"))+Name+TEXT(".png")),false,false);}
-void AForestMode::QATick(float D){Elapsed+=D;auto* P=Player();if(!P||Elapsed<3)return;switch(Step){
- case 0:if(!Preview){Check(Trees>650&&Plants>5000,TEXT("forest population"));Check(P->GetCharacterMovement()->IsMovingOnGround(),TEXT("terrain collision / grounded character"));Check(FMath::Abs((P->GetActorLocation().Z-88)-Height(P->GetActorLocation().X/100,P->GetActorLocation().Y/100)*100)<40,TEXT("terrain elevation matches world"));TArray<UStaticMeshComponent*> Parts;P->GetComponents(Parts);bool Valid=true;int32 WeaponParts=0;for(auto* C:Parts)if(C->GetAttachParent()==P->Weapon.Get()){++WeaponParts;Valid&=C->GetStaticMesh()!=nullptr;}Check(Valid&&WeaponParts==5,TEXT("M1911 and both arms loaded"));Previous=P->GetActorLocation();}++Step;Elapsed=0;break;
+void AForestMode::QATick(float D){Elapsed+=D;auto* P=Player();if(!P||Elapsed<3)return;if(Step==0&&FParse::Param(FCommandLine::Get(),TEXT("GripPreview"))){ResetTrail();Step=4;Elapsed=0;return;}switch(Step){
+ case 0:if(!Preview){auto* FPSHUD=Cast<AForestHUD>(UGameplayStatics::GetPlayerController(this,0)->GetHUD());Check(FPSHUD&&FMath::IsFinite(FPSHUD->CurrentFPS)&&FPSHUD->CurrentFPS>0,TEXT("real-time viewport FPS counter"));Check(Trees>650&&Plants>5000,TEXT("forest population"));Check(P->GetCharacterMovement()->IsMovingOnGround(),TEXT("terrain collision / grounded character"));Check(FMath::Abs((P->GetActorLocation().Z-88)-Height(P->GetActorLocation().X/100,P->GetActorLocation().Y/100)*100)<40,TEXT("terrain elevation matches world"));TArray<UStaticMeshComponent*> Parts;P->GetComponents(Parts);bool Valid=true;int32 WeaponParts=0;for(auto* C:Parts)if(C->GetAttachParent()==P->Weapon.Get()){++WeaponParts;Valid&=C->GetStaticMesh()!=nullptr;}Check(Valid&&WeaponParts==5,TEXT("M1911 and both arms loaded"));Previous=P->GetActorLocation();}++Step;Elapsed=0;break;
  case 1:if(!Preview){P->Forward(1);if(Elapsed<5)break;Check(FVector::Dist(P->GetActorLocation(),Previous)>180,TEXT("walking with terrain collision"));P->Inspect();Check(P->InspectTime>0,TEXT("inspect starts"));P->Aim();Check(P->Aiming&&P->InspectTime==0,TEXT("ADS cancels inspect"));P->UnAim();P->Fire();Check(P->Ammo==6,TEXT("M1911 fire consumes one round"));P->Reload();Check(P->ReloadTime>0,TEXT("reload starts"));}++Step;Elapsed=0;break;
  case 2:if(!Preview){Check(P->Ammo==7&&P->ReloadTime<=0,TEXT("reload completes"));P->Aim();}++Step;Elapsed=0;break;
  case 3:if(!Preview){Check(P->Camera->FieldOfView<70,TEXT("ADS camera"));P->UnAim();P->ToggleWeapon();Check(!P->WeaponShown,TEXT("scenery view / holster"));P->ToggleWeapon();Check(P->WeaponShown,TEXT("M1911 available again"));}ResetTrail();++Step;Elapsed=0;break;
  case 4:if(Elapsed<6)break;Shot(TEXT("Forest-Trail"));++Step;Elapsed=0;break;
- case 5:Sum+=D;Worst=FMath::Max(Worst,double(D));++Frames;if(Elapsed<12)break;UE_LOG(LogForest,Display,TEXT("PERFORMANCE samples=%d mean=%.2fms fps=%.1f worst=%.2fms / fixed view, warm-up excluded"),Frames,Sum*1000/Frames,Frames/Sum,Worst*1000);P->Inspect();++Step;Elapsed=0;break;
- case 6:Shot(TEXT("Forest-Inspect"));P->Aim();++Step;Elapsed=0;break;
- case 7:Shot(TEXT("Forest-ADS"));P->UnAim();P->ToggleWeapon();++Step;Elapsed=0;break;
- case 8:Shot(TEXT("Forest-Scenery"));{float X=-40,Y=TrailY(X)+3;P->SetActorLocation(FVector(X*100,Y*100,Height(X,Y)*100+180));P->Controller->SetControlRotation(FRotator(-5,25,0));}++Step;Elapsed=0;break;
- case 9:if(Elapsed<5)break;Shot(TEXT("Forest-Grove"));++Step;Elapsed=0;break;
- case 10:UE_LOG(LogForest,Display,TEXT("%s COMPLETE failures=%d worldtype=%d"),Preview?TEXT("PREVIEW"):TEXT("QA"),Failures,int32(GetWorld()->WorldType));++Step;
+ case 5:Sum+=D;Worst=FMath::Max(Worst,double(D));++Frames;if(Elapsed<(FParse::Param(FCommandLine::Get(),TEXT("GripPreview"))?3:12))break;UE_LOG(LogForest,Display,TEXT("PERFORMANCE samples=%d mean=%.2fms fps=%.1f worst=%.2fms / fixed view, warm-up excluded"),Frames,Sum*1000/Frames,Frames/Sum,Worst*1000);P->Inspect();++Step;Elapsed=0;break;
+ case 6:Shot(TEXT("Forest-Inspect"));++Step;Elapsed=0;break;
+ case 7:P->Aim();++Step;Elapsed=0;break;
+ case 8:Shot(TEXT("Forest-ADS"));++Step;Elapsed=0;break;
+ case 9:P->UnAim();P->ToggleWeapon();++Step;Elapsed=0;break;
+ case 10:Shot(TEXT("Forest-Scenery"));++Step;Elapsed=0;break;
+ case 11:{float X=-40,Y=TrailY(X)+3;P->SetActorLocation(FVector(X*100,Y*100,Height(X,Y)*100+180));P->Controller->SetControlRotation(FRotator(-5,25,0));}++Step;Elapsed=0;break;
+ case 12:if(Elapsed<5)break;Shot(TEXT("Forest-Grove"));++Step;Elapsed=0;break;
+ case 13:UE_LOG(LogForest,Display,TEXT("%s COMPLETE failures=%d worldtype=%d"),Preview?TEXT("PREVIEW"):TEXT("QA"),Failures,int32(GetWorld()->WorldType));++Step;
 #if WITH_EDITOR
  if(GetWorld()->WorldType==EWorldType::PIE){GEditor->RequestEndPlayMap();FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){GEditor->Exec(GEditor->GetEditorWorldContext().World(),TEXT("QUIT_EDITOR"));return false;}),2.f);break;}
 #endif
  FPlatformMisc::RequestExitWithStatus(false,Failures?1:0);break;}}
 void AForestHUD::DrawHUD(){Super::DrawHUD();auto* M=Forest(this);if(!M||!Canvas)return;auto* P=M->Player();float S=Canvas->SizeY/900.f,W=Canvas->SizeX/S;
  auto Text=[&](const FString& T,float X,float Y,float Size=1.f){DrawText(T,FLinearColor(.86f,.89f,.82f),X*S,Y*S,GEngine->GetMediumFont(),Size*S,false);};
+ // Wall-clock viewport frames, independent of game pause/time dilation. Refresh 4 times/s.
+ const double Now=FPlatformTime::Seconds();
+ if(FPSStart==0){FPSStart=Now;FPSFrames=0;}else{++FPSFrames;if(Now-FPSStart>=.25){CurrentFPS=float(FPSFrames/(Now-FPSStart));FPSFrames=0;FPSStart=Now;}}
+ DrawRect(FLinearColor(.01f,.02f,.015f,.72f),(W-164)*S,26*S,136*S,38*S);
+ Text(CurrentFPS>0?FString::Printf(TEXT("%.0f FPS"),CurrentFPS):TEXT("-- FPS"),W-151,35,.95f);
  if(M->Paused){DrawRect(FLinearColor(.015f,.025f,.02f,.91f),0,0,Canvas->SizeX,Canvas->SizeY);Text(TEXT("ASHGATE / FOREST STUDY"),95,95,1.8f);Text(TEXT("EXPLORE THE TRAIL"),95,155,1.f);TArray<FString> Rows=M->QuitConfirmation?TArray<FString>{TEXT("CONFIRM QUIT TO DESKTOP"),TEXT("CANCEL")} : TArray<FString>{TEXT("RESUME"),TEXT("RETURN TO TRAIL START"),TEXT("SENSITIVITY -"),TEXT("SENSITIVITY +"),TEXT("QUIT TO DESKTOP")};for(int32 I=0;I<Rows.Num();++I){float Y=250+I*60;DrawRect(FLinearColor(.075f,.10f,.08f,.95f),95*S,Y*S,480*S,46*S);Text(Rows[I],112,Y+12,.9f);AddHitBox(FVector2D(95*S,Y*S),FVector2D(480*S,46*S),FName(*FString::FromInt(I)),true);}Text(FString::Printf(TEXT("Sensitivity %.0f%%"),P->Sensitivity*100),650,280);return;}
  if(P->WeaponShown)Text(FString::Printf(TEXT("M1911   %02d / INF"),P->Ammo),W-240,835,.85f);
  if(P->ReloadTime>0)Text(TEXT("RELOADING"),W/2-55,650,.75f);

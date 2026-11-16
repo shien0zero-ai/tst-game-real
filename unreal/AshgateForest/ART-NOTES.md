@@ -17,3 +17,7 @@ Powered by Poly Haven. 追加した森林モデル・地表画像はPoly Haven�
 
 
 大型の松のネイティブUE資産は画質を維持した可逆圧縮の分割データとしてSourceArt/Packedへ保存。開発用build_forest.ps1がSHA256を検証して復元します。既に変更された資産は上書きしません。配布版の利用者には復元操作は不要です。
+
+## Grip revision r2
+
+Existing attributed glove topology and UVs were retargeted per finger joint to a two-handed M1911 grip, then Loop-subdivided once with UV seams preserved. Original view_left/view_right and all source assets are retained. Reproduction: Tools/fit_grip.py then full-editor Tools/grip_entry.py. No new external assets.
