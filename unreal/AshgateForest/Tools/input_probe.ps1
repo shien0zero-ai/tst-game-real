@@ -91,6 +91,12 @@ function Click([int]$Row) {
  }
  throw ('Menu click was not acknowledged for row '+$Row)
 }
+# Focus transfer may deliver a real activation click; establish state via public UI.
+[AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+[AshgateInput]::PostMessage($handle,0x205,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+Key 0x1B
+Click 1
+Start-Sleep -Seconds 2
 Capture 'trail start'
 $capacity=[int]([regex]::Match((Get-Content -LiteralPath $LogPath -Raw),'INPUT position=.*? ammo=(\d+)').Groups[1].Value)
 if($capacity -ne 8){throw 'New service pistol was not the default'}

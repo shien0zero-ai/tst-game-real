@@ -19,3 +19,5 @@ Known editor smoke-test Condition failed messages and MSVC preference warning re
 The surface/geometry changes are a fictional field variant, not a factory specification. Reload remains procedural; this revision is not a new skeletal animation set.
 PIE and packaging ran concurrently for part of validation; FPS captures are not a performance benchmark.
 The exact release ZIP must pass the existing native input gate, including both pistols and quit confirmation, before upload.
+
+Native input preparation: release mouse buttons and use Esc -> Return to trail start before the first snapshot. A real activation click had consumed one round during focus transfer; public UI reset isolates the test baseline without weakening the 8-round/default-pistol or gameplay assertions.
