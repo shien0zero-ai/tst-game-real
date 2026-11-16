@@ -1,0 +1,50 @@
+{
+  "scale": "30x30 cm",
+  "type": 1,
+  "date_published": 1590729315,
+  "name": "Fabric Pattern 07",
+  "old_id": 261,
+  "authors": {
+    "Rob Tuytel": "All"
+  },
+  "dimensions": [
+    400.0000059604645,
+    400.00003576278687
+  ],
+  "sponsors": [
+    "7934315",
+    "11167855",
+    "20953239"
+  ],
+  "max_resolution": [
+    8192,
+    8192
+  ],
+  "categories": [
+    "fabric",
+    "cotton"
+  ],
+  "files_hash": "af042f95980f6ccc87285c3bc23e11671a5fecde",
+  "tags": [
+    "towel",
+    "plain",
+    "cloth",
+    "checkered",
+    "woven",
+    "textile",
+    "picnic"
+  ],
+  "description": "Free 8K texture of red-and-cream woven cotton: coarse towel-like checkered weave with visible yarns, soft matte surface and subtle fiber variation.",
+  "category_id": "1df887de-c667-575d-9f55-cd044384317c",
+  "category": "Textiles & Leather/Woven/Plaid & Check",
+  "attributes": {
+    "surface_use": "object",
+    "origin": "man_made",
+    "condition": [
+      "clean"
+    ]
+  },
+  "img_version": "8bf5bc82",
+  "download_count": 338538,
+  "thumbnail_url": "https://cdn.polyhaven.com/asset_img/thumbs/fabric_pattern_07.png?width=256&height=256&format=webp&v=8bf5bc82"
+}

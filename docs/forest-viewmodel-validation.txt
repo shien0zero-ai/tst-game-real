@@ -1,0 +1,18 @@
+New viewmodel and field-recorded gunfire validation - 2026-11-16
+UE5 5.8.4 / D3D12 RTX 5080 / MSVC 14.52.37029 / SDK 10.0.26100.0
+Editor build succeeded. Windows UAT ExitCode=0.
+Real PIE: 23 PASS / 0 FAIL. Packaged Windows: 23 PASS / 0 FAIL.
+Includes new default service pistol, anatomical hands, F3 selection and firing of the preserved M1911, and independent ammunition state.
+Active gunshot events are field_shot, not prior pistol_fire. No pitch change or synthesized low-frequency layer is applied.
+BuildForest method is byte-for-byte identical after text newline normalization; all 15 prior source audio WAV hashes match.
+New source files and adapted geometry/audio are hash-checked in SourceArt/Viewmodel/manifest.json.
+
+PIE: rendered master WAV 55.15s / 48000Hz / 8ch / peak -11.7dBFS / clipped samples 0.
+Windows: rendered master WAV 55.49s / 48000Hz / 8ch / peak -11.25dBFS / clipped samples 0.
+
+Actual screenshots reviewed for steel/wood PBR, anatomical glove grip, sleeve detail and sight alignment.
+The new service pistol uses a handgun stand-in recording; source authors and original firearm are documented rather than misidentified.
+Reload is still procedural motion, not a new full skeletal animation set.
+Audio capture uses process-only background-audio overrides; no engine/config changes. Numerical clipping checks do not certify subjective sound quality or every output device.
+PIE ran while Windows cooking was active; FPS samples are not a performance benchmark. Known editor smoke-test Condition failed messages and toolchain warnings remain unsuppressed.
+The exact final ZIP is additionally extracted and checked by the native-input release gate before upload.

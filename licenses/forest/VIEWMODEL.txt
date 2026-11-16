@@ -1,0 +1,50 @@
+ASHGATE / FOREST STUDY - new viewmodel and replacement gunfire
+
+Service Pistol, Mateusz Sadek / Poly Haven. CC0 1.0 Universal.
+https://polyhaven.com/a/service_pistol
+https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+Original 4K glTF, mesh buffer, diffuse, OpenGL normal and AO/roughness/metal maps.
+Changes: wood-grip variant selected, source scene display offsets removed from
+magazine, frame/hammer/trigger combined, separate slide and magazine retained,
+axes/origin converted to the project's held-weapon coordinates. No source texture
+pixels were repainted. It is presented as SERVICE, not mislabeled as an M1911.
+
+FPS arms (rigged only), para; anatomy and embedded source skin by MakeHuman.
+CC0 1.0 Universal.
+https://opengameart.org/content/fps-arms-rigged-only
+Original source download: https://opengameart.org/sites/default/files/fps%20arms.7z
+Public GLB conversion: kter1/fps-mode-public, commit
+41fc12d8bb095dcd03451060d2aa62a96d9667d5,
+content/models/realism/arms.glb, with its anatomical-arms.txt attribution.
+https://github.com/kter1/fps-mode-public/blob/41fc12d8bb095dcd03451060d2aa62a96d9667d5/content/licenses/anatomical-arms.txt
+Changes: static weighted pose bake, palm and per-finger retargeting, separate
+left/right forearms and hands, leather glove and woven-sleeve material regions.
+No Mixamo character mesh, textures, animations, or third-party game code used.
+
+Leather Red 02 and Fabric Pattern 07, Rob Tuytel / Poly Haven. CC0 1.0.
+https://polyhaven.com/a/leather_red_02
+https://polyhaven.com/a/fabric_pattern_07
+Changes: original 2K normal and roughness scans used as tiled glove/sleeve detail;
+leather color is desaturated and tinted charcoal by the UE material graph.
+Source image files are unchanged. Sleeve has a project-authored olive base color.
+
+Replacement gunfire: The Free Firearm Sound Library (2014),
+Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney. CC0 1.0.
+https://opengameart.org/content/the-free-firearm-sound-library
+Public mirror: https://github.com/buddingmonkey/FreeFirearmsSFXLibrary
+Mirror LICENSE: https://github.com/buddingmonkey/FreeFirearmsSFXLibrary/blob/main/LICENSE
+Prepared Master Sheet.csv identifies A_42P.wav as a near-distance stereo recording
+of a 1911 .45 handgun, and A_34P.wav as its mid-distance recording.
+New active field_shot_0/1/2 use two actual A_42P shot transients and alternate mic
+channels, converted from 96kHz/24-bit to 48kHz/16-bit mono. Only DC/ultrasonic
+filtering, onset trim, level normalization and short fades are applied.
+No generated low-frequency impact, saturation, deliberate bass boost or pitch
+shift is added. This replaces the previous CZ-52-based designed gunfire.
+The recording is a handgun stand-in for the service pistol, not a claimed exact
+recording of that model. The raw mid-distance file is preserved for editing.
+
+All previous pistol, hand and gunfire assets remain intact. Legacy M1911 stays
+playable via F3. Forest lighting, vegetation, ambience and footsteps are unchanged.
+Exact source and output hashes, download URLs and geometry/pose reports accompany
+unreal/AshgateForest/SourceArt/Viewmodel. No creator endorsement is implied.

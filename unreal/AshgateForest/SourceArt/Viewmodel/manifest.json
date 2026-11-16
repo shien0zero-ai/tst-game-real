@@ -1,0 +1,75 @@
+{
+  "sources": [
+    {
+      "path": "Service/service_pistol.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/service_pistol/service_pistol_4k.gltf",
+      "sha256": "d5cbf64927cdd5b33eea37fcba023b12cab8e96eb2b2a889c4dc7594115286cb"
+    },
+    {
+      "path": "Service/textures/service_pistol_arm_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/service_pistol/service_pistol_arm_4k.jpg",
+      "sha256": "84a308510f1ba10098b73e4d0098dfdbf8a5f1e6d3ffe4e97533e82590522676"
+    },
+    {
+      "path": "Service/service_pistol.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/service_pistol/service_pistol.bin",
+      "sha256": "a97b6d31ca8865384a76d31289017e25a326a67b3b254162b2a02ecbd97600bc"
+    },
+    {
+      "path": "Service/textures/service_pistol_nor_gl_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/service_pistol/service_pistol_nor_gl_4k.jpg",
+      "sha256": "51aab54bb1e57f8ea1f0113f213cc9126812ee7b7ca2a1c14b000e293df18e70"
+    },
+    {
+      "path": "Service/textures/service_pistol_diff_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/service_pistol/service_pistol_diff_4k.jpg",
+      "sha256": "2794cee39dfdaa160bb9e325d1cd935fb1546c409f46356e4dcea71b15c0be4e"
+    },
+    {
+      "path": "Textures/leather_normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leather_red_02/leather_red_02_nor_gl_2k.jpg",
+      "sha256": "be8e0525fe6cc7d0215d4fc81f2761a2f8485f85baad3bcd4b9bcdeb843ea925"
+    },
+    {
+      "path": "Textures/leather_rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leather_red_02/leather_red_02_rough_2k.jpg",
+      "sha256": "0dd604b493aef28488a7f8a4c86846c1ec7313c16bd5198a9deec8a7f880b43d"
+    },
+    {
+      "path": "Textures/leather_color.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leather_red_02/leather_red_02_coll1_2k.jpg",
+      "sha256": "a900630e541991b7ee63aab820f425610fbf2db32f7ae6c63b6ef4fc2325ab60"
+    },
+    {
+      "path": "Textures/fabric_normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/fabric_pattern_07/fabric_pattern_07_nor_gl_2k.jpg",
+      "sha256": "84f15ee5f6b63e7e224051a22426c751cc1fe15a794efd001ebfdb5f84828602"
+    },
+    {
+      "path": "Textures/fabric_rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/fabric_pattern_07/fabric_pattern_07_rough_2k.jpg",
+      "sha256": "be3e311614ee6f31d4cb4a774ed678b7a64189d3e1a55ad71033142185da270a"
+    },
+    {
+      "path": "arms.glb",
+      "url": "https://raw.githubusercontent.com/kter1/fps-mode-public/41fc12d8bb095dcd03451060d2aa62a96d9667d5/content/models/realism/arms.glb",
+      "license": "CC0-1.0",
+      "sha256": "c45aca9d713aff94d7421420ad1d6247693068181aa7e64478430ba9da75be63"
+    },
+    {
+      "path": "1911-near.wav",
+      "url": "https://raw.githubusercontent.com/buddingmonkey/FreeFirearmsSFXLibrary/main/Prepared%20SFX/1911/A_42P.wav",
+      "license": "CC0-1.0",
+      "sha256": "8e84438e771c157155a6a1ff47a6a7a7d81b6f39b185d41e426c57337a82254a"
+    },
+    {
+      "path": "1911-mid.wav",
+      "url": "https://raw.githubusercontent.com/buddingmonkey/FreeFirearmsSFXLibrary/main/Prepared%20SFX/1911/A_34P.wav",
+      "license": "CC0-1.0",
+      "sha256": "df95fc52049f3d1e4cf0a8c018fc0f0b4abded12de1d615a279422206c415935"
+    }
+  ],
+  "geometry": "geometry-report.json",
+  "audio": "Audio/manifest.json",
+  "credits": "licenses/forest/VIEWMODEL.txt"
+}

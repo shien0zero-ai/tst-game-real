@@ -1,0 +1,27 @@
+{
+  "source": "The Free Firearm Sound Library, A_42P.wav; near-distance 1911 .45 recording",
+  "license": "CC0-1.0",
+  "source_sha256": "8e84438e771c157155a6a1ff47a6a7a7d81b6f39b185d41e426c57337a82254a",
+  "synthesis": false,
+  "pitch_shift": false,
+  "takes": {
+    "field_shot_0": {
+      "source_start_seconds": 0.937,
+      "channel": 0,
+      "duration": 1.1,
+      "sha256": "96236a4f21a3d263664a1f0b3f87f8cd0d81fbe8ce3de16860b8d7b3bdab7b2c"
+    },
+    "field_shot_1": {
+      "source_start_seconds": 4.997,
+      "channel": 0,
+      "duration": 1.1,
+      "sha256": "ae1e52c46d78a579a984b96c1c925b310d87bd9113c4da6be8fd914e495b25e0"
+    },
+    "field_shot_2": {
+      "source_start_seconds": 0.937,
+      "channel": 1,
+      "duration": 1.1,
+      "sha256": "8b05381e311fc3f014568f20f7c10dcccb707bd6918608e959c3c39b4974aefe"
+    }
+  }
+}

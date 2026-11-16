@@ -1,0 +1,56 @@
+{
+  "type": 2,
+  "name": "Service Pistol",
+  "categories": [
+    "collection: project_lighthouse",
+    "props",
+    "weapons",
+    "firearms"
+  ],
+  "tags": [
+    "vintage",
+    "semi-automatic",
+    "metal",
+    "cold war",
+    "bullet",
+    "gun",
+    "handgun"
+  ],
+  "description": "Free 4k model of a worn pistol with realistic metal surfaces, two grip variants (wood and blue tape), detachable magazines, and bullets.",
+  "authors": {
+    "Mateusz Sadek": "All"
+  },
+  "donated": true,
+  "max_resolution": [
+    4096,
+    4096
+  ],
+  "dimensions": [
+    301.6076236963272,
+    31.82433918118477,
+    280.66837787628174
+  ],
+  "date_published": 1774015661,
+  "staging": null,
+  "social_post_pending": false,
+  "polycount": 27548,
+  "files_hash": "86bdbd0d905e64817287588732c07588b09b980e",
+  "texel_density": 10203.434785803875,
+  "category_id": "bd67da3d-2ba9-5168-ab7b-932c7d0abf69",
+  "category": "Weapons/Firearms/Handguns",
+  "collections": [
+    "project_lighthouse"
+  ],
+  "attributes": {
+    "condition": [
+      "worn"
+    ],
+    "material": [
+      "metal",
+      "wood"
+    ]
+  },
+  "img_version": "b979e867",
+  "download_count": 7271,
+  "thumbnail_url": "https://cdn.polyhaven.com/asset_img/thumbs/service_pistol.png?width=256&height=256&format=webp&v=b979e867"
+}

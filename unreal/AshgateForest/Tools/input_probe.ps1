@@ -92,6 +92,8 @@ function Click([int]$Row) {
  throw ('Menu click was not acknowledged for row '+$Row)
 }
 Capture 'trail start'
+$capacity=[int]([regex]::Match((Get-Content -LiteralPath $LogPath -Raw),'INPUT position=.*? ammo=(\d+)').Groups[1].Value)
+if($capacity -ne 8){throw 'New service pistol was not the default'}
 Key 0x57 1000
 Capture 'walking'
 # Exercise both forest-floor surfaces and movement loudness without extra snapshots.
@@ -117,7 +119,7 @@ Capture 'reload starts'
 Start-Sleep -Seconds 2
 Capture 'reload complete'
 # Empty the pistol at normal input cadence, click once empty, then reload.
-for($shotIndex=0;$shotIndex -lt 8;$shotIndex++){
+for($shotIndex=0;$shotIndex -lt ($capacity+1);$shotIndex++){
  [AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,[IntPtr]::Zero)|Out-Null
  Start-Sleep -Milliseconds 90
  [AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
@@ -128,7 +130,14 @@ Start-Sleep -Seconds 2
 Key 0x71
 Capture 'scenery view'
 Key 0x71
-Capture 'M1911 equipped'
+Capture 'pistol equipped'
+Key 0x72
+[AshgateInput]::PostMessage($handle,0x201,[IntPtr]1,[IntPtr]::Zero)|Out-Null
+Start-Sleep -Milliseconds 100
+[AshgateInput]::PostMessage($handle,0x202,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+Key 0x52
+Start-Sleep -Seconds 2
+Key 0x72
 Key 0x1B
 Capture 'pause menu'
 Click 3
@@ -147,7 +156,7 @@ $bootstrap.WaitForExit(30000)|Out-Null
 [AshgateInput]::SetForegroundWindow($oldHandle)|Out-Null
 $lines=@(Select-String -LiteralPath $LogPath -Pattern 'LogForest: Display: INPUT position=' | ForEach-Object {$_.Line})
 if($lines.Count -ne 13){throw "Expected 13 forest input snapshots, got $($lines.Count)"}
-foreach($r in @(@(2,'inspect=[1-9]'),@(3,'aim=1'),@(6,'ammo=7'),@(7,'visible=0'),@(8,'visible=1'),@(9,'paused=1'),@(11,'paused=0'),@(12,'paused=1'))){if($lines[$r[0]] -notmatch $r[1]){throw ('Forest input state mismatch: '+$lines[$r[0]])}}
+foreach($r in @(@(2,'inspect=[1-9]'),@(3,'aim=1'),@(6,('ammo='+$capacity+'(?:\s|$)')),@(7,'visible=0'),@(8,'visible=1'),@(9,'paused=1'),@(11,'paused=0'),@(12,'paused=1'))){if($lines[$r[0]] -notmatch $r[1]){throw ('Forest input state mismatch: '+$lines[$r[0]])}}
 $before=[int]([regex]::Match($lines[3],'ammo=(\d+)').Groups[1].Value)
 $after=[int]([regex]::Match($lines[4],'ammo=(\d+)').Groups[1].Value)
 if($after -ne $before-1){throw 'Shot ammo mismatch'}
@@ -155,5 +164,8 @@ if(([regex]::Match($lines[0],'position=(.*?) ammo').Groups[1].Value) -eq ([regex
 $log=Get-Content -LiteralPath $LogPath -Raw
 if(-not $log.Contains('CONFIRMED USER QUIT') -or -not $log.Contains('LogExit: Exiting.') -or $log -match 'Fatal error|Unhandled Exception'){throw 'Game exit verification failed'}
 foreach($pattern in @('AUDIO footstep surface=trail','AUDIO footstep surface=leaves','AUDIO footstep .*crouch=1','AUDIO footstep .*run=1','AUDIO event=dry_fire','AUDIO event=mag_out','AUDIO event=mag_in','AUDIO event=slide_release','AUDIO event=gear_rustle')){if($log -notmatch $pattern){throw ('Audio event not verified: '+$pattern)}}
+if($log -notmatch 'WEAPON selected=M1911 ammo=7' -or $log -notmatch 'WEAPON selected=SERVICE ammo=8'){throw 'F3 pistol switching was not verified'}
+if($log -notmatch 'AUDIO event=field_shot_'){throw 'Replacement recorded gunshot was not used'}
+Write-Output 'FOREST VIEWMODEL INPUT PASS: new service pistol, F3 legacy M1911 and replacement field-recorded gunshots'
 Write-Output 'FOREST AUDIO INPUT PASS: trail/leaves, running/crouching, empty click, empty reload and weapon handling'
 Write-Output 'FOREST INPUT VALIDATION PASS: 13 snapshots, walking, M1911, ADS, reload, holster, pause, sensitivity button, resume and quit cancellation/confirmation'

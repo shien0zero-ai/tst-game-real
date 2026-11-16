@@ -10,6 +10,9 @@ class AForestPlayer:public ACharacter {
  GENERATED_BODY()
 public:
  AForestPlayer();void EndPlay(const EEndPlayReason::Type Reason) override;void Landed(const FHitResult& Hit) override;void BeginPlay() override;void Tick(float D) override;void SetupPlayerInputComponent(UInputComponent* I) override;
+ UPROPERTY() TMap<FName,TObjectPtr<UStaticMesh>> ViewmodelMeshes;
+ bool Legacy1911=false;int32 ServiceAmmo=8,LegacyAmmo=7;
+ int32 Capacity() const{return Legacy1911?7:8;}void LoadViewmodels();void ApplyViewmodel();void SwitchPistol();
  UPROPERTY() TObjectPtr<UCameraComponent> Camera;
  UPROPERTY() TObjectPtr<USceneComponent> Weapon;
  UPROPERTY() TObjectPtr<UStaticMeshComponent> Slide;
@@ -22,7 +25,7 @@ public:
  TMap<FName,int32> SoundEvents;TArray<float> CaseDelays;
  FVector LastFootPosition;float FootDistance=0,ActionSoundCooldown=0;int32 LastShot=-1,FootIndex=0;bool ReloadWasEmpty=false;
  void StartForestAudio();void Sound(const FName Name,float Volume=1.f,float Pitch=1.f);void Footstep(bool Landing=false);void UpdateFootsteps(float D);void SetAudioPaused(bool Value);
- int32 Ammo=7;float ReloadTime=0,InspectTime=0,Kick=0,Cooldown=0,Sensitivity=1;
+ int32 Ammo=8;float ReloadTime=0,InspectTime=0,Kick=0,Cooldown=0,Sensitivity=1;
  bool Aiming=false,Running=false,WeaponShown=true,Help=false;
  void Forward(float V);void Right(float V);void Yaw(float V);void Pitch(float V);void Fire();void Aim();void UnAim();void Reload();void Inspect();void ToggleWeapon();void ToggleHelp();void Escape();void Sprint();void StopSprint();void CrouchToggle();void Capture();
 };

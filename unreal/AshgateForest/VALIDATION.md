@@ -1,3 +1,13 @@
+## 2026-11-16 — 銃・両手モデルの一新と銃声の入替
+
+別モデルのService Pistolを標準にし、4Kの金属・木製グリップを使用。両手も別の解剖学的モデルへ置換し、2Kの革・布素材で表現。F3で以前のM1911に切替可能です。森林の生成・照明コードと既存15音源のSHA256は前版と一致しています。
+
+銃声は別ライブラリの実射録音へ完全に切替。以前のCZ-52加工音、合成低音、歪み加工、ピッチ下げは新しい音に使っていません。原録音と用途の違いは `licenses/forest/VIEWMODEL.txt` に明記しています。
+
+Editorビルド成功、Windows UAT終了0、実PIE・配布版とも23 PASS / 0 FAIL。双方の実録音で非無音・数値クリップ0。[検証詳細](../../docs/forest-viewmodel-validation.txt)。[通常](../../docs/screenshots/forest-viewmodel-trail.png) / [銃と手の側面](../../docs/screenshots/forest-viewmodel-inspect.png) / [照準](../../docs/screenshots/forest-viewmodel-ads.png)。旧ゲーム・旧モデル・旧配布版・セーブは保持しています。
+
+以下は前版までの記録です。
+
 ## 2026-11-16 — 銃声の厚みと暗部の視認性
 
 銃声3点の低域と初動を増強し、余韻を1.3秒へ延長。森の環境音を含む他12音源はSHA256一致で保持。空からの補助光と暗部ガンマを上げ、同一視点の配布版画面で地面・シダの陰を確認しました。
