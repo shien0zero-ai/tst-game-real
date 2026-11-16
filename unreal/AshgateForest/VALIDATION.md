@@ -1,3 +1,11 @@
+## 2026-11-16 — 銃声の厚みと暗部の視認性
+
+銃声3点の低域と初動を増強し、余韻を1.3秒へ延長。森の環境音を含む他12音源はSHA256一致で保持。空からの補助光と暗部ガンマを上げ、同一視点の配布版画面で地面・シダの陰を確認しました。
+
+Editorビルド成功、Windows UAT終了0、実PIEと配布版は各19 PASS・0 FAIL。双方の実録音で非無音・数値クリップ0。[測定記録](../../docs/forest-weight-light-validation.txt)。[変更前](../../docs/screenshots/forest-light-before.png) / [変更後](../../docs/screenshots/forest-light-after.png)。旧作品・旧配布版・セーブは保持しています。
+
+以下は前版までの記録です。
+
 ## 2026-11-16 — 森林サウンド追加
 
 環境音2ループ、足音4種、銃声3テイク、弾倉・スライド・空撃ち4種、装備と薬莢の補助音2種を追加。Editorビルド、実PIE 19 PASS・0 FAIL、Windows Build/Cook/Stage/Archive終了0、配布版19 PASS・0 FAIL。通常ウィンドウでも13入力時点に加えて、小径／落ち葉、走り／しゃがみ、弾切れ、空リロードの音イベントを確認しました。

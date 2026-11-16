@@ -1,0 +1,16 @@
+Gunshot weight / shadow readability validation - 2026-11-16
+UE5 5.8.4; RTX 5080; MSVC 14.52.37029; SDK 10.0.26100.0
+Editor build succeeded; Windows UAT ExitCode=0. PIE 19 PASS / 0 FAIL, Windows 19 PASS / 0 FAIL.
+
+Gunshot body: first-200ms approximate 70-300Hz band RMS increases by 6.01 / 5.18 / 4.14 dB across three takes (two one-pole low-pass difference measurement; not a perceptual loudness score).
+Shot gain 0.87 -> 0.95; source peak 0.80 -> 0.88; tail 1.1 -> 1.3s. All 12 non-gunshot source WAVs and manifest entries match the preceding version exactly.
+Skylight intensity 350 -> 500; shadow gamma 1 -> 1.13; exposure bias -0.35 -> -0.20EV. Sun strength, fog, Lumen and materials unchanged.
+Same fixed grove viewpoint compared in packaged 1600x900 screenshots.
+
+PIE actual master WAV: 55.85s, 8ch, 48000Hz, peak -9.86dBFS, numerical clipping 0 samples.
+Windows actual master WAV: 75.54s, 8ch, 48000Hz, peak -10.0dBFS, numerical clipping 0 samples.
+
+Offscreen recording uses process-only background-audio launch overrides, without engine/config file edits. Numerical output checks do not replace subjective listening or guarantee every playback device.
+PIE ran alongside cooking; its buffer-starvation messages remain unsuppressed. FPS and smoothness are not benchmarked by that recording.
+Known editor Condition failed messages / MSVC version warning are retained.
+Final ZIP must also pass the existing native-input gate before release publication.

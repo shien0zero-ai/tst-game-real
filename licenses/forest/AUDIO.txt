@@ -48,3 +48,8 @@ hashes are recorded in unreal/AshgateForest/SourceArt/Audio/manifest.json.
 Reproduction: Tools/prepare_audio.py --cache <download/extract directory>.
 Decoding uses the installed Unreal Engine libsndfile DLL. No third-party
 game audio was extracted, and no additional software was installed.
+
+Gunshot weight revision: pistol_fire_0/1/2 retain the same Vincent Sevedge /
+Tabasco attribution and CC BY 3.0 treatment. Further changes: 65Hz high-pass,
+330Hz body shelf, original synthesized short 140-to-88Hz impact layer, soft
+saturation and a 1.3-second tail. Other audio files are unchanged.
