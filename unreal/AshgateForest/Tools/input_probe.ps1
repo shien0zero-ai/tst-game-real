@@ -1,4 +1,4 @@
-﻿param([Parameter(Mandatory=$true)][string]$Executable,[Parameter(Mandatory=$true)][string]$LogPath)
+param([Parameter(Mandatory=$true)][string]$Executable,[Parameter(Mandatory=$true)][string]$LogPath)
 $ErrorActionPreference='Stop'
 Add-Type @'
 using System;
@@ -41,6 +41,8 @@ trap {
  [AshgateInput]::SetForegroundWindow($oldHandle) | Out-Null
  throw $_
 }
+# Reset this probe's own log before launching; an old READY marker must not pass startup.
+Set-Content -LiteralPath $LogPath -Value '' -Encoding UTF8
 $start=Get-Date
 $gameArgs=@(('-AbsLog="'+$LogPath+'"'))
 $gameArgs+='-ForestInput'
