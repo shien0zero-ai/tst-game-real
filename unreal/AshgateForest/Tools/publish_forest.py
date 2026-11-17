@@ -18,7 +18,7 @@ def digest(path):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--publish",action="store_true",help="Create a GitHub Release and upload the ZIP and SHA256")
-    p.add_argument("--tag",default="forest-acoustics-2026-11-17")
+    p.add_argument("--tag",default="forest-integration-2026-11-17")
     args=p.parse_args()
     commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
     status=subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True)
@@ -77,7 +77,7 @@ def main():
     try: release=api("GET","/releases/tags/"+args.tag)
     except urllib.error.HTTPError as e:
         if e.code!=404: raise RuntimeError("Release lookup HTTP "+str(e.code)) from None
-        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / FOREST STUDY - Forest acoustics and grip","body":(PROJECT/"RELEASE-NOTES.md").read_text(encoding="utf-8")+"\nSource commit: "+commit,"prerelease":True,"draft":False})
+        release=api("POST","/releases",{"tag_name":args.tag,"target_commitish":commit,"name":"ASHGATE / FOREST STUDY - Viewmodel surface and lighting integration","body":(PROJECT/"RELEASE-NOTES.md").read_text(encoding="utf-8")+"\nSource commit: "+commit,"prerelease":True,"draft":False})
     if release.get("target_commitish") not in (commit,"main"):
         raise RuntimeError("Existing release points to another source; choose a new tag")
     existing={a["name"] for a in release.get("assets",[])}

@@ -1,0 +1,35 @@
+// Preserve the authored 4K PBR breakup. Grain is subtle, not a replacement for maps.
+struct SurfaceDetail {
+ float hash(float2 p){return frac(sin(dot(p,float2(127.1,311.7)))*43758.5453);}
+ float noise(float2 p){float2 i=floor(p),f=frac(p);f=f*f*(3-2*f);return lerp(lerp(hash(i),hash(i+float2(1,0)),f.x),lerp(hash(i+float2(0,1)),hash(i+1),f.x),f.y);}
+};
+SurfaceDetail D;
+float broad=D.noise(UV*24);
+float grain=D.noise(UV*768);
+float footprint=max(fwidth(UV.x),fwidth(UV.y));
+float grainWeight=1-smoothstep(.0008,.003,footprint);
+float3 bary=float3(Bary,1-Bary.x-Bary.y);
+float edgeDistance=min(min(Edges.r>.5?bary.x*Altitudes.x:1,Edges.g>.5?bary.y*Altitudes.y:1),Edges.b>.5?bary.z*ThirdAltitude.x:1);
+float edgeFootprint=max(fwidth(edgeDistance),.00001);
+float wear=(1-smoothstep(.00010-edgeFootprint,.00025+edgeFootprint,edgeDistance))*.35;
+float dirt=saturate((1-Maps.r)*.30+(broad-.72)*.08);
+float rough=clamp(Maps.g*.90+.065+(grain-.5)*.035*grainWeight+ dirt*.10-wear*.045,.27,.86);
+float metal=saturate(Maps.b);
+Color=BaseColor*.93;
+Normal=normalize(BaseNormal);
+if(Kind<.5||Kind>3.5&&Kind<4.5){Color=lerp(Color,Color*1.18+float3(.008,.009,.010),wear);}
+if(Kind>.5&&Kind<1.5){
+ // Retain the source grip's unique relief and wear, instead of a constant painted fill.
+ metal=0;Color=BaseColor*.72;rough=clamp(Maps.g*.85+.13+(grain-.5)*.025*grainWeight,.42,.82);
+ Normal=normalize(BaseNormal);
+}
+if(Kind>1.5&&Kind<2.5){
+ metal=0;Color=float3(.009,.011,.010)*(.92+.16*broad);rough=.77+.08*grain;
+ float rib=cos(UV.x*628.318)*.025*(1-smoothstep(.3,1.2,fwidth(UV.x*100)));
+ Normal=normalize(float3(rib,0,1));
+}
+if(Kind>2.5&&Kind<3.5){metal=.15;rough=.78;Color=float3(.004,.005,.005);Normal=float3(0,0,1);dirt=0;}
+if(Kind>3.5&&Kind<4.5){Color*=.82;rough=clamp(rough+.025,.30,.86);}
+if(Kind>4.5){metal=1;rough=.36+.045*broad+.015*grainWeight*grain;Color=float3(.065,.071,.077);Normal=float3(0,0,1);dirt=0;}
+Color=lerp(Color,float3(.022,.018,.013),dirt*.30);
+float ao=(Kind>1.5&&Kind<2.5)||Kind>4.5?1:Maps.r; if(Kind>2.5&&Kind<3.5)ao=.25; return float3(rough,metal,ao);

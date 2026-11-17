@@ -1,0 +1,126 @@
+Rejected 64-thread dispatch. Internal root cause undetermined. Full local log: Saved/IntegrationBench-wave64.log
+[2026.11.17-12.35.03:919][ 42]LogD3D12RHI: Error: GPU crash detected:
+	- Device 0 Removed: DXGI_ERROR_DEVICE_HUNG
+
+[2026.11.17-12.35.03:919][ 42]LogD3D12RHI: Error: Shader diagnostic messages and asserts:
+
+	Device: 0, Queue 3D:
+		No shader diagnostics found for this queue.
+
+	Device: 0, Queue Copy:
+		No shader diagnostics found for this queue.
+
+	Device: 0, Queue Compute:
+		No shader diagnostics found for this queue.
+
+[2026.11.17-12.35.03:920][ 42]LogRHI: Error: Active GPU breadcrumbs:
+
+	Device 0, Pipeline Graphics: (In: 0x80002709, Out: 0x800026fa)
+		(ID: 0x80002688) [     Active]	Frame 39
+		(ID: 0x8000268b) [     Active]		SceneRender - ViewFamilies
+		(ID: 0x80002758) [     Active]			RenderGraphExecute - /ViewFamilies
+		(ID: 0x8000269e) [     Active]				Scene
+		(ID: 0x800026ed) [   Finished]					StochasticLighting
+		(ID: 0x800026f4) [   Finished]					VirtualShadowMapMarkPages
+		(ID: 0x800026f5) [   Finished]						FVirtualShadowMapArray::BeginMarkPages
+		(ID: 0x800026f6) [     Active]					ShadowDepths
+		(ID: 0x800026f8) [   Finished]						FVirtualShadowMapArray::BuildPageAllocation
+		(ID: 0x800026f9) [   Finished]							InitializePhysicalPages
+		(ID: 0x800026fa) [     Active]						RenderVirtualShadowMaps(Nanite)
+		(ID: 0x800026fd) [     Active]							Nanite::DrawGeometry
+		(ID: 0x800026fe) [     Active]								MainPass
+		(ID: 0x800026ff) [     Active]									InstanceCulling
+		(ID: 0x80002700) [     Active]									NodeAndClusterCull
+		(ID: 0x80002701) [     Active]									PatchSplit
+		(ID: 0x80002702) [     Active]								BuildPreviousOccluderHZB(VSM)
+		(ID: 0x80002703) [     Active]								PostPass
+		(ID: 0x80002704) [     Active]									InstanceCulling
+		(ID: 0x80002705) [     Active]									NodeAndClusterCull
+		(ID: 0x80002706) [     Active]									PatchSplit
+		(ID: 0x80002707) [     Active]						RenderVirtualShadowMaps(Non-Nanite)
+		(ID: 0x80002708) [     Active]							Batched
+		(ID: 0x80002709) [     Active]								CullingPasses
+		(ID: 0x8000270a) [Not Started]						FVirtualShadowMapArray::PostProcessPages
+		(ID: 0x8000270c) [Not Started]					RenderDeferredLighting
+		(ID: 0x8000270e) [Not Started]						DiffuseIndirectAndAO
+		(ID: 0x8000270f) [Not Started]							LumenReflections
+		(ID: 0x80002710) [Not Started]						InitTranslucencyLightingVolumeTextures
+		(ID: 0x80002711) [Not Started]						Lights
+		(ID: 0x80002712) [Not Started]							DirectLighting
+		(ID: 0x80002714) [Not Started]								UnbatchedLights
+		(ID: 0x80002715) [Not Started]									ForestTrail.DirectionalLight_2147478823
+		(ID: 0x80002716) [Not Started]										ShadowProjectionOnOpaque
+		(ID: 0x80002717) [Not Started]											DistanceFieldShadows
+		(ID: 0x80002718) [Not Started]												BeginRayTracedDistanceFieldShadow
+		(ID: 0x80002719) [Not Started]													CullDistanceFieldObjectsForLight MeshSDF
+		(ID: 0x8000271a) [Not Started]						TranslucencyLightingVolume
+		(ID: 0x8000271b) [Not Started]							InjectTranslucencyLightingVolume(View=0)
+		(ID: 0x8000271d) [Not Started]							FilterTranslucentVolume 64x64x64 Cascades:2
+		(ID: 0x8000271f) [Not Started]					RenderDeferredLighting
+		(ID: 0x80002720) [Not Started]						DiffuseIndirectAndAO
+		(ID: 0x80002723) [Not Started]					ComputeVolumetricFog
+		(ID: 0x80002724) [Not Started]						VolumetricFog
+		(ID: 0x80002725) [Not Started]							VolumetricFog::ConservativeDepth
+		(ID: 0x80002727) [Not Started]							VolumetricFog::InitialiseVolume
+		(ID: 0x80002728) [Not Started]							VolumetricFog::LightScattering
+		(ID: 0x80002729) [Not Started]							VolumetricFog::FinalIntegration
+		(ID: 0x8000272b) [Not Started]					TemporalSuperResolution
+		(ID: 0x8000272d) [Not Started]					SkyAtmosphere
+		(ID: 0x8000272e) [Not Started]					ExponentialHeightFog
+		(ID: 0x8000272f) [Not Started]					PostRenderOpsFX
+		(ID: 0x80002730) [Not Started]						FXSystemPostRenderOpaque
+		(ID: 0x8000275d) [Not Started]							GPUParticles_PostRenderOpaque
+		(ID: 0x80002731) [Not Started]					Translucency
+		(ID: 0x80002733) [Not Started]						RenderTranslucency
+		(ID: 0x8000273c) [Not Started]					PostProcessing
+		(ID: 0x8000273d) [Not Started]						TemporalSuperResolution(sg.AntiAliasingQuality=4) 1920x1080 -> 1920x1080
+		(ID: 0x8000273e) [Not Started]						Histogram
+		(ID: 0x8000273f) [Not Started]						TextureDownsampleChain
+		(ID: 0x80002740) [Not Started]						Bloom
+		(ID: 0x80002742) [Not Started]					VirtualTextureUpdate
+		(ID: 0x80002743) [Not Started]					Submit Lumen surface cache feedback
+		(ID: 0x80002764) [Not Started]		RenderGraphExecute - CanvasRenderThreadScope
+		(ID: 0x80002765) [Not Started]			FRDGBuilder::SubmitBufferUploads
+		(ID: 0x80002769) [Not Started]		RenderGraphExecute - Slate
+		(ID: 0x8000276a) [Not Started]			FRDGBuilder::SubmitBufferUploads
+		(ID: 0x8000276b) [Not Started]		EndDrawingViewport
+		(ID: 0x80002786) [Not Started]	BufferPoolCopyOps
+		(ID: 0x80002787) [Not Started]	TexturePoolCopyOps
+		(ID: 0x8000276c) [Not Started]	Frame 40
+		(ID: 0x8000276d) [Not Started]		WorldTick
+		(ID: 0x8000276e) [Not Started]		SendAllEndOfFrameUpdates
+		(ID: 0x8000276f) [Not Started]		SceneRender - ViewFamilies
+		(ID: 0x80002770) [Not Started]			RayTracingGeometry
+		(ID: 0x8000277c) [Not Started]			"DistanceFields"
+		(ID: 0x8000277f) [Not Started]				"GlobalDistanceFieldUpdate"
+		(ID: 0x80002784) [Not Started]			"AllocateRendertargets"
+		(ID: 0x80002791) [Not Started]			"VisibilityCommands"
+		(ID: 0x800027a7) [Not Started]			ScaleVariableRateShadingTexture
+		(ID: 0x800027b5) [Not Started]			UpdateLumenSceneBuffers
+		(ID: 0x8000283b) [Not Started]			RenderGraphExecute - /ViewFamilies
+		(ID: 0x8000283c) [Not Started]				FRDGBuilder::SubmitBufferUploads
+		(ID: 0x8000277b) [Not Started]				"DistanceFields"
+		(ID: 0x8000277d) [Not Started]					UpdateDistanceFieldAtlas
+		(ID: 0x80002780) [Not Started]				Nanite::Streaming
+		(ID: 0x80002781) [Not Started]					Nanite::Readback
+		(ID: 0x80002782) [Not Started]				Scene
+		(ID: 0x80002788) [Not Started]					FXSystemPreRender
+		(ID: 0x8000283d) [Not Started]						GPUParticles_PreRender
+		(ID: 0x80002789) [Not Started]					GPUSceneUpdate
+		(ID: 0x8000278c) [Not Started]					BuildRenderingCommandsDeferred(Culling=On)
+		(ID: 0x8000278d) [Not Started]					Shadow.Virtual.ProcessInvalidationsGPU
+		(ID: 0x80002792) [Not Started]					PrePass DDM_AllOpaqueNoVelocity (Forced by Nanite)
+		(ID: 0x8000283e) [Not Started]						ParallelDraw (Index: 0, Num: 1)
+		(ID: 0x80002794) [Not Started]					Nanite::VisBuffer
+		(ID: 0x80002795) [Not Started]						Nanite::InitContext
+		(ID: 0x80002796) [Not Started]					Nanite::VisBuffer
+		(ID: 0x80002798) [Not Started]						Nanite::DrawGeometry
+		(ID: 0x80002799) [Not Started]							MainPass
+		(ID: 0x8000279a) [Not Started]								InstanceCulling
+		(ID: 0x8000279b) [Not Started]								NodeAndClusterCull
+		(ID: 0x8000279c) [Not Started]								PatchSplit
+		(ID: 0x8000279d) [Not Started]							BuildPreviousOccluderHZB
+		(ID: 0x8000279e) [Not Started]								BuildHZB
+		(ID: 0x8000279f) [Not Started]							PostPass
+		(ID: 0x800027a0) [Not Started]								InstanceCulling
+		(ID: 0x800027a1) [Not Started]								NodeAndClusterCull

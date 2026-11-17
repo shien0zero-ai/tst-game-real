@@ -1,0 +1,65 @@
+PIE-QA.log
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: field materials and physical wear UVs survive loading
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: new pistol, legacy M1911 and anatomical hands available
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: all forest sound assets loaded
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: viewmodel retains precise normals and texture coordinates
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: pistol and hands share a lighting attachment group
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: recorded gunshot layers use lossless PCM in cooked data
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: wind and bird loops playing
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: real-time viewport FPS counter
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: forest population
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.17-12.20.18:661][165]LogForest: Display: QA PASS: selected pistol and anatomical arms loaded
+[2026.11.17-12.20.23:668][574]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.17-12.20.23:668][574]LogForest: Display: QA PASS: grounded movement produces footsteps
+[2026.11.17-12.20.23:668][574]LogForest: Display: QA PASS: inspect starts
+[2026.11.17-12.20.23:668][574]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.17-12.20.23:670][574]LogForest: Display: QA PASS: selected pistol fire consumes one round
+[2026.11.17-12.20.23:670][574]LogForest: Display: QA PASS: reload starts
+[2026.11.17-12.20.26:672][809]LogForest: Display: QA PASS: reload completes
+[2026.11.17-12.20.26:672][809]LogForest: Display: QA PASS: reload audio follows magazine timing
+[2026.11.17-12.20.26:672][809]LogForest: Display: QA PASS: recorded action layer played; synthetic casing disabled
+[2026.11.17-12.20.26:672][809]LogForest: Display: QA PASS: gunshots use occlusion and distance air absorption
+[2026.11.17-12.20.29:684][ 53]LogForest: Display: QA PASS: ADS camera
+[2026.11.17-12.20.29:684][ 53]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.17-12.20.29:684][ 53]LogForest: Display: QA PASS: pistol available again
+[2026.11.17-12.20.29:684][ 53]LogForest: Display: QA PASS: F3 selects preserved M1911
+[2026.11.17-12.20.29:684][ 53]LogForest: Display: QA PASS: preserved M1911 remains fireable
+[2026.11.17-12.20.29:684][ 53]LogForest: Display: QA PASS: F3 restores service pistol ammo independently
+[2026.11.17-12.21.28:902][703]LogForest: Display: QA COMPLETE failures=0 worldtype=3
+
+PackagedQA.log
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: field materials and physical wear UVs survive loading
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: new pistol, legacy M1911 and anatomical hands available
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: all forest sound assets loaded
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: viewmodel retains precise normals and texture coordinates
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: pistol and hands share a lighting attachment group
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: recorded gunshot layers use lossless PCM in cooked data
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: wind and bird loops playing
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: real-time viewport FPS counter
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: forest population
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.17-12.23.19:638][120]LogForest: Display: QA PASS: selected pistol and anatomical arms loaded
+[2026.11.17-12.23.24:644][395]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.17-12.23.24:644][395]LogForest: Display: QA PASS: grounded movement produces footsteps
+[2026.11.17-12.23.24:645][395]LogForest: Display: QA PASS: inspect starts
+[2026.11.17-12.23.24:645][395]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.17-12.23.24:645][395]LogForest: Display: QA PASS: selected pistol fire consumes one round
+[2026.11.17-12.23.24:645][395]LogForest: Display: QA PASS: reload starts
+[2026.11.17-12.23.27:657][554]LogForest: Display: QA PASS: reload completes
+[2026.11.17-12.23.27:657][554]LogForest: Display: QA PASS: reload audio follows magazine timing
+[2026.11.17-12.23.27:657][554]LogForest: Display: QA PASS: recorded action layer played; synthetic casing disabled
+[2026.11.17-12.23.27:657][554]LogForest: Display: QA PASS: gunshots use occlusion and distance air absorption
+[2026.11.17-12.23.30:671][713]LogForest: Display: QA PASS: ADS camera
+[2026.11.17-12.23.30:671][713]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.17-12.23.30:671][713]LogForest: Display: QA PASS: pistol available again
+[2026.11.17-12.23.30:671][713]LogForest: Display: QA PASS: F3 selects preserved M1911
+[2026.11.17-12.23.30:671][713]LogForest: Display: QA PASS: preserved M1911 remains fireable
+[2026.11.17-12.23.30:671][713]LogForest: Display: QA PASS: F3 restores service pistol ammo independently
+[2026.11.17-12.24.29:969][910]LogForest: Display: QA COMPLETE failures=0 worldtype=1

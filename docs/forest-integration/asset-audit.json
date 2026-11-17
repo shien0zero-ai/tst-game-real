@@ -1,0 +1,54 @@
+{
+  "FieldFinish": {
+    "field_frame": {
+      "recompute_normals": true,
+      "recompute_tangents": true,
+      "high_precision_tangents": false,
+      "full_precision_uvs": false,
+      "vertices": 19250,
+      "nanite": false
+    },
+    "field_slide": {
+      "recompute_normals": true,
+      "recompute_tangents": true,
+      "high_precision_tangents": false,
+      "full_precision_uvs": false,
+      "vertices": 6471,
+      "nanite": false
+    },
+    "field_magazine": {
+      "recompute_normals": true,
+      "recompute_tangents": true,
+      "high_precision_tangents": false,
+      "full_precision_uvs": false,
+      "vertices": 26661,
+      "nanite": false
+    }
+  },
+  "Integration": {
+    "field_frame": {
+      "recompute_normals": false,
+      "recompute_tangents": true,
+      "high_precision_tangents": true,
+      "full_precision_uvs": true,
+      "vertices": 17626,
+      "nanite": false
+    },
+    "field_slide": {
+      "recompute_normals": false,
+      "recompute_tangents": true,
+      "high_precision_tangents": true,
+      "full_precision_uvs": true,
+      "vertices": 6261,
+      "nanite": false
+    },
+    "field_magazine": {
+      "recompute_normals": false,
+      "recompute_tangents": true,
+      "high_precision_tangents": true,
+      "full_precision_uvs": true,
+      "vertices": 23216,
+      "nanite": false
+    }
+  }
+}

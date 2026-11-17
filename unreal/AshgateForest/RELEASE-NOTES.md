@@ -1,11 +1,9 @@
-UE5 5.8.4 Windows x64 forest demo: recorded gunshots, outdoor decay and grip alignment.
+UE5 5.8.4 Windows x64 forest demo: pistol surface and hand lighting integration.
 
-Default SERVICE pistol now uses three real 9mm takes, separately recorded outdoor tails, restrained recorded handling, collision-probed reflections, distance air absorption and occlusion. No synthesized bass, pitch drop or artificial casing ping. F3 preserves M1911 and its .45 recordings. Professional weapon-matched, unclipped shooter-perspective recordings are still required for final production quality; this is not a claim of matching another game's sound quality.
+Preserves authored curved normals and 4K PBR maps; restores source grip color/relief, adjusts metal/nonmetal/rubber response and leather gloves, and groups pistol/hand shadows. Existing M1911 remains playable with F3. Previous games, assets, audio, releases and saves are preserved.
 
-Hands retain their finger shapes and follow the pistol's angled grip; close-range hand meshes preserve their full geometry. Reload remains procedural.
+1920x1080, Cinematic, internal resolution100%, original forest lighting/fog/foliage retained. Native RTX5080 routes averaged 45.82FPS across two measurements. The 60/80/100FPS targets remain unmet. 64スレッド群の候補はWindowsパッケージでGPUクラッシュ（DXGI_ERROR_DEVICE_HUNG）が発生したため非採用。測定不成立でFPS値はありません。既定32スレッド群を維持。クラッシュの内部原因は未確定で、ドライバー/エンジンのどちらかに断定していません。
 
-Graphics are preserved: Cinematic, 100% internal resolution, original forest lighting, fog, foliage and materials. New default 1920x1080. Visible native-window benchmark: average 48.82 FPS on RTX 5080 in three measured routes. The offscreen Static experiment (52.32 FPS versus 53.52 FPS Movable) did not improve speed and is not the normal startup configuration. Image quality was prioritized over the FPS target. See VALIDATION.md for p95/1% low, route and quality limits.
+Editor build, real PIE and Windows world checks passed (30 each). Exact generated ZIP must pass the existing 13-snapshot native input gate before publication. No new software installed or engine edited. Model detail and procedural reload limitations remain; this does not claim commercial FPS quality.
 
-Editor build, real PIE and packaged Windows: 28 checks passed. Actual recorded audio verifies distance/occlusion and no mix clipping. Exact ZIP is extracted and native controls are checked before upload.
-
-Extract the complete ZIP; run AshgateForest.exe. WASD move, Shift run, C crouch, Space jump, LMB fire, RMB aim, R reload, N inspect, F1 help, F2 scenery, F3 pistol switch, Esc pause/quit. Previous games, releases, models, audio and saves remain preserved. No additional installs or engine modifications.
+Extract the whole ZIP and run AshgateForest.exe. WASD/mouse, left-click shoot, right-click aim, R reload, N inspect, F2 scenery, F3 M1911, Esc pause/quit. See VALIDATION.md and the repository comparison report for raw measurements and images.

@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 1013,
+      "duration_s": 24.985060297000043,
+      "mean_fps": 40.54422874943522,
+      "mean_ms": 24.664422800592302,
+      "p95_ms": 27.031202,
+      "p99_ms": 27.861197,
+      "one_percent_low_fps": 35.28461948411819,
+      "mean_gpu_ms": 24.095962088845013,
+      "mean_game_ms": 1.697901678183613,
+      "mean_render_ms": 24.658503642645606
+    },
+    "1": {
+      "frames": 1003,
+      "duration_s": 24.998574304000016,
+      "mean_fps": 40.12228808742548,
+      "mean_ms": 24.923802895314058,
+      "p95_ms": 27.186401,
+      "p99_ms": 28.2236,
+      "one_percent_low_fps": 34.51289123097357,
+      "mean_gpu_ms": 24.337273568295114,
+      "mean_game_ms": 1.7062565304087738,
+      "mean_render_ms": 24.91772133000997
+    },
+    "2": {
+      "frames": 1110,
+      "duration_s": 25.004804403000026,
+      "mean_fps": 44.39146901972269,
+      "mean_ms": 22.526850813513512,
+      "p95_ms": 24.940599,
+      "p99_ms": 25.953799,
+      "one_percent_low_fps": 36.63324396020713,
+      "mean_gpu_ms": 21.979615208108108,
+      "mean_game_ms": 2.016026576576577,
+      "mean_render_ms": 22.519576490990993
+    }
+  },
+  "overall": {
+    "frames": 3126,
+    "duration_s": 74.98843900399994,
+    "mean_fps": 41.686425821362334,
+    "mean_ms": 23.9886241215611,
+    "p95_ms": 26.843503,
+    "p99_ms": 27.840197,
+    "one_percent_low_fps": 35.035841230456214,
+    "mean_gpu_ms": 23.42190270825336,
+    "mean_game_ms": 1.8135442098528471,
+    "mean_render_ms": 23.982171653550864
+  },
+  "targets": {
+    "100": false,
+    "80": false,
+    "60": false
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

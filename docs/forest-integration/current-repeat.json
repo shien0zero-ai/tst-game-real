@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 1181,
+      "duration_s": 25.00040590200005,
+      "mean_fps": 47.239233020033545,
+      "mean_ms": 21.16884496359018,
+      "p95_ms": 23.1352,
+      "p99_ms": 24.318501,
+      "one_percent_low_fps": 40.30688829294381,
+      "mean_gpu_ms": 20.706381380186283,
+      "mean_game_ms": 1.5027850127011007,
+      "mean_render_ms": 21.16268415156647
+    },
+    "1": {
+      "frames": 1225,
+      "duration_s": 24.995886702000032,
+      "mean_fps": 49.00806339076516,
+      "mean_ms": 20.40480547102041,
+      "p95_ms": 21.5954,
+      "p99_ms": 22.287298,
+      "one_percent_low_fps": 43.95501302583002,
+      "mean_gpu_ms": 19.947643224489795,
+      "mean_game_ms": 1.3933356734693878,
+      "mean_render_ms": 20.39851848081633
+    },
+    "2": {
+      "frames": 1341,
+      "duration_s": 25.005450995000032,
+      "mean_fps": 53.62830689469035,
+      "mean_ms": 18.64686875093214,
+      "p95_ms": 20.0703,
+      "p99_ms": 20.657301,
+      "one_percent_low_fps": 47.4909421074091,
+      "mean_gpu_ms": 18.15360395824012,
+      "mean_game_ms": 1.4879304996271439,
+      "mean_render_ms": 18.640719890380314
+    }
+  },
+  "overall": {
+    "frames": 3747,
+    "duration_s": 75.00174359899985,
+    "mean_fps": 49.958838557587335,
+    "mean_ms": 20.01647814224713,
+    "p95_ms": 22.139598,
+    "p99_ms": 23.5698,
+    "one_percent_low_fps": 41.33414076561044,
+    "mean_gpu_ms": 19.544724384307447,
+    "mean_game_ms": 1.461686709367494,
+    "mean_render_ms": 20.01028035628503
+  },
+  "targets": {
+    "100": false,
+    "80": false,
+    "60": false
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

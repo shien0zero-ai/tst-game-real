@@ -1,0 +1,34 @@
+{
+  "before": {
+    "sg.GlobalIlluminationQuality": 4,
+    "r.ScreenPercentage": 100,
+    "r.Lumen.ThreadGroupSize32": 1,
+    "r.Lumen.ScreenProbeGather.DownsampleFactor": 8,
+    "r.Lumen.ScreenProbeGather.TracingOctahedronResolution": 16,
+    "r.Lumen.ScreenProbeGather.RadianceCache.NumProbesToTraceBudget": 350
+  },
+  "current": {
+    "sg.GlobalIlluminationQuality": 4,
+    "r.ScreenPercentage": 100,
+    "r.Lumen.ThreadGroupSize32": 1,
+    "r.Lumen.ScreenProbeGather.DownsampleFactor": 8,
+    "r.Lumen.ScreenProbeGather.TracingOctahedronResolution": 16,
+    "r.Lumen.ScreenProbeGather.RadianceCache.NumProbesToTraceBudget": 350
+  },
+  "current-repeat": {
+    "sg.GlobalIlluminationQuality": 4,
+    "r.ScreenPercentage": 100,
+    "r.Lumen.ThreadGroupSize32": 1,
+    "r.Lumen.ScreenProbeGather.DownsampleFactor": 8,
+    "r.Lumen.ScreenProbeGather.TracingOctahedronResolution": 16,
+    "r.Lumen.ScreenProbeGather.RadianceCache.NumProbesToTraceBudget": 350
+  },
+  "before-repeat": {
+    "sg.GlobalIlluminationQuality": 4,
+    "r.ScreenPercentage": 100,
+    "r.Lumen.ThreadGroupSize32": 1,
+    "r.Lumen.ScreenProbeGather.DownsampleFactor": 8,
+    "r.Lumen.ScreenProbeGather.TracingOctahedronResolution": 16,
+    "r.Lumen.ScreenProbeGather.RadianceCache.NumProbesToTraceBudget": 350
+  }
+}
