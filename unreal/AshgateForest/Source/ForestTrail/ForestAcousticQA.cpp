@@ -9,13 +9,16 @@
 #include "HAL/PlatformTime.h"
 #include "Sound/SoundAttenuation.h"
 #include "HAL/IConsoleManager.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+#include "Misc/App.h"
 
 // Isolated real-audio distance/occlusion regression, available only by explicit launch flag.
 void AForestMode::AcousticQATick(){
  auto* P=Player();if(!P)return;const double Now=FPlatformTime::Seconds();
- if(AcousticStart==0){AcousticStart=Now;P->ForestAcousticProbe=true;if(auto* C=IConsoleManager::Get().FindConsoleVariable(TEXT("au.NeverDisableSubmixes")))C->Set(1,ECVF_SetByCode);P->WindAudio->SetVolumeMultiplier(0);P->BirdsAudio->SetVolumeMultiplier(0);P->GetCharacterMovement()->SetMovementMode(MOVE_Flying);P->SetActorLocation(FVector(0,0,15000));}
- const double T=Now-AcousticStart;
- if(AcousticStage==0&&T>=5){UAudioMixerBlueprintLibrary::StartRecordingOutput(this,30);AcousticRecordStart=Now;AcousticStage=1;}
+ if(AcousticStart==0){UE_LOG(LogTemp,Display,TEXT("ACOUSTIC QA FOCUS before: focus=%d volume=%.3f unfocused=%.3f / test process only"),FApp::HasFocus(),FApp::GetVolumeMultiplier(),FApp::GetUnfocusedVolumeMultiplier());FApp::SetUnfocusedVolumeMultiplier(1.f);FApp::SetVolumeMultiplier(1.f);AcousticStart=Now;P->ForestAcousticProbe=true;if(auto* C=IConsoleManager::Get().FindConsoleVariable(TEXT("au.NeverDisableSubmixes")))C->Set(1,ECVF_SetByCode);P->WindAudio->SetVolumeMultiplier(0);P->BirdsAudio->SetVolumeMultiplier(0);P->GetCharacterMovement()->SetMovementMode(MOVE_Flying);P->SetActorLocation(FVector(0,0,15000));}
+ const bool Burst=FParse::Param(FCommandLine::Get(),TEXT("ForestAudioBurst"));const double T=Now-AcousticStart;
+ if(AcousticStage==0&&T>=5){UAudioMixerBlueprintLibrary::StartRecordingOutput(this,40);AcousticRecordStart=Now;AcousticStage=1;}
  if(AcousticStage<1)return;const double R=Now-AcousticRecordStart;
  if(AcousticStage>=1&&AcousticStage<=5){const int32 Test=AcousticStage-1;const float Meters=Test==0?0:Test==1?10:Test==3?100:50;const double Due=1+Test*5+Meters/343.;
   if(R>=Due){const FVector Listener=P->Camera->GetComponentLocation();FVector Source=Listener+FVector(Meters*100,0,0);
@@ -26,6 +29,11 @@ void AForestMode::AcousticQATick(){
    UE_LOG(LogTemp,Display,TEXT("ACOUSTIC QA event=%d recording_s=%.4f distance_m=%.1f blocked=%d"),Test,R,Meters,Blocked);++AcousticStage;
   }
  }
- if(AcousticStage==6&&R>=26){UAudioMixerBlueprintLibrary::StopRecordingOutput(this,EAudioRecordingExportType::WavFile,TEXT("DistanceOcclusion"),FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir()/TEXT("AudioQA")));AcousticStage=7;}
- if(AcousticStage==7&&R>=30){UE_LOG(LogTemp,Display,TEXT("ACOUSTIC QA COMPLETE failures=%d"),Failures);FPlatformMisc::RequestExitWithStatus(false,Failures?1:0);}
+ if(Burst&&AcousticStage==6&&AcousticBurstCount<8&&R>=26+AcousticBurstCount*.18){
+  if(AcousticBurstCount==0){P->WindAudio->SetVolumeMultiplier(1);P->WindAudio->AdjustVolume(.05f,.27f);P->BirdsAudio->SetVolumeMultiplier(1);P->BirdsAudio->AdjustVolume(.05f,.24f);}
+  P->Cooldown=0;P->Fire();UE_LOG(LogTemp,Display,TEXT("ACOUSTIC BURST index=%d recording_s=%.4f"),AcousticBurstCount,R);++AcousticBurstCount;
+  if(AcousticBurstCount==8){Check(P->Ammo==0,TEXT("eight live trigger pulls with forest ambience"));UE_LOG(LogTemp,Display,TEXT("ACOUSTIC BURST COMPLETE"));}
+ }
+ if(AcousticStage==6&&R>=(Burst?35:26)){UAudioMixerBlueprintLibrary::StopRecordingOutput(this,EAudioRecordingExportType::WavFile,TEXT("DistanceOcclusion"),FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir()/TEXT("AudioQA")));AcousticStage=7;}
+ if(AcousticStage==7&&R>=(Burst?39:30)){UE_LOG(LogTemp,Display,TEXT("ACOUSTIC QA COMPLETE failures=%d"),Failures);FPlatformMisc::RequestExitWithStatus(false,Failures?1:0);}
 }

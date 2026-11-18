@@ -23,11 +23,32 @@ void AForestPlayer::ConfigureGunAcoustics(){
   auto* S=LoadObject<USoundBase>(nullptr,*(FString(TEXT("/Game/Forest/Acoustics/"))+N+TEXT(".")+N));if(S)Sounds.Add(FName(N),S);else UE_LOG(LogTemp,Error,TEXT("Missing acoustic layer %s"),N);
  }
  for(int32 I=0;I<3;++I){FString N=FString::Printf(TEXT("woods_close_%d"),I);if(auto* S=LoadObject<USoundBase>(nullptr,*(FString(TEXT("/Game/Forest/Acoustics/"))+N+TEXT(".")+N)))Sounds.Add(FName(*FString::Printf(TEXT("service_shot_%d"),I)),S);else UE_LOG(LogTemp,Error,TEXT("Missing acoustic layer %s"),*N);}
+ P38Field=!FParse::Param(FCommandLine::Get(),TEXT("ForestPreviousGunfire"));
+ NearGunAttenuation=NewObject<USoundAttenuation>(this);NearGunAttenuation->Attenuation=A;NearGunAttenuation->Attenuation.bEnableOcclusion=false;
+ FieldTailAttenuation=NewObject<USoundAttenuation>(this);FieldTailAttenuation->Attenuation=A;FieldTailAttenuation->Attenuation.NonSpatializedRadiusStart=100;FieldTailAttenuation->Attenuation.NonSpatializedRadiusEnd=400;
+ if(P38Field){
+  for(int32 I=0;I<3;++I){const FString N=FString::Printf(TEXT("p38_shot_%d"),I);if(auto* S=LoadObject<USoundBase>(nullptr,*(FString(TEXT("/Game/Forest/P38Field/"))+N+TEXT(".")+N)))Sounds.Add(FName(*FString::Printf(TEXT("service_shot_%d"),I)),S);else UE_LOG(LogTemp,Error,TEXT("Missing licensed P38 sound %s"),*N);}
+  for(const TCHAR* N:{TEXT("p38_tail_0"),TEXT("p38_tail_1"),TEXT("p38_mag_out")}){if(auto* S=LoadObject<USoundBase>(nullptr,*(FString(TEXT("/Game/Forest/P38Field/"))+N+TEXT(".")+N)))Sounds.Add(FName(N),S);else UE_LOG(LogTemp,Error,TEXT("Missing licensed P38 sound %s"),N);}
+ }
+ UE_LOG(LogTemp,Display,TEXT("P38_FIELD enabled=%d / recorded 2m-behind P38 + forest decay / prior gunfire retained"),P38Field);
+
 }
 
 void AForestPlayer::EmitGunshot(const FVector& At,bool Local,int32 Take){
  const FName Close(*(FString(Legacy1911?TEXT("field_shot_"):TEXT("service_shot_"))+FString::FromInt(Take%3)));
  const FVector Listener=Camera->GetComponentLocation();const float Distance=FVector::Distance(At,Listener);
+ if(P38Field&&!Legacy1911){
+  // A short recorded blast includes the actual slide cycle. No borrowed action overlay.
+  // The forest layer has its initial attack removed; no repeated full-shot echoes.
+  if(auto* S=Sounds.Find(Close)){
+   auto* Voice=Local?UGameplayStatics::SpawnSoundAttached(S->Get(),Camera,NAME_None,At,FRotator::ZeroRotator,EAttachLocation::KeepWorldPosition,false,.74f,1,0,NearGunAttenuation):UGameplayStatics::SpawnSoundAtLocation(this,S->Get(),At,FRotator::ZeroRotator,.74f,1,0,GunAttenuation);
+   if(Voice){++SoundEvents.FindOrAdd(Close);++SoundEvents.FindOrAdd(TEXT("p38_live_fire"));}
+   if(ForestAcousticProbe||FParse::Param(FCommandLine::Get(),TEXT("ForestInput"))||FParse::Param(FCommandLine::Get(),TEXT("ForestQA")))UE_LOG(LogTemp,Display,TEXT("AUDIO event=%s source=P38_FIELD local=%d distance_m=%.1f"),*Close.ToString(),Local,Distance/100);
+  }
+  Echoes.Add({FName(*FString::Printf(TEXT("p38_tail_%d"),Take%2)),At,.10f,.25f,true});
+  return;
+ }
+
  if(Local){Sound(Close,.78f);Sound(TEXT("woods_action"),.15f);}
  else {
   // Equal-power near/far blend; propagation delay is elapsed before this function is called.
@@ -53,7 +74,7 @@ void AForestPlayer::EmitGunshot(const FVector& At,bool Local,int32 Take){
 void AForestPlayer::UpdateGunAcoustics(float D){
  for(int32 I=Echoes.Num()-1;I>=0;--I){auto& E=Echoes[I];E.Delay-=D;if(E.Delay>0)continue;
   if(auto S=Sounds.Find(E.Name)){
-   if(E.Spatial)UGameplayStatics::SpawnSoundAtLocation(this,S->Get(),E.Position,FRotator::ZeroRotator,E.Volume,1,0,ReflectionAttenuation);
+   if(E.Spatial)UGameplayStatics::SpawnSoundAtLocation(this,S->Get(),E.Position,FRotator::ZeroRotator,E.Volume,1,0,E.Name.ToString().StartsWith(TEXT("p38_tail_"))?FieldTailAttenuation.Get():ReflectionAttenuation.Get());
    else UGameplayStatics::PlaySound2D(this,S->Get(),E.Volume,1,0,nullptr,this,false);
   }Echoes.RemoveAtSwap(I);
  }

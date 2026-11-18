@@ -23,3 +23,7 @@
 - New forest work belongs to independent unreal/AshgateForest. Prioritize realistic terrain, foliage, lighting, shadows and atmosphere over game systems; retain playable M1911.
 - Large native pine asset is preserved losslessly under SourceArt/Packed and restored with SHA256 checks by Tools/restore_assets.py. Do not overwrite an edited native asset.
 - Keep Windows forest artifacts in work/forest-package and publish separate Ashgate-Forest downloads; never replace the existing Depot release assets.
+
+## Licensed P38 audio (2026-11-18)
+- P38Field source WAVs and SoundWave assets are free GDC licensed recordings, not CC0. Keep them local and ignored; do not publish standalone audio or native sound assets. Finished game Cook/PAK releases are allowed.
+- Tools/ensure_p38.ps1 restores missing assets from the public manifest and imports them with the installed UE Editor. Preserve the existing CC0 banks and old releases.

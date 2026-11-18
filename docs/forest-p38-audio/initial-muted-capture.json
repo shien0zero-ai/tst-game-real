@@ -1,0 +1,53 @@
+{
+  "rate": 48000,
+  "channels": 8,
+  "seconds": 35.008,
+  "clipped_samples": 0,
+  "events": [
+    {
+      "event": 0,
+      "distance_m": 0.0,
+      "blocked": false,
+      "rms_dbfs": -240.0,
+      "peak_dbfs": -240.0
+    },
+    {
+      "event": 1,
+      "distance_m": 10.0,
+      "blocked": false,
+      "rms_dbfs": -240.0,
+      "peak_dbfs": -240.0
+    },
+    {
+      "event": 2,
+      "distance_m": 50.0,
+      "blocked": false,
+      "rms_dbfs": -240.0,
+      "peak_dbfs": -240.0
+    },
+    {
+      "event": 3,
+      "distance_m": 100.0,
+      "blocked": false,
+      "rms_dbfs": -240.0,
+      "peak_dbfs": -240.0
+    },
+    {
+      "event": 4,
+      "distance_m": 50.0,
+      "blocked": true,
+      "rms_dbfs": -240.0,
+      "peak_dbfs": -240.0
+    }
+  ],
+  "checks": {
+    "nonzero_audio": false,
+    "no_mix_clipping": true,
+    "10m_louder_than_50m": false,
+    "50m_louder_than_100m": false,
+    "wall_reduces_50m_level": false,
+    "eight_trigger_pulls": true
+  },
+  "note": "RMS across all rendered channels, first 650ms. Includes near/far asset blend; not an isolated filter frequency-response test. The original recording can contain full-scale samples even when rendered mix is unclipped. Includes eight real trigger pulls with forest ambience; full output checked for clipping.",
+  "burst_shots": 8
+}

@@ -28,3 +28,7 @@ unreal/**/Packaged/
 
 # Losslessly preserved in AshgateForest/SourceArt/Packed, restored by Tools/restore_assets.py
 unreal/AshgateForest/Content/Forest/Meshes/pine_canopy.uasset
+
+# Free GDC audio: finished games only; restore locally with ensure_p38.ps1.
+unreal/AshgateForest/SourceArt/P38Field/
+unreal/AshgateForest/Content/Forest/P38Field/

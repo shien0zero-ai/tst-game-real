@@ -1,0 +1,110 @@
+{
+  "sources": {
+    "P38, Firing, t1, 2m, Behind, LS5.wav": {
+      "url": "https://ftpmirror.your.org/pub/misc/sonniss2020/individual/Pole%20Position%20-%20Walther%20P38%20semi%20automatic%20pistol/P38%2C%20Firing%2C%20t1%2C%202m%2C%20Behind%2C%20LS5.wav",
+      "bytes": 62915370,
+      "sha256": "a1228d48854fe39254e22f02663a25a69c15687e0e5783533a3ba430270e608d",
+      "channels": 2,
+      "rate": 96000,
+      "bits": 24,
+      "seconds": 107.82820833333334
+    },
+    "P38, Handling, Removing Magazine, 1m, Right, MKH8060.wav": {
+      "url": "https://ftpmirror.your.org/pub/misc/sonniss2020/individual/Pole%20Position%20-%20Walther%20P38%20semi%20automatic%20pistol/P38%2C%20Handling%2C%20Removing%20Magazine%2C%201m%2C%20Right%2C%20MKH8060.wav",
+      "bytes": 1791000,
+      "sha256": "83a50b031a981baa8ebc44ff05739f1caa602f60af167d084243c732fc2126d9",
+      "channels": 1,
+      "rate": 96000,
+      "bits": 24,
+      "seconds": 4.5419583333333335
+    },
+    "MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav": {
+      "url": "https://ftpmirror.your.org/pub/misc/sonniss2018/individual/Pole%20Position%20-%20The%20Outdoor%20Gun%20Acoustics%20Library/MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav",
+      "bytes": 5332634,
+      "sha256": "725323469082cb7d19a9b95b48602dae239bce470e2977b0b2c120fe2cd75186",
+      "channels": 1,
+      "rate": 96000,
+      "bits": 24,
+      "seconds": 17.706666666666667
+    }
+  },
+  "outputs": {
+    "p38_shot_0": {
+      "sha256": "3493e9ae9473828b6737b4b7d39d70774952b86bfd4076982d27aa54b587f9e0",
+      "seconds": 0.2,
+      "peak": 0.7984252449110385,
+      "clipped_samples": 0,
+      "gain": 0.7893045134492191,
+      "source_segment": {
+        "name": "P38, Firing, t1, 2m, Behind, LS5.wav",
+        "start_seconds": 8.454,
+        "channel": 1,
+        "source_near_fullscale_samples": 1
+      }
+    },
+    "p38_shot_1": {
+      "sha256": "7d60907ca405eebafa41da3287fb028515099fafaf80ff5837c8f7027e264f7b",
+      "seconds": 0.2,
+      "peak": 0.8191778313547167,
+      "clipped_samples": 0,
+      "gain": 0.7893045134492191,
+      "source_segment": {
+        "name": "P38, Firing, t1, 2m, Behind, LS5.wav",
+        "start_seconds": 24.019,
+        "channel": 1,
+        "source_near_fullscale_samples": 2
+      }
+    },
+    "p38_shot_2": {
+      "sha256": "9f8a5d07cdddb03a80850599f22abb5f5d4c576d0d3598b9449cd7878264fca2",
+      "seconds": 0.2,
+      "peak": 0.8021485030671102,
+      "clipped_samples": 0,
+      "gain": 0.7893045134492191,
+      "source_segment": {
+        "name": "P38, Firing, t1, 2m, Behind, LS5.wav",
+        "start_seconds": 31.91,
+        "channel": 1,
+        "source_near_fullscale_samples": 1
+      }
+    },
+    "p38_tail_0": {
+      "sha256": "a1de32ed1e365f5651df55b93992738df0359f4b5ee3d63e2c599ec9c8e9776e",
+      "seconds": 2.2,
+      "peak": 0.1902218695638905,
+      "clipped_samples": 0,
+      "gain": 0.41661923566862374,
+      "source_segment": {
+        "name": "MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav",
+        "start_seconds": 0.467,
+        "attack_removed_seconds": 0.1,
+        "source_near_fullscale_samples": 0
+      }
+    },
+    "p38_tail_1": {
+      "sha256": "d006f7a29abfb9fd85395b1892cfd7031540b937913290b4ee78d90e523d48e1",
+      "seconds": 2.2,
+      "peak": 0.20020142216254158,
+      "clipped_samples": 0,
+      "gain": 0.41661923566862374,
+      "source_segment": {
+        "name": "MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav",
+        "start_seconds": 3.474,
+        "attack_removed_seconds": 0.1,
+        "source_near_fullscale_samples": 0
+      }
+    },
+    "p38_mag_out": {
+      "sha256": "e12799c41e112918a3c2d9b939eb7f62647fdaa23c25b1ed3e3a9a1ea48df451",
+      "seconds": 0.48,
+      "peak": 0.49961851863155005,
+      "clipped_samples": 0,
+      "gain": 0.8583494526525864,
+      "source_segment": {
+        "name": "P38, Handling, Removing Magazine, 1m, Right, MKH8060.wav",
+        "start_seconds": 0.42
+      }
+    }
+  },
+  "processing": "Windowed-sinc to 48k PCM16 mono; shared gain per layer family, no bass synthesis, pitch shifting, saturation or hard limiter. Original sources preserved. Not a promise of unclipped source capture."
+}

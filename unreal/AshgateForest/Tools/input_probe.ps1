@@ -177,6 +177,7 @@ if(-not $log.Contains('CONFIRMED USER QUIT') -or -not $log.Contains('LogExit: Ex
 foreach($pattern in @('AUDIO footstep surface=trail','AUDIO footstep surface=leaves','AUDIO footstep .*crouch=1','AUDIO footstep .*run=1','AUDIO event=dry_fire','AUDIO event=mag_out','AUDIO event=mag_in','AUDIO event=slide_release','AUDIO event=gear_rustle')){if($log -notmatch $pattern){throw ('Audio event not verified: '+$pattern)}}
 if($log -notmatch 'WEAPON selected=M1911 ammo=7' -or $log -notmatch 'WEAPON selected=SERVICE ammo=8'){throw 'F3 pistol switching was not verified'}
 if($log -notmatch 'AUDIO event=field_shot_'){throw 'Replacement recorded gunshot was not used'}
+if($log -notmatch 'P38_FIELD enabled=1' -or $log -notmatch 'AUDIO event=service_shot_.*source=P38_FIELD'){throw 'P38 source bank was not used'}
 Write-Output 'FOREST VIEWMODEL INPUT PASS: new service pistol, F3 legacy M1911 and replacement field-recorded gunshots'
 Write-Output 'FOREST AUDIO INPUT PASS: trail/leaves, running/crouching, empty click, empty reload and weapon handling'
 Write-Output 'FOREST INPUT VALIDATION PASS: 13 snapshots, walking, M1911, ADS, reload, holster, pause, sensitivity button, resume and quit cancellation/confirmation'

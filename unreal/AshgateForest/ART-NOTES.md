@@ -54,3 +54,8 @@ Hip position changes from (38,13,-8)cm to (42,11,-9), and service-pistol ADS fro
 ## Surface and lighting integration, 2026-11-17
 
 Integration keeps the FieldFinish GLB geometry but imports authored normals, recalculates tangents at higher precision and uses full precision UVs. Separate new materials reuse the unaltered attributed 4K pistol maps and leather sources; source grip color/relief is retained. Edge wear is 0.10–0.25mm. Original FieldFinish, Viewmodel, GripFit, M1911, source images, forest assets and earlier releases are untouched. No new third-party assets. The original source normals and the source material character cannot supply sculpted detail absent from the mesh. See docs/forest-integration/REPORT.md.
+
+
+## P38 and recorded forest decay, 2026-11-18
+
+New free GameAudioGDC selections by Pole Position: 2020 P38 2m-behind firing and magazine removal, plus the decay-only portion of a 2018 MP5 forest-road recording. Six locally prepared 48k PCM16 assets. P38 attacks are real separate takes; forest-layer attacks are excluded. No synthesized bass, pitch drop, saturation or borrowed simultaneous action overlay. The GDC v2.0 terms allow use in finished games but do not make these files CC0. Licensed source/derived WAVs and native audio assets are local and ignored, restored by the build helper from manifests; public Git includes code and metadata only. See licenses/forest/P38-FIELD.txt and docs/forest-p38-audio/REPORT.md. Old CC0 banks, M1911, graphics and prior releases remain preserved.

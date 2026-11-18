@@ -1,0 +1,35 @@
+ASHGATE / FOREST STUDY - P38 field sound revision, 2026-11-18
+
+Pole Position Production: Walther P38 Semi Automatic Pistol (GDC 2020 free selection)
+P38, Firing, t1, 2m, Behind, LS5.wav
+P38, Handling, Removing Magazine, 1m, Right, MKH8060.wav
+https://pole.se/product/walther-p38-semi-automatic-pistol/
+
+Pole Position Production: The Outdoor Gun Acoustics Library (GDC 2018 free selection)
+MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav
+Only the decaying forest portion is used, not the MP5 attack or weapon mechanism.
+https://sonniss.com/sound-effects/outdoor-gun-acoustics-library/
+
+Obtained from the free #GameAudioGDC bundle, not the paid complete libraries.
+https://sonniss.com/gameaudiogdc/
+Official 2020 tracklist:
+https://docs.google.com/spreadsheets/d/1QqIcxJ7y0Acq3HAj9qQvFgvyeBjJ_7JvX8-GguUHIVk/edit
+Official 2018 tracklist:
+https://docs.google.com/spreadsheets/d/1h_aunO31U1g-QAxYxziSZn22LVe1eyA4o10KEnXKmIc/edit
+License v2.0, effective 27 August 2026, retrieved 18 November 2026:
+https://sonniss.com/gdc-bundle-license/
+
+Royalty-free project use under the GDC bundle terms. Not CC0. Original and derived
+recordings remain the respective owners' licensed material. Do not supply them as
+standalone sound effects, sample packs or public project-template assets. Finished
+game releases may incorporate them. No AI/ML training use. No endorsement implied.
+Source WAVs, derived WAVs, isolated test recordings and native SoundWave assets are
+kept local and excluded from public Git. The playable game includes cooked audio.
+
+Changes: selected three P38 close takes, preserved recorded transient/slide cycle,
+anti-aliased to 48k PCM16 mono; forest tail attack removed, fades and restrained gain;
+separate magazine extraction excerpt. No synthesized bass, pitch drop or saturation.
+The close source is 2m behind the pistol, not an on-body shooter microphone. Selected
+source samples include 1/2/1 near-full-scale values; processing does not recover any
+lost waveform. Local SHA256 and exact source segments are recorded in the manifest
+and preparation report; these are not claimed as publisher-issued checksums.

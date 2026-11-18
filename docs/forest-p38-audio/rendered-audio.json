@@ -1,0 +1,53 @@
+{
+  "rate": 48000,
+  "channels": 8,
+  "seconds": 35.008,
+  "clipped_samples": 0,
+  "events": [
+    {
+      "event": 0,
+      "distance_m": 0.0,
+      "blocked": false,
+      "rms_dbfs": -43.265072155558286,
+      "peak_dbfs": -10.682595234012213
+    },
+    {
+      "event": 1,
+      "distance_m": 10.0,
+      "blocked": false,
+      "rms_dbfs": -44.580481510054106,
+      "peak_dbfs": -12.025310030729432
+    },
+    {
+      "event": 2,
+      "distance_m": 50.0,
+      "blocked": false,
+      "rms_dbfs": -51.33197851414475,
+      "peak_dbfs": -18.76146086085407
+    },
+    {
+      "event": 3,
+      "distance_m": 100.0,
+      "blocked": false,
+      "rms_dbfs": -59.93789546838048,
+      "peak_dbfs": -27.23270141230378
+    },
+    {
+      "event": 4,
+      "distance_m": 50.0,
+      "blocked": true,
+      "rms_dbfs": -61.13037697234588,
+      "peak_dbfs": -27.498837838430767
+    }
+  ],
+  "checks": {
+    "nonzero_audio": true,
+    "no_mix_clipping": true,
+    "10m_louder_than_50m": true,
+    "50m_louder_than_100m": true,
+    "wall_reduces_50m_level": true,
+    "eight_trigger_pulls": true
+  },
+  "note": "RMS across all rendered channels, first 650ms. Includes the active gunshot layers and distance/occlusion processing; not an isolated filter frequency-response test. The original recording can contain full-scale samples even when rendered mix is unclipped. Includes eight real trigger pulls with forest ambience; full output checked for clipping.",
+  "burst_shots": 8
+}

@@ -1,0 +1,35 @@
+{
+  "official_bundle": "https://sonniss.com/gameaudiogdc/",
+  "license": "https://sonniss.com/gdc-bundle-license/",
+  "license_version": "2.0 / 27 August 2026",
+  "retrieval": "public archive mirror; hashes computed locally, not claimed as publisher hashes",
+  "files": {
+    "P38, Firing, t1, 2m, Behind, LS5.wav": {
+      "url": "https://ftpmirror.your.org/pub/misc/sonniss2020/individual/Pole%20Position%20-%20Walther%20P38%20semi%20automatic%20pistol/P38%2C%20Firing%2C%20t1%2C%202m%2C%20Behind%2C%20LS5.wav",
+      "bytes": 62915370,
+      "sha256": "a1228d48854fe39254e22f02663a25a69c15687e0e5783533a3ba430270e608d",
+      "channels": 2,
+      "rate": 96000,
+      "bits": 24,
+      "seconds": 107.82820833333334
+    },
+    "P38, Handling, Removing Magazine, 1m, Right, MKH8060.wav": {
+      "url": "https://ftpmirror.your.org/pub/misc/sonniss2020/individual/Pole%20Position%20-%20Walther%20P38%20semi%20automatic%20pistol/P38%2C%20Handling%2C%20Removing%20Magazine%2C%201m%2C%20Right%2C%20MKH8060.wav",
+      "bytes": 1791000,
+      "sha256": "83a50b031a981baa8ebc44ff05739f1caa602f60af167d084243c732fc2126d9",
+      "channels": 1,
+      "rate": 96000,
+      "bits": 24,
+      "seconds": 4.5419583333333335
+    },
+    "MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav": {
+      "url": "https://ftpmirror.your.org/pub/misc/sonniss2018/individual/Pole%20Position%20-%20The%20Outdoor%20Gun%20Acoustics%20Library/MP5_forest_road_10m_behind_gun_pointing_at_forest_off_axis_MKH8060.wav",
+      "bytes": 5332634,
+      "sha256": "725323469082cb7d19a9b95b48602dae239bce470e2977b0b2c120fe2cd75186",
+      "channels": 1,
+      "rate": 96000,
+      "bits": 24,
+      "seconds": 17.706666666666667
+    }
+  }
+}

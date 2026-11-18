@@ -1,0 +1,103 @@
+PIE-QA.log
+[2026.11.18-08.26.28:956][  1]LogTemp: Display: P38_FIELD enabled=1 / recorded 2m-behind P38 + forest decay / prior gunfire retained
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: field materials and physical wear UVs survive loading
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: new pistol, legacy M1911 and anatomical hands available
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: all forest sound assets loaded
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: viewmodel retains precise normals and texture coordinates
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: pistol and hands share a lighting attachment group
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: recorded gunshot layers use lossless PCM in cooked data
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: licensed forest and magazine layers retain PCM
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: local blast is spatial and forest decay follows distance and occlusion
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: wind and bird loops playing
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: real-time viewport FPS counter
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: forest population
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.18-08.26.31:562][191]LogForest: Display: QA PASS: selected pistol and anatomical arms loaded
+[2026.11.18-08.26.36:567][624]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.18-08.26.36:567][624]LogForest: Display: QA PASS: grounded movement produces footsteps
+[2026.11.18-08.26.36:567][624]LogForest: Display: QA PASS: inspect starts
+[2026.11.18-08.26.36:567][624]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.18-08.26.36:568][624]LogTemp: Display: AUDIO event=service_shot_1 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.26.36:569][624]LogForest: Display: QA PASS: selected pistol fire consumes one round
+[2026.11.18-08.26.36:569][624]LogForest: Display: QA PASS: reload starts
+[2026.11.18-08.26.39:576][874]LogForest: Display: QA PASS: reload completes
+[2026.11.18-08.26.39:576][874]LogForest: Display: QA PASS: reload audio follows magazine timing
+[2026.11.18-08.26.39:576][874]LogForest: Display: QA PASS: recorded live shot and action played; synthetic casing disabled
+[2026.11.18-08.26.39:576][874]LogForest: Display: QA PASS: gunshots use occlusion and distance air absorption
+[2026.11.18-08.26.42:580][143]LogForest: Display: QA PASS: ADS camera
+[2026.11.18-08.26.42:580][143]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.18-08.26.42:580][143]LogForest: Display: QA PASS: pistol available again
+[2026.11.18-08.26.42:580][143]LogForest: Display: QA PASS: F3 selects preserved M1911
+[2026.11.18-08.26.42:581][143]LogForest: Display: QA PASS: preserved M1911 remains fireable
+[2026.11.18-08.26.42:581][143]LogForest: Display: QA PASS: F3 restores service pistol ammo independently
+[2026.11.18-08.27.41:763][402]LogForest: Display: QA COMPLETE failures=0 worldtype=3
+
+PackagedQA.log
+[2026.11.18-08.38.10:688][  0]LogTemp: Display: P38_FIELD enabled=1 / recorded 2m-behind P38 + forest decay / prior gunfire retained
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: field materials and physical wear UVs survive loading
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: new pistol, legacy M1911 and anatomical hands available
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: all forest sound assets loaded
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: viewmodel retains precise normals and texture coordinates
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: pistol and hands share a lighting attachment group
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: recorded gunshot layers use lossless PCM in cooked data
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: licensed forest and magazine layers retain PCM
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: local blast is spatial and forest decay follows distance and occlusion
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: wind and bird loops playing
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: real-time viewport FPS counter
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: forest population
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.18-08.38.13:701][152]LogForest: Display: QA PASS: selected pistol and anatomical arms loaded
+[2026.11.18-08.38.18:716][474]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.18-08.38.18:716][474]LogForest: Display: QA PASS: grounded movement produces footsteps
+[2026.11.18-08.38.18:716][474]LogForest: Display: QA PASS: inspect starts
+[2026.11.18-08.38.18:716][474]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.18-08.38.18:716][474]LogTemp: Display: AUDIO event=service_shot_1 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.38.18:716][474]LogForest: Display: QA PASS: selected pistol fire consumes one round
+[2026.11.18-08.38.18:716][474]LogForest: Display: QA PASS: reload starts
+[2026.11.18-08.38.21:728][661]LogForest: Display: QA PASS: reload completes
+[2026.11.18-08.38.21:728][661]LogForest: Display: QA PASS: reload audio follows magazine timing
+[2026.11.18-08.38.21:728][661]LogForest: Display: QA PASS: recorded live shot and action played; synthetic casing disabled
+[2026.11.18-08.38.21:728][661]LogForest: Display: QA PASS: gunshots use occlusion and distance air absorption
+[2026.11.18-08.38.24:731][833]LogForest: Display: QA PASS: ADS camera
+[2026.11.18-08.38.24:731][833]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.18-08.38.24:731][833]LogForest: Display: QA PASS: pistol available again
+[2026.11.18-08.38.24:731][833]LogForest: Display: QA PASS: F3 selects preserved M1911
+[2026.11.18-08.38.24:731][833]LogForest: Display: QA PASS: preserved M1911 remains fireable
+[2026.11.18-08.38.24:731][833]LogForest: Display: QA PASS: F3 restores service pistol ammo independently
+[2026.11.18-08.39.24:521][745]LogForest: Display: QA COMPLETE failures=0 worldtype=1
+
+[2026.11.18-08.39.29:793][  1]LogTemp: Display: ACOUSTIC QA FOCUS before: focus=0 volume=0.000 unfocused=0.000 / test process only
+[2026.11.18-08.39.35:801][827]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=1 distance_m=0.4
+[2026.11.18-08.39.35:801][827]LogTemp: Display: ACOUSTIC QA event=0 recording_s=1.0037 distance_m=0.0 blocked=0
+[2026.11.18-08.39.40:833][591]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=0 distance_m=10.0
+[2026.11.18-08.39.40:833][591]LogTemp: Display: ACOUSTIC QA event=1 recording_s=6.0355 distance_m=10.0 blocked=0
+[2026.11.18-08.39.45:948][391]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=0 distance_m=50.0
+[2026.11.18-08.39.45:948][391]LogTemp: Display: ACOUSTIC QA event=2 recording_s=11.1505 distance_m=50.0 blocked=0
+[2026.11.18-08.39.51:095][181]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=0 distance_m=100.0
+[2026.11.18-08.39.51:095][181]LogTemp: Display: ACOUSTIC QA event=3 recording_s=16.2966 distance_m=100.0 blocked=0
+[2026.11.18-08.39.55:948][940]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=0 distance_m=50.0
+[2026.11.18-08.39.55:948][940]LogTemp: Display: ACOUSTIC QA event=4 recording_s=21.1492 distance_m=50.0 blocked=1
+[2026.11.18-08.40.00:798][674]LogTemp: Display: AUDIO event=service_shot_1 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.00:799][674]LogTemp: Display: ACOUSTIC BURST index=0 recording_s=26.0002
+[2026.11.18-08.40.00:982][702]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.00:983][702]LogTemp: Display: ACOUSTIC BURST index=1 recording_s=26.1841
+[2026.11.18-08.40.01:161][729]LogTemp: Display: AUDIO event=service_shot_1 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.01:161][729]LogTemp: Display: ACOUSTIC BURST index=2 recording_s=26.3628
+[2026.11.18-08.40.01:345][757]LogTemp: Display: AUDIO event=service_shot_2 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.01:345][757]LogTemp: Display: ACOUSTIC BURST index=3 recording_s=26.5469
+[2026.11.18-08.40.01:521][784]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.01:521][784]LogTemp: Display: ACOUSTIC BURST index=4 recording_s=26.7224
+[2026.11.18-08.40.01:701][811]LogTemp: Display: AUDIO event=service_shot_1 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.01:701][811]LogTemp: Display: ACOUSTIC BURST index=5 recording_s=26.9031
+[2026.11.18-08.40.01:879][838]LogTemp: Display: AUDIO event=service_shot_0 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.01:879][838]LogTemp: Display: ACOUSTIC BURST index=6 recording_s=27.0816
+[2026.11.18-08.40.02:058][865]LogTemp: Display: AUDIO event=service_shot_2 source=P38_FIELD local=1 distance_m=0.5
+[2026.11.18-08.40.02:058][865]LogTemp: Display: ACOUSTIC BURST index=7 recording_s=27.2601
+[2026.11.18-08.40.02:058][865]LogTemp: Display: ACOUSTIC BURST COMPLETE
+[2026.11.18-08.40.13:804][685]LogTemp: Display: ACOUSTIC QA COMPLETE failures=0
