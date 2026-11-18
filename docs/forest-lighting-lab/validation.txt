@@ -1,0 +1,172 @@
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-16.02.53:969][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-16.02.53:970][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-16.02.54:153][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-16.02.54:360][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-16.02.55:058][  0]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=671F7B75
+[2026.11.18-16.02.55:058][  0]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-16.02.55:058][  0]LogTemp: Display: LAB_SETUP mode=PATCH_BAKED trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-16.02.55:060][  0]r.ScreenPercentage = "100"
+[2026.11.18-16.02.55:303][  0]r.ScreenPercentage = "100"      LastSetBy: Console
+[2026.11.18-16.02.55:303][  0]r.DynamicGlobalIlluminationMethod = "0"      LastSetBy: Console
+[2026.11.18-16.02.55:303][  0]r.ReflectionMethod = "2"      LastSetBy: Console
+[2026.11.18-16.02.55:303][  0]r.Shadow.Virtual.Enable = "1"      LastSetBy: Console
+[2026.11.18-16.04.40:309][878]LogTemp: Display: FOREST BENCHMARK COMPLETE resolution=commandline screenpercentage=100 scalability=4 path=../../../AshgateForestLightingLab/Saved/Performance/ForestBenchmark.csv
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-16.04.43:091][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-16.04.43:092][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-16.04.43:309][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-16.04.43:514][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-16.04.44:199][  0]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=671F7B75
+[2026.11.18-16.04.44:199][  0]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-16.04.44:199][  0]LogTemp: Display: LAB_SETUP mode=PATCH_BAKED trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-16.04.44:201][  0]r.ScreenPercentage = "100"
+[2026.11.18-16.04.44:448][  0]r.ScreenPercentage = "100"      LastSetBy: Console
+[2026.11.18-16.04.44:448][  0]r.DynamicGlobalIlluminationMethod = "0"      LastSetBy: Console
+[2026.11.18-16.04.44:448][  0]r.ReflectionMethod = "2"      LastSetBy: Console
+[2026.11.18-16.04.44:448][  0]r.Shadow.Virtual.Enable = "1"      LastSetBy: Console
+[2026.11.18-16.06.29:452][ 83]LogTemp: Display: FOREST BENCHMARK COMPLETE resolution=commandline screenpercentage=100 scalability=4 path=../../../AshgateForestLightingLab/Saved/Performance/ForestBenchmark.csv
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-13.36.46:753][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-13.36.46:753][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-13.36.46:971][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-13.36.47:171][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-13.36.47:896][  0]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=3CC3D4C0
+[2026.11.18-13.36.47:897][  0]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-13.36.47:897][  0]LogTemp: Display: LAB_SETUP mode=FULL_LUMEN trees=1178 plants=25605 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-13.36.47:898][  0]r.ScreenPercentage = "100"
+[2026.11.18-13.36.48:144][  0]r.ScreenPercentage = "100"      LastSetBy: Console
+[2026.11.18-13.36.48:144][  0]r.DynamicGlobalIlluminationMethod = "1"      LastSetBy: Console
+[2026.11.18-13.36.48:144][  0]r.ReflectionMethod = "1"      LastSetBy: Console
+[2026.11.18-13.36.48:144][  0]r.Shadow.Virtual.Enable = "1"      LastSetBy: Console
+[2026.11.18-13.38.33:167][393]LogTemp: Display: FOREST BENCHMARK COMPLETE resolution=commandline screenpercentage=100 scalability=4 path=../../../AshgateForestLightingLab/Saved/Performance/ForestBenchmark.csv
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-16.01.04:592][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-16.01.04:593][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-16.01.04:798][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-16.01.05:005][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-16.01.05:722][  0]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=671F7B75
+[2026.11.18-16.01.05:722][  0]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-16.01.05:722][  0]LogTemp: Display: LAB_SETUP mode=PATCH_LUMEN trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-16.01.05:725][  0]r.ScreenPercentage = "100"
+[2026.11.18-16.01.05:997][  0]r.ScreenPercentage = "100"      LastSetBy: Console
+[2026.11.18-16.01.05:997][  0]r.DynamicGlobalIlluminationMethod = "1"      LastSetBy: Console
+[2026.11.18-16.01.05:997][  0]r.ReflectionMethod = "1"      LastSetBy: Console
+[2026.11.18-16.01.05:997][  0]r.Shadow.Virtual.Enable = "1"      LastSetBy: Console
+[2026.11.18-16.02.51:010][170]LogTemp: Display: FOREST BENCHMARK COMPLETE resolution=commandline screenpercentage=100 scalability=4 path=../../../AshgateForestLightingLab/Saved/Performance/ForestBenchmark.csv
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-16.06.32:212][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-16.06.32:213][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-16.06.32:396][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-16.06.32:603][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-16.06.33:278][  0]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=671F7B75
+[2026.11.18-16.06.33:278][  0]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-16.06.33:278][  0]LogTemp: Display: LAB_SETUP mode=PATCH_LUMEN trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-16.06.33:280][  0]r.ScreenPercentage = "100"
+[2026.11.18-16.06.33:528][  0]r.ScreenPercentage = "100"      LastSetBy: Console
+[2026.11.18-16.06.33:528][  0]r.DynamicGlobalIlluminationMethod = "1"      LastSetBy: Console
+[2026.11.18-16.06.33:528][  0]r.ReflectionMethod = "1"      LastSetBy: Console
+[2026.11.18-16.06.33:528][  0]r.Shadow.Virtual.Enable = "1"      LastSetBy: Console
+[2026.11.18-16.08.18:533][186]LogTemp: Display: FOREST BENCHMARK COMPLETE resolution=commandline screenpercentage=100 scalability=4 path=../../../AshgateForestLightingLab/Saved/Performance/ForestBenchmark.csv
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-13.34.57:435][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-13.34.57:435][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-13.34.57:692][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-13.34.57:897][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-13.34.58:642][  0]r.ScreenPercentage = "100"
+[2026.11.18-13.34.58:915][  0]r.ScreenPercentage = "100"      LastSetBy: Console
+[2026.11.18-13.34.58:915][  0]r.DynamicGlobalIlluminationMethod = "1"      LastSetBy: ProjectSetting
+[2026.11.18-13.34.58:915][  0]r.ReflectionMethod = "1"      LastSetBy: ProjectSetting
+[2026.11.18-13.34.58:915][  0]r.Shadow.Virtual.Enable = "1"      LastSetBy: ProjectSetting
+[2026.11.18-13.36.43:933][612]LogTemp: Display: FOREST BENCHMARK COMPLETE resolution=commandline screenpercentage=100 scalability=4 path=../../../AshgateForest/Saved/Performance/ForestBenchmark.csv
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-13.25.11:597][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-13.25.11:597][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-13.25.11:648][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-13.25.11:877][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-13.25.19:520][  1]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=E1CEA248
+[2026.11.18-13.25.19:522][  1]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-13.25.19:522][  1]LogTemp: Display: LAB_SETUP mode=PATCH_BAKED trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-13.25.19:522][  1]LogForest: Display: QA PASS: saved surface and volumetric lighting are present in the baked level
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: field materials and physical wear UVs survive loading
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: new pistol, legacy M1911 and anatomical hands available
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: all forest sound assets loaded
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: viewmodel retains precise normals and texture coordinates
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: pistol and hands share a lighting attachment group
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: recorded gunshot layers use lossless PCM in cooked data
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: licensed forest and magazine layers retain PCM
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: local blast is spatial and forest decay follows distance and occlusion
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: wind and bird loops playing
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: real-time viewport FPS counter
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: matched forest patch population
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: selected pistol and anatomical arms loaded
+[2026.11.18-13.25.21:857][253]LogForest: Display: QA PASS: movable viewmodel receives lighting and retains dynamic/contact shadows
+[2026.11.18-13.25.26:857][853]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.18-13.25.26:857][853]LogForest: Display: QA PASS: grounded movement produces footsteps
+[2026.11.18-13.25.26:857][853]LogForest: Display: QA PASS: inspect starts
+[2026.11.18-13.25.26:857][853]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.18-13.25.26:857][853]LogForest: Display: QA PASS: selected pistol fire consumes one round
+[2026.11.18-13.25.26:857][853]LogForest: Display: QA PASS: reload starts
+[2026.11.18-13.25.29:857][213]LogForest: Display: QA PASS: reload completes
+[2026.11.18-13.25.29:857][213]LogForest: Display: QA PASS: reload audio follows magazine timing
+[2026.11.18-13.25.29:857][213]LogForest: Display: QA PASS: recorded live shot and action played; synthetic casing disabled
+[2026.11.18-13.25.29:857][213]LogForest: Display: QA PASS: gunshots use occlusion and distance air absorption
+[2026.11.18-13.25.32:856][573]LogForest: Display: QA PASS: ADS camera
+[2026.11.18-13.25.32:857][573]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.18-13.25.32:857][573]LogForest: Display: QA PASS: pistol available again
+[2026.11.18-13.25.32:857][573]LogForest: Display: QA PASS: F3 selects preserved M1911
+[2026.11.18-13.25.32:857][573]LogForest: Display: QA PASS: preserved M1911 remains fireable
+[2026.11.18-13.25.32:857][573]LogForest: Display: QA PASS: F3 restores service pistol ammo independently
+[2026.11.18-13.26.31:870][602]LogForest: Display: QA COMPLETE failures=0 worldtype=3
+LogInit: OS: Windows 11 (25H2) [10.0.26200.9974] (), CPU: AMD Ryzen 9 9950X3D 16-Core Processor          , GPU: NVIDIA GeForce RTX 5080
+[2026.11.18-13.26.38:664][  0]LogD3D12RHI: Found D3D12 adapter 0: NVIDIA GeForce RTX 5080 (VendorId: 10de, DeviceId: 2c02, SubSysId: 176219da, Revision: 00a1
+[2026.11.18-13.26.38:665][  0]LogD3D12RHI: Chosen D3D12 Adapter Id = 0
+[2026.11.18-13.26.38:790][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-13.26.38:992][  0]LogCsvProfiler: Display: Metadata set : gpu="NVIDIA GeForce RTX 5080"
+[2026.11.18-13.26.39:617][  0]LogTemp: Display: LAB_GEOMETRY patch_instances=5972 trees=72 plants=5861 placement_crc32=671F7B75
+[2026.11.18-13.26.39:617][  0]LogTemp: Display: LAB_VOLUME valid=1 brick_texture=X=1280 Y=30 Z=5 ambient_bytes=768000
+[2026.11.18-13.26.39:617][  0]LogTemp: Display: LAB_SETUP mode=PATCH_BAKED trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-13.26.39:617][  0]LogForest: Display: QA PASS: saved surface and volumetric lighting are present in the baked level
+[2026.11.18-13.26.42:649][296]LogForest: Display: QA PASS: field materials and physical wear UVs survive loading
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: new pistol, legacy M1911 and anatomical hands available
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: all forest sound assets loaded
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: viewmodel retains precise normals and texture coordinates
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: pistol and hands share a lighting attachment group
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: recorded gunshot layers use lossless PCM in cooked data
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: licensed forest and magazine layers retain PCM
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: local blast is spatial and forest decay follows distance and occlusion
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: first-person hand preserves full geometry without Nanite fallback
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: wind and bird loops playing
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: real-time viewport FPS counter
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: matched forest patch population
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: terrain collision / grounded character
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: terrain elevation matches world
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: selected pistol and anatomical arms loaded
+[2026.11.18-13.26.42:650][296]LogForest: Display: QA PASS: movable viewmodel receives lighting and retains dynamic/contact shadows
+[2026.11.18-13.26.47:653][838]LogForest: Display: QA PASS: walking with terrain collision
+[2026.11.18-13.26.47:653][838]LogForest: Display: QA PASS: grounded movement produces footsteps
+[2026.11.18-13.26.47:653][838]LogForest: Display: QA PASS: inspect starts
+[2026.11.18-13.26.47:654][838]LogForest: Display: QA PASS: ADS cancels inspect
+[2026.11.18-13.26.47:654][838]LogForest: Display: QA PASS: selected pistol fire consumes one round
+[2026.11.18-13.26.47:654][838]LogForest: Display: QA PASS: reload starts
+[2026.11.18-13.26.50:659][296]LogForest: Display: QA PASS: reload completes
+[2026.11.18-13.26.50:659][296]LogForest: Display: QA PASS: reload audio follows magazine timing
+[2026.11.18-13.26.50:659][296]LogForest: Display: QA PASS: recorded live shot and action played; synthetic casing disabled
+[2026.11.18-13.26.50:659][296]LogForest: Display: QA PASS: gunshots use occlusion and distance air absorption
+[2026.11.18-13.26.53:662][765]LogForest: Display: QA PASS: ADS camera
+[2026.11.18-13.26.53:662][765]LogForest: Display: QA PASS: scenery view / holster
+[2026.11.18-13.26.53:662][765]LogForest: Display: QA PASS: pistol available again
+[2026.11.18-13.26.53:662][765]LogForest: Display: QA PASS: F3 selects preserved M1911
+[2026.11.18-13.26.53:662][765]LogForest: Display: QA PASS: preserved M1911 remains fireable
+[2026.11.18-13.26.53:662][765]LogForest: Display: QA PASS: F3 restores service pistol ammo independently
+[2026.11.18-13.27.52:838][686]LogForest: Display: QA COMPLETE failures=0 worldtype=1
+[2026.11.18-13.28.17:374][281]LogRHI: Display:                   83.9%  9.14ms   LumenScreenProbeGather
+[2026.11.18-13.28.17:376][281]LogRHI: Display:                 0.0%  0.00ms   LumenScreenProbeGather
+[2026.11.18-13.28.17:376][281]LogRHI: Display:                 6.0%  0.91ms   ShadowDepths
+[2026.11.18-13.28.17:378][281]LogRHI: Display:                       3.3%  0.51ms   LumenReflections
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 6.2%  0.41ms   ShadowDepths

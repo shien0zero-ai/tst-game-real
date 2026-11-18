@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 1652,
+      "duration_s": 24.992296885000034,
+      "mean_fps": 66.10036714918769,
+      "mean_ms": 15.128509010290557,
+      "p95_ms": 16.552601,
+      "p99_ms": 17.2875,
+      "one_percent_low_fps": 56.536763053143375,
+      "mean_gpu_ms": 14.631991221549637,
+      "mean_game_ms": 1.3738758474576271,
+      "mean_render_ms": 15.12246712772397
+    },
+    "1": {
+      "frames": 1652,
+      "duration_s": 24.999326698,
+      "mean_fps": 66.08177971977796,
+      "mean_ms": 15.13276434503632,
+      "p95_ms": 16.166802,
+      "p99_ms": 16.609002,
+      "one_percent_low_fps": 58.609860485564305,
+      "mean_gpu_ms": 14.633197460048427,
+      "mean_game_ms": 1.3144700968523002,
+      "mean_render_ms": 15.126848243341405
+    },
+    "2": {
+      "frames": 1851,
+      "duration_s": 25.003228893000006,
+      "mean_fps": 74.03043854540775,
+      "mean_ms": 13.507957262560778,
+      "p95_ms": 14.754899,
+      "p99_ms": 15.188001,
+      "one_percent_low_fps": 64.74368242297217,
+      "mean_gpu_ms": 13.00374224743382,
+      "mean_game_ms": 1.3419994057266342,
+      "mean_render_ms": 13.501945218800648
+    }
+  },
+  "overall": {
+    "frames": 5155,
+    "duration_s": 74.99485247600009,
+    "mean_fps": 68.73805107690175,
+    "mean_ms": 14.547983021532493,
+    "p95_ms": 16.162202,
+    "p99_ms": 16.871799,
+    "one_percent_low_fps": 57.770546526452094,
+    "mean_gpu_ms": 14.047724268089233,
+    "mean_game_ms": 1.3433925121241512,
+    "mean_render_ms": 14.541992161590688
+  },
+  "targets": {
+    "100": false,
+    "80": false,
+    "60": true
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

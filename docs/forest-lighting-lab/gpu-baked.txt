@@ -1,0 +1,626 @@
+[2026.11.18-13.28.34:657][  0]LogRHI: Using Default RHI: D3D12
+[2026.11.18-13.28.34:863][  0]LogRHI: Using Highest Feature Level of D3D12: SM6
+[2026.11.18-13.28.34:863][  0]LogRHI: Loading RHI module D3D12RHI
+[2026.11.18-13.28.34:863][  0]LogRHI: Checking if RHI D3D12 with Feature Level SM6 is supported by your system.
+[2026.11.18-13.28.34:864][  0]LogRHI: RHI D3D12 with Feature Level SM6 is supported and will be used.
+[2026.11.18-13.28.34:931][  0]LogRHI: Using Default RHI: D3D12
+[2026.11.18-13.28.34:931][  0]LogRHI: Using Highest Feature Level of D3D12: SM6
+[2026.11.18-13.28.34:931][  0]LogRHI: Loading RHI module D3D12RHI
+[2026.11.18-13.28.34:931][  0]LogRHI: Checking if RHI D3D12 with Feature Level SM6 is supported by your system.
+[2026.11.18-13.28.34:931][  0]LogRHI: RHI D3D12 with Feature Level SM6 is supported and will be used.
+[2026.11.18-13.28.34:989][  0]LogRHI: Display: Timeout Detection and Recovery (TDR) summary:
+[2026.11.18-13.28.34:989][  0]LogRHI: RHI Adapter Info:
+[2026.11.18-13.28.34:989][  0]LogRHI:             Name: NVIDIA GeForce RTX 5080
+[2026.11.18-13.28.34:989][  0]LogRHI:   Driver Version: 621.14 (internal:32.0.16.2114, unified:621.14)
+[2026.11.18-13.28.34:989][  0]LogRHI:      Driver Date: 10-27-2026
+[2026.11.18-13.28.34:989][  0]LogRHI: Performing driver check for denylisted drivers.
+[2026.11.18-13.28.35:188][  0]LogRHI: Texture pool is 9581 MB (70% of 13688 MB)
+[2026.11.18-13.28.35:194][  0]LogRHI: Render tracing channels set: 'Submission' -> 0xf
+[2026.11.18-13.28.35:234][  0]LogRHI: Could not open FPipelineCacheFile: ../../../AshgateForestLightingLab/Content/PipelineCaches/Windows/AshgateForestLightingLab_PCD3D_SM6.stable.upipelinecache
+[2026.11.18-13.28.35:234][  0]LogRHI: Could not open FPipelineCacheFile: ../../../AshgateForestLightingLab/Content/PipelineCaches/Windows/AshgateForestLightingLab_PCD3D_SM6.stable.upipelinecache
+[2026.11.18-13.28.35:234][  0]LogRHI: Could not open FPipelineCacheFile: ../../../AshgateForestLightingLab/Content/PipelineCaches/Windows/AshgateForestLightingLab_PCD3D_SM6.stable.upipelinecache
+[2026.11.18-13.28.35:811][  0]LogTemp: Display: LAB_SETUP mode=PATCH_BAKED trees=72 plants=5861 surface_mappings=24 clusters=11 volumetric_lightmap=1 / VSM retained for Nanite / Cine 1080p 100%
+[2026.11.18-13.28.35:841][  0]LogRHI: Display: ShaderPipelineCache: Paused Batching. 1
+[2026.11.18-13.28.35:841][  0]LogRHI: Display: ShaderPipelineCache: Resumed Batching. 0
+[2026.11.18-13.28.35:841][  0]LogRHI: Display: ShaderPipelineCache: Batching Resumed.
+[2026.11.18-13.28.35:887][  1]LogRenderer: Pixel format for LUT is PF_A2B10G10R10
+[2026.11.18-13.28.35:903][  1]LogRHI: Display: Encountered a new compute PSO: 672443413 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:903][  1]LogRHI: Display: Encountered a new compute PSO: 4089058298 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new compute PSO: 1870696555 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 3769264551 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 45228890 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new compute PSO: 1593445068 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 3296096325 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new compute PSO: 1227139600 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 4239818847 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 4012981560 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 607129278 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 2110166719 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 2476046188 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:905][  1]LogRHI: Display: Encountered a new graphics PSO: 1452607166 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 4203117214 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 835453892 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 3809084492 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 1389502587 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 594019150 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 3263767055 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 1567633067 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 3350720278 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 3468184399 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 440354576 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new compute PSO: 3246318526 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 72865529 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 80858211 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:906][  1]LogRHI: Display: Encountered a new graphics PSO: 476495624 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:907][  1]LogRHI: Display: Encountered a new graphics PSO: 1174277617 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:907][  1]LogRHI: Display: Encountered a new graphics PSO: 3887415891 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:907][  1]LogRHI: Display: Encountered a new graphics PSO: 3190443967 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:907][  1]LogRHI: Display: Encountered a new graphics PSO: 3779571617 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:907][  1]LogRHI: Display: Encountered a new graphics PSO: 1710521888 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:907][  1]LogRHI: Display: Encountered a new graphics PSO: 3028422806 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:908][  1]LogRHI: Display: Encountered a new graphics PSO: 2680570085 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:909][  1]LogRHI: Display: Encountered a new graphics PSO: 2438864867 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:910][  1]LogRHI: Display: Encountered a new graphics PSO: 929301053 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:970][  1]LogRHI: Display: Encountered a new graphics PSO: 275312816 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:970][  1]LogRHI: Display: Encountered a new graphics PSO: 4149791866 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:970][  1]LogRHI: Display: Encountered a new graphics PSO: 3805303164 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:970][  1]LogRHI: Display: Encountered a new graphics PSO: 2422114764 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:975][  1]LogRHI: Display: Encountered a new graphics PSO: 234495419 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:975][  1]LogRenderer: Forcing update for all mesh draw commands: SkyLight change
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 210971920 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 1381538739 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 2994128938 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 2633113874 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 745723151 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 867172357 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 1151834640 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 602411070 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.35:980][  1]LogRHI: Display: Encountered a new graphics PSO: 3363812989 (PSOPrecacheState: Missed)
+[2026.11.18-13.28.55:941][615]LogRHI: Display: Compute pipeline 0 - GPU 0
+[2026.11.18-13.28.55:941][615]LogRHI: Display:
+[2026.11.18-13.28.55:941][615]LogRHI: Display: 100.0%  0.58ms   <root>
+[2026.11.18-13.28.55:941][615]LogRHI: Display:     0.5%  0.00ms   Frame 2611
+[2026.11.18-13.28.55:941][615]LogRHI: Display:        0.5%  0.00ms   RenderGraphExecute - Slate
+[2026.11.18-13.28.55:941][615]LogRHI: Display:     0.0%  0.00ms   BufferPoolCopyOps
+[2026.11.18-13.28.55:941][615]LogRHI: Display:     0.0%  0.00ms   TexturePoolCopyOps
+[2026.11.18-13.28.55:941][615]LogRHI: Display:    99.4%  0.57ms   Frame 2612
+[2026.11.18-13.28.55:941][615]LogRHI: Display:       98.8%  0.57ms   SceneRender - ViewFamilies
+[2026.11.18-13.28.55:941][615]LogRHI: Display:          98.8%  0.57ms   RenderGraphExecute - /ViewFamilies
+[2026.11.18-13.28.55:941][615]LogRHI: Display:             98.5%  0.57ms   Scene
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                 0.7%  0.00ms   FXSystemPreRender
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                    0.3%  0.00ms   AccessModePass[AsyncCompute] (Textures: 0, Buffers: 1)
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                 0.0%  0.00ms   AccessModePass[AsyncCompute] (Textures: 1, Buffers: 1)
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                 3.7%  0.02ms   PrepareImageBasedVRS
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                    3.7%  0.02ms   ContrastAdaptiveShading
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                       1.2%  0.01ms   CreateShadingRateImage
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                       2.4%  0.01ms   ReprojectShadingRateImage
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                 0.5%  0.00ms   AccessModePass[AsyncCompute] (Textures: 3, Buffers: 2)
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                92.8%  0.54ms   PostProcessing
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                   92.7%  0.54ms   TemporalSuperResolution(sg.AntiAliasingQuality=4) 1920x1080 -> 1920x1080
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                       1.6%  0.01ms   TSR ClearPrevTextures 1920x1080
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                      27.1%  0.16ms   TSR DilateVelocity(#0 MotionBlurDirections=0 ReprojectionField OutputIsMoving) 1920x1080
+[2026.11.18-13.28.55:941][615]LogRHI: Display:                      63.3%  0.37ms   TSR DecimateHistory(#11 ReprojectMoire ReprojectResurrection 16bit) 1920x1080
+[2026.11.18-13.28.55:941][615]LogRHI: Display:        0.3%  0.00ms   RenderGraphExecute - CanvasRenderThreadScope
+[2026.11.18-13.28.55:941][615]LogRHI: Display:        0.0%  0.00ms   RenderGraphExecute - Slate
+[2026.11.18-13.28.55:941][615]LogRHI: Display:
+[2026.11.18-13.28.55:942][615]LogRHI: Display:
+[2026.11.18-13.28.55:942][615]LogRHI: Display: GPU Profile for Frame 2612 - Graphics pipeline 0 - GPU 0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:
+[2026.11.18-13.28.55:942][615]LogRHI: Display:     - Frame Time                    : 6.66ms
+[2026.11.18-13.28.55:942][615]LogRHI: Display:     - r.ProfileGPU.Root             : "*"
+[2026.11.18-13.28.55:942][615]LogRHI: Display:     - r.ProfileGPU.ThresholdPercent : 0.00%
+[2026.11.18-13.28.55:942][615]LogRHI: Display:     - r.ProfileGPU.ShowLeafEvents   : true
+[2026.11.18-13.28.55:942][615]LogRHI: Display:
+[2026.11.18-13.28.55:942][615]LogRHI: Display: 100.0%  6.66ms   <root>
+[2026.11.18-13.28.55:942][615]LogRHI: Display:     0.0%  0.00ms   BufferPoolCopyOps
+[2026.11.18-13.28.55:942][615]LogRHI: Display:     0.0%  0.00ms   TexturePoolCopyOps
+[2026.11.18-13.28.55:942][615]LogRHI: Display:    99.9%  6.65ms   Frame 2612
+[2026.11.18-13.28.55:942][615]LogRHI: Display:        0.0%  0.00ms   WorldTick
+[2026.11.18-13.28.55:942][615]LogRHI: Display:        0.0%  0.00ms   SendAllEndOfFrameUpdates
+[2026.11.18-13.28.55:942][615]LogRHI: Display:       99.4%  6.62ms   SceneRender - ViewFamilies
+[2026.11.18-13.28.55:942][615]LogRHI: Display:           0.0%  0.00ms   RayTracingGeometry
+[2026.11.18-13.28.55:942][615]LogRHI: Display:           0.0%  0.00ms   "DistanceFields"
+[2026.11.18-13.28.55:942][615]LogRHI: Display:           0.0%  0.00ms   "AllocateRendertargets"
+[2026.11.18-13.28.55:942][615]LogRHI: Display:           0.0%  0.00ms   "VisibilityCommands"
+[2026.11.18-13.28.55:942][615]LogRHI: Display:           0.0%  0.00ms   ScaleVariableRateShadingTexture
+[2026.11.18-13.28.55:942][615]LogRHI: Display:          99.0%  6.59ms   RenderGraphExecute - /ViewFamilies
+[2026.11.18-13.28.55:942][615]LogRHI: Display:              0.1%  0.01ms   FRDGBuilder::SubmitBufferUploads
+[2026.11.18-13.28.55:942][615]LogRHI: Display:              0.0%  0.00ms   ClearGPUMessageBuffer
+[2026.11.18-13.28.55:942][615]LogRHI: Display:              0.0%  0.00ms   ShaderPrint::UploadParameters
+[2026.11.18-13.28.55:942][615]LogRHI: Display:              0.3%  0.02ms   "DistanceFields"
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.2%  0.02ms   UpdateDistanceFieldAtlas
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   ClearBuffer(DistanceFields.DistanceFieldAssetWantedNumMips Size=128bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.1%  0.01ms   ComputeWantedMips
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   GenerateStreamingRequests
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.1%  0.00ms   DistanceFieldAssetReadback
+[2026.11.18-13.28.55:942][615]LogRHI: Display:              0.4%  0.02ms   Nanite::Streaming
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.4%  0.02ms   Nanite::Readback
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.3%  0.02ms   Readback
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   ClearStreamingRequestCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:             97.9%  6.52ms   Scene
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   FXSystemPreRender
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   AccessModePass[Graphics] (Textures: 0, Buffers: 1)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   GPUParticles_PreRender
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.1%  0.01ms   GPUSceneUpdate
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   ClearBuffer(ViewData.DeformingInstanceViewMask Size=748bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.1%  0.00ms   ScatterUpload (Resource: SceneCulling.Items)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   ScatterUpload (Resource: SceneCulling.ItemChunks)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   ClearIndirectDispatchArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   NaniteSkinningUpdateViewDataChunks
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   NaniteSkinningUpdateViewData
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   ClearBuffer(Shadow.Virtual.CacheInstanceAsDynamic Size=1496bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.2%  0.01ms   BuildRenderingCommandsDeferred(Culling=On)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   ClearBuffer(InstanceCulling.Compaction.BlockInstanceCounts Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   ClearIndirectArgInstanceCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.1%  0.01ms   CullInstances(UnCulled). Bin 0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   CullInstances(Generic). Bin 1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   Instance Compaction Phase 1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   Instance Compaction Phase 2
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   ClearIndirectDispatchArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   VSMUpdateViewInstanceState
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   Shadow.Virtual.ProcessInvalidationsGPU
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   ProcessInvalidationQueueGPU
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   AccessModePass[Graphics] (Textures: 1, Buffers: 1)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   ClearDepthStencil (SceneDepthZ)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.2%  0.01ms   PrePass DDM_AllOpaqueNoVelocity (Forced by Nanite)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.2%  0.01ms   DepthPassParallel
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.01ms   ParallelDraw (Index: 0, Num: 1)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   EditorPrimitives
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.1%  0.01ms   Nanite::VisBuffer
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.1%  0.01ms   Nanite::InitContext
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.01ms   RasterClear
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                11.9%  0.79ms   Nanite::VisBuffer
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                   11.9%  0.79ms   Nanite::DrawGeometry
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   InitArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   InitArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(Nanite.SplitWorkQueue.StateBuffer Size=12bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(Nanite.OccludedPatches.StateBuffer Size=12bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       9.3%  0.62ms   MainPass
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.2%  0.02ms   InstanceCulling
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   HierarchyCellChunkCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   HierarchyChunkCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InstanceHierarchyAppendUncullable
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InstanceHierarchySanitizeInstanceArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   InstanceCull - GroupWork
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          1.5%  0.10ms   NodeAndClusterCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InitNodeCullArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_2
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_3
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_4
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_5
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_6
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_7
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_8
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InitClusterCullArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.3%  0.02ms   ClusterCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CalculateSafeRasterizerArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   RasterBinCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   RasterBinScatter
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterBinFinalize
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   SW Rasterize (Tessellated)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.5%  0.03ms   HW Rasterize (Triangles)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          6.0%  0.40ms   SW Rasterize (Triangles)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearVisiblePatchesArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.2%  0.01ms   PatchSplit
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InitPatchSplitArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_2
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_3
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_4
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_5
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   InitVisiblePatchesArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterBinCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterBinScatter
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   SW Rasterize (Patches)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.4%  0.02ms   BuildPreviousOccluderHZB
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.3%  0.02ms   BuildHZB
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.3%  0.02ms   ReduceHZB(mips=[0;3] Furthest) 1024x1024
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   ReduceHZB(mips=[4;7] Furthest) 64x64
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   ReduceHZB(mips=[8;9] Furthest) 4x4
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       2.0%  0.13ms   PostPass
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.2%  0.01ms   InstanceCulling
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   HierarchyChunkCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InstanceHierarchySanitizeInstanceArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.00ms   InstanceCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InstanceCull - GroupWork
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.5%  0.03ms   NodeAndClusterCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InitNodeCullArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   NodeCull_0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_2
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_3
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_4
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_5
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_6
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_7
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   NodeCull_8
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InitClusterCullArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   ClusterCull
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CalculateSafeRasterizerArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   RasterBinCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   RasterBinScatter
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterBinFinalize
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   SW Rasterize (Tessellated)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   HW Rasterize (Triangles)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.3%  0.02ms   SW Rasterize (Triangles)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearVisiblePatchesArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   PatchSplit
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   InitPatchSplitArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_2
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_3
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_4
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   PatchSplit_5
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   InitVisiblePatchesArgs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterBinCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   RasterBinScatter
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   SW Rasterize (Patches)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   NaniteFeedbackStatus
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 1.2%  0.08ms   NaniteBasePass
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    1.2%  0.08ms   Nanite::EmitDepthTargets
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearRenderTarget(Nanite.ShadingMask, slice 0, mip 0) 1920x1080 ClearAction
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearRenderTarget(SceneVelocity, slice 0, mip 0) 1920x1080 ClearAction
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.9%  0.06ms   Emit Scene Depth/Resolve/Velocity
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.2%  0.02ms   Emit Scene Stencil
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.1%  0.00ms   FVirtualShadowMapArray::UpdatePhysicalPageAddresses
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.1%  0.01ms   HZB
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.1%  0.01ms   BeginOcclusionTests
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.01ms   BeginOcclusionTests
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   BeginOcclusionTests
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   ViewOcclusionTests 0
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                                0.1%  0.01ms   BeginOcclusionTests
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                                   0.0%  0.00ms   ShadowFrustumQueries
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                                   0.0%  0.00ms   GroupedQueries
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                                   0.1%  0.00ms   IndividualQueries
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.3%  0.02ms   HZB
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.3%  0.02ms   BuildHZB(ViewId=0)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.3%  0.02ms   BuildHZB
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.2%  0.01ms   ReduceHZB(mips=[0;3] Furthest) 1024x1024
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.1%  0.01ms   ReduceHZB(mips=[4;7] Furthest) 64x64
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ReduceHZB(mips=[8;9] Furthest) 4x4
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.2%  0.01ms   ComputeLightGrid
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.2%  0.01ms   CullLights 30x17x32 NumLights 0 NumCaptures 1
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(CulledLightLinkAllocator Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(CulledLightDataAllocator Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(NumCulledLightsGrid Size=261120bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.01ms   LightGridInject LinkedList  UseHZBCull  SingleThread
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   LightGridFeedbackStatus
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   LightFunctionAtlasGeneration
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   LightFunctionAtlas Generation
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.6%  0.04ms   SkyAtmosphereLUTs
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.1%  0.01ms   SkyAtmosphere::DistantSkyLightLut
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.01ms   DistantSkyLightLut
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.2%  0.01ms   SkyAtmosphere::SkyViewLut
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.2%  0.01ms   SkyViewLut
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.3%  0.02ms   SkyAtmosphere::CameraVolumeLut
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.3%  0.02ms   CameraVolumeLut
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.0%  0.00ms   AccessModePass[Graphics] (Textures: 3, Buffers: 2)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 0.1%  0.00ms   GBufferClear
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 9.1%  0.60ms   BasePass
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.4%  0.02ms   BasePassParallel
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.2%  0.02ms   ParallelDraw (Index: 0, Num: 1)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    8.6%  0.57ms   NaniteBasePass
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       8.6%  0.57ms   Nanite::BasePass
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.DummyMultiViewIndices Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.DummyMultiViewRectScaleOffsets Size=16bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.PackedViews Size=16bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          1.3%  0.08ms   Nanite::ShadeBinning
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.ShadingBinMeta Size=560bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.0%  0.00ms   ClearBuffer(Nanite.ShadingBinScatterCounters Size=4096bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.3%  0.02ms   ShadingCount
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.01ms   ClearBuffer(Nanite.ShadingBinAllocator Size=4bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.1%  0.00ms   ShadingReserve
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                             0.7%  0.05ms   ShadingScatter
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                          7.3%  0.48ms   ShadeGBufferCS
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    0.0%  0.00ms   EditorPrimitives
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   EditorPrimitives: SDPG_World
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 1.0%  0.07ms   VirtualShadowMapMarkPages
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    1.0%  0.07ms   FVirtualShadowMapArray::BeginMarkPages
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ScatterUpload (Resource: Shadow.Virtual.ProjectionData)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.00ms   ClearBuffer(Shadow.Virtual.StatsBuffer Size=360bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.00ms   ClearPageTable(Shadow.Virtual.PageRequestFlags Size=8192x192 texels)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.01ms   ClearPageTableDir(Shadow.Virtual.PageReceiverMasks Size=4608x384 texels)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(Shadow.Virtual.DirtyPageFlags Size=196612bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   InitPageRectBounds
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(NanitePerformanceFeedback Size=65680bytes)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.1%  0.00ms   ClearPageTable(Shadow.Virtual.PageTable Size=8192x192 texels)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   ClearPageTable(Shadow.Virtual.PageFlags Size=8192x192 texels)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   PruneLightGrid(Min=0,Max=0)
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   MarkCoarsePages
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.4%  0.03ms   GeneratePageFlagsFromPixels(GBuffer,NumShadowMaps=17,{120,68})
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                 6.2%  0.41ms   ShadowDepths
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                    1.2%  0.08ms   FVirtualShadowMapArray::BuildPageAllocation
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.6%  0.04ms   UpdatePhysicalPages
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.2%  0.01ms   PackAvailablePages
+[2026.11.18-13.28.55:942][615]LogRHI: Display:                       0.0%  0.00ms   AppendPhysicalPageList
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   AppendPhysicalPageList(Counts)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   AllocateNewPageMappings
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   GenerateHierarchicalPageFlags
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   PropagateMappedMips
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearIndirectDispatchArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   InitializePhysicalPages
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   SelectPagesToInitialize
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   InitializePhysicalMemoryIndirect
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   Feedback Status
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   AppendPhysicalPageList
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   AppendPhysicalPageList(Counts)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    4.0%  0.27ms   RenderVirtualShadowMaps(Nanite)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearBuffer(Shadow.Virtual.CompactedViewsAllocation Size=8bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.2%  0.01ms   CompactViewsVSM
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       3.6%  0.24ms   Nanite::DrawGeometry
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   InitArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   InitArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.SplitWorkQueue.StateBuffer Size=12bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   ClearBuffer(Nanite.OccludedPatches.StateBuffer Size=12bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          1.8%  0.12ms   MainPass
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.6%  0.04ms   InstanceCulling
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   HierarchyCellChunkCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.2%  0.01ms   HierarchyChunkCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InstanceHierarchyAppendUncullable
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InstanceHierarchySanitizeInstanceArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.2%  0.02ms   InstanceCull - GroupWork
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.4%  0.03ms   NodeAndClusterCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InitNodeCullArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_0
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_1
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_3
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_4
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_5
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_6
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_7
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_8
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InitClusterCullArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   ClusterCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CalculateSafeRasterizerArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinCount
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.1%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinScatter
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinFinalize
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SW Rasterize (Tessellated)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   HW Rasterize (Triangles)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SW Rasterize (Triangles)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearVisiblePatchesArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.1%  0.01ms   PatchSplit
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InitPatchSplitArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_0
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_1
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_3
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_4
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_5
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   InitVisiblePatchesArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinCount
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinScatter
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SW Rasterize (Patches)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.2%  0.01ms   BuildPreviousOccluderHZB(VSM)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearIndirectDispatchArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SelectPagesForHZB
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   BuildHZBPerPage
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   BuildHZBPerPageTop
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          1.3%  0.09ms   PostPass
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.1%  0.01ms   InstanceCulling
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   HierarchyChunkCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InstanceHierarchySanitizeInstanceArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InstanceCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InstanceCull - GroupWork
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.4%  0.02ms   NodeAndClusterCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InitNodeCullArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_0
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_1
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_3
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_4
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_5
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_6
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_7
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   NodeCull_8
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InitClusterCullArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   ClusterCull
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CalculateSafeRasterizerArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinCount
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinScatter
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinFinalize
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SW Rasterize (Tessellated)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   HW Rasterize (Triangles)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SW Rasterize (Triangles)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearVisiblePatchesArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.1%  0.01ms   PatchSplit
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   InitPatchSplitArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_0
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_1
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_3
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_4
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   PatchSplit_5
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   InitVisiblePatchesArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterBinMeta Size=1536bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   CopyBuffer(Nanite.RasterGroupMeta Size=512bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupInit
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinCount
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearBuffer(Nanite.RangeAllocatorBuffer Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterGroupReserve
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   RasterBinScatter
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   SW Rasterize (Patches)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   CalculateClusterIndirectArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   ExtractVSMPerformanceFeedback
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   NaniteFeedbackStatus
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearIndirectDispatchArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   SelectPagesForHZB
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   BuildHZBPerPage
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   BuildHZBPerPageTop
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.8%  0.05ms   RenderVirtualShadowMaps(Non-Nanite)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.8%  0.05ms   Batched
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.7%  0.05ms   CullingPasses
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearBuffer(Shadow.Virtual.VisibleInstanceWriteOffset Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearIndirectArgInstanceCount
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.5%  0.03ms   CullPerPageDrawCommands
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   ClearBuffer(InstanceCulling.OutputOffsetBufferOut Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   AllocateCommandInstanceOutputSpaceCs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   InitIndirectArgs1D
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.0%  0.00ms   OutputCommandInstanceListsCs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   RasterPasses
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   UpdateAndClearDirtyFlags
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.1%  0.00ms   FVirtualShadowMapArray::PostProcessPages
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearIndirectDispatchArgs
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   SelectPagesToPostProcess
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   MergeStaticPhysicalPagesIndirect
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 3.0%  0.20ms   LightCompositionTasks_PreLighting
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.1%  0.01ms   ScreenSpace AO Setup
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   AmbientOcclusionSetup 960x540
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    1.3%  0.09ms   ScreenSpace AO
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       1.3%  0.09ms   AmbientOcclusionPS 960x540 SetupAsInput=1 Upsample=0 ShaderQuality=2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    1.6%  0.10ms   ScreenSpace AO
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       1.6%  0.10ms   AmbientOcclusionPS 1920x1080 SetupAsInput=0 Upsample=1 ShaderQuality=2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 0.0%  0.00ms   ClearStencil (SceneDepthZ)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                26.7%  1.77ms   RenderDeferredLighting
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.4%  0.02ms   DiffuseIndirectAndAO
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.4%  0.02ms   DiffuseIndirectComposite(DiffuseIndirect=Disabled ApplyAOToSceneColor) 1920x1080
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   InitTranslucencyLightingVolumeTextures
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearTranslucencyLightingVolumeCompute 64
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                   26.0%  1.73ms   Lights
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                      26.0%  1.73ms   DirectLighting
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                         26.0%  1.73ms   UnbatchedLights
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                            26.0%  1.73ms   ForestLightingPatch.DirectionalLight0
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.0%  0.00ms   ClearRenderTarget(ShadowMaskTexture, slice 0, mip 0) 1920x1080 ClearAction
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                               25.2%  1.68ms   ShadowProjectionOnOpaque
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                   0.5%  0.03ms   DistanceFieldShadows
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                      0.5%  0.03ms   BeginRayTracedDistanceFieldShadow
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                         0.3%  0.02ms   CullDistanceFieldObjectsForLight MeshSDF
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ClearBuffer(DistanceField.ObjectIndirectArguments Size=20bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   CullMeshSDFObjectsToFrustum
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ClearBuffer(ShadowTileNumCulledObjects Size=262144bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ScatterMeshSDFsToLightGrid 256x256
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ClearBuffer(ShadowNextStartOffset Size=4bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ComputeCulledObjectStartOffset
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ClearBuffer(ShadowTileNumCulledObjects Size=262144bytes)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                            0.0%  0.00ms   ScatterMeshSDFsToLightGrid 256x256
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                         0.1%  0.01ms   DistanceFieldShadowing 960x544
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                      0.1%  0.00ms   Upsample
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                  24.5%  1.63ms   VirtualShadowMapProjection(Input:GBuffer)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                   0.2%  0.01ms   CompositeVirtualShadowMapMask
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.8%  0.05ms   RenderLight Light::StandardDeferred: DirectionalLight0
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.3%  0.02ms   TranslucencyLightingVolume
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.3%  0.02ms   InjectTranslucencyLightingVolume(View=0)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   BarrierPass
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.2%  0.01ms   InjectTranslucencyLightingVolume(VolumeCascade=0,VirtualShadowMap)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.1%  0.01ms   InjectTranslucencyLightingVolume(VolumeCascade=1,VirtualShadowMap)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   FilterTranslucentVolume 64x64x64 Cascades:2
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.0%  0.00ms   BarrierPass
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 1.1%  0.07ms   RenderDeferredLighting
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    1.1%  0.07ms   DiffuseIndirectAndAO
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       1.1%  0.07ms   ReflectionIndirect
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.4%  0.03ms   ScreenSpaceReflections(Quality=2)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.4%  0.03ms   ScreenSpaceReflections
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                                0.4%  0.03ms   SSR RayMarch(Quality=2 RayPerPixel=1) 1920x1080
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.7%  0.04ms   ReflectionEnvironment
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                             0.7%  0.04ms   ReflectionEnvironmentAndSky(1920x1080,SubstrateMat=Off)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                20.3%  1.35ms   ComputeVolumetricFog
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                   20.3%  1.35ms   VolumetricFog
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   VolumetricFog::ConservativeDepth
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          0.1%  0.00ms   GenerateConservativeDepthBuffer
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       2.2%  0.15ms   VolumetricFog::InitialiseVolume
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          2.2%  0.15ms   InitializeVolumeAttributes
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                      16.1%  1.07ms   VolumetricFog::LightScattering
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                         16.1%  1.07ms   LightScattering 480x270x128 SS:16 DFAO LF
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       1.9%  0.12ms   VolumetricFog::FinalIntegration
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                          1.8%  0.12ms   FinalIntegration
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 0.3%  0.02ms   TemporalSuperResolution
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.3%  0.02ms   TSR MeasureFlickeringLuma 1920x1080
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 2.8%  0.19ms   SkyAtmosphere
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    2.8%  0.19ms
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 0.5%  0.03ms   ExponentialHeightFog
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.5%  0.03ms   Fog
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 0.1%  0.01ms   PostRenderOpsFX
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   SetSceneTexturesUniformBuffer
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   FXSystemPostRenderOpaque
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   GPUParticles_PostRenderOpaque
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   AsyncGpuTraceHelper::PostRenderOpaque
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   Niagara::PostRenderFinish
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   UnsetSceneTexturesUniformBuffer
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 0.1%  0.00ms   Translucency
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.0%  0.00ms   RenderTranslucency
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearRenderTarget(Translucency.AfterDOF.Color, slice 0, mip 0) 1920x1080 ClearAction
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                 0.0%  0.00ms   VSM Log Stats And Status
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                10.6%  0.71ms   PostProcessing
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    9.0%  0.60ms   TemporalSuperResolution(sg.AntiAliasingQuality=4) 1920x1080 -> 1920x1080
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       4.0%  0.26ms   TSR RejectShading(#53 TileSize=26 PaddingCostMultiplier=1.5 WaveSize=32 VALU=16bit FlickeringFramePeriod=2.000000 Resurrection)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.3%  0.02ms   TSR SpatialAntiAliasing(#2 Quality=2) 1920x1080
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       3.7%  0.25ms   TSR UpdateHistory(#7 Quality=Epic 16bit ReprojectionField SupportLensDistortion) 3840x2160
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       1.0%  0.07ms   TSR ResolveHistory(#3 WaveSize=32 16bit OutputMip1) 1920x1080
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.2%  0.01ms   Histogram
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   ClearTextureUint(Histogram.Scatter32 R32_UINT 128x1 Mip=0)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   Histogram Atomic 960x540 (CS)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   Histogram Convert
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.2%  0.01ms   TextureDownsampleChain
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   Downsample(Scene(1/4) Quality=High PS) 960x540 -> 480x270
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   Downsample(Scene(1/8) Quality=High PS) 480x270 -> 240x135
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   Downsample(Scene(1/16) Quality=High PS) 240x135 -> 120x68
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   Downsample(Scene(1/32) Quality=High PS) 120x68 -> 60x34
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   Downsample(Scene(1/64) Quality=High PS) 60x34 -> 30x17
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.1%  0.00ms   HistogramEyeAdaptation (CS)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.1%  0.00ms   EnqueueCopy(EyeAdaptationBuffer)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                    0.8%  0.05ms   Bloom
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomX 30x17 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   GaussianBlur.BloomY 30x17 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomX 60x34 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomY 60x34 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomX 120x68 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomY 120x68 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.0%  0.00ms   GaussianBlur.BloomX 240x135 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomY 240x135 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.00ms   GaussianBlur.BloomX 480x270 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   GaussianBlur.BloomY 480x270 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   GaussianBlur.BloomX 960x540 (PS, Static)
+[2026.11.18-13.28.55:943][615]LogRHI: Display:                       0.1%  0.01ms   GaussianBlur.BloomY 960x540 (PS, Static)
+[2026.11.18-13.28.55:944][615]LogRHI: Display:                    0.3%  0.02ms   Tonemap 1920x1080 (PS GammaOnly=0)
+[2026.11.18-13.28.55:944][615]LogRHI: Display:                 0.0%  0.00ms   VirtualTextureUpdate
+[2026.11.18-13.28.55:944][615]LogRHI: Display:                 0.0%  0.00ms   ExtractUniformBuffer
+[2026.11.18-13.28.55:944][615]LogRHI: Display:              0.1%  0.01ms   EnqueueCopy(GPUMessageManager.MessageBuffer)
+[2026.11.18-13.28.55:944][615]LogRHI: Display:        0.2%  0.01ms   RenderGraphExecute - CanvasRenderThreadScope
+[2026.11.18-13.28.55:944][615]LogRHI: Display:           0.0%  0.00ms   FRDGBuilder::SubmitBufferUploads
+[2026.11.18-13.28.55:944][615]LogRHI: Display:           0.1%  0.00ms   CanvasBatchedElements
+[2026.11.18-13.28.55:944][615]LogRHI: Display:           0.0%  0.00ms   CanvasBatchedElements
+[2026.11.18-13.28.55:944][615]LogRHI: Display:           0.0%  0.00ms   CanvasBatchedElements
+[2026.11.18-13.28.55:944][615]LogRHI: Display:        0.1%  0.01ms   RenderGraphExecute - Slate
+[2026.11.18-13.28.55:944][615]LogRHI: Display:           0.0%  0.00ms   FRDGBuilder::SubmitBufferUploads
+[2026.11.18-13.28.55:944][615]LogRHI: Display:
+[2026.11.18-13.29.11:633][857]LogRenderer: Forcing update for all mesh draw commands: SkyLight change

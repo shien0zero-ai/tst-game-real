@@ -1,0 +1,38 @@
+LightingResults: Warning: Actor_0 このInstancedStaticMeshComponentの合計ライトマップサイズが大きすぎます。コンポーネントのライトマップ解像度、またはこのコンポーネントのメッシュインスタンス数の削減を検討してください。
+LightingResults: Warning: fern_0 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: fern_1 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: fern_2 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: fern_3 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: fir_canopy オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: fir_canopy オブジェクトにラッピングしているUVがあります
+LightingResults: Warning: fir_lush オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: fir_lush オブジェクトにラッピングしているUVがあります
+LightingResults: Warning: grass_0 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: grass_2 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: grass_4 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: grass_7 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: grass_8 オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: lab_terrain オブジェクトにラッピングしているUVがあります
+LightingResults: Warning: pine_canopy オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: pine_canopy オブジェクトにラッピングしているUVがあります
+LightingResults: Warning: sapling_a オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: sapling_a オブジェクトにラッピングしているUVがあります
+LightingResults: Warning: sapling_b オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: sapling_b オブジェクトにラッピングしているUVがあります
+LightingResults: Warning: sapling_c オブジェクトにオーバーラップしているUVがあります
+LightingResults: Warning: sapling_c オブジェクトにラッピングしているUVがあります
+LightingResults: fern_0 Lightmap UV are overlapping by 74.1%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: fern_1 Lightmap UV are overlapping by 72.5%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: fern_2 Lightmap UV are overlapping by 54.9%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: fern_3 Lightmap UV are overlapping by 51.5%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: fir_canopy Lightmap UV are overlapping by 98.0%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: fir_lush Lightmap UV are overlapping by 97.5%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: grass_0 Lightmap UV are overlapping by 44.7%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: grass_2 Lightmap UV are overlapping by 72.5%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: grass_4 Lightmap UV are overlapping by 52.4%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: grass_7 Lightmap UV are overlapping by 82.6%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: grass_8 Lightmap UV are overlapping by 81.7%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: pine_canopy Lightmap UV are overlapping by 98.6%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: sapling_a Lightmap UV are overlapping by 90.1%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: sapling_b Lightmap UV are overlapping by 90.7%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults: sapling_c Lightmap UV are overlapping by 87.6%. Please adjust content - Enable Error Coloring to visualize.

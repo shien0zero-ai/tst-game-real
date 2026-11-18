@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 1324,
+      "duration_s": 24.99848820599998,
+      "mean_fps": 52.96320277808722,
+      "mean_ms": 18.881033388217524,
+      "p95_ms": 20.085301,
+      "p99_ms": 20.633999,
+      "one_percent_low_fps": 47.3962168230356,
+      "mean_gpu_ms": 18.334305371601207,
+      "mean_game_ms": 1.3891390483383685,
+      "mean_render_ms": 18.874960326283986
+    },
+    "1": {
+      "frames": 1249,
+      "duration_s": 24.997569000999988,
+      "mean_fps": 49.96485858084981,
+      "mean_ms": 20.01406645396317,
+      "p95_ms": 21.4158,
+      "p99_ms": 22.458099,
+      "one_percent_low_fps": 43.4834749478384,
+      "mean_gpu_ms": 19.470169795836668,
+      "mean_game_ms": 1.4035563650920737,
+      "mean_render_ms": 20.00812461008807
+    },
+    "2": {
+      "frames": 1296,
+      "duration_s": 25.01729699199998,
+      "mean_fps": 51.80415775590917,
+      "mean_ms": 19.303469901234568,
+      "p95_ms": 20.310897,
+      "p99_ms": 20.931501,
+      "one_percent_low_fps": 46.866706240653045,
+      "mean_gpu_ms": 18.765834941358026,
+      "mean_game_ms": 1.3703631172839505,
+      "mean_render_ms": 19.29728462808642
+    }
+  },
+  "overall": {
+    "frames": 3869,
+    "duration_s": 75.0133541990001,
+    "mean_fps": 51.57748298704362,
+    "mean_ms": 19.388305556733005,
+    "p95_ms": 20.794101,
+    "p99_ms": 21.7674,
+    "one_percent_low_fps": 44.832986930080004,
+    "mean_gpu_ms": 18.84553746988886,
+    "mean_game_ms": 1.3875039028172655,
+    "mean_render_ms": 19.382237267510984
+  },
+  "targets": {
+    "100": false,
+    "80": false,
+    "60": false
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

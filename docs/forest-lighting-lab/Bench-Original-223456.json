@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 1301,
+      "duration_s": 25.005885708999973,
+      "mean_fps": 52.02775119186241,
+      "mean_ms": 19.22051169023828,
+      "p95_ms": 20.424198,
+      "p99_ms": 21.067902,
+      "one_percent_low_fps": 46.6814518554904,
+      "mean_gpu_ms": 18.670945705611068,
+      "mean_game_ms": 1.4231584934665642,
+      "mean_render_ms": 19.214698556495005
+    },
+    "1": {
+      "frames": 1306,
+      "duration_s": 25.005072702000053,
+      "mean_fps": 52.2294022322735,
+      "mean_ms": 19.146303753445636,
+      "p95_ms": 20.214401,
+      "p99_ms": 20.9594,
+      "one_percent_low_fps": 46.255165438857695,
+      "mean_gpu_ms": 18.607949007656966,
+      "mean_game_ms": 1.39632932618683,
+      "mean_render_ms": 19.14023977565084
+    },
+    "2": {
+      "frames": 1361,
+      "duration_s": 25.000492377000004,
+      "mean_fps": 54.43892782096145,
+      "mean_ms": 18.369208212343864,
+      "p95_ms": 19.534498,
+      "p99_ms": 20.077698,
+      "one_percent_low_fps": 49.17464165559156,
+      "mean_gpu_ms": 17.819658182218955,
+      "mean_game_ms": 1.3793933872152828,
+      "mean_render_ms": 18.363482364437914
+    }
+  },
+  "overall": {
+    "frames": 3968,
+    "duration_s": 75.01145078799985,
+    "mean_fps": 52.898590259432545,
+    "mean_ms": 18.904095460685483,
+    "p95_ms": 20.1835,
+    "p99_ms": 20.828199,
+    "one_percent_low_fps": 46.902070612409425,
+    "mean_gpu_ms": 18.358224937752016,
+    "mean_game_ms": 1.3993169606854838,
+    "mean_render_ms": 18.89822970438508
+  },
+  "targets": {
+    "100": false,
+    "80": false,
+    "60": false
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

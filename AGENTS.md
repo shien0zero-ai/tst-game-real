@@ -27,3 +27,9 @@
 ## Licensed P38 audio (2026-11-18)
 - P38Field source WAVs and SoundWave assets are free GDC licensed recordings, not CC0. Keep them local and ignored; do not publish standalone audio or native sound assets. Finished game Cook/PAK releases are allowed.
 - Tools/ensure_p38.ps1 restores missing assets from the public manifest and imports them with the installed UE Editor. Preserve the existing CC0 banks and old releases.
+
+## Forest lighting comparison lab (2026-11-18)
+- Preserve unreal/AshgateForest and its release packages. The baked-lighting experiment is isolated in unreal/AshgateForestLightingLab and work/forest-lighting-lab-package.
+- Compare patch Lumen versus patch baked with identical placement, routes, Cinematic, 1920x1080 and 100% internal resolution. The original executable uses its own routes and is a separate reference.
+- Preserve baked lighting losslessly in SourceArt/Packed and verify SHA256 on restoration. Keep the licensed P38 assets local and ignored.
+- Retain the startup VSM cache warmup: coarse shadow artifacts were observed without it; normal caching returns after eight seconds. Do not claim the exact engine-internal cause is established.

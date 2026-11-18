@@ -1,0 +1,2 @@
+import unreal as u
+sub=u.get_editor_subsystem(u.LevelEditorSubsystem);assert sub.new_level('/Game/Maps/ForestLightingPatch');actors=u.get_editor_subsystem(u.EditorActorSubsystem);actors.spawn_actor_from_class(u.SkyAtmosphere,u.Vector(0,0,0));actors.spawn_actor_from_class(u.PlayerStart,u.Vector(-7500,-849,600));sub.save_current_level();u.SystemLibrary.execute_console_command(sub.get_world(),'ForestLab.Create');sub.save_current_level();u.log('LAB SAVED PATCH READY')

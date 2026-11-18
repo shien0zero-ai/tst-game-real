@@ -1,0 +1,63 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "warmup_seconds_per_route": 10,
+  "route_seconds": 25,
+  "routes": {
+    "0": {
+      "frames": 3544,
+      "duration_s": 25.004090402000045,
+      "mean_fps": 141.736809578825,
+      "mean_ms": 7.055330248871332,
+      "p95_ms": 7.865801,
+      "p99_ms": 8.297097,
+      "one_percent_low_fps": 117.16351338589124,
+      "mean_gpu_ms": 6.532585411963883,
+      "mean_game_ms": 1.1344693002257336,
+      "mean_render_ms": 7.049258860045147
+    },
+    "1": {
+      "frames": 3591,
+      "duration_s": 25.00391347999999,
+      "mean_fps": 143.6175182285905,
+      "mean_ms": 6.962938869395711,
+      "p95_ms": 7.9174,
+      "p99_ms": 8.245699,
+      "one_percent_low_fps": 116.84385023908723,
+      "mean_gpu_ms": 6.466753996101365,
+      "mean_game_ms": 1.0432585909217489,
+      "mean_render_ms": 6.957074129768866
+    },
+    "2": {
+      "frames": 3866,
+      "duration_s": 24.99502541600005,
+      "mean_fps": 154.67077691088355,
+      "mean_ms": 6.465345425763062,
+      "p95_ms": 7.3516,
+      "p99_ms": 7.768299,
+      "one_percent_low_fps": 125.4347730152318,
+      "mean_gpu_ms": 5.949531945162959,
+      "mean_game_ms": 1.0561318416968444,
+      "mean_render_ms": 6.459362002069322
+    }
+  },
+  "overall": {
+    "frames": 11001,
+    "duration_s": 75.00302929800023,
+    "mean_fps": 146.67407574020945,
+    "mean_ms": 6.81783740550859,
+    "p95_ms": 7.788498,
+    "p99_ms": 8.177701,
+    "one_percent_low_fps": 118.39288435861363,
+    "mean_gpu_ms": 6.306198236523953,
+    "mean_game_ms": 1.0771663030633578,
+    "mean_render_ms": 6.811864385055904
+  },
+  "targets": {
+    "100": true,
+    "80": true,
+    "60": true
+  },
+  "limits": "Three automated 25s routes: trail walking, grove camera sweep, trail walking. Startup, per-route 10s warmup excluded; no screenshots or cooking during measurement. Does not guarantee all parts of forest or user display presentation/latency."
+}

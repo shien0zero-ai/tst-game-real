@@ -1,0 +1,160 @@
+{
+  "resolution": "1920x1080",
+  "screen_percentage": 100,
+  "scalability": 4,
+  "frame_generation": false,
+  "same_patch_placement_crc32": "671F7B75",
+  "runs": [
+    {
+      "variant": "Baked",
+      "source": "Bench-Baked-010252.csv",
+      "focus": {
+        "warmup_focus_recoveries": 0,
+        "variant": "Baked",
+        "focus_lost": 0,
+        "checks": 312
+      },
+      "stats": {
+        "frames": 10873,
+        "duration_s": 75.00034978999975,
+        "mean_fps": 144.97265720018984,
+        "mean_ms": 6.89785245930286,
+        "one_percent_low_fps": 116.895692152268,
+        "mean_gpu_ms": 6.373460792789478,
+        "mean_game_ms": 1.1046341672031639
+      }
+    },
+    {
+      "variant": "Baked",
+      "source": "Bench-Baked-010441.csv",
+      "focus": {
+        "warmup_focus_recoveries": 0,
+        "variant": "Baked",
+        "focus_lost": 0,
+        "checks": 312
+      },
+      "stats": {
+        "frames": 11001,
+        "duration_s": 75.00302929800023,
+        "mean_fps": 146.67407574020945,
+        "mean_ms": 6.81783740550859,
+        "one_percent_low_fps": 118.39288435861363,
+        "mean_gpu_ms": 6.306198236523953,
+        "mean_game_ms": 1.0771663030633578
+      }
+    },
+    {
+      "variant": "Full",
+      "source": "Bench-Full-223645.csv",
+      "focus": {
+        "variant": "Full",
+        "focus_lost": 0,
+        "checks": 207
+      },
+      "stats": {
+        "frames": 3869,
+        "duration_s": 75.0133541990001,
+        "mean_fps": 51.57748298704362,
+        "mean_ms": 19.388305556733005,
+        "one_percent_low_fps": 44.832986930080004,
+        "mean_gpu_ms": 18.84553746988886,
+        "mean_game_ms": 1.3875039028172655
+      }
+    },
+    {
+      "variant": "Lumen",
+      "source": "Bench-Lumen-010102.csv",
+      "focus": {
+        "warmup_focus_recoveries": 11,
+        "variant": "Lumen",
+        "focus_lost": 0,
+        "checks": 309
+      },
+      "stats": {
+        "frames": 5155,
+        "duration_s": 74.99485247600009,
+        "mean_fps": 68.73805107690175,
+        "mean_ms": 14.547983021532493,
+        "one_percent_low_fps": 57.770546526452094,
+        "mean_gpu_ms": 14.047724268089233,
+        "mean_game_ms": 1.3433925121241512
+      }
+    },
+    {
+      "variant": "Lumen",
+      "source": "Bench-Lumen-010631.csv",
+      "focus": {
+        "warmup_focus_recoveries": 0,
+        "variant": "Lumen",
+        "focus_lost": 0,
+        "checks": 309
+      },
+      "stats": {
+        "frames": 5162,
+        "duration_s": 74.98644223799988,
+        "mean_fps": 68.83911072372645,
+        "mean_ms": 14.526625772568773,
+        "one_percent_low_fps": 57.981902831737564,
+        "mean_gpu_ms": 14.011357575552111,
+        "mean_game_ms": 1.3545665439752035
+      }
+    },
+    {
+      "variant": "Original",
+      "source": "Bench-Original-223456.csv",
+      "focus": {
+        "variant": "Original",
+        "focus_lost": 0,
+        "checks": 207
+      },
+      "stats": {
+        "frames": 3968,
+        "duration_s": 75.01145078799985,
+        "mean_fps": 52.898590259432545,
+        "mean_ms": 18.904095460685483,
+        "one_percent_low_fps": 46.902070612409425,
+        "mean_gpu_ms": 18.358224937752016,
+        "mean_game_ms": 1.3993169606854838
+      }
+    }
+  ],
+  "overall": {
+    "Original": {
+      "frames": 3968,
+      "duration_s": 75.01145078799985,
+      "mean_fps": 52.898590259432545,
+      "mean_ms": 18.904095460685483,
+      "one_percent_low_fps": 46.902070612409425,
+      "mean_gpu_ms": 18.358224937752016,
+      "mean_game_ms": 1.3993169606854838
+    },
+    "Full": {
+      "frames": 3869,
+      "duration_s": 75.0133541990001,
+      "mean_fps": 51.57748298704362,
+      "mean_ms": 19.388305556733005,
+      "one_percent_low_fps": 44.832986930080004,
+      "mean_gpu_ms": 18.84553746988886,
+      "mean_game_ms": 1.3875039028172655
+    },
+    "Lumen": {
+      "frames": 10317,
+      "duration_s": 149.9812947140006,
+      "mean_fps": 68.78857806684182,
+      "mean_ms": 14.537297151691384,
+      "one_percent_low_fps": 57.88634638923402,
+      "mean_gpu_ms": 14.029528584569158,
+      "mean_game_ms": 1.348983318794223
+    },
+    "Baked": {
+      "frames": 21874,
+      "duration_s": 150.00337908800034,
+      "mean_fps": 145.82338166640594,
+      "mean_ms": 6.857610820517509,
+      "one_percent_low_fps": 117.5347138413404,
+      "mean_gpu_ms": 6.339632714638383,
+      "mean_game_ms": 1.0908198683368382
+    }
+  },
+  "original_route_note": "Original executable uses its original full-forest routes; Full/Lumen/Baked share the new patch routes. Only Lumen versus Baked isolates the lighting/reflection strategy."
+}

@@ -32,3 +32,19 @@ unreal/AshgateForest/Content/Forest/Meshes/pine_canopy.uasset
 # Free GDC audio: finished games only; restore locally with ensure_p38.ps1.
 unreal/AshgateForest/SourceArt/P38Field/
 unreal/AshgateForest/Content/Forest/P38Field/
+
+# Lighting comparison shares original content locally; only its new map/build data are versioned.
+unreal/AshgateForestLightingLab/Content/*
+!unreal/AshgateForestLightingLab/Content/Maps/
+unreal/AshgateForestLightingLab/Content/Maps/*
+!unreal/AshgateForestLightingLab/Content/Maps/ForestLightingPatch.umap
+
+!unreal/AshgateForestLightingLab/Content/LightingLab/
+unreal/AshgateForestLightingLab/Content/LightingLab/*
+!unreal/AshgateForestLightingLab/Content/LightingLab/lab_terrain.uasset
+
+!unreal/AshgateForestLightingLab/Content/Forest/
+unreal/AshgateForestLightingLab/Content/Forest/*
+!unreal/AshgateForestLightingLab/Content/Forest/Materials/
+unreal/AshgateForestLightingLab/Content/Forest/Materials/*
+!unreal/AshgateForestLightingLab/Content/Forest/Materials/ForestGround.uasset

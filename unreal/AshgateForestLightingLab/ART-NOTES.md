@@ -1,0 +1,1 @@
+元のAshgateForestの素材とクレジットを継承。地形は同じ高さ関数・格子・材質へ焼き込み用UVを追加。ForestGroundのStaticLighting使用フラグのみ別コピーで有効化。PBRテクスチャ、Nanite植生、銃、手、M1911、音源は既存素材を使用。ライセンスはZIP内licenses参照。

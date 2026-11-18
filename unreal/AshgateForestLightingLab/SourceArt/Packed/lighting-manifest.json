@@ -1,0 +1,26 @@
+{
+  "target": "Content/Maps/ForestLightingPatch_BuiltData.uasset",
+  "bytes": 93042090,
+  "sha256": "e94f558570afcbf07d299db028d1ae6697cf93c2062eca895885aa29312c9cc6",
+  "format": "zlib",
+  "engine": "5.8.4",
+  "quality": "Production",
+  "map_sha256": "0f626d07764b1cf4dc898fcf41c8efd3705bd9f4261ceb954a83a7876fd182b4",
+  "pieces": [
+    {
+      "file": "forest-lighting.zlib.part01",
+      "bytes": 41943040,
+      "sha256": "f597a16c5ad2aa8cd2d32502a9b8947ba8630af269856e99480dff99380c69d9"
+    },
+    {
+      "file": "forest-lighting.zlib.part02",
+      "bytes": 41943040,
+      "sha256": "80cf6d2b40232e61e0cd7ed0ac88eae8081ce86dde1c1edebacb30b9ce13c4a8"
+    },
+    {
+      "file": "forest-lighting.zlib.part03",
+      "bytes": 4336282,
+      "sha256": "8c1ff739f281ae76c0c7048b0da2f5e19ac51d552a45fc441334525efe3deb4c"
+    }
+  ]
+}
