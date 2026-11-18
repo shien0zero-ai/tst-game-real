@@ -1,0 +1,17 @@
+Native staged game verification after real RMB events; final ZIP is gated again before publishing.
+[2026.11.18-08.49.01:026][546]LogForest: Display: INPUT position=X=-7500.000 Y=-848.861 Z=392.210 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.02:805][628]LogForest: Display: INPUT position=X=-7281.373 Y=-802.390 Z=379.252 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.08:750][918]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=3.95 visible=1 paused=0
+[2026.11.18-08.49.09:658][953]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=1 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.10:442][982]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=7 aim=1 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.11:307][ 16]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=7 aim=0 reload=1.11 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.13:925][138]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.20:544][463]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=0 paused=0
+[2026.11.18-08.49.21:409][498]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.25:176][682]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=1
+[2026.11.18-08.49.26:599][749]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=1
+[2026.11.18-08.49.28:034][816]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=0
+[2026.11.18-08.49.30:513][937]LogForest: Display: INPUT position=X=-6777.260 Y=-277.291 Z=426.979 ammo=8 aim=0 reload=0.00 inspect=0.00 visible=1 paused=1
+FOREST VIEWMODEL INPUT PASS: new service pistol, F3 legacy M1911 and replacement field-recorded gunshots
+FOREST AUDIO INPUT PASS: trail/leaves, running/crouching, empty click, empty reload and weapon handling
+FOREST INPUT VALIDATION PASS: 13 snapshots, walking, M1911, ADS, reload, holster, pause, sensitivity button, resume and quit cancellation/confirmation

@@ -39,6 +39,7 @@ $oldHandle=[AshgateInput]::GetForegroundWindow()
 $oldPoint=New-Object AshgateInput+Point
 [AshgateInput]::GetCursorPos([ref]$oldPoint) | Out-Null
 trap {
+ [AshgateInput]::mouse_event(16,0,0,0,[UIntPtr]::Zero)
  if($p -and -not $p.HasExited -and $handle -and $handle -ne [IntPtr]::Zero) { [AshgateInput]::Key($handle,0x57,$false); [AshgateInput]::PostMessage($handle,0x10,[IntPtr]::Zero,[IntPtr]::Zero) | Out-Null }
  [AshgateInput]::SetCursorPos($oldPoint.X,$oldPoint.Y) | Out-Null
  [AshgateInput]::SetForegroundWindow($oldHandle) | Out-Null
@@ -79,6 +80,14 @@ function MouseDown {
  [AshgateInput]::SetCursorPos($point.X,$point.Y)|Out-Null;Start-Sleep -Milliseconds 50
  [AshgateInput]::mouse_event(2,0,0,0,[UIntPtr]::Zero)
 }
+function RightDown {
+ FocusGame
+ $rect=New-Object AshgateInput+Rect;[AshgateInput]::GetClientRect($handle,[ref]$rect)|Out-Null
+ $point=New-Object AshgateInput+Point;$point.X=[int]($rect.Right/2);$point.Y=[int]($rect.Bottom/2);[AshgateInput]::ClientToScreen($handle,[ref]$point)|Out-Null
+ [AshgateInput]::SetCursorPos($point.X,$point.Y)|Out-Null;Start-Sleep -Milliseconds 50
+ [AshgateInput]::mouse_event(8,0,0,0,[UIntPtr]::Zero)
+}
+function RightUp { [AshgateInput]::mouse_event(16,0,0,0,[UIntPtr]::Zero) }
 function MouseUp { [AshgateInput]::mouse_event(4,0,0,0,[UIntPtr]::Zero) }
 function Click([int]$Row) {
  $releaseBefore=@(Select-String -LiteralPath $LogPath -Pattern 'LogForest: Display: MENU row=').Count
@@ -98,7 +107,7 @@ function Click([int]$Row) {
 }
 # Focus transfer may deliver a real activation click; establish state via public UI.
 MouseUp
-[AshgateInput]::PostMessage($handle,0x205,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+RightUp
 Key 0x1B
 Click 1
 Start-Sleep -Seconds 2
@@ -117,14 +126,14 @@ Key 0x57 1200
 Key 0x43
 Key 0x4E
 Capture 'inspect'
-[AshgateInput]::PostMessage($handle,0x204,[IntPtr]2,[IntPtr]::Zero)|Out-Null
+RightDown
 Start-Sleep -Milliseconds 250
 Capture 'ADS'
 MouseDown
 Start-Sleep -Milliseconds 100
 MouseUp
 Capture 'fire'
-[AshgateInput]::PostMessage($handle,0x205,[IntPtr]::Zero,[IntPtr]::Zero)|Out-Null
+RightUp
 Key 0x52
 Capture 'reload starts'
 Start-Sleep -Seconds 2
